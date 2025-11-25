@@ -53,7 +53,7 @@ public static class WorldFeatures
 
 	public static void SpawnEncounter(int encounterId, string encounterName)
 	{
-		MelonLogger.Msg($"[WorldFeatures] Attempting to spawn physical encounter: {encounterName} (ID: {encounterId})");
+		MelonLogger.Msg($"[WorldFeatures] Spawning encounter: {encounterName} (ID: {encounterId})");
 		try
 		{
 			MyPlayer player = Object.FindObjectOfType<MyPlayer>();
@@ -65,16 +65,34 @@ public static class WorldFeatures
 
 			// Calculate spawn position in front of player
 			Vector3 spawnPosition = player.transform.position + player.transform.forward * 5f;
-			spawnPosition.y = player.transform.position.y; // Keep at player height
+			spawnPosition.y = player.transform.position.y;
 
-			// Try to find existing chest in scene to use as prefab
-			InteractableChest[] existingChests = Object.FindObjectsOfType<InteractableChest>();
+			// Try to find SpawnInteractables which holds prefab references
+			// This is more reliable than finding existing objects in scene
+			var spawners = Object.FindObjectsOfType<MonoBehaviour>();
 			GameObject chestPrefab = null;
+			GameObject chestFreePrefab = null;
 
-			if (existingChests.Length > 0)
+			// Search for SpawnInteractables component (it's in GlobalNamespace, so we search by field names)
+			foreach (var spawner in spawners)
 			{
-				chestPrefab = existingChests[0].gameObject;
-				MelonLogger.Msg($"[WorldFeatures] Found existing chest to use as template");
+				if (spawner.GetType().Name == "SpawnInteractables")
+				{
+					// Use reflection to get the prefab fields
+					var chestField = spawner.GetType().GetField("chest");
+					var chestFreeField = spawner.GetType().GetField("chestFree");
+
+					if (chestField != null)
+						chestPrefab = chestField.GetValue(spawner) as GameObject;
+					if (chestFreeField != null)
+						chestFreePrefab = chestFreeField.GetValue(spawner) as GameObject;
+
+					if (chestPrefab != null || chestFreePrefab != null)
+					{
+						MelonLogger.Msg($"[WorldFeatures] Found SpawnInteractables with prefab references");
+						break;
+					}
+				}
 			}
 
 			// Spawn based on encounter type
@@ -82,24 +100,53 @@ public static class WorldFeatures
 			switch (encounterId)
 			{
 				case 3: // ChestNormal
-				case 4: // ChestFree
-				case 5: // ChestEvil
 					if ((Object)(object)chestPrefab != (Object)null)
 					{
 						spawnedObject = Object.Instantiate(chestPrefab, spawnPosition, Quaternion.identity);
 						var chestComponent = spawnedObject.GetComponent<InteractableChest>();
 						if ((Object)(object)chestComponent != (Object)null)
 						{
-							// Set chest type based on encounter
-							EChest chestType = encounterId == 3 ? (EChest)0 : (encounterId == 4 ? (EChest)2 : (EChest)1);
-							chestComponent.chestType = chestType;
-							string typeName = encounterId == 3 ? "normal" : (encounterId == 4 ? "free" : "corrupt");
-							MelonLogger.Msg($"[WorldFeatures] Spawned {typeName} chest at {spawnPosition}");
+							chestComponent.chestType = (EChest)0; // Normal chest
 						}
+						MelonLogger.Msg($"[WorldFeatures] Spawned normal chest at {spawnPosition}");
 					}
 					else
 					{
-						MelonLogger.Warning("[WorldFeatures] No chest prefab found - cannot spawn physical chest");
+						MelonLogger.Warning("[WorldFeatures] Normal chest prefab not found");
+					}
+					break;
+
+				case 4: // ChestFree
+					if ((Object)(object)chestFreePrefab != (Object)null)
+					{
+						spawnedObject = Object.Instantiate(chestFreePrefab, spawnPosition, Quaternion.identity);
+						var chestComponent = spawnedObject.GetComponent<InteractableChest>();
+						if ((Object)(object)chestComponent != (Object)null)
+						{
+							chestComponent.chestType = (EChest)2; // Free chest
+						}
+						MelonLogger.Msg($"[WorldFeatures] Spawned free chest at {spawnPosition}");
+					}
+					else
+					{
+						MelonLogger.Warning("[WorldFeatures] Free chest prefab not found");
+					}
+					break;
+
+				case 5: // ChestEvil (Corrupt)
+					if ((Object)(object)chestPrefab != (Object)null)
+					{
+						spawnedObject = Object.Instantiate(chestPrefab, spawnPosition, Quaternion.identity);
+						var chestComponent = spawnedObject.GetComponent<InteractableChest>();
+						if ((Object)(object)chestComponent != (Object)null)
+						{
+							chestComponent.chestType = (EChest)1; // Corrupt chest
+						}
+						MelonLogger.Msg($"[WorldFeatures] Spawned corrupt chest at {spawnPosition}");
+					}
+					else
+					{
+						MelonLogger.Warning("[WorldFeatures] Corrupt chest prefab not found");
 					}
 					break;
 
