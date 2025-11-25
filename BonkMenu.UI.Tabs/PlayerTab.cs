@@ -75,22 +75,20 @@ public static class PlayerTab
 
 	private static void CreateStatusEffectBuffs(GameObject parent)
 	{
-		UIFactory.CreateButton("\ud83d\udd25 Add Rage (30s)", delegate
+		string[] buffs = new string[4] { "Rage", "Haste", "Shield", "Invulnerability" };
+		UIFactory.CreateSpawner(parent, "Apply Buff", buffs, delegate(int id, int amount)
 		{
-			StatusEffects.ApplyRage();
-		}, parent);
-		UIFactory.CreateButton("⚡ Add Haste (30s)", delegate
-		{
-			StatusEffects.ApplyHaste();
-		}, parent);
-		UIFactory.CreateButton("\ud83d\udee1\ufe0f Add Shield (30s)", delegate
-		{
-			StatusEffects.ApplyShield();
-		}, parent);
-		UIFactory.CreateButton("✨ Add Invulnerability (10s)", delegate
-		{
-			StatusEffects.ApplyInvulnerability();
-		}, parent);
+			for (int i = 0; i < amount; i++)
+			{
+				switch (id)
+				{
+					case 0: StatusEffects.ApplyRage(); break;
+					case 1: StatusEffects.ApplyHaste(); break;
+					case 2: StatusEffects.ApplyShield(); break;
+					case 3: StatusEffects.ApplyInvulnerability(); break;
+				}
+			}
+		});
 	}
 
 	private static void CreateSliders(GameObject parent)
