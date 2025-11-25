@@ -18,16 +18,16 @@ public static class SilverMultiplierPatch
 			float customMult = StatsHelper.GetCurrentStatValue(EStat.SilverIncreaseMultiplier, 1f);
 			
 			// Apply it to the game's calculated multiplier
-			// If the game ignores this stat, we force it here.
-			// If the game caps it inside GetSilverMultiplier, we multiply after the cap.
 			if (customMult != 1f)
 			{
+				float original = __result;
 				__result *= customMult;
+				MelonLogger.Msg($"[SilverMultiplierPatch] Applied custom multiplier: {customMult}. Result: {original} -> {__result}");
 			}
 		}
-		catch
+		catch (System.Exception ex)
 		{
-			// Silently fail to avoid console spam in critical path
+			MelonLogger.Error($"[SilverMultiplierPatch] Error: {ex.Message}");
 		}
 	}
 }
