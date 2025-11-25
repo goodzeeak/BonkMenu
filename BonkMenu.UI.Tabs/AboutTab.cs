@@ -1,0 +1,37 @@
+using BonkMenu.Core;
+using BonkMenu.UI.Components;
+using UnityEngine;
+
+namespace BonkMenu.UI.Tabs;
+
+public static class AboutTab
+{
+	public static void Create(GameObject parent)
+	{
+		//IL_0053: Unknown result type (might be due to invalid IL or missing references)
+		//IL_0085: Unknown result type (might be due to invalid IL or missing references)
+		//IL_00b7: Unknown result type (might be due to invalid IL or missing references)
+		//IL_00e9: Unknown result type (might be due to invalid IL or missing references)
+		//IL_011b: Unknown result type (might be due to invalid IL or missing references)
+		UIFactory.CreateSectionHeader("About", parent);
+		UIFactory.CreateLabel("BonkMenu v1.0.0", parent);
+		UIFactory.CreateLabel("Created by Goodzy", parent);
+		UIFactory.CreateSpacer(10, parent);
+		UIFactory.CreateSectionHeader("Keybind Settings", parent);
+		UIFactory.CreateLabel($"Toggle Menu: {KeybindConfig.ToggleMenuKey}", parent);
+		UIFactory.CreateLabel($"God Mode: {KeybindConfig.GodModeKey}", parent);
+		UIFactory.CreateLabel($"Add Gold: {KeybindConfig.AddGoldKey}", parent);
+		UIFactory.CreateLabel($"Kill Enemies: {KeybindConfig.KillEnemiesKey}", parent);
+		UIFactory.CreateLabel($"Spawn Enemy: {KeybindConfig.SpawnEnemyKey}", parent);
+		UIFactory.CreateSpacer(8, parent);
+		UIFactory.CreateLabel("Note: Edit keybinds in UserData/BonkMenu_Keybinds.txt", parent);
+		UIFactory.CreateButton("Save Current Keybinds", delegate
+		{
+			KeybindConfig.SaveKeybinds();
+		}, parent);
+		UIFactory.CreateButton("Reload Keybinds", delegate
+		{
+			KeybindConfig.LoadKeybinds();
+		}, parent);
+	}
+}

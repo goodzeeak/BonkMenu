@@ -1,0 +1,10 @@
+global using Object = UnityEngine.Object;
+global using Random = UnityEngine.Random;
+global using Exception = System.Exception;
+global using Delegate = System.Delegate;
+global using Type = System.Type;
+global using FitMode = UnityEngine.UI.ContentSizeFitter.FitMode;
+global using MovementType = UnityEngine.UI.ScrollRect.MovementType;
+global using ScaleMode = UnityEngine.UI.CanvasScaler.ScaleMode;
+global using Action = System.Action;
+global using UnityAction = UnityEngine.Events.UnityAction;
