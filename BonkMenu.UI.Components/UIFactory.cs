@@ -553,4 +553,50 @@ public static class UIFactory
 		}, val);
 		CreateSpacer(8, parent);
 	}
+
+	public static void CreateSpawnerNoSlider(GameObject parent, string title, string[] dataList, Action<int> onSpawn)
+	{
+		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
+		//IL_001f: Expected O, but got Unknown
+		//IL_0044: Unknown result type (might be due to invalid IL or missing references)
+		//IL_006b: Unknown result type (might be due to invalid IL or missing references)
+		//IL_0094: Unknown result type (might be due to invalid IL or missing references)
+		//IL_00ab: Unknown result type (might be due to invalid IL or missing references)
+		//IL_00cb: Unknown result type (might be due to invalid IL or missing references)
+		//IL_00d2: Expected O, but got Unknown
+		GameObject val = new GameObject("Spawner_" + title);
+		val.transform.SetParent(parent.transform, false);
+		RectTransform val2 = val.AddComponent<RectTransform>();
+		val2.sizeDelta = new Vector2(0f, 110f);
+		Image val3 = val.AddComponent<Image>();
+		((Graphic)val3).color = new Color(0.1f, 0.1f, 0.12f, 0.5f);
+		Outline val4 = val.AddComponent<Outline>();
+		((Shadow)val4).effectColor = new Color(0.2f, 0.8f, 1f, 0.1f);
+		((Shadow)val4).effectDistance = new Vector2(1f, -1f);
+		VerticalLayoutGroup val5 = val.AddComponent<VerticalLayoutGroup>();
+		((HorizontalOrVerticalLayoutGroup)val5).spacing = 8f;
+		RectOffset val6 = new RectOffset();
+		val6.left = 10;
+		val6.right = 10;
+		val6.top = 10;
+		val6.bottom = 10;
+		((LayoutGroup)val5).padding = val6;
+		((HorizontalOrVerticalLayoutGroup)val5).childControlWidth = true;
+		((HorizontalOrVerticalLayoutGroup)val5).childControlHeight = false;
+		((HorizontalOrVerticalLayoutGroup)val5).childForceExpandHeight = false;
+		int currentIndex = 0;
+		Text labelRef = null;
+		CreateSelector(val, dataList, () => currentIndex, delegate(int num)
+		{
+			currentIndex = num;
+		}, delegate(Text label)
+		{
+			labelRef = label;
+		});
+		CreateButton(title.ToUpper(), delegate
+		{
+			onSpawn(currentIndex);
+		}, val);
+		CreateSpacer(8, parent);
+	}
 }

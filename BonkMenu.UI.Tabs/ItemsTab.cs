@@ -89,13 +89,10 @@ public static class ItemsTab
 			WeaponFeatures.MaxAllWeapons();
 		}, parent);
 		UIFactory.CreateSpacer(4, parent);
-		UIFactory.CreateSpawner(parent, "Grant Weapon", weapons, delegate(int id, int amount)
+		UIFactory.CreateSpawnerNoSlider(parent, "Grant Weapon", weapons, delegate(int id)
 		{
 			string weaponName = weapons[id];
-			for (int i = 0; i < amount; i++)
-			{
-				WeaponFeatures.GrantWeapon(id, weaponName);
-			}
+			WeaponFeatures.GrantWeapon(id, weaponName);
 		});
 	}
 
@@ -110,13 +107,10 @@ public static class ItemsTab
 			TomeFeatures.MaxAllTomes();
 		}, parent);
 		UIFactory.CreateSpacer(4, parent);
-		UIFactory.CreateSpawner(parent, "Grant Tome", tomes, delegate(int id, int amount)
+		UIFactory.CreateSpawnerNoSlider(parent, "Grant Tome", tomes, delegate(int id)
 		{
 			string tomeName = tomes[id];
-			for (int i = 0; i < amount; i++)
-			{
-				TomeFeatures.GrantTome(id, tomeName);
-			}
+			TomeFeatures.GrantTome(id, tomeName);
 		});
 	}
 
@@ -140,13 +134,10 @@ public static class ItemsTab
 	private static void CreatePassives(GameObject parent)
 	{
 		UIFactory.CreateSpacer(4, parent);
-		UIFactory.CreateSpawner(parent, "Grant Passive", passives, delegate(int id, int amount)
+		UIFactory.CreateSpawnerNoSlider(parent, "Grant Passive", passives, delegate(int id)
 		{
 			string passiveName = passives[id];
-			for (int i = 0; i < amount; i++)
-			{
-				PassiveFeatures.GrantPassive(id, passiveName);
-			}
+			PassiveFeatures.GrantPassive(id, passiveName);
 		});
 	}
 }

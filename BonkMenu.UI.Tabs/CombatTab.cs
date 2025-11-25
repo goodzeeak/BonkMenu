@@ -89,15 +89,12 @@ public static class CombatTab
 	private static void CreateDebuffs(GameObject parent)
 	{
 		string[] debuffs = new string[7] { "Poison", "Freeze", "Burn", "Stun", "Echo", "Charm", "Bloodmark" };
-		UIFactory.CreateSpawner(parent, "Apply Debuff to All", debuffs, delegate(int id, int amount)
+		UIFactory.CreateSpawnerNoSlider(parent, "Apply Debuff to All", debuffs, delegate(int id)
 		{
 			string debuffName = debuffs[id];
-			for (int i = 0; i < amount; i++)
-			{
-				DebuffFeatures.ApplyDebuff(id, debuffName);
-			}
+			DebuffFeatures.ApplyDebuff(id, debuffName);
 		});
-		UIFactory.CreateButton("\ud83e\uddf9 Remove All Debuffs", delegate
+		UIFactory.CreateButton("🧹 Remove All Debuffs", delegate
 		{
 			DebuffFeatures.RemoveAllDebuffs();
 		}, parent);
@@ -105,10 +102,9 @@ public static class CombatTab
 
 	private static void CreateEnemyActions(GameObject parent)
 	{
-		UIFactory.CreateButton("\ud83d\udc80 Kill All Enemies", delegate
+		UIFactory.CreateButton("💀 Kill All Enemies", delegate
 		{
 			CombatFeatures.KillAllEnemies();
 		}, parent);
 	}
 }
-

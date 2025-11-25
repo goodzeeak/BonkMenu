@@ -76,17 +76,14 @@ public static class PlayerTab
 	private static void CreateStatusEffectBuffs(GameObject parent)
 	{
 		string[] buffs = new string[4] { "Rage", "Haste", "Shield", "Invulnerability" };
-		UIFactory.CreateSpawner(parent, "Apply Buff", buffs, delegate(int id, int amount)
+		UIFactory.CreateSpawnerNoSlider(parent, "Apply Buff", buffs, delegate(int id)
 		{
-			for (int i = 0; i < amount; i++)
+			switch (id)
 			{
-				switch (id)
-				{
-					case 0: StatusEffects.ApplyRage(); break;
-					case 1: StatusEffects.ApplyHaste(); break;
-					case 2: StatusEffects.ApplyShield(); break;
-					case 3: StatusEffects.ApplyInvulnerability(); break;
-				}
+				case 0: StatusEffects.ApplyRage(); break;
+				case 1: StatusEffects.ApplyHaste(); break;
+				case 2: StatusEffects.ApplyShield(); break;
+				case 3: StatusEffects.ApplyInvulnerability(); break;
 			}
 		});
 	}
