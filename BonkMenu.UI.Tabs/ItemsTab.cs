@@ -91,11 +91,10 @@ public static class ItemsTab
 		UIFactory.CreateSpacer(4, parent);
 		UIFactory.CreateSpawner(parent, "Grant Weapon", weapons, delegate(int id, int amount)
 		{
-			int weaponId = id + 1;
 			string weaponName = weapons[id];
 			for (int i = 0; i < amount; i++)
 			{
-				WeaponFeatures.GrantWeapon(weaponId, weaponName);
+				WeaponFeatures.GrantWeapon(id, weaponName);
 			}
 		});
 	}
