@@ -41,7 +41,7 @@ public static class UniverseUI
 	{
 		//IL_0132: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0138: Unknown result type (might be due to invalid IL or missing references)
-		tabCreators = new Action<GameObject>[7]
+		tabCreators = new Action<GameObject>[6]
 		{
 			delegate(GameObject root)
 			{
@@ -50,11 +50,7 @@ public static class UniverseUI
 			delegate(GameObject root)
 			{
 				CombatTab.Create(GetContent(root));
-			},
-			delegate(GameObject root)
-			{
-				WorldTab.Create(GetContent(root));
-			},
+			}
 			delegate(GameObject root)
 			{
 				ItemsTab.Create(GetContent(root));
