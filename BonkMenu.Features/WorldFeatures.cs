@@ -68,29 +68,40 @@ public static class WorldFeatures
 	{
 		var cache = new EncounterPrefabCache();
 		
+		MelonLogger.Msg("[WorldFeatures] Starting prefab extraction...");
+		
 		try
 		{
 			var allComponents = Object.FindObjectsOfType<MonoBehaviour>();
+			MelonLogger.Msg($"[WorldFeatures] Found {allComponents.Length} total MonoBehaviour components");
 			
 			// Extract from SpawnInteractables
 			foreach (var component in allComponents)
 			{
 				if (component.GetType().Name == "SpawnInteractables")
 				{
+					MelonLogger.Msg("[WorldFeatures] Found SpawnInteractables component!");
+					
 					var chestField = component.GetType().GetField("chest");
 					var chestFreeField = component.GetType().GetField("chestFree");
 					
 					if (chestField != null)
+					{
 						cache.chest = chestField.GetValue(component) as GameObject;
+						MelonLogger.Msg($"[WorldFeatures] Chest prefab: {(cache.chest != null ? "FOUND" : "NULL")}");
+					}
 					if (chestFreeField != null)
+					{
 						cache.chestFree = chestFreeField.GetValue(component) as GameObject;
-					
-					MelonLogger.Msg("[WorldFeatures] Extracted chest prefabs from SpawnInteractables");
+						MelonLogger.Msg($"[WorldFeatures] ChestFree prefab: {(cache.chestFree != null ? "FOUND" : "NULL")}");
+					}
 				}
 				
 				// Extract from RandomObjectPlacer
 				if (component.GetType().Name == "RandomObjectPlacer")
 				{
+					MelonLogger.Msg("[WorldFeatures] Found RandomObjectPlacer component!");
+					
 					var greedShrinesField = component.GetType().GetField("greedShrines");
 					var chargeShrinesField = component.GetType().GetField("chargeShrineSpawns");
 					var randomObjectsField = component.GetType().GetField("randomObjects");
@@ -106,7 +117,10 @@ public static class WorldFeatures
 							{
 								var prefabs = prefabsField.GetValue(greedShrineObj) as GameObject[];
 								if (prefabs != null && prefabs.Length > 0)
+								{
 									cache.greedAltar = prefabs[0];
+									MelonLogger.Msg($"[WorldFeatures] Greed altar prefab: FOUND ({prefabs.Length} variants)");
+								}
 							}
 						}
 					}
@@ -122,7 +136,10 @@ public static class WorldFeatures
 							{
 								var prefabs = prefabsField.GetValue(chargeShrineObj) as GameObject[];
 								if (prefabs != null && prefabs.Length > 0)
+								{
 									cache.chargeShrine = prefabs[0];
+									MelonLogger.Msg($"[WorldFeatures] Charge shrine prefab: FOUND ({prefabs.Length} variants)");
+								}
 							}
 						}
 					}
@@ -133,6 +150,8 @@ public static class WorldFeatures
 						var randomObjects = randomObjectsField.GetValue(component) as Array;
 						if (randomObjects != null)
 						{
+							MelonLogger.Msg($"[WorldFeatures] Found {randomObjects.Length} random object groups");
+							
 							foreach (var randomObj in randomObjects)
 							{
 								if (randomObj == null) continue;
@@ -153,15 +172,30 @@ public static class WorldFeatures
 												var compType = comp.GetType().Name;
 												
 												if (cache.pot == null && compType == "InteractablePot")
+												{
 													cache.pot = prefab;
+													MelonLogger.Msg("[WorldFeatures] Pot prefab: FOUND");
+												}
 												if (cache.shadyGuy == null && compType == "InteractableShadyGuy")
+												{
 													cache.shadyGuy = prefab;
+													MelonLogger.Msg("[WorldFeatures] Shady Guy prefab: FOUND");
+												}
 												if (cache.microwave == null && compType == "InteractableMicrowave")
+												{
 													cache.microwave = prefab;
+													MelonLogger.Msg("[WorldFeatures] Microwave prefab: FOUND");
+												}
 												if (cache.moai == null && compType == "InteractableShrineMoai")
+												{
 													cache.moai = prefab;
+													MelonLogger.Msg("[WorldFeatures] Moai prefab: FOUND");
+												}
 												if (cache.balanceShrine == null && compType == "InteractableShrineBalance")
+												{
 													cache.balanceShrine = prefab;
+													MelonLogger.Msg("[WorldFeatures] Balance Shrine prefab: FOUND");
+												}
 											}
 										}
 									}
@@ -169,14 +203,15 @@ public static class WorldFeatures
 							}
 						}
 					}
-					
-					MelonLogger.Msg("[WorldFeatures] Extracted prefabs from RandomObjectPlacer");
 				}
 			}
+			
+			MelonLogger.Msg("[WorldFeatures] Prefab extraction complete");
 		}
 		catch (Exception ex)
 		{
 			MelonLogger.Error($"[WorldFeatures] Error extracting prefabs: {ex.Message}");
+			MelonLogger.Error($"[WorldFeatures] Stack trace: {ex.StackTrace}");
 		}
 		
 		return cache;
