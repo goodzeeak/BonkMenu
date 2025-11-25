@@ -15,13 +15,13 @@ public static class UniverseUI
 {
 	private static GameObject panelRoot;
 
-	private static GameObject[] tabContents = (GameObject[])(object)new GameObject[6];
+	private static GameObject[] tabContents = (GameObject[])(object)new GameObject[7];
 
-	private static GameObject[] tabButtons = (GameObject[])(object)new GameObject[6];
+	private static GameObject[] tabButtons = (GameObject[])(object)new GameObject[7];
 
 	private static int currentTab = 0;
 
-	private static bool[] tabInitialized = new bool[6];
+	private static bool[] tabInitialized = new bool[7];
 
 	private static Action<GameObject>[] tabCreators;
 
@@ -41,7 +41,7 @@ public static class UniverseUI
 	{
 		//IL_0132: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0138: Unknown result type (might be due to invalid IL or missing references)
-		tabCreators = new Action<GameObject>[6]
+		tabCreators = new Action<GameObject>[7]
 		{
 			delegate(GameObject root)
 			{
@@ -62,6 +62,10 @@ public static class UniverseUI
 			delegate(GameObject root)
 			{
 				LootTab.Create(GetContent(root));
+			},
+			delegate(GameObject root)
+			{
+				WorldTab.Create(GetContent(root));
 			},
 			delegate(GameObject root)
 			{
@@ -367,7 +371,7 @@ public static class UniverseUI
 		val5.top = 2;
 		val5.bottom = 2;
 		((LayoutGroup)val4).padding = val5;
-		string[] array = new string[6] { "Player", "Combat", "Items", "Unlocks", "Loot", "About" };
+		string[] array = new string[7] { "Player", "Combat", "Items", "Unlocks", "Loot", "World", "About" };
 		for (int i = 0; i < array.Length; i++)
 		{
 			GameObject val6 = new GameObject("Tab_" + array[i]);
