@@ -34,7 +34,7 @@ public static class WorldTab
 		UIFactory.CreateSpawnerNoSlider(parent, "Spawn Encounter", encounters, delegate(int id)
 		{
 			string encounterName = encounters[id];
-			EncounterFeatures.ForceEncounter(id, encounterName);
+			WorldFeatures.SpawnEncounter(id, encounterName);
 		});
 
 		UIFactory.CreateButton("⏭️ Skip Current Encounter", delegate
