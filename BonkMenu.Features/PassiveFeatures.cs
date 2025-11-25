@@ -80,6 +80,10 @@ public static class PassiveFeatures
 				return;
 			}
 			MelonLogger.Msg("[GrantPassive] Created passive ability successfully");
+			
+			// Add to multi-passive collection
+			MultiPassiveManager.AddPassive(inventory, val4);
+			
 			if (inventory.passiveAbility != null)
 			{
 				MelonLogger.Msg("[GrantPassive] Cleaning up old passive ability");
@@ -92,7 +96,7 @@ public static class PassiveFeatures
 					MelonLogger.Warning("[GrantPassive] Error during cleanup: " + ex2.Message);
 				}
 			}
-			inventory.passiveAbility = val4; // Our Harmony patch will intercept this and add to collection
+			inventory.passiveAbility = val4; // Set the last one as the "active" one for game logic
 			val4.Init();
 			MelonLogger.Msg("[GrantPassive] Successfully granted and initialized " + passiveName);
 		}

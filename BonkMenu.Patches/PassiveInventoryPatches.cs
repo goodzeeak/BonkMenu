@@ -12,47 +12,6 @@ namespace BonkMenu.Patches;
 [HarmonyPatch]
 public static class PassiveInventoryPatches
 {
-	// Patch the passive ability setter to add to our collection instead of replacing
-	[HarmonyPrefix]
-	[HarmonyPatch(typeof(PlayerInventory), nameof(PlayerInventory.passiveAbility), MethodType.Setter)]
-	public static bool SetPassiveAbility_Prefix(PlayerInventory __instance, PassiveAbility value)
-	{
-		try
-		{
-			if (value != null)
-			{
-				MelonLogger.Msg($"[PassiveInventoryPatches] Intercepting passive set: {value.GetPassiveType()}");
-				
-				// Clean up old passive from game's single slot if it exists
-				if (__instance.passiveAbility != null && !MultiPassiveManager.GetPassives(__instance).Contains(__instance.passiveAbility))
-				{
-					try
-					{
-						__instance.passiveAbility.Cleanup();
-					}
-					catch (Exception ex)
-					{
-						MelonLogger.Warning($"[PassiveInventoryPatches] Error cleaning up old passive: {ex.Message}");
-					}
-				}
-				
-				// Add to our multi-passive collection
-				MultiPassiveManager.AddPassive(__instance, value);
-				
-				// Still set it in the game's slot so the game knows *a* passive is equipped
-				// (some game logic might check if passiveAbility != null)
-			}
-			
-			// Allow the original setter to run so game's internal state is updated
-			return true;
-		}
-		catch (Exception ex)
-		{
-			MelonLogger.Error($"[PassiveInventoryPatches] Error in SetPassiveAbility: {ex.Message}");
-			return true; // Let original run on error
-		}
-	}
-
 	// Patch HasPassive to check our collection
 	[HarmonyPrefix]
 	[HarmonyPatch(typeof(PlayerInventory), nameof(PlayerInventory.HasPassive))]
