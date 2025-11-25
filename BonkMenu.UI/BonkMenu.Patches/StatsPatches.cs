@@ -27,7 +27,7 @@ public class StatsPatches
 		float baseValue = PlayerStatsNew.GetBaseValue(stat);
 		float offset = value - baseValue;
 		_customStatOffsets[stat] = offset;
-		MelonLogger.Msg($"[StatsPatches] Set absolute: {stat} = {value} (base: {baseValue}, offset: {offset})");
+
 	}
 
 	[HarmonyPatch("GetStat")]
@@ -43,12 +43,7 @@ public class StatsPatches
 				float baseValue = PlayerStatsNew.GetBaseValue(stat);
 				float finalValue = baseValue + _customStatOffsets[stat];
 				__result = finalValue;
-				
-				// Debug log for XP multiplier (stat 33)
-				if ((int)stat == 33)
-				{
-					MelonLogger.Msg($"[GetStat] XP Mult: base={baseValue}, offset={_customStatOffsets[stat]}, final={finalValue}");
-				}
+
 			}
 			
 			if ((int)stat != 34)
@@ -74,7 +69,7 @@ public class StatsPatches
 		{
 			if (!_hasLoggedError)
 			{
-				MelonLogger.Error("[StatsPatches.GetStat] Error (will not log again): " + ex.Message);
+				MelonLogger.Error("[BonkMenu] StatsPatches.GetStat error: " + ex.Message);
 				_hasLoggedError = true;
 			}
 		}
@@ -93,7 +88,7 @@ public class StatsPatches
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Warning($"[StatsPatches.CheckFinalValue] Error bypassing clamp for stat {stat}: {ex.Message}");
+			MelonLogger.Warning($"[BonkMenu] StatsPatches clamp bypass error: {ex.Message}");
 		}
 		
 		return true; // Run original method only on error
@@ -112,17 +107,12 @@ public class StatsPatches
 				float baseValue = PlayerStatsNew.GetBaseValue(stat);
 				float finalValue = baseValue + _customStatOffsets[stat];
 				__result = finalValue;
-				
-				// Debug log for XP multiplier (stat 33)
-				if ((int)stat == 33)
-				{
-					MelonLogger.Msg($"[GetUnclampedStat] XP Mult: base={baseValue}, offset={_customStatOffsets[stat]}, final={finalValue}");
-				}
+
 			}
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Warning($"[StatsPatches.GetUnclampedStat] Error: {ex.Message}");
+			MelonLogger.Warning($"[BonkMenu] StatsPatches.GetUnclampedStat error: {ex.Message}");
 		}
 	}
 }

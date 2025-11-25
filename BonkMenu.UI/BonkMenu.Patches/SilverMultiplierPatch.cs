@@ -22,14 +22,12 @@ public static class SilverMultiplierPatch
 			// Apply it to the game's calculated multiplier
 			if (customMult != 1f)
 			{
-				float original = __result;
 				__result *= customMult;
-				// MelonLogger.Msg($"[SilverMultiplierPatch] Applied custom multiplier: {customMult}. Result: {original} -> {__result}");
 			}
 		}
 		catch (System.Exception ex)
 		{
-			MelonLogger.Error($"[SilverMultiplierPatch] Error: {ex.Message}");
+			MelonLogger.Error($"[BonkMenu] SilverMultiplierPatch error: {ex.Message}");
 		}
 	}
 }
@@ -44,14 +42,12 @@ public static class PlayerInventoryAddSilverPatch
 			float customMult = StatsHelper.GetCurrentStatValue(EStat.SilverIncreaseMultiplier, 1f);
 			if (customMult > 1f)
 			{
-				int original = amount;
 				amount = (int)(amount * customMult);
-				MelonLogger.Msg($"[PlayerInventoryAddSilverPatch] Multiplied silver gain: {original} -> {amount} (Mult: {customMult})");
 			}
 		}
 		catch (System.Exception ex)
 		{
-			MelonLogger.Error($"[PlayerInventoryAddSilverPatch] Error: {ex.Message}");
+			MelonLogger.Error($"[BonkMenu] AddSilverPatch error: {ex.Message}");
 		}
 	}
 }

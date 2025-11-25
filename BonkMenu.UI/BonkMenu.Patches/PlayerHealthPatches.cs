@@ -9,7 +9,7 @@ namespace BonkMenu.Patches;
 [HarmonyPatch(typeof(PlayerHealth))]
 public class PlayerHealthPatches
 {
-	private static bool _hasLoggedDamageBlock;
+
 
 	private static bool _hasLoggedError;
 
@@ -21,11 +21,7 @@ public class PlayerHealthPatches
 		{
 			if (ModConfig.InfiniteHealth || ModConfig.GodMode)
 			{
-				if (!_hasLoggedDamageBlock)
-				{
-					MelonLogger.Msg("[PlayerPatches] God mode active - blocking damage");
-					_hasLoggedDamageBlock = true;
-				}
+
 				return false;
 			}
 			return true;
@@ -34,7 +30,7 @@ public class PlayerHealthPatches
 		{
 			if (!_hasLoggedError)
 			{
-				MelonLogger.Error("[PlayerPatches.DamagePlayer] Error (will not log again): " + ex.Message);
+				MelonLogger.Error("[BonkMenu] PlayerHealthPatches.DamagePlayer error: " + ex.Message);
 				_hasLoggedError = true;
 			}
 			return true;
@@ -57,7 +53,7 @@ public class PlayerHealthPatches
 		{
 			if (!_hasLoggedError)
 			{
-				MelonLogger.Error("[PlayerPatches.DamagePlayerExternal] Error: " + ex.Message);
+				MelonLogger.Error("[BonkMenu] PlayerHealthPatches.DamagePlayerExternal error: " + ex.Message);
 				_hasLoggedError = true;
 			}
 			return true;
@@ -72,15 +68,15 @@ public class PlayerHealthPatches
 		{
 			if (ModConfig.InfiniteHealth || ModConfig.GodMode)
 			{
-				MelonLogger.Msg("[PlayerPatches] God mode prevented instant death");
+
 				return false;
 			}
 			return true;
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Error("[PlayerPatches.KillPlayer] CRITICAL ERROR: " + ex.Message);
-			MelonLogger.Error("[PlayerPatches.KillPlayer] Stack Trace: " + ex.StackTrace);
+			MelonLogger.Error("[BonkMenu] PlayerHealthPatches.KillPlayer CRITICAL: " + ex.Message);
+			MelonLogger.Error("[BonkMenu] Stack Trace: " + ex.StackTrace);
 			return true;
 		}
 	}

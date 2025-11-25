@@ -23,11 +23,7 @@ public static class LootPatches
 			{
 				if (LootConfig.ForceUpgradeRarity)
 				{
-					if (!_hasLoggedUpgradeRarity)
-					{
-						MelonLogger.Msg($"[LootPatches] Forcing upgrade rarity to: {LootConfig.DesiredUpgradeRarity}");
-						_hasLoggedUpgradeRarity = true;
-					}
+
 					__result = (ERarity)(int)LootConfig.DesiredUpgradeRarity;
 				}
 			}
@@ -35,7 +31,7 @@ public static class LootPatches
 			{
 				if (!_hasLoggedError)
 				{
-					MelonLogger.Error("[LootPatches.GetUpgradeOfferRarity] Error: " + ex.Message);
+					MelonLogger.Error("[BonkMenu] LootPatches.GetUpgradeOfferRarity error: " + ex.Message);
 					_hasLoggedError = true;
 				}
 			}
@@ -54,11 +50,7 @@ public static class LootPatches
 			{
 				if (LootConfig.ForceItemRarity)
 				{
-					if (!_hasLoggedItemRarity)
-					{
-						MelonLogger.Msg($"[LootPatches] Forcing item rarity to: {LootConfig.DesiredItemRarity}");
-						_hasLoggedItemRarity = true;
-					}
+
 					__result = (EItemRarity)(int)LootConfig.DesiredItemRarity;
 				}
 			}
@@ -66,7 +58,7 @@ public static class LootPatches
 			{
 				if (!_hasLoggedError)
 				{
-					MelonLogger.Error("[LootPatches.GetItemRarity] Error: " + ex.Message);
+					MelonLogger.Error("[BonkMenu] LootPatches.GetItemRarity error: " + ex.Message);
 					_hasLoggedError = true;
 				}
 			}
@@ -76,7 +68,7 @@ public static class LootPatches
 	[HarmonyPatch(typeof(PlayerStatsNew), "GetStat")]
 	public static class PlayerStatsNew_GetStat_Patch
 	{
-		private static bool _hasLoggedMaxLuck;
+
 
 		public static void Postfix(EStat stat, ref float __result)
 		{
@@ -86,11 +78,7 @@ public static class LootPatches
 			{
 				if (LootConfig.MaxLuck && (int)stat == 30)
 				{
-					if (!_hasLoggedMaxLuck)
-					{
-						MelonLogger.Msg("[LootPatches] Max luck active - setting luck to 100");
-						_hasLoggedMaxLuck = true;
-					}
+
 					__result = 100f;
 				}
 			}
@@ -98,16 +86,16 @@ public static class LootPatches
 			{
 				if (!_hasLoggedError)
 				{
-					MelonLogger.Error("[LootPatches.GetStat] Error: " + ex.Message);
+					MelonLogger.Error("[BonkMenu] LootPatches.GetStat error: " + ex.Message);
 					_hasLoggedError = true;
 				}
 			}
 		}
 	}
 
-	private static bool _hasLoggedUpgradeRarity;
 
-	private static bool _hasLoggedItemRarity;
+
+
 
 	private static bool _hasLoggedError;
 }

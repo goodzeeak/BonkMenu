@@ -15,13 +15,13 @@ public static class UniverseUI
 {
 	private static GameObject panelRoot;
 
-	private static GameObject[] tabContents = (GameObject[])(object)new GameObject[7];
+	private static GameObject[] tabContents = (GameObject[])(object)new GameObject[6];
 
-	private static GameObject[] tabButtons = (GameObject[])(object)new GameObject[7];
+	private static GameObject[] tabButtons = (GameObject[])(object)new GameObject[6];
 
 	private static int currentTab = 0;
 
-	private static bool[] tabInitialized = new bool[7];
+	private static bool[] tabInitialized = new bool[6];
 
 	private static Action<GameObject>[] tabCreators;
 
@@ -50,7 +50,7 @@ public static class UniverseUI
 			delegate(GameObject root)
 			{
 				CombatTab.Create(GetContent(root));
-			}
+			},
 			delegate(GameObject root)
 			{
 				ItemsTab.Create(GetContent(root));
@@ -69,7 +69,7 @@ public static class UniverseUI
 			}
 		};
 		_onInitialized = OnUniverseInitialized;
-		MelonLogger.Msg("[UniverseUI] Initializing UniverseLib...");
+
 		Universe.Init(0f, _onInitialized, (Action<string, LogType>)null, default(UniverseLibConfig));
 	}
 
@@ -78,11 +78,11 @@ public static class UniverseUI
 		try
 		{
 			CreateSimpleUI();
-			MelonLogger.Msg("[UniverseUI] Initialized successfully");
+
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Error("[UniverseUI] Initialization failed: " + ex.Message);
+			MelonLogger.Error("[BonkMenu] UniverseUI initialization failed: " + ex.Message);
 			MelonLogger.Error(ex.StackTrace);
 		}
 	}
@@ -98,7 +98,7 @@ public static class UniverseUI
 				isDragging = false;
 				EnsureTabInitialized(currentTab);
 			}
-			MelonLogger.Msg("[UniverseUI] Menu " + (flag ? "Opened" : "Closed"));
+
 		}
 	}
 
@@ -367,7 +367,7 @@ public static class UniverseUI
 		val5.top = 2;
 		val5.bottom = 2;
 		((LayoutGroup)val4).padding = val5;
-		string[] array = new string[7] { "Player", "Combat", "World", "Items", "Unlocks", "Loot", "About" };
+		string[] array = new string[6] { "Player", "Combat", "Items", "Unlocks", "Loot", "About" };
 		for (int i = 0; i < array.Length; i++)
 		{
 			GameObject val6 = new GameObject("Tab_" + array[i]);
@@ -444,7 +444,7 @@ public static class UniverseUI
 		{
 			return;
 		}
-		MelonLogger.Msg($"[UniverseUI] Initializing tab {tabIndex} content...");
+
 		try
 		{
 			tabCreators[tabIndex](tabContents[tabIndex]);
@@ -452,7 +452,7 @@ public static class UniverseUI
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Error($"[UniverseUI] Failed to initialize tab {tabIndex}: {ex.Message}");
+			MelonLogger.Error($"[BonkMenu] UniverseUI tab {tabIndex} init failed: {ex.Message}");
 		}
 	}
 

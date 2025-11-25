@@ -24,7 +24,7 @@ public static class PassiveInventoryPatches
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Error($"[PassiveInventoryPatches] Error in HasPassive: {ex.Message}");
+			MelonLogger.Error($"[BonkMenu] PassiveInventoryPatches.HasPassive error: {ex.Message}");
 			return true; // Let original run on error
 		}
 	}
@@ -45,13 +45,13 @@ public static class PassiveInventoryPatches
 				}
 				catch (Exception ex)
 				{
-					MelonLogger.Warning($"[PassiveInventoryPatches] Error updating passive {passive.GetPassiveType()}: {ex.Message}");
+					MelonLogger.Warning($"[BonkMenu] PassiveInventoryPatches passive update error: {ex.Message}");
 				}
 			}
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Error($"[PassiveInventoryPatches] Error in Update: {ex.Message}");
+			MelonLogger.Error($"[BonkMenu] PassiveInventoryPatches.Update error: {ex.Message}");
 		}
 	}
 
@@ -71,13 +71,13 @@ public static class PassiveInventoryPatches
 				}
 				catch (Exception ex)
 				{
-					MelonLogger.Warning($"[PassiveInventoryPatches] Error in PhysicsTick for passive {passive.GetPassiveType()}: {ex.Message}");
+					MelonLogger.Warning($"[BonkMenu] PassiveInventoryPatches PhysicsTick error: {ex.Message}");
 				}
 			}
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Error($"[PassiveInventoryPatches] Error in PhysicsTick: {ex.Message}");
+			MelonLogger.Error($"[BonkMenu] PassiveInventoryPatches.PhysicsTick error: {ex.Message}");
 		}
 	}
 
@@ -88,7 +88,7 @@ public static class PassiveInventoryPatches
 	{
 		try
 		{
-			MelonLogger.Msg("[PassiveInventoryPatches] Cleaning up all passives");
+
 			var passives = MultiPassiveManager.GetPassives(__instance);
 			foreach (var passive in passives.Where(p => p != null))
 			{
@@ -98,14 +98,14 @@ public static class PassiveInventoryPatches
 				}
 				catch (Exception ex)
 				{
-					MelonLogger.Warning($"[PassiveInventoryPatches] Error cleaning up passive {passive.GetPassiveType()}: {ex.Message}");
+					MelonLogger.Warning($"[BonkMenu] PassiveInventoryPatches cleanup error: {ex.Message}");
 				}
 			}
 			MultiPassiveManager.ClearPassives(__instance);
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Error($"[PassiveInventoryPatches] Error in Cleanup: {ex.Message}");
+			MelonLogger.Error($"[BonkMenu] PassiveInventoryPatches.Cleanup error: {ex.Message}");
 		}
 	}
 }

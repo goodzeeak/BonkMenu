@@ -11,7 +11,7 @@ namespace BonkMenu.Patches;
 [HarmonyPatch(typeof(MyButtonOffersUtility))]
 public class UtilityButtonPatches
 {
-	private static bool _hasLoggedInfiniteRefreshes;
+
 
 	private static bool _hasLoggedError;
 
@@ -25,11 +25,7 @@ public class UtilityButtonPatches
 			{
 				return;
 			}
-			if (!_hasLoggedInfiniteRefreshes)
-			{
-				MelonLogger.Msg("[UtilityButtonPatches] Infinite refreshes active - making buttons always affordable");
-				_hasLoggedInfiniteRefreshes = true;
-			}
+
 			__instance.cantAfford = false;
 			__instance.refreshedAtTime = 0f;
 			GameManager instance = GameManager.Instance;
@@ -53,7 +49,7 @@ public class UtilityButtonPatches
 		{
 			if (!_hasLoggedError)
 			{
-				MelonLogger.Error("[UtilityButtonPatches.SetAmount] Error: " + ex.Message);
+				MelonLogger.Error("[BonkMenu] UtilityButtonPatches.SetAmount error: " + ex.Message);
 				_hasLoggedError = true;
 			}
 		}
@@ -82,7 +78,7 @@ public class UtilityButtonPatches
 		{
 			if (!_hasLoggedError)
 			{
-				MelonLogger.Error("[UtilityButtonPatches.OnClick] Error: " + ex.Message);
+				MelonLogger.Error("[BonkMenu] UtilityButtonPatches.OnClick error: " + ex.Message);
 				_hasLoggedError = true;
 			}
 			return true;

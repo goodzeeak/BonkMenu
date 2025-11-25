@@ -10,7 +10,7 @@ namespace BonkMenu.Patches;
 [HarmonyPatch(typeof(Enemy))]
 public class EnemyPatches
 {
-	private static bool _hasLoggedOneHitKill;
+
 
 	private static bool _hasLoggedError;
 
@@ -28,23 +28,19 @@ public class EnemyPatches
 			{
 				if (!_hasLoggedError)
 				{
-					MelonLogger.Warning("[EnemyPatches] DamageContainer is null, cannot apply one-hit kill");
+					MelonLogger.Warning("[BonkMenu] EnemyPatches null DamageContainer warning");
 					_hasLoggedError = true;
 				}
 				return;
 			}
-			if (!_hasLoggedOneHitKill)
-			{
-				MelonLogger.Msg("[EnemyPatches] One-hit kill active - setting massive damage");
-				_hasLoggedOneHitKill = true;
-			}
+
 			damageContainer.damage = 9999999f;
 		}
 		catch (Exception ex)
 		{
 			if (!_hasLoggedError)
 			{
-				MelonLogger.Error("[EnemyPatches.Damage] Error (will not log again): " + ex.Message);
+				MelonLogger.Error("[BonkMenu] EnemyPatches.Damage error: " + ex.Message);
 				_hasLoggedError = true;
 			}
 		}

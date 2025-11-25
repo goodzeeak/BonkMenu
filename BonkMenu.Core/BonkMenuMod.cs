@@ -32,16 +32,15 @@ public class BonkMenuMod : MelonMod
 		//IL_00b2: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00f0: Unknown result type (might be due to invalid IL or missing references)
 		//IL_012e: Unknown result type (might be due to invalid IL or missing references)
-		MelonLogger.Msg("=== BonkMenu Initialized ===");
+		MelonLogger.Msg("[BonkMenu] === BonkMenu Initialized ===");
 		KeybindConfig.LoadKeybinds();
-		MelonLogger.Msg("Key binds:");
-		MelonLogger.Msg($"  {KeybindConfig.ToggleMenuKey} - Toggle UI Menu");
-		MelonLogger.Msg("==============================");
+		MelonLogger.Msg($"[BonkMenu] Press {KeybindConfig.ToggleMenuKey} to toggle menu");
+		MelonLogger.Msg("[BonkMenu] ==============================");
 	}
 
 	public override void OnSceneWasLoaded(int buildIndex, string sceneName)
 	{
-		MelonLogger.Msg($"Scene loaded: {sceneName} (index: {buildIndex})");
+
 		if (!_hasModifiedXpMultiplier && sceneName == "GeneratedMap")
 		{
 			try 

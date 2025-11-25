@@ -9,7 +9,7 @@ namespace BonkMenu.Patches;
 [HarmonyPatch(typeof(PlayerMovementValues))]
 public class PlayerMovementPatches
 {
-	private static bool _hasLoggedFlightMode;
+
 
 	private static bool _hasLoggedError;
 
@@ -21,11 +21,7 @@ public class PlayerMovementPatches
 		{
 			if (ModConfig.FlightMode)
 			{
-				if (!_hasLoggedFlightMode)
-				{
-					MelonLogger.Msg("[PlayerMovementPatches] Flight mode active - disabling gravity");
-					_hasLoggedFlightMode = true;
-				}
+
 				__result = 0f;
 			}
 		}
@@ -33,7 +29,7 @@ public class PlayerMovementPatches
 		{
 			if (!_hasLoggedError)
 			{
-				MelonLogger.Error("[PlayerMovementPatches.GetGravity] Error: " + ex.Message);
+				MelonLogger.Error("[BonkMenu] PlayerMovementPatches.GetGravity error: " + ex.Message);
 				_hasLoggedError = true;
 			}
 		}
