@@ -70,18 +70,7 @@ public static class ItemsTab
 
 	private static void CreateCurrencies(GameObject parent)
 	{
-		UIFactory.CreateButton("Add 1,000 Gold", delegate
-		{
-			PlayerFeatures.SpawnPickup((EPickup)1, 1000, "Gold");
-		}, parent);
-		UIFactory.CreateButton("Add 10,000 Gold", delegate
-		{
-			PlayerFeatures.SpawnPickup((EPickup)1, 10000, "Gold");
-		}, parent);
-		UIFactory.CreateButton("Add 1,000 Silver", delegate
-		{
-			PlayerFeatures.SpawnPickup((EPickup)10, 1000, "Silver");
-		}, parent);
+
 		UIFactory.CreateButton("Add 1000 Silver (Progression)", delegate
 		{
 			PlayerFeatures.AddProgressionCurrency(1000);
