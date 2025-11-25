@@ -44,14 +44,10 @@ public class StatsPatches
 				float finalValue = baseValue + _customStatOffsets[stat];
 				__result = finalValue;
 				
-				// Debug log for XP multiplier (stat 32) and Silver (stat 49)
-				if ((int)stat == 32)
+				// Debug log for XP multiplier (stat 33)
+				if ((int)stat == 33)
 				{
 					MelonLogger.Msg($"[GetStat] XP Mult: base={baseValue}, offset={_customStatOffsets[stat]}, final={finalValue}");
-				}
-				if ((int)stat == 49)
-				{
-					MelonLogger.Msg($"[GetStat] Silver Mult: base={baseValue}, offset={_customStatOffsets[stat]}, final={finalValue}");
 				}
 			}
 			
@@ -117,14 +113,10 @@ public class StatsPatches
 				float finalValue = baseValue + _customStatOffsets[stat];
 				__result = finalValue;
 				
-				// Debug log for XP multiplier (stat 32) and Silver (stat 49)
-				if ((int)stat == 32)
+				// Debug log for XP multiplier (stat 33)
+				if ((int)stat == 33)
 				{
 					MelonLogger.Msg($"[GetUnclampedStat] XP Mult: base={baseValue}, offset={_customStatOffsets[stat]}, final={finalValue}");
-				}
-				if ((int)stat == 49)
-				{
-					MelonLogger.Msg($"[GetUnclampedStat] Silver Mult: base={baseValue}, offset={_customStatOffsets[stat]}, final={finalValue}");
 				}
 			}
 		}
