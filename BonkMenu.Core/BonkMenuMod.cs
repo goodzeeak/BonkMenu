@@ -36,10 +36,6 @@ public class BonkMenuMod : MelonMod
 		KeybindConfig.LoadKeybinds();
 		MelonLogger.Msg("Key binds:");
 		MelonLogger.Msg($"  {KeybindConfig.ToggleMenuKey} - Toggle UI Menu");
-		MelonLogger.Msg($"  {KeybindConfig.GodModeKey} - Toggle God Mode");
-		MelonLogger.Msg($"  {KeybindConfig.AddGoldKey} - Add 10k Gold");
-		MelonLogger.Msg($"  {KeybindConfig.KillEnemiesKey} - Kill All Enemies");
-		MelonLogger.Msg($"  {KeybindConfig.SpawnEnemyKey} - Spawn Enemy");
 		MelonLogger.Msg("==============================");
 	}
 
@@ -107,99 +103,7 @@ public class BonkMenuMod : MelonMod
 		{
 			UniverseUI.Toggle();
 		}
-		if (InputManager.GetKeyDown(KeybindConfig.GodModeKey))
-		{
-			ModConfig.ToggleInfiniteHealth();
-		}
-		if (InputManager.GetKeyDown(KeybindConfig.AddGoldKey))
-		{
-			try
-			{
-				GameManager instance = GameManager.Instance;
-				object obj;
-				if ((Object)(object)instance == (Object)null)
-				{
-					obj = null;
-				}
-				else
-				{
-					MyPlayer player = instance.player;
-					obj = (((Object)(object)player != (Object)null) ? player.inventory : null);
-				}
-				if (obj != null)
-				{
-					GameManager.Instance.player.inventory.ChangeGold(ModConfig.GoldAmount);
-					MelonLogger.Msg($"Added {ModConfig.GoldAmount} gold! Total: {GameManager.Instance.player.inventory.goldInt}");
-				}
-			}
-			catch
-			{
-				MelonLogger.Error("Failed to add gold - player not loaded yet");
-			}
-		}
-		if (InputManager.GetKeyDown(KeybindConfig.KillEnemiesKey))
-		{
-			try
-			{
-				Il2CppArrayBase<Enemy> val = Object.FindObjectsOfType<Enemy>();
-				if (val != null && val.Length > 0)
-				{
-					int num = 0;
-					foreach (Enemy item in val)
-					{
-						if ((Object)item != (Object)null && !item.IsDead())
-						{
-							item.Kill();
-							num++;
-						}
-					}
-					MelonLogger.Msg($"\ud83d\udc80 Killed {num} enemies!");
-				}
-				else
-				{
-					MelonLogger.Msg("No enemies found to kill");
-				}
-			}
-			catch (Exception ex)
-			{
-				MelonLogger.Error("Failed to kill enemies: " + ex.Message);
-			}
-		}
-		if (InputManager.GetKeyDown(KeybindConfig.SpawnEnemyKey))
-		{
-			try
-			{
-				EnemyManager instance2 = EnemyManager.Instance;
-				if (!((Object)(((Object)(object)instance2 != (Object)null) ? instance2.testEnemy : null) != (Object)null))
-				{
-					goto IL_034b;
-				}
-				GameManager instance3 = GameManager.Instance;
-				if (!((Object)(((Object)(object)instance3 != (Object)null) ? instance3.player : null) != (Object)null))
-				{
-					goto IL_034b;
-				}
-				Vector3 position = ((Component)GameManager.Instance.player).transform.position;
-				Vector3 val2 = position + new Vector3(3f, 0f, 3f);
-				Enemy val3 = instance2.SpawnEnemy(instance2.testEnemy, val2, 0, true, (EEnemyFlag)0, true);
-				if ((Object)val3 != (Object)null)
-				{
-					MelonLogger.Msg("\ud83d\udc79 Spawned enemy: " + instance2.testEnemy.displayName);
-				}
-				else
-				{
-					MelonLogger.Error("Failed to spawn enemy - SpawnEnemy returned null");
-				}
-				goto end_IL_0255;
-				IL_034b:
-				MelonLogger.Error("EnemyManager or testEnemy is null");
-				end_IL_0255:;
-			}
-			catch (Exception ex2)
-			{
-				MelonLogger.Error("Failed to spawn enemy: " + ex2.Message);
-			}
-		}
+
 		if (ModConfig.InfiniteRefreshes)
 		{
 			try

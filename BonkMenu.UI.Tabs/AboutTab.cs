@@ -19,10 +19,7 @@ public static class AboutTab
 		UIFactory.CreateSpacer(10, parent);
 		UIFactory.CreateSectionHeader("Keybind Settings", parent);
 		UIFactory.CreateLabel($"Toggle Menu: {KeybindConfig.ToggleMenuKey}", parent);
-		UIFactory.CreateLabel($"God Mode: {KeybindConfig.GodModeKey}", parent);
-		UIFactory.CreateLabel($"Add Gold: {KeybindConfig.AddGoldKey}", parent);
-		UIFactory.CreateLabel($"Kill Enemies: {KeybindConfig.KillEnemiesKey}", parent);
-		UIFactory.CreateLabel($"Spawn Enemy: {KeybindConfig.SpawnEnemyKey}", parent);
+		UIFactory.CreateLabel("(Other features accessible via UI buttons)", parent);
 		UIFactory.CreateSpacer(8, parent);
 		UIFactory.CreateLabel("Note: Edit keybinds in UserData/BonkMenu_Keybinds.txt", parent);
 		UIFactory.CreateButton("Save Current Keybinds", delegate
