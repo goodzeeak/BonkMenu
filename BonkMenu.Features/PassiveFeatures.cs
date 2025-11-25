@@ -40,11 +40,7 @@ public static class PassiveFeatures
 			}
 			EPassive val = (EPassive)passiveId;
 			MelonLogger.Msg($"[GrantPassive] Passive enum value: {val}");
-			if (inventory.HasPassive(val))
-			{
-				MelonLogger.Msg("[GrantPassive] Player already has passive: " + passiveName);
-				return;
-			}
+			// Removed HasPassive check to allow multiple passives
 			MelonLogger.Msg("[GrantPassive] Searching for PassiveData");
 			PassiveData[] array = RuntimeHelper.FindObjectsOfTypeAll<PassiveData>();
 			if (array == null)
@@ -96,7 +92,7 @@ public static class PassiveFeatures
 					MelonLogger.Warning("[GrantPassive] Error during cleanup: " + ex2.Message);
 				}
 			}
-			inventory.passiveAbility = val4;
+			inventory.passiveAbility = val4; // Our Harmony patch will intercept this and add to collection
 			val4.Init();
 			MelonLogger.Msg("[GrantPassive] Successfully granted and initialized " + passiveName);
 		}
