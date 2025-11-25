@@ -99,34 +99,44 @@ public static class WeaponFeatures
 
 	public static void MaxAllWeapons()
 	{
-		MelonLogger.Msg("[MaxAllWeapons] Starting weapon maxing process (40 levels per weapon)");
+		MelonLogger.Msg("[MaxAllWeapons] Maxing currently owned weapons...");
 		try
 		{
-			int num = 0;
-			int num2 = 0;
-			for (int i = 0; i < 30; i++)
+			GameManager instance = GameManager.Instance;
+			if ((Object)(object)instance == (Object)null) return;
+			MyPlayer player = instance.player;
+			if ((Object)(object)player == (Object)null) return;
+			PlayerInventory inventory = player.inventory;
+			if (inventory == null) return;
+			WeaponInventory weaponInventory = inventory.weaponInventory;
+			if (weaponInventory == null) return;
+
+			// Get list of owned weapons to avoid modification errors during iteration
+			List<EWeapon> ownedWeapons = new List<EWeapon>();
+			foreach (var weapon in weaponInventory.weapons)
 			{
-				try
-				{
-					MelonLogger.Msg($"[MaxAllWeapons] Processing weapon {i}/30");
-					for (int j = 0; j < 40; j++)
-					{
-						GrantWeapon(i, $"Weapon_{i}");
-						num2++;
-					}
-					num++;
-				}
-				catch (Exception ex)
-				{
-					MelonLogger.Warning($"[MaxAllWeapons] Error maxing weapon {i}: {ex.Message}");
-				}
+				ownedWeapons.Add(weapon.Key);
 			}
-			MelonLogger.Msg($"[MaxAllWeapons] Completed - Weapons: {num}/30, Total Grants: {num2}");
+
+			int count = 0;
+			foreach (EWeapon weaponId in ownedWeapons)
+			{
+				MelonLogger.Msg($"[MaxAllWeapons] Maxing weapon: {weaponId}");
+				// Try to max it out (40 levels should be enough for most)
+				for (int i = 0; i < 40; i++)
+				{
+					// Check if maxed to avoid unnecessary calls (if IsMaxLevel is accessible/reliable)
+					// For now, we'll just spam grant as it's safer than relying on private/internal checks
+					GrantWeapon((int)weaponId, weaponId.ToString());
+				}
+				count++;
+			}
+			MelonLogger.Msg($"[MaxAllWeapons] Completed - Maxed {count} weapons");
 		}
-		catch (Exception ex2)
+		catch (Exception ex)
 		{
-			MelonLogger.Error("[MaxAllWeapons] CRITICAL ERROR: " + ex2.Message);
-			MelonLogger.Error("[MaxAllWeapons] Stack Trace: " + ex2.StackTrace);
+			MelonLogger.Error("[MaxAllWeapons] CRITICAL ERROR: " + ex.Message);
+			MelonLogger.Error("[MaxAllWeapons] Stack Trace: " + ex.StackTrace);
 		}
 	}
 }

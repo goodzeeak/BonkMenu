@@ -5,6 +5,7 @@ using Il2CppAssets.Scripts.Inventory__Items__Pickups;
 using Il2CppAssets.Scripts._Data.Tomes;
 using MelonLoader;
 using UnityEngine;
+using Il2CppSystem.Collections.Generic;
 
 namespace BonkMenu.Features;
 
@@ -98,7 +99,38 @@ public static class TomeFeatures
 
 	public static void MaxAllTomes()
 	{
-		MelonLogger.Msg("[MaxAllTomes] All tomes are granted at max level by default");
-		GrantAllTomes();
+		MelonLogger.Msg("[MaxAllTomes] Maxing currently owned tomes...");
+		try
+		{
+			GameManager instance = GameManager.Instance;
+			if ((Object)(object)instance == (Object)null) return;
+			MyPlayer player = instance.player;
+			if ((Object)(object)player == (Object)null) return;
+			PlayerInventory inventory = player.inventory;
+			if (inventory == null) return;
+			TomeInventory tomeInventory = inventory.tomeInventory;
+			if (tomeInventory == null) return;
+
+			// Get list of owned tomes
+			List<ETome> ownedTomes = new List<ETome>();
+			foreach (var tome in tomeInventory.tomeLevels)
+			{
+				ownedTomes.Add(tome.Key);
+			}
+
+			int count = 0;
+			foreach (ETome tomeId in ownedTomes)
+			{
+				MelonLogger.Msg($"[MaxAllTomes] Maxing tome: {tomeId}");
+				GrantTome((int)tomeId, tomeId.ToString());
+				count++;
+			}
+			MelonLogger.Msg($"[MaxAllTomes] Completed - Maxed {count} tomes");
+		}
+		catch (Exception ex)
+		{
+			MelonLogger.Error("[MaxAllTomes] CRITICAL ERROR: " + ex.Message);
+			MelonLogger.Error("[MaxAllTomes] Stack Trace: " + ex.StackTrace);
+		}
 	}
 }
