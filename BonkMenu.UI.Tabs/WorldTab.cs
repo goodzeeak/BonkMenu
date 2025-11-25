@@ -8,8 +8,6 @@ namespace BonkMenu.UI.Tabs;
 
 public static class WorldTab
 {
-	private static readonly string[] encounters = new string[10] { "Levelup", "RandomStats", "GreedAltar", "ChestNormal", "ChestFree", "ChestEvil", "Moai", "ShadyGuy", "BalanceShrine", "Microwave" };
-
 	private static readonly string[] environmentObjects = new string[23]
 	{
 		"ShrineMaoi", "ChallengeShrine", "MagnetShrine", "CursedShrine", "Greed Altar", "ChargeShrine", "Chest", "ChestFree", "BossSpawner", "BossSpawnerFinal",
@@ -24,9 +22,6 @@ public static class WorldTab
 		UIFactory.CreateSpacer(8, parent);
 		UIFactory.CreateSectionHeader("Time Control", parent);
 		CreateTimeControl(parent);
-		UIFactory.CreateSpacer(8, parent);
-		UIFactory.CreateSectionHeader("Encounters", parent);
-		CreateEncounters(parent);
 		UIFactory.CreateSpacer(8, parent);
 		UIFactory.CreateSectionHeader("Environment", parent);
 		CreateEnvironmentButtons(parent);
@@ -88,21 +83,6 @@ public static class WorldTab
 		{
 			Time.timeScale = value;
 			MelonLogger.Msg($"Time Scale: {value}x");
-		}, parent);
-	}
-
-	private static void CreateEncounters(GameObject parent)
-	{
-		UIFactory.CreateSpawner(parent, "Spawn Encounter", encounters, delegate(int id, int amount)
-		{
-			for (int i = 0; i < amount; i++)
-			{
-				EncounterFeatures.ForceEncounter(id, encounters[id]);
-			}
-		});
-		UIFactory.CreateButton("⏭\ufe0f Skip Current Encounter", delegate
-		{
-			EncounterFeatures.SkipEncounter();
 		}, parent);
 	}
 
