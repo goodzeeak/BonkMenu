@@ -49,8 +49,7 @@ public static class ItemsTab
 
 	public static void Create(GameObject parent)
 	{
-		UIFactory.CreateSectionHeader("Currencies", parent);
-		CreateCurrencies(parent);
+
 		UIFactory.CreateSpacer(8, parent);
 		UIFactory.CreateSectionHeader("Pickups", parent);
 		CreatePickups(parent);
@@ -68,14 +67,7 @@ public static class ItemsTab
 		CreatePassives(parent);
 	}
 
-	private static void CreateCurrencies(GameObject parent)
-	{
 
-		UIFactory.CreateButton("Add 1000 Silver (Progression)", delegate
-		{
-			PlayerFeatures.AddProgressionCurrency(1000);
-		}, parent);
-	}
 
 	private static void CreatePickups(GameObject parent)
 	{
