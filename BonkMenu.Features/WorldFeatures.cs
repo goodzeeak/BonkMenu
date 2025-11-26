@@ -75,11 +75,15 @@ public static class WorldFeatures
 			var allComponents = Object.FindObjectsOfType<MonoBehaviour>();
 			MelonLogger.Msg($"[WorldFeatures] Found {allComponents.Length} total MonoBehaviour components");
 			
+			bool foundSpawnInteractables = false;
+			bool foundRandomObjectPlacer = false;
+			
 			// Extract from SpawnInteractables
 			foreach (var component in allComponents)
 			{
 				if (component.GetType().Name == "SpawnInteractables")
 				{
+					foundSpawnInteractables = true;
 					MelonLogger.Msg("[WorldFeatures] Found SpawnInteractables component!");
 					
 					var chestField = component.GetType().GetField("chest");
@@ -100,6 +104,7 @@ public static class WorldFeatures
 				// Extract from RandomObjectPlacer
 				if (component.GetType().Name == "RandomObjectPlacer")
 				{
+					foundRandomObjectPlacer = true;
 					MelonLogger.Msg("[WorldFeatures] Found RandomObjectPlacer component!");
 					
 					var greedShrinesField = component.GetType().GetField("greedShrines");
@@ -204,6 +209,18 @@ public static class WorldFeatures
 						}
 					}
 				}
+			}
+			
+			// Warn if components not found
+			if (!foundSpawnInteractables)
+			{
+				MelonLogger.Warning("[WorldFeatures] SpawnInteractables component NOT FOUND!");
+				MelonLogger.Warning("[WorldFeatures] Are you in a procedural run? (Not menu/tutorial/boss arena)");
+			}
+			if (!foundRandomObjectPlacer)
+			{
+				MelonLogger.Warning("[WorldFeatures] RandomObjectPlacer component NOT FOUND!");
+				MelonLogger.Warning("[WorldFeatures] Physical encounter spawning only works in procedural maps");
 			}
 			
 			MelonLogger.Msg("[WorldFeatures] Prefab extraction complete");
