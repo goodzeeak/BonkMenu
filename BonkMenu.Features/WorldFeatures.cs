@@ -83,13 +83,12 @@ public static class WorldFeatures
 				componentTypes.Add(comp.GetType().Name);
 			}
 			MelonLogger.Msg($"[WorldFeatures] Unique component types in scene: {componentTypes.Count}");
-			// Log types that might be related to spawning
+			
+			// Log ALL component types to see what we have
+			MelonLogger.Msg("[WorldFeatures] All component types:");
 			foreach (var typeName in componentTypes)
 			{
-				if (typeName.Contains("Spawn") || typeName.Contains("Placer") || typeName.Contains("Map") || typeName.Contains("Generation"))
-				{
-					MelonLogger.Msg($"[WorldFeatures]   - {typeName}");
-				}
+				MelonLogger.Msg($"[WorldFeatures]   - {typeName}");
 			}
 			
 			bool foundSpawnInteractables = false;
