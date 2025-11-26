@@ -6,6 +6,7 @@ using Il2CppAssets.Scripts.Inventory__Items__Pickups.Interactables;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.Chests;
 using MelonLoader;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace BonkMenu.Features;
 
@@ -251,124 +252,64 @@ public static class WorldFeatures
 				return;
 			}
 
-			// Calculate spawn position in front of player
-			Vector3 spawnPosition = player.transform.position + player.transform.forward * 5f;
-			spawnPosition.y = player.transform.position.y;
-
-			// Extract all prefabs
-			var prefabs = ExtractAllPrefabs();
-			
-			// Spawn based on encounter type
-			GameObject spawnedObject = null;
-			GameObject prefabToSpawn = null;
-			string spawnName = "";
-
-			switch (encounterId)
+		// Find native spawning component using reflection (IL2CPP hides the type)
+		var allMonoBehaviours = Object.FindObjectsOfType<MonoBehaviour>();
+		MonoBehaviour spawnInteractables = null;
+		foreach (var mb in allMonoBehaviours)
+		{
+			if (mb != null && mb.GetType().Name == "SpawnInteractables")
 			{
-				case 2: // GreedAltar
-					prefabToSpawn = prefabs.greedAltar;
-					spawnName = "Greed Altar";
-					break;
-					
-				case 3: // ChestNormal
-					prefabToSpawn = prefabs.chest;
-					spawnName = "Normal Chest";
-					if (prefabToSpawn != null)
-					{
-						spawnedObject = Object.Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
-						var chest = spawnedObject.GetComponent<InteractableChest>();
-						if (chest != null) chest.chestType = (EChest)0;
-					}
-					break;
-
-				case 4: // ChestFree
-					prefabToSpawn = prefabs.chestFree;
-					spawnName = "Free Chest";
-					if (prefabToSpawn != null)
-					{
-						spawnedObject = Object.Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
-						var chest = spawnedObject.GetComponent<InteractableChest>();
-						if (chest != null) chest.chestType = (EChest)2;
-					}
-					break;
-
-				case 5: // ChestEvil
-					prefabToSpawn = prefabs.chest;
-					spawnName = "Corrupt Chest";
-					if (prefabToSpawn != null)
-					{
-						spawnedObject = Object.Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
-						var chest = spawnedObject.GetComponent<InteractableChest>();
-						if (chest != null) chest.chestType = (EChest)1;
-					}
-					break;
-
-				case 6: // Moai
-					prefabToSpawn = prefabs.moai;
-					spawnName = "Moai";
-					break;
-
-				case 7: // ShadyGuy
-					prefabToSpawn = prefabs.shadyGuy;
-					spawnName = "Shady Guy";
-					break;
-
-				case 8: // BalanceShrine
-					prefabToSpawn = prefabs.balanceShrine;
-					spawnName = "Balance Shrine";
-					break;
-
-				case 9: // Microwave
-					prefabToSpawn = prefabs.microwave;
-					spawnName = "Microwave";
-					break;
-
-				default:
-					MelonLogger.Warning($"[WorldFeatures] Encounter type {encounterName} triggers UI screen");
-					EncounterWindows encounterWindows = Object.FindObjectOfType<EncounterWindows>();
-					if ((Object)(object)encounterWindows != (Object)null)
-					{
-						encounterWindows.AddEncounter((EEncounter)encounterId);
-						MelonLogger.Msg($"[WorldFeatures] Triggered UI encounter: {encounterName}");
-					}
-					return;
+				spawnInteractables = mb;
+				break;
 			}
+		}
+		
+		if (spawnInteractables == null)
+		{
+			MelonLogger.Error("[WorldFeatures] SpawnInteractables component not found");
+			return;
+		}
 
-			// Handle non-chest spawning (cases 2, 6, 7, 8, 9)
-			if (spawnedObject == null && prefabToSpawn != null)
-			{
-				spawnedObject = Object.Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
-			}
+		// Call native batch spawn methods via reflection
+		var spawnType = spawnInteractables.GetType();
+		switch (encounterId)
+		{
+			case 3: // ChestNormal
+			case 4: // ChestFree
+			case 5: // ChestEvil
+				MelonLogger.Msg("[WorldFeatures] Calling native SpawnChests()...");
+				var spawnChestsMethod = spawnType.GetMethod("SpawnChests");
+				if (spawnChestsMethod != null) spawnChestsMethod.Invoke(spawnInteractables, null);
+				MelonLogger.Msg("[WorldFeatures] ✅ Spawned chests batch");
+				break;
 
-			if (spawnedObject != null)
-			{
-				// Proper initialization
-				spawnedObject.SetActive(true);
-				spawnedObject.layer = LayerMask.NameToLayer("Default"); // Set to default layer
-				
-				// Ensure object is part of the scene, not DontDestroyOnLoad
-				Object.DontDestroyOnLoad(spawnedObject);
-				
-				// Enable all components
-				foreach (var component in spawnedObject.GetComponents<MonoBehaviour>())
-				{
-					if (component != null)
-					{
-						component.enabled = true;
-					}
-				}
-				
-				MelonLogger.Msg($"[WorldFeatures] Successfully spawned {spawnName} at {spawnPosition}");
-			}
-			else
-			{
-				MelonLogger.Warning($"[WorldFeatures] Prefab not found for {spawnName} - falling back to UI");
+			case 2: // GreedAltar
+			case 8: // BalanceShrine
+				MelonLogger.Msg("[WorldFeatures] Calling native SpawnShrines()...");
+				var spawnShrinesMethod = spawnType.GetMethod("SpawnShrines");
+				if (spawnShrinesMethod != null) spawnShrinesMethod.Invoke(spawnInteractables, null);
+				MelonLogger.Msg("[WorldFeatures] ✅ Spawned shrines batch");
+				break;
+
+			case 6: // Moai
+			case 7: // ShadyGuy
+			case 9: // Microwave
+				MelonLogger.Msg("[WorldFeatures] Calling native SpawnShit()...");
+				var spawnShitMethod = spawnType.GetMethod("SpawnShit");
+				if (spawnShitMethod != null) spawnShitMethod.Invoke(spawnInteractables, null);
+				MelonLogger.Msg("[WorldFeatures] ✅ Spawned all interactables");
+				break;
+
+			default:
+				MelonLogger.Warning($"[WorldFeatures] Encounter type {encounterName} triggers UI screen");
 				EncounterWindows encounterWindows = Object.FindObjectOfType<EncounterWindows>();
 				if ((Object)(object)encounterWindows != (Object)null)
 				{
 					encounterWindows.AddEncounter((EEncounter)encounterId);
+					MelonLogger.Msg($"[WorldFeatures] Triggered UI encounter: {encounterName}");
 				}
-			}
+				break;
+		}
 		}
 		catch (Exception ex)
 		{
