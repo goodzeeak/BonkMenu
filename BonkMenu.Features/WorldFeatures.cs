@@ -50,7 +50,8 @@ public static class WorldFeatures
 			MelonLogger.Error($"[WorldFeatures] Failed to get spawn position: {ex.Message}");
 		}
 	}
-
+	
+	// Prefab cache structure
 	private class EncounterPrefabCache
 	{
 		public GameObject chest;
@@ -64,11 +65,21 @@ public static class WorldFeatures
 		public GameObject pot;
 	}
 
+	// Static cache that persists even when scene is unloaded (paused)
+	private static EncounterPrefabCache _prefabCache = null;
+	private static bool _cacheInitialized = false;
+
 	private static EncounterPrefabCache ExtractAllPrefabs()
 	{
-		var cache = new EncounterPrefabCache();
-		
+		// If we already have a cache, use it
+		if (_cacheInitialized && _prefabCache != null)
+		{
+			MelonLogger.Msg("[WorldFeatures] Using cached prefabs");
+			return _prefabCache;
+		}
+
 		MelonLogger.Msg("[WorldFeatures] Starting prefab extraction...");
+		var cache = new EncounterPrefabCache();
 		
 		try
 		{
@@ -83,13 +94,6 @@ public static class WorldFeatures
 				componentTypes.Add(comp.GetType().Name);
 			}
 			MelonLogger.Msg($"[WorldFeatures] Unique component types in scene: {componentTypes.Count}");
-			
-			// Log ALL component types to see what we have
-			MelonLogger.Msg("[WorldFeatures] All component types:");
-			foreach (var typeName in componentTypes)
-			{
-				MelonLogger.Msg($"[WorldFeatures]   - {typeName}");
-			}
 			
 			bool foundSpawnInteractables = false;
 			bool foundRandomObjectPlacer = false;
@@ -227,16 +231,17 @@ public static class WorldFeatures
 				}
 			}
 			
-			// Warn if components not found
-			if (!foundSpawnInteractables)
+			// If we found components, cache the results
+			if (foundSpawnInteractables || foundRandomObjectPlacer)
 			{
-				MelonLogger.Warning("[WorldFeatures] SpawnInteractables component NOT FOUND!");
-				MelonLogger.Warning("[WorldFeatures] Are you in a procedural run? (Not menu/tutorial/boss arena)");
+				_prefabCache = cache;
+				_cacheInitialized = true;
+				MelonLogger.Msg("[WorldFeatures] ✅ Prefabs cached successfully! Cache will persist across pause/unpause.");
 			}
-			if (!foundRandomObjectPlacer)
+			else
 			{
-				MelonLogger.Warning("[WorldFeatures] RandomObjectPlacer component NOT FOUND!");
-				MelonLogger.Warning("[WorldFeatures] Physical encounter spawning only works in procedural maps");
+				MelonLogger.Warning("[WorldFeatures] ⚠️ Components not found - scene may be paused/unloaded");
+				MelonLogger.Warning("[WorldFeatures] To cache prefabs: unpause the game briefly, then pause and try again");
 			}
 			
 			MelonLogger.Msg("[WorldFeatures] Prefab extraction complete");
@@ -248,6 +253,15 @@ public static class WorldFeatures
 		}
 		
 		return cache;
+	}
+	
+	// Public method to force refresh the cache (useful for testing)
+	public static void RefreshPrefabCache()
+	{
+		MelonLogger.Msg("[WorldFeatures] Forcing prefab cache refresh...");
+		_cacheInitialized = false;
+		_prefabCache = null;
+		ExtractAllPrefabs();
 	}
 
 	public static void SpawnEncounter(int encounterId, string encounterName)
