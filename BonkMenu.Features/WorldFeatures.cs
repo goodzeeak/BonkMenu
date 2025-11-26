@@ -72,8 +72,9 @@ public static class WorldFeatures
 		
 		try
 		{
-			var allComponents = Object.FindObjectsOfType<MonoBehaviour>();
-			MelonLogger.Msg($"[WorldFeatures] Found {allComponents.Length} total MonoBehaviour components");
+			// Use FindObjectsOfTypeAll to find components even when paused/inactive
+			var allComponents = Resources.FindObjectsOfTypeAll<MonoBehaviour>();
+			MelonLogger.Msg($"[WorldFeatures] Found {allComponents.Length} total MonoBehaviour components (including inactive)");
 			
 			// DEBUG: List unique component types to see what's available
 			var componentTypes = new System.Collections.Generic.HashSet<string>();
