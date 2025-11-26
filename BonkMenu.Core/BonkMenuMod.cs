@@ -74,8 +74,37 @@ public class BonkMenuMod : MelonMod
 	
 	private System.Collections.IEnumerator DelayedPrefabExtraction()
 	{
-		// Wait 2 seconds for scene to fully load
-		yield return new UnityEngine.WaitForSeconds(2f);
+		// Poll for components to appear (map generation may take time)
+		MelonLogger.Msg("[BonkMenu] Waiting for map components to initialize...");
+		float waitTime = 0f;
+		float maxWait = 10f; // Max 10 seconds
+		bool componentsFound = false;
+		
+		while (waitTime < maxWait && !componentsFound)
+		{
+			yield return new UnityEngine.WaitForSeconds(0.5f);
+			waitTime += 0.5f;
+			
+			// Check if spawn components exist yet
+			var allComps = UnityEngine.Resources.FindObjectsOfTypeAll<UnityEngine.MonoBehaviour>();
+			foreach (var comp in allComps)
+			{
+				if (comp.GetType().Name == "SpawnInteractables" || comp.GetType().Name == "RandomObjectPlacer")
+				{
+					componentsFound = true;
+					break;
+				}
+			}
+		}
+		
+		if (componentsFound)
+		{
+			MelonLogger.Msg($"[BonkMenu] Components found after {waitTime:F1}s - extracting prefabs...");
+		}
+		else
+		{
+			MelonLogger.Warning($"[BonkMenu] Components not found after {maxWait}s - attempting extraction anyway...");
+		}
 		
 		try
 		{
