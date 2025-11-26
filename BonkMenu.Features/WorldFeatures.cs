@@ -136,56 +136,64 @@ public static class WorldFeatures
 			MelonLogger.Msg($"[WorldFeatures] ✅ Asset dump exported to: {exportPath}");
 			MelonLogger.Msg($"[WorldFeatures] Found {potentialPrefabCount} potential encounter-related objects");
 			
-			// Now try to extract from the dump
+			// Now try to extract by GameObject NAME (since IL2CPP hides component types)
+			MelonLogger.Msg("[WorldFeatures] Searching for prefabs by name...");
+			
 			foreach (var obj in allObjects)
 			{
 				if (obj == null) continue;
 				
-				foreach (var comp in obj.GetComponents<MonoBehaviour>())
+				var name = obj.name;
+				var nameLower = name.ToLower();
+				var scene = obj.scene.name;
+				
+				// Look for scene objects we can clone as prefabs
+				// Chests
+				if (cache.chest == null && name.Contains("Chest") && !name.Contains("Free") && scene == "GeneratedMap")
 				{
-					if (comp == null) continue;
-					var compType = comp.GetType().Name;
-					
-					if (cache.chest == null && compType == "InteractableChest" && !obj.name.ToLower().Contains("free"))
-					{
-						cache.chest = obj;
-						MelonLogger.Msg($"[WorldFeatures] Found chest: {obj.name}");
-					}
-					if (cache.chestFree == null && compType == "InteractableChest" && obj.name.ToLower().Contains("free"))
-					{
-						cache.chestFree = obj;
-						MelonLogger.Msg($"[WorldFeatures] Found free chest: {obj.name}");
-					}
-					if (cache.greedAltar == null && compType == "InteractableAltarGreed")
-					{
-						cache.greedAltar = obj;
-						MelonLogger.Msg($"[WorldFeatures] Found greed altar: {obj.name}");
-					}
-					if (cache.moai == null && compType == "InteractableShrineMoai")
-					{
-						cache.moai = obj;
-						MelonLogger.Msg($"[WorldFeatures] Found moai: {obj.name}");
-					}
-					if (cache.shadyGuy == null && compType == "InteractableShadyGuy")
-					{
-						cache.shadyGuy = obj;
-						MelonLogger.Msg($"[WorldFeatures] Found shady guy: {obj.name}");
-					}
-					if (cache.balanceShrine == null && compType == "InteractableShrineBalance")
-					{
-						cache.balanceShrine = obj;
-						MelonLogger.Msg($"[WorldFeatures] Found balance shrine: {obj.name}");
-					}
-					if (cache.microwave == null && compType == "InteractableMicrowave")
-					{
-						cache.microwave = obj;
-						MelonLogger.Msg($"[WorldFeatures] Found microwave: {obj.name}");
-					}
-					if (cache.pot == null && compType == "InteractablePot")
-					{
-						cache.pot = obj;
-						MelonLogger.Msg($"[WorldFeatures] Found pot: {obj.name}");
-					}
+					cache.chest = obj;
+					MelonLogger.Msg($"[WorldFeatures] Found chest prefab: {name}");
+				}
+				if (cache.chestFree == null && name.Contains("ChestFree") && scene == "GeneratedMap")
+				{
+					cache.chestFree = obj;
+					MelonLogger.Msg($"[WorldFeatures] Found free chest prefab: {name}");
+				}
+				
+				// Shrines and Altars
+				if (cache.greedAltar == null && name.Contains("GreedShrine") && scene == "GeneratedMap")
+				{
+					cache.greedAltar = obj;
+					MelonLogger.Msg($"[WorldFeatures] Found greed altar prefab: {name}");
+				}
+				if (cache.moai == null && name.Contains("ShrineMaoi") && scene == "GeneratedMap")
+				{
+					cache.moai = obj;
+					MelonLogger.Msg($"[WorldFeatures] Found moai prefab: {name}");
+				}
+				if (cache.balanceShrine == null && nameLower.Contains("balance") && nameLower.Contains("shrine") && scene == "GeneratedMap")
+				{
+					cache.balanceShrine = obj;
+					MelonLogger.Msg($"[WorldFeatures] Found balance shrine prefab: {name}");
+				}
+				
+				// NPCs
+				if (cache.shadyGuy == null && name.Contains("ShadyGuy") && scene == "GeneratedMap")
+				{
+					cache.shadyGuy = obj;
+					MelonLogger.Msg($"[WorldFeatures] Found shady guy prefab: {name}");
+				}
+				
+				// Interactables
+				if (cache.microwave == null && name.Contains("Microwave") && scene == "GeneratedMap")
+				{
+					cache.microwave = obj;
+					MelonLogger.Msg($"[WorldFeatures] Found microwave prefab: {name}");
+				}
+				if (cache.pot == null && nameLower.Contains("pot") && scene == "GeneratedMap")
+				{
+					cache.pot = obj;
+					MelonLogger.Msg($"[WorldFeatures] Found pot prefab: {name}");
 				}
 			}
 			
