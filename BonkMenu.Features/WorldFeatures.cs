@@ -342,6 +342,22 @@ public static class WorldFeatures
 
 			if (spawnedObject != null)
 			{
+				// Proper initialization
+				spawnedObject.SetActive(true);
+				spawnedObject.layer = LayerMask.NameToLayer("Default"); // Set to default layer
+				
+				// Ensure object is part of the scene, not DontDestroyOnLoad
+				Object.DontDestroyOnLoad(spawnedObject);
+				
+				// Enable all components
+				foreach (var component in spawnedObject.GetComponents<MonoBehaviour>())
+				{
+					if (component != null)
+					{
+						component.enabled = true;
+					}
+				}
+				
 				MelonLogger.Msg($"[WorldFeatures] Successfully spawned {spawnName} at {spawnPosition}");
 			}
 			else
