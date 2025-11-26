@@ -75,6 +75,22 @@ public static class WorldFeatures
 			var allComponents = Object.FindObjectsOfType<MonoBehaviour>();
 			MelonLogger.Msg($"[WorldFeatures] Found {allComponents.Length} total MonoBehaviour components");
 			
+			// DEBUG: List unique component types to see what's available
+			var componentTypes = new System.Collections.Generic.HashSet<string>();
+			foreach (var comp in allComponents)
+			{
+				componentTypes.Add(comp.GetType().Name);
+			}
+			MelonLogger.Msg($"[WorldFeatures] Unique component types in scene: {componentTypes.Count}");
+			// Log types that might be related to spawning
+			foreach (var typeName in componentTypes)
+			{
+				if (typeName.Contains("Spawn") || typeName.Contains("Placer") || typeName.Contains("Map") || typeName.Contains("Generation"))
+				{
+					MelonLogger.Msg($"[WorldFeatures]   - {typeName}");
+				}
+			}
+			
 			bool foundSpawnInteractables = false;
 			bool foundRandomObjectPlacer = false;
 			
