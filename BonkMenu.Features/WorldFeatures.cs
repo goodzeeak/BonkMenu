@@ -83,165 +83,89 @@ public static class WorldFeatures
 		
 		try
 		{
-			// Use FindObjectsOfTypeAll to find components even when paused/inactive
-			var allComponents = Resources.FindObjectsOfTypeAll<MonoBehaviour>();
-			MelonLogger.Msg($"[WorldFeatures] Found {allComponents.Length} total MonoBehaviour components (including inactive)");
+			// Try Method 1: Load from Resources by name
+			MelonLogger.Msg("[WorldFeatures] Method 1: Attempting to load prefabs from Resources...");
 			
-			// DEBUG: List unique component types to see what's available
-			var componentTypes = new System.Collections.Generic.HashSet<string>();
-			foreach (var comp in allComponents)
+			// Try loading common prefab names
+			var resourcePrefabs = Resources.LoadAll<GameObject>("");
+			MelonLogger.Msg($"[WorldFeatures] Found {resourcePrefabs.Length} total GameObjects in Resources");
+			
+			foreach (var prefab in resourcePrefabs)
 			{
-				componentTypes.Add(comp.GetType().Name);
-			}
-			MelonLogger.Msg($"[WorldFeatures] Unique component types in scene: {componentTypes.Count}");
-			
-			bool foundSpawnInteractables = false;
-			bool foundRandomObjectPlacer = false;
-			
-			// Extract from SpawnInteractables
-			foreach (var component in allComponents)
-			{
-				if (component.GetType().Name == "SpawnInteractables")
+				if (prefab == null) continue;
+				var name = prefab.name.ToLower();
+				
+				// Check for chest types
+				if (name.Contains("chest") && !name.Contains("free"))
 				{
-					foundSpawnInteractables = true;
-					MelonLogger.Msg("[WorldFeatures] Found SpawnInteractables component!");
-					
-					var chestField = component.GetType().GetField("chest");
-					var chestFreeField = component.GetType().GetField("chestFree");
-					
-					if (chestField != null)
-					{
-						cache.chest = chestField.GetValue(component) as GameObject;
-						MelonLogger.Msg($"[WorldFeatures] Chest prefab: {(cache.chest != null ? "FOUND" : "NULL")}");
-					}
-					if (chestFreeField != null)
-					{
-						cache.chestFree = chestFreeField.GetValue(component) as GameObject;
-						MelonLogger.Msg($"[WorldFeatures] ChestFree prefab: {(cache.chestFree != null ? "FOUND" : "NULL")}");
-					}
+					if (cache.chest == null) cache.chest = prefab;
+					MelonLogger.Msg($"[WorldFeatures] Found chest: {prefab.name}");
+				}
+				if (name.Contains("chestfree") || (name.Contains("chest") && name.Contains("free")))
+				{
+					if (cache.chestFree == null) cache.chestFree = prefab;
+					MelonLogger.Msg($"[WorldFeatures] Found free chest: {prefab.name}");
 				}
 				
-				// Extract from RandomObjectPlacer
-				if (component.GetType().Name == "RandomObjectPlacer")
+				// Check components for other types
+				foreach (var comp in prefab.GetComponents<MonoBehaviour>())
 				{
-					foundRandomObjectPlacer = true;
-					MelonLogger.Msg("[WorldFeatures] Found RandomObjectPlacer component!");
+					var compType = comp.GetType().Name;
 					
-					var greedShrinesField = component.GetType().GetField("greedShrines");
-					var chargeShrinesField = component.GetType().GetField("chargeShrineSpawns");
-					var randomObjectsField = component.GetType().GetField("randomObjects");
-					
-					// Get greed shrine prefabs
-					if (greedShrinesField != null)
+					if (cache.greedAltar == null && compType == "InteractableAltarGreed")
 					{
-						var greedShrineObj = greedShrinesField.GetValue(component);
-						if (greedShrineObj != null)
-						{
-							var prefabsField = greedShrineObj.GetType().GetField("prefabs");
-							if (prefabsField != null)
-							{
-								var prefabs = prefabsField.GetValue(greedShrineObj) as GameObject[];
-								if (prefabs != null && prefabs.Length > 0)
-								{
-									cache.greedAltar = prefabs[0];
-									MelonLogger.Msg($"[WorldFeatures] Greed altar prefab: FOUND ({prefabs.Length} variants)");
-								}
-							}
-						}
+						cache.greedAltar = prefab;
+						MelonLogger.Msg($"[WorldFeatures] Found greed altar: {prefab.name}");
 					}
-					
-					// Get charge shrine prefabs
-					if (chargeShrinesField != null)
+					if (cache.moai == null && compType == "InteractableShrineMoai")
 					{
-						var chargeShrineObj = chargeShrinesField.GetValue(component);
-						if (chargeShrineObj != null)
-						{
-							var prefabsField = chargeShrineObj.GetType().GetField("prefabs");
-							if (prefabsField != null)
-							{
-								var prefabs = prefabsField.GetValue(chargeShrineObj) as GameObject[];
-								if (prefabs != null && prefabs.Length > 0)
-								{
-									cache.chargeShrine = prefabs[0];
-									MelonLogger.Msg($"[WorldFeatures] Charge shrine prefab: FOUND ({prefabs.Length} variants)");
-								}
-							}
-						}
+						cache.moai = prefab;
+						MelonLogger.Msg($"[WorldFeatures] Found moai: {prefab.name}");
 					}
-					
-					// Get random objects (contains pots, shrines, altars, etc.)
-					if (randomObjectsField != null)
+					if (cache.shadyGuy == null && compType == "InteractableShadyGuy")
 					{
-						var randomObjects = randomObjectsField.GetValue(component) as Array;
-						if (randomObjects != null)
-						{
-							MelonLogger.Msg($"[WorldFeatures] Found {randomObjects.Length} random object groups");
-							
-							foreach (var randomObj in randomObjects)
-							{
-								if (randomObj == null) continue;
-								
-								var prefabsField = randomObj.GetType().GetField("prefabs");
-								if (prefabsField != null)
-								{
-									var prefabs = prefabsField.GetValue(randomObj) as GameObject[];
-									if (prefabs != null)
-									{
-										foreach (var prefab in prefabs)
-										{
-											if (prefab == null) continue;
-											
-											// Identify prefab by component type names
-											foreach (var comp in prefab.GetComponents<MonoBehaviour>())
-											{
-												var compType = comp.GetType().Name;
-												
-												if (cache.pot == null && compType == "InteractablePot")
-												{
-													cache.pot = prefab;
-													MelonLogger.Msg("[WorldFeatures] Pot prefab: FOUND");
-												}
-												if (cache.shadyGuy == null && compType == "InteractableShadyGuy")
-												{
-													cache.shadyGuy = prefab;
-													MelonLogger.Msg("[WorldFeatures] Shady Guy prefab: FOUND");
-												}
-												if (cache.microwave == null && compType == "InteractableMicrowave")
-												{
-													cache.microwave = prefab;
-													MelonLogger.Msg("[WorldFeatures] Microwave prefab: FOUND");
-												}
-												if (cache.moai == null && compType == "InteractableShrineMoai")
-												{
-													cache.moai = prefab;
-													MelonLogger.Msg("[WorldFeatures] Moai prefab: FOUND");
-												}
-												if (cache.balanceShrine == null && compType == "InteractableShrineBalance")
-												{
-													cache.balanceShrine = prefab;
-													MelonLogger.Msg("[WorldFeatures] Balance Shrine prefab: FOUND");
-												}
-											}
-										}
-									}
-								}
-							}
-						}
+						cache.shadyGuy = prefab;
+						MelonLogger.Msg($"[WorldFeatures] Found shady guy: {prefab.name}");
+					}
+					if (cache.balanceShrine == null && compType == "InteractableShrineBalance")
+					{
+						cache.balanceShrine = prefab;
+						MelonLogger.Msg($"[WorldFeatures] Found balance shrine: {prefab.name}");
+					}
+					if (cache.microwave == null && compType == "InteractableMicrowave")
+					{
+						cache.microwave = prefab;
+						MelonLogger.Msg($"[WorldFeatures] Found microwave: {prefab.name}");
+					}
+					if (cache.pot == null && compType == "InteractablePot")
+					{
+						cache.pot = prefab;
+						MelonLogger.Msg($"[WorldFeatures] Found pot: {prefab.name}");
 					}
 				}
 			}
 			
-			// If we found components, cache the results
-			if (foundSpawnInteractables || foundRandomObjectPlacer)
+			// Count what we found
+			int foundCount = 0;
+			if (cache.chest != null) foundCount++;
+			if (cache.chestFree != null) foundCount++;
+			if (cache.greedAltar != null) foundCount++;
+			if (cache.moai != null) foundCount++;
+			if (cache.shadyGuy != null) foundCount++;
+			if (cache.balanceShrine != null) foundCount++;
+			if (cache.microwave != null) foundCount++;
+			if (cache.pot != null) foundCount++;
+			
+			if (foundCount > 0)
 			{
 				_prefabCache = cache;
 				_cacheInitialized = true;
-				MelonLogger.Msg("[WorldFeatures] ✅ Prefabs cached successfully! Cache will persist across pause/unpause.");
+				MelonLogger.Msg($"[WorldFeatures] ✅ Found {foundCount}/8 prefabs from Resources! Cache will persist.");
 			}
 			else
 			{
-				MelonLogger.Warning("[WorldFeatures] ⚠️ Components not found - scene may be paused/unloaded");
-				MelonLogger.Warning("[WorldFeatures] To cache prefabs: unpause the game briefly, then pause and try again");
+				MelonLogger.Warning("[WorldFeatures] ⚠️ No prefabs found in Resources");
+				MelonLogger.Warning("[WorldFeatures] Physical encounter spawning may not work");
 			}
 			
 			MelonLogger.Msg("[WorldFeatures] Prefab extraction complete");
