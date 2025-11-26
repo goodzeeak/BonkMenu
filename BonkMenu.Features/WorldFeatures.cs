@@ -57,7 +57,6 @@ public static class WorldFeatures
 		public GameObject chest;
 		public GameObject chestFree;
 		public GameObject greedAltar;
-		public GameObject chargeShrine;
 		public GameObject balanceShrine;
 		public GameObject moai;
 		public GameObject shadyGuy;
@@ -83,64 +82,109 @@ public static class WorldFeatures
 		
 		try
 		{
-			// Try Method 1: Load from Resources by name
-			MelonLogger.Msg("[WorldFeatures] Method 1: Attempting to load prefabs from Resources...");
+			// DIAGNOSTIC: Dump ALL available assets to file
+			var allObjects = Resources.FindObjectsOfTypeAll<GameObject>();
+			MelonLogger.Msg($"[WorldFeatures] Found {allObjects.Length} total GameObjects");
 			
-			// Try loading common prefab names
-			var resourcePrefabs = Resources.LoadAll<GameObject>("");
-			MelonLogger.Msg($"[WorldFeatures] Found {resourcePrefabs.Length} total GameObjects in Resources");
+			// Export to file for analysis
+			var exportPath = "BonkMenu_AssetDump.txt";
+			var sb = new System.Text.StringBuilder();
+			sb.AppendLine("=== BONKMENU ASSET DUMP ===");
+			sb.AppendLine($"Total GameObjects found: {allObjects.Length}");
+			sb.AppendLine($"Timestamp: {System.DateTime.Now}");
+			sb.AppendLine("");
+			sb.AppendLine("=== ALL GAMEOBJECTS ===");
 			
-			foreach (var prefab in resourcePrefabs)
+			int potentialPrefabCount = 0;
+			foreach (var obj in allObjects)
 			{
-				if (prefab == null) continue;
-				var name = prefab.name.ToLower();
+				if (obj == null) continue;
 				
-				// Check for chest types
-				if (name.Contains("chest") && !name.Contains("free"))
+				var name = obj.name;
+				var scene = obj.scene.name;
+				var isPrefab = string.IsNullOrEmpty(scene);
+				
+				// Look for interactable components
+				var components = new System.Collections.Generic.List<string>();
+				foreach (var comp in obj.GetComponents<MonoBehaviour>())
 				{
-					if (cache.chest == null) cache.chest = prefab;
-					MelonLogger.Msg($"[WorldFeatures] Found chest: {prefab.name}");
-				}
-				if (name.Contains("chestfree") || (name.Contains("chest") && name.Contains("free")))
-				{
-					if (cache.chestFree == null) cache.chestFree = prefab;
-					MelonLogger.Msg($"[WorldFeatures] Found free chest: {prefab.name}");
+					if (comp == null) continue;
+					var typeName = comp.GetType().Name;
+					components.Add(typeName);
+					
+					// Check for encounter-related components
+					if (typeName.Contains("Interactable") || typeName.Contains("Chest") || typeName.Contains("Shrine") || typeName.Contains("Altar"))
+					{
+						potentialPrefabCount++;
+						sb.AppendLine($">>> POTENTIAL: {name} | Scene: {(isPrefab ? "[PREFAB]" : scene)} | Component: {typeName}");
+					}
 				}
 				
-				// Check components for other types
-				foreach (var comp in prefab.GetComponents<MonoBehaviour>())
+				// Log all objects with their components
+				if (components.Count > 0)
 				{
+					sb.AppendLine($"{name} | Scene: {(isPrefab ? "[PREFAB]" : scene)} | Components: {string.Join(", ", components)}");
+				}
+			}
+			
+			sb.AppendLine("");
+			sb.AppendLine($"=== SUMMARY ===");
+			sb.AppendLine($"Total GameObjects: {allObjects.Length}");
+			sb.AppendLine($"Potential Encounter Prefabs: {potentialPrefabCount}");
+			
+			System.IO.File.WriteAllText(exportPath, sb.ToString());
+			MelonLogger.Msg($"[WorldFeatures] ✅ Asset dump exported to: {exportPath}");
+			MelonLogger.Msg($"[WorldFeatures] Found {potentialPrefabCount} potential encounter-related objects");
+			
+			// Now try to extract from the dump
+			foreach (var obj in allObjects)
+			{
+				if (obj == null) continue;
+				
+				foreach (var comp in obj.GetComponents<MonoBehaviour>())
+				{
+					if (comp == null) continue;
 					var compType = comp.GetType().Name;
 					
+					if (cache.chest == null && compType == "InteractableChest" && !obj.name.ToLower().Contains("free"))
+					{
+						cache.chest = obj;
+						MelonLogger.Msg($"[WorldFeatures] Found chest: {obj.name}");
+					}
+					if (cache.chestFree == null && compType == "InteractableChest" && obj.name.ToLower().Contains("free"))
+					{
+						cache.chestFree = obj;
+						MelonLogger.Msg($"[WorldFeatures] Found free chest: {obj.name}");
+					}
 					if (cache.greedAltar == null && compType == "InteractableAltarGreed")
 					{
-						cache.greedAltar = prefab;
-						MelonLogger.Msg($"[WorldFeatures] Found greed altar: {prefab.name}");
+						cache.greedAltar = obj;
+						MelonLogger.Msg($"[WorldFeatures] Found greed altar: {obj.name}");
 					}
 					if (cache.moai == null && compType == "InteractableShrineMoai")
 					{
-						cache.moai = prefab;
-						MelonLogger.Msg($"[WorldFeatures] Found moai: {prefab.name}");
+						cache.moai = obj;
+						MelonLogger.Msg($"[WorldFeatures] Found moai: {obj.name}");
 					}
 					if (cache.shadyGuy == null && compType == "InteractableShadyGuy")
 					{
-						cache.shadyGuy = prefab;
-						MelonLogger.Msg($"[WorldFeatures] Found shady guy: {prefab.name}");
+						cache.shadyGuy = obj;
+						MelonLogger.Msg($"[WorldFeatures] Found shady guy: {obj.name}");
 					}
 					if (cache.balanceShrine == null && compType == "InteractableShrineBalance")
 					{
-						cache.balanceShrine = prefab;
-						MelonLogger.Msg($"[WorldFeatures] Found balance shrine: {prefab.name}");
+						cache.balanceShrine = obj;
+						MelonLogger.Msg($"[WorldFeatures] Found balance shrine: {obj.name}");
 					}
 					if (cache.microwave == null && compType == "InteractableMicrowave")
 					{
-						cache.microwave = prefab;
-						MelonLogger.Msg($"[WorldFeatures] Found microwave: {prefab.name}");
+						cache.microwave = obj;
+						MelonLogger.Msg($"[WorldFeatures] Found microwave: {obj.name}");
 					}
 					if (cache.pot == null && compType == "InteractablePot")
 					{
-						cache.pot = prefab;
-						MelonLogger.Msg($"[WorldFeatures] Found pot: {prefab.name}");
+						cache.pot = obj;
+						MelonLogger.Msg($"[WorldFeatures] Found pot: {obj.name}");
 					}
 				}
 			}
@@ -160,12 +204,11 @@ public static class WorldFeatures
 			{
 				_prefabCache = cache;
 				_cacheInitialized = true;
-				MelonLogger.Msg($"[WorldFeatures] ✅ Found {foundCount}/8 prefabs from Resources! Cache will persist.");
+				MelonLogger.Msg($"[WorldFeatures] ✅ Found {foundCount}/8 encounter prefabs! Cache will persist.");
 			}
 			else
 			{
-				MelonLogger.Warning("[WorldFeatures] ⚠️ No prefabs found in Resources");
-				MelonLogger.Warning("[WorldFeatures] Physical encounter spawning may not work");
+				MelonLogger.Warning("[WorldFeatures] ⚠️ No prefabs found - check BonkMenu_AssetDump.txt for details");
 			}
 			
 			MelonLogger.Msg("[WorldFeatures] Prefab extraction complete");
