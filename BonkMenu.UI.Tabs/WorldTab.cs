@@ -6,12 +6,6 @@ namespace BonkMenu.UI.Tabs;
 
 public static class WorldTab
 {
-	private static readonly string[] encounters = new string[10]
-	{
-		"Levelup", "Random Stats", "Greed Altar", "Chest Normal", "Chest Free",
-		"Chest Evil", "Moai", "Shady Guy", "Balance Shrine", "Microwave"
-	};
-
 	private static readonly string[] worldObjects = new string[5]
 	{
 		"Pot", "Big Pot", "Silver Pot", "Chest", "Gold Pile"
@@ -19,7 +13,7 @@ public static class WorldTab
 
 	public static void Create(GameObject parent)
 	{
-		UIFactory.CreateSectionHeader("Encounters", parent);
+		UIFactory.CreateSectionHeader("Batch Spawning", parent);
 		CreateEncounters(parent);
 		UIFactory.CreateSpacer(8, parent);
 		UIFactory.CreateSectionHeader("World Objects", parent);
@@ -31,11 +25,22 @@ public static class WorldTab
 
 	private static void CreateEncounters(GameObject parent)
 	{
-		UIFactory.CreateSpawnerNoSlider(parent, "Spawn Encounter", encounters, delegate(int id)
+		UIFactory.CreateButton("Spawn Chests Batch", delegate
 		{
-			string encounterName = encounters[id];
-			WorldFeatures.SpawnEncounter(id, encounterName);
-		});
+			WorldFeatures.SpawnEncounter(3, "Chests Batch");
+		}, parent);
+
+		UIFactory.CreateButton("Spawn Shrines Batch", delegate
+		{
+			WorldFeatures.SpawnEncounter(2, "Shrines Batch");
+		}, parent);
+
+		UIFactory.CreateButton("Spawn Interactables Batch", delegate
+		{
+			WorldFeatures.SpawnEncounter(6, "Interactables Batch");
+		}, parent);
+
+		UIFactory.CreateSpacer(8, parent);
 
 		UIFactory.CreateButton("⏭️ Skip Current Encounter", delegate
 		{

@@ -34,6 +34,7 @@ public class BonkMenuMod : MelonMod
 		//IL_012e: Unknown result type (might be due to invalid IL or missing references)
 		MelonLogger.Msg("[BonkMenu] === BonkMenu Initialized ===");
 		KeybindConfig.LoadKeybinds();
+		Patches.Apply();
 		MelonLogger.Msg($"[BonkMenu] Press {KeybindConfig.ToggleMenuKey} to toggle menu");
 		MelonLogger.Msg("[BonkMenu] ==============================");
 	}
@@ -44,6 +45,7 @@ public class BonkMenuMod : MelonMod
 		if (sceneName == "GeneratedMap")
 		{
 			MelonLogger.Msg("[BonkMenu] GeneratedMap loaded - extracting prefabs automatically...");
+			
 			// Delay extraction slightly to ensure all components are initialized
 			MelonCoroutines.Start(DelayedPrefabExtraction());
 		}

@@ -1,9 +1,12 @@
 using System;
+using Il2Cpp;
 using Il2CppAssets.Scripts.Actors.Player;
 using Il2CppAssets.Scripts.UI.InGame.Rewards;
 using Il2CppAssets.Scripts.UI.InGame.Levelup;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.Interactables;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.Chests;
+using Il2CppInterop.Runtime;
+using Il2CppInterop.Runtime.InteropTypes;
 using MelonLoader;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -252,52 +255,57 @@ public static class WorldFeatures
 				return;
 			}
 
-		// Find native spawning component using reflection (IL2CPP hides the type)
-		var allMonoBehaviours = Object.FindObjectsOfType<MonoBehaviour>();
-		MonoBehaviour spawnInteractables = null;
-		foreach (var mb in allMonoBehaviours)
+		// Use typed FindObjectOfType (BonkAdder's approach)
+		SpawnInteractables spawner = Object.FindObjectOfType<SpawnInteractables>();
+		if ((Object)(object)spawner == (Object)null)
 		{
-			if (mb != null && mb.GetType().Name == "SpawnInteractables")
-			{
-				spawnInteractables = mb;
-				break;
-			}
-		}
-		
-		if (spawnInteractables == null)
-		{
-			MelonLogger.Error("[WorldFeatures] SpawnInteractables component not found");
+			MelonLogger.Error("[WorldFeatures] SpawnInteractables instance not found!");
 			return;
 		}
 
-		// Call native batch spawn methods via reflection
-		var spawnType = spawnInteractables.GetType();
+		// Call native methods directly
 		switch (encounterId)
 		{
 			case 3: // ChestNormal
 			case 4: // ChestFree
 			case 5: // ChestEvil
-				MelonLogger.Msg("[WorldFeatures] Calling native SpawnChests()...");
-				var spawnChestsMethod = spawnType.GetMethod("SpawnChests");
-				if (spawnChestsMethod != null) spawnChestsMethod.Invoke(spawnInteractables, null);
+				spawner.SpawnChests();
 				MelonLogger.Msg("[WorldFeatures] ✅ Spawned chests batch");
 				break;
 
 			case 2: // GreedAltar
 			case 8: // BalanceShrine
-				MelonLogger.Msg("[WorldFeatures] Calling native SpawnShrines()...");
-				var spawnShrinesMethod = spawnType.GetMethod("SpawnShrines");
-				if (spawnShrinesMethod != null) spawnShrinesMethod.Invoke(spawnInteractables, null);
-				MelonLogger.Msg("[WorldFeatures] ✅ Spawned shrines batch");
+				// Use RandomObjectPlacer for actual shrines (BonkAdder's method)
+				RandomObjectPlacer placer = Object.FindObjectOfType<RandomObjectPlacer>();
+				if ((Object)(object)placer == (Object)null)
+				{
+					MelonLogger.Error("[WorldFeatures] RandomObjectPlacer not found!");
+					break;
+				}
+				
+				try
+				{
+					int numChargeShrines = 6;
+					var field = IL2CPP.GetIl2CppField(Il2CppClassPointerStore<RandomObjectPlacer>.NativeClassPtr, "numChargeShrines");
+					unsafe
+					{
+						*(int*)(IL2CPP.Il2CppObjectBaseToPtrNotNull((Il2CppObjectBase)(object)placer) + (int)IL2CPP.il2cpp_field_get_offset(field)) = numChargeShrines;
+					}
+					placer.GenerateInteractables();
+					MelonLogger.Msg($"[WorldFeatures] ✅ Spawned {numChargeShrines} charge shrines");
+				}
+				catch (Exception ex)
+				{
+					MelonLogger.Error("[WorldFeatures] Failed to spawn shrines: " + ex.Message);
+				}
 				break;
 
 			case 6: // Moai
 			case 7: // ShadyGuy
 			case 9: // Microwave
-				MelonLogger.Msg("[WorldFeatures] Calling native SpawnShit()...");
-				var spawnShitMethod = spawnType.GetMethod("SpawnShit");
-				if (spawnShitMethod != null) spawnShitMethod.Invoke(spawnInteractables, null);
-				MelonLogger.Msg("[WorldFeatures] ✅ Spawned all interactables");
+				// SpawnShrines() actually spawns statues/moai
+				spawner.SpawnShrines();
+				MelonLogger.Msg("[WorldFeatures] ✅ Spawned statues batch");
 				break;
 
 			default:
