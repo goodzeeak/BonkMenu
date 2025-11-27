@@ -56,9 +56,18 @@ public static class TomeFeatures
 			}
 			else
 			{
-				MelonLogger.Msg("[GrantTome] Adding maxed tome: " + ((Object)tome).name);
-				tomeInventory.AddMaxedTome(tome);
-				MelonLogger.Msg("[GrantTome] Successfully granted maxed tome: " + ((Object)tome).name);
+				MelonLogger.Msg("[GrantTome] Adding tome at level 1: " + ((Object)tome).name);
+				// Get level 1 upgrade offer (Common rarity = 1)
+				var upgradeOffer = tome.GetUpgradeOffer((ERarity)1);
+				if (upgradeOffer == null)
+				{
+					MelonLogger.Warning($"[GrantTome] GetUpgradeOffer() returned null for {tomeName}");
+					return;
+				}
+				// Add tome at level 1 with Common rarity
+				tomeInventory.AddTome(tome, upgradeOffer, (ERarity)1);
+				tomeInventory.CheckMaxed();
+				MelonLogger.Msg($"[GrantTome] Successfully granted tome at level 1: {((Object)tome).name}");
 			}
 		}
 		catch (Exception ex)
