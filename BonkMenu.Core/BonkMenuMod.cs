@@ -42,13 +42,12 @@ public class BonkMenuMod : MelonMod
 	public override void OnSceneWasLoaded(int buildIndex, string sceneName)
 	{
 		// Automatically cache prefabs when entering a procedural run
-		if (sceneName == "GeneratedMap")
-		{
-			MelonLogger.Msg("[BonkMenu] GeneratedMap loaded - extracting prefabs automatically...");
-			
-			// Delay extraction slightly to ensure all components are initialized
-			MelonCoroutines.Start(DelayedPrefabExtraction());
-		}
+		// if (sceneName == "GeneratedMap")
+		// {
+		// 	// Dump fields for discovery
+		// 	// DumpFields("SpawnInteractables");
+		// 	// DumpFields("RandomObjectPlacer");
+		// }
 
 		if (!_hasModifiedXpMultiplier && sceneName == "GeneratedMap")
 		{
@@ -76,7 +75,9 @@ public class BonkMenuMod : MelonMod
 	
 	private System.Collections.IEnumerator DelayedPrefabExtraction()
 	{
+		yield break;
 		// Poll for components to appear (map generation may take time)
+		/*
 		MelonLogger.Msg("[BonkMenu] Waiting for map components to initialize...");
 		float waitTime = 0f;
 		float maxWait = 10f; // Max 10 seconds
@@ -110,12 +111,13 @@ public class BonkMenuMod : MelonMod
 		
 		try
 		{
-			WorldFeatures.RefreshPrefabCache();
+			// WorldFeatures.RefreshPrefabCache(); // REMOVED
 		}
 		catch (Exception ex)
 		{
 			MelonLogger.Error($"[BonkMenu] Failed to auto-extract prefabs: {ex.Message}");
 		}
+		*/
 	}
 
 	public override void OnUpdate()
