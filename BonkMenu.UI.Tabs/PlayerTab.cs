@@ -59,6 +59,13 @@ public static class PlayerTab
 				ModConfig.ToggleNoCooldowns();
 			}
 		}, parent);
+		UIFactory.CreateCircularToggle("∞ Unlimited Levels", ModConfig.UnlimitedLevels, delegate(bool value)
+		{
+			if (value != ModConfig.UnlimitedLevels)
+			{
+				ModConfig.ToggleUnlimitedLevels();
+			}
+		}, parent);
 	}
 
 	private static void CreateUtilities(GameObject parent)

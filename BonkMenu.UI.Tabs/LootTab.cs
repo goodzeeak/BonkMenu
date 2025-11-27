@@ -1,4 +1,5 @@
 using BonkMenu.Core;
+using BonkMenu.Features;
 using BonkMenu.UI.Components;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.Items;
@@ -28,6 +29,9 @@ public static class LootTab
 		UIFactory.CreateSpacer(8, parent);
 		UIFactory.CreateSectionHeader("Luck Modifiers", parent);
 		CreateLuckModifiers(parent);
+		UIFactory.CreateSpacer(8, parent);
+		UIFactory.CreateSectionHeader("Spawning", parent);
+		CreateSpawning(parent);
 	}
 
 	private static void CreateRarityControl(GameObject parent)
@@ -87,5 +91,43 @@ public static class LootTab
 			LootConfig.MaxLuck = value;
 		}, parent);
 		UIFactory.CreateLabel("Forces all loot/upgrade rolls to use maximum luck value", parent);
+	}
+
+	private static void CreateSpawning(GameObject parent)
+	{
+		string[] spawnOptions = new string[] 
+		{ 
+			"Chests", 
+			"Free Chests", 
+			"Statues", 
+			"Shrines",
+			"Pots",
+			"Microwaves"
+		};
+
+		UIFactory.CreateSpawnerNoSlider(parent, "Spawn Object", spawnOptions, delegate(int index)
+		{
+			switch (index)
+			{
+				case 0: // Chests
+					WorldFeatures.SpawnChests();
+					break;
+				case 1: // Free Chests
+					WorldFeatures.SpawnFreeChests();
+					break;
+				case 2: // Statues
+					WorldFeatures.SpawnStatues();
+					break;
+				case 3: // Shrines
+					WorldFeatures.SpawnShrines();
+					break;
+				case 4: // Pots
+					WorldFeatures.SpawnPots();
+					break;
+				case 5: // Microwaves
+					WorldFeatures.SpawnMicrowaves();
+					break;
+			}
+		});
 	}
 }

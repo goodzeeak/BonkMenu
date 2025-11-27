@@ -26,6 +26,8 @@ public static class ModConfig
 
 	public static bool FreezeEnemies { get; set; } = false;
 
+	public static bool UnlimitedLevels { get; set; } = true;
+
 	public static void ToggleInfiniteHealth()
 	{
 		InfiniteHealth = !InfiniteHealth;
@@ -84,5 +86,11 @@ public static class ModConfig
 	{
 		FlightMode = !FlightMode;
 		MelonLogger.Msg("Flight Mode: " + (FlightMode ? "ON" : "OFF"));
+	}
+
+	public static void ToggleUnlimitedLevels()
+	{
+		UnlimitedLevels = !UnlimitedLevels;
+		MelonLogger.Msg("Unlimited Levels: " + (UnlimitedLevels ? "ON" : "OFF"));
 	}
 }

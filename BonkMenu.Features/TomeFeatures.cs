@@ -131,7 +131,11 @@ public static class TomeFeatures
 			foreach (ETome tomeId in ownedTomes)
 			{
 				MelonLogger.Msg($"[MaxAllTomes] Maxing tome: {tomeId}");
-				GrantTome((int)tomeId, tomeId.ToString());
+				// Try to max it out (99 levels is the default max for tomes)
+				for (int i = 0; i < 99; i++)
+				{
+					GrantTome((int)tomeId, tomeId.ToString());
+				}
 				count++;
 			}
 			MelonLogger.Msg($"[MaxAllTomes] Completed - Maxed {count} tomes");
