@@ -1,0 +1,155 @@
+BonkMenu is a comprehensive mod menu with direct game system manipulation. Features 200+ items/weapons/tomes/passives with instant spawning, full stat control, enemy modifiers, debuff systems, encounter spawning, loot rarity forcing, unlock automation, and player customization. Built on custom UniverseLib with deep IL2CPP integration for seamless runtime control.
+
+====================================
+DETAILED DESCRIPTION
+====================================
+
+BonkMenu is a feature-rich, professionally designed mod menu that provides complete control over game mechanics through direct runtime manipulation. Built on a custom-tailored UniverseLib framework with deep IL2CPP integration, this mod offers unprecedented access to game systems.
+
+---
+PLAYER TAB - Complete Character Control
+---
+• Infinite Resources: Unlimited refreshes, banishes, skips, and gold
+• God Mode: Invincibility toggle for complete damage immunity
+• Movement Control: Adjustable movement speed multipliers
+• No Cooldowns: Instant ability recharge
+• Stats System: 30+ individual stat sliders including:
+  - Health, Armor, Regeneration, Evasion, Shield
+  - Damage, Attack Speed, Critical Chance/Damage, Lifesteal
+  - Movement Speed, Pickup Range, Projectile attributes
+  - XP Gain, Gold multipliers, Luck modifiers
+  - Advanced stats: Thorns, Knockback, Reroll Count, Curse effects
+• Status Effect Buffs: Apply beneficial effects instantly
+• Utility Functions: Heal to full, level up, prestige controls
+
+---
+COMBAT TAB - Enemy & Battle Management
+---
+• Combat Toggles:
+  - One-Hit Kill: Eliminate enemies instantly
+  - Freeze Enemies: Stop all enemy movement
+• Enemy Modifiers (Real-time adjustment):
+  - HP Multiplier (0.1x - 50000x)
+  - Speed Multiplier 
+  - Damage Multiplier
+  - Spawn Amount
+  - Size Modifier
+  - Elite Spawn Rate
+  - Difficulty Percentage
+• Enemy Spawning: Spawn 40+ enemy types on demand including:
+  - Basic: Skeleton variants, Goblins, Slimes, Ghosts
+  - Elite: Golden Skeleton, Armored variants, Greater Ghost
+  - Minibosses: Pig, Golem, Scorpion
+  - Special: Pharaohs (1-3), Ent variants, Tumblebone, Wisp
+  - Environmental: Bush, Cactus Shooter, Bee
+• Debuff System: Apply 7 status effects to all enemies
+  - Poison, Freeze, Burn, Stun, Echo, Charm, Bloodmark
+• Enemy Actions: Kill all enemies with one button
+
+---
+ITEMS TAB - Complete Inventory Control
+---
+• Pickups (11 types): XP, Gold, Health, Nuke, Time, Shield, Rage, Haste, Stonks, Magnet, Silver
+• Weapons (30 types): Spawn with quantity control
+  - Melee: Sword, Katana, Axe, Bone, Hero/Corrupt Sword
+  - Magic: Fire/Lightning/Frostwalker Staffs, Blue Magic, Aura
+  - Ranged: Revolver, Bow, Sniper, Shotgun, Chunkers
+  - Special: Rockets, Bananarang, Tornado, Dragon's Breath, BlackHole
+  - Unique: Dexecutioner, Bluetooth Dagger, Dice, Space Noodle
+  - Batch Operations: Grant All Weapons, Max All Weapons
+• Tomes (27 types): All stat-boosting tomes available
+  - Core: Damage, Agility, Cooldown, Quantity, Knockback
+  - Defense: Armor, Health, Regeneration, Evasion, Shield
+  - Utility: Size, Speed, Duration, Attraction, Luck, XP
+  - Special: Golden, Precision, Blood, Thorns, Bounce, Cursed, Silver, Balance, Chaos, Gambler, Hoarder
+  - Batch Operations: Grant All Tomes, Max All Tomes
+• Passive Items (80+ types): Full passive item library
+  - Offensive: Demon Blade, Dragonfire, Lightning Orb, Toxic Barrel
+  - Defensive: Chonkplate, Golden Shield, Spikey Shield, Gasmask
+  - Utility: Backpack, Clover, Campfire, Feathers, Medkit
+  - Speed: Golden Sneakers, Turbo Socks, Rollerblades
+  - Special: Za Warudo, Overpowered Lamp, Soul Harvester, Kevin
+  - Unique: Moldy Cheese, Spicy Meatball, Borgar, Forbidden Juice
+  - Batch Operation: Grant All Items
+• Passive Abilities (21 types):
+  - Bullseye, Speed Demon, Warrior, Flow State, Crit Happens
+  - Wall Climb, Float, Enduring, Plague, Quantum, Shadowstep
+  - Vampire, Curse, Stonks, Lock In, Zap, Gamba
+
+---
+UNLOCKS TAB - Progression Management
+---
+• Global Unlocks:
+  - Unlock EVERYTHING (master unlock)
+  - Unlock All Characters
+  - Unlock All Skins
+  - Unlock All Maps
+• Character Progression:
+  - Max Rank All Characters instantly
+
+---
+LOOT TAB - Drop Manipulation
+---
+• Rarity Control System:
+  - Force Upgrade Rarity: Common → Legendary (5 tiers)
+  - Force Item Rarity: Common → Legendary (4 tiers)
+  - Real-time rarity selector with visual feedback
+• Luck Modifiers:
+  - Max Luck toggle forces best possible rolls
+  - Affects all loot/upgrade probability calculations
+
+---
+WORLD FEATURES - Environment Control
+---
+• Encounter Spawning: Native game encounter system integration
+  - Chests: Normal, Free, Evil variants
+  - Shrines: Greed Altar, Balance Shrine, Charge Shrines
+  - NPCs: Shady Guy, Moai Statue
+  - Interactables: Microwave, Pots
+• XP System: Automatic XP multiplier uncapping (99999x)
+• Prefab Caching: Automatic asset extraction on map load
+
+---
+TECHNICAL IMPLEMENTATION
+---
+• Framework: Custom-built UniverseLib integration
+• IL2CPP Support: Full runtime manipulation using Il2CppInterop
+• Mod Loader: MelonLoader-based architecture
+• Direct Reflection: Native method calls for maximum compatibility
+• Memory-Safe: Proper null checking and exception handling
+• Performance: Optimized update loops, lazy tab initialization
+• UI System: Custom Unity UI with draggable interface
+• Persistence: Prefab caching system for runtime efficiency
+
+---
+USER INTERFACE
+---
+• Professional dark theme with cyan accents
+• Tabbed interface: Player, Combat, Items, Unlocks, Loot, About
+• Draggable menu window
+• Organized sections with clear headers
+• Circular toggles for boolean options
+• Precision sliders for numeric values
+• Item spawners with quantity control
+• Dropdown selectors for enums
+• Real-time feedback and status updates
+
+---
+USAGE
+---
+• Toggle Menu: Configurable keybind (default shown on startup)
+• Drag: Click and drag header to reposition
+• Tabs: Navigate between feature categories
+• All changes apply in real-time during gameplay
+• No game restart required for most features
+
+---
+COMPATIBILITY & REQUIREMENTS
+---
+• MelonLoader (latest version)
+• IL2CPP game version
+• Custom UniverseLib build (included)
+• Works with procedurally generated runs
+• Compatible with base game systems
+
+BonkMenu represents a complete game manipulation suite with professional UI/UX and robust error handling. Every feature is designed for reliability and ease of use.
