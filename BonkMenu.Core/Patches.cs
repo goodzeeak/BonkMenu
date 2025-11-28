@@ -25,6 +25,12 @@ public static class Patches
 			// Apply golden shrine patch
 			BonkMenu.Patches.GoldenShrinePatch.Apply(_harmonyInstance);
 
+			// Apply pot variant patch
+			BonkMenu.Patches.PotVariantPatch.Apply(_harmonyInstance);
+
+			// Apply shady guy variant patch
+			BonkMenu.Patches.ShadyGuyVariantPatch.Apply(_harmonyInstance);
+
 			MelonLogger.Msg("[Patches] All patches applied successfully!");
 		}
 		catch (Exception ex)

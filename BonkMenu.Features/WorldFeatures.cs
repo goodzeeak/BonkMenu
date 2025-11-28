@@ -238,6 +238,144 @@ public static class WorldFeatures
         }
     }
 
+    // Silver Pots - Spawns normal pots then modifies them to silver
+    public static void SpawnSilverPots(int amount = 5)
+    {
+        try
+        {
+            // Get existing pots before spawning
+            var existingPots = Object.FindObjectsOfType(Il2CppType.Of<InteractablePot>());
+            var existingPotSet = new System.Collections.Generic.HashSet<IntPtr>();
+            foreach (var pot in existingPots)
+            {
+                existingPotSet.Add(((Il2CppObjectBase)pot).Pointer);
+            }
+
+            // Spawn normal pots
+            SpawnPots(1);
+            
+            // Find newly spawned pots and make them silver
+            var allPots = Object.FindObjectsOfType(Il2CppType.Of<InteractablePot>());
+            int silverCount = 0;
+            
+            foreach (var pot in allPots)
+            {
+                IntPtr potPtr = ((Il2CppObjectBase)pot).Pointer;
+                if (!existingPotSet.Contains(potPtr) && silverCount < amount)
+                {
+                    // Offset 0x82 is isSilver
+                    System.Runtime.InteropServices.Marshal.WriteByte(potPtr + 0x82, 1);
+                    silverCount++;
+                }
+            }
+            
+            MelonLogger.Msg($"[Bonk Menu] Spawned {silverCount} Silver Pots!");
+        }
+        catch (Exception ex)
+        {
+            MelonLogger.Error("[BonkMenu] Failed to spawn Silver Pots: " + ex.Message);
+        }
+    }
+
+    // Big Pots (Microwaves) - Spawns normal microwaves then modifies them to big
+    public static void SpawnBigPots(int amount = 5)
+    {
+        try
+        {
+            // Get existing pots before spawning
+            var existingPots = Object.FindObjectsOfType(Il2CppType.Of<InteractablePot>());
+            var existingPotSet = new System.Collections.Generic.HashSet<IntPtr>();
+            foreach (var pot in existingPots)
+            {
+                existingPotSet.Add(((Il2CppObjectBase)pot).Pointer);
+            }
+
+            // Spawn microwaves
+            SpawnMicrowaves(1);
+            
+            // Find newly spawned pots and make them big
+            var allPots = Object.FindObjectsOfType(Il2CppType.Of<InteractablePot>());
+            int bigCount = 0;
+            
+            foreach (var pot in allPots)
+            {
+                IntPtr potPtr = ((Il2CppObjectBase)pot).Pointer;
+                if (!existingPotSet.Contains(potPtr) && bigCount < amount)
+                {
+                    // Offset 0x81 is isBig
+                    System.Runtime.InteropServices.Marshal.WriteByte(potPtr + 0x81, 1);
+                    bigCount++;
+                }
+            }
+            
+            MelonLogger.Msg($"[BonkMenu] Spawned {bigCount} Big Pots (Microwaves)!");
+        }
+        catch (Exception ex)
+        {
+            MelonLogger.Error("[BonkMenu] Failed to spawn Big Pots: " + ex.Message);
+        }
+    }
+
+    // Shady Merchant Rare - Uses ShadyGuyVariantPatch
+    public static void SpawnShadyMerchantRare(int amount = 1)
+    {
+        try
+        {
+            BonkMenu.Patches.ShadyGuyVariantPatch.SpawnNextRarity = 1; // Rare
+            BonkMenu.Patches.ShadyGuyVariantPatch.RarityMerchantsRemaining = amount;
+            
+            SpawnShadyMerchant(amount);
+            
+            MelonLogger.Msg($"[BonkMenu] Initiated spawning of {amount} Rare Shady Merchant(s)!");
+        }
+        catch (Exception ex)
+        {
+            MelonLogger.Error("[BonkMenu] Failed to spawn Rare Shady Merchant: " + ex.Message);
+            BonkMenu.Patches.ShadyGuyVariantPatch.SpawnNextRarity = -1;
+            BonkMenu.Patches.ShadyGuyVariantPatch.RarityMerchantsRemaining = 0;
+        }
+    }
+
+    // Shady Merchant Epic - Uses ShadyGuyVariantPatch
+    public static void SpawnShadyMerchantEpic(int amount = 1)
+    {
+        try
+        {
+            BonkMenu.Patches.ShadyGuyVariantPatch.SpawnNextRarity = 2; // Epic
+            BonkMenu.Patches.ShadyGuyVariantPatch.RarityMerchantsRemaining = amount;
+            
+            SpawnShadyMerchant(amount);
+            
+            MelonLogger.Msg($"[BonkMenu] Initiated spawning of {amount} Epic Shady Merchant(s)!");
+        }
+        catch (Exception ex)
+        {
+            MelonLogger.Error("[BonkMenu] Failed to spawn Epic Shady Merchant: " + ex.Message);
+            BonkMenu.Patches.ShadyGuyVariantPatch.SpawnNextRarity = -1;
+            BonkMenu.Patches.ShadyGuyVariantPatch.RarityMerchantsRemaining = 0;
+        }
+    }
+
+    // Shady Merchant Legendary - Uses ShadyGuyVariantPatch
+    public static void SpawnShadyMerchantLegendary(int amount = 1)
+    {
+        try
+        {
+            BonkMenu.Patches.ShadyGuyVariantPatch.SpawnNextRarity = 3; // Legendary
+            BonkMenu.Patches.ShadyGuyVariantPatch.RarityMerchantsRemaining = amount;
+            
+            SpawnShadyMerchant(amount);
+            
+            MelonLogger.Msg($"[BonkMenu] Initiated spawning of {amount} Legendary Shady Merchant(s)!");
+        }
+        catch (Exception ex)
+        {
+            MelonLogger.Error("[BonkMenu] Failed to spawn Legendary Shady Merchant: " + ex.Message);
+            BonkMenu.Patches.ShadyGuyVariantPatch.SpawnNextRarity = -1;
+            BonkMenu.Patches.ShadyGuyVariantPatch.RarityMerchantsRemaining = 0;
+        }
+    }
+
     public static void SpawnPots(int amountMultiplier = 1)
     {
         RandomObjectPlacer placer = Object.FindObjectOfType<RandomObjectPlacer>();
