@@ -1,7 +1,11 @@
 using System;
 using HarmonyLib;
 using Il2CppInterop.Runtime;
+using Il2CppInterop.Runtime.InteropTypes;
 using MelonLoader;
+using UnityEngine;
+using Il2CppAssets.Scripts.Inventory__Items__Pickups;
+using Il2CppAssets.Scripts.Inventory__Items__Pickups.Items;
 
 namespace BonkMenu.Patches;
 
@@ -18,144 +22,130 @@ public static class ShadyGuyVariantPatch
     {
         try
         {
-            // Get the managed wrapper type for InteractableShadyGuy
             var shadyGuyType = typeof(Il2Cpp.InteractableShadyGuy);
             
-            // Patch Start where rarity is used for initialization
+            // Patch Start
             var startMethod = AccessTools.Method(shadyGuyType, "Start");
             if (startMethod != null)
             {
                 var startPrefix = AccessTools.Method(typeof(ShadyGuyVariantPatch), nameof(ShadyGuyStart_Prefix));
                 var startPostfix = AccessTools.Method(typeof(ShadyGuyVariantPatch), nameof(ShadyGuyStart_Postfix));
                 harmony.Patch(startMethod, prefix: new HarmonyMethod(startPrefix), postfix: new HarmonyMethod(startPostfix));
-                
-                MelonLogger.Msg("[ShadyGuyVariantPatch] ✅ InteractableShadyGuy.Start patched - variant support enabled");
+                MelonLogger.Msg("[ShadyGuyVariantPatch] ✅ InteractableShadyGuy.Start patched");
             }
-            else
+            
+            // Patch FindItems - crucial because Start() resets rarity before calling this!
+            var findItemsMethod = AccessTools.Method(shadyGuyType, "FindItems");
+            if (findItemsMethod != null)
             {
-                MelonLogger.Error("[ShadyGuyVariantPatch] Failed to find InteractableShadyGuy.Start method!");
+                var findItemsPrefix = AccessTools.Method(typeof(ShadyGuyVariantPatch), nameof(ShadyGuyFindItems_Prefix));
+                harmony.Patch(findItemsMethod, prefix: new HarmonyMethod(findItemsPrefix));
+                MelonLogger.Msg("[ShadyGuyVariantPatch] ✅ InteractableShadyGuy.FindItems patched");
             }
         }
         catch (Exception ex)
         {
             MelonLogger.Error($"[ShadyGuyVariantPatch] Failed to patch: {ex.Message}");
-            MelonLogger.Error($"[ShadyGuyVariantPatch] Stack trace: {ex.StackTrace}");
         }
     }
 
-    // Prefix runs BEFORE Start - set rarity so merchant initializes with it
+    // Start Prefix: Register merchant and set initial rarity
     private static void ShadyGuyStart_Prefix(Il2CppSystem.Object __instance)
     {
         try
         {
             if (SpawnNextRarity >= 0 && RarityMerchantsRemaining > 0)
             {
-                IntPtr ptr = ((Il2CppInterop.Runtime.InteropTypes.Il2CppObjectBase)__instance).Pointer;
+                var shadyGuy = __instance.Cast<Il2Cpp.InteractableShadyGuy>();
+                IntPtr ptr = shadyGuy.Pointer;
                 
-                // Offset 0x90 is EItemRarity (4 bytes for enum)
-                System.Runtime.InteropServices.Marshal.WriteInt32(ptr + 0x90, SpawnNextRarity);
+                // Set rarity using managed property (safer than offset)
+                shadyGuy.rarity = (EItemRarity)SpawnNextRarity;
                 
-                // Track this merchant
                 ModifiedMerchants.Add(ptr);
-                
                 MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Prefix: Set rarity to {SpawnNextRarity}");
             }
         }
         catch (Exception ex)
         {
-            MelonLogger.Error($"[ShadyGuyVariantPatch] Failed in Start prefix: {ex.Message}");
+            MelonLogger.Error($"[ShadyGuyVariantPatch] Start Prefix Error: {ex.Message}");
         }
     }
 
-    // Postfix runs AFTER Start - re-set rarity and apply material
+    // FindItems Prefix: Re-set rarity because Start() likely randomized it just before calling this
+    private static void ShadyGuyFindItems_Prefix(Il2CppSystem.Object __instance)
+    {
+        try
+        {
+            IntPtr ptr = ((Il2CppObjectBase)__instance).Pointer;
+            if (ModifiedMerchants.Contains(ptr) && SpawnNextRarity >= 0)
+            {
+                var shadyGuy = __instance.Cast<Il2Cpp.InteractableShadyGuy>();
+                
+                // Force rarity again so items are generated correctly
+                shadyGuy.rarity = (EItemRarity)SpawnNextRarity;
+                MelonLogger.Msg($"[ShadyGuyVariantPatch] FindItems Prefix: Re-enforced rarity {SpawnNextRarity}");
+            }
+        }
+        catch (Exception ex)
+        {
+            MelonLogger.Error($"[ShadyGuyVariantPatch] FindItems Prefix Error: {ex.Message}");
+        }
+    }
+
+    // Start Postfix: Apply visuals and ensure visibility
     private static void ShadyGuyStart_Postfix(Il2CppSystem.Object __instance)
     {
         try
         {
-            IntPtr ptr = ((Il2CppInterop.Runtime.InteropTypes.Il2CppObjectBase)__instance).Pointer;
-            
-            // Only process merchants we modified
-            if (!ModifiedMerchants.Contains(ptr))
-            {
-                return;
-            }
+            IntPtr ptr = ((Il2CppObjectBase)__instance).Pointer;
+            if (!ModifiedMerchants.Contains(ptr)) return;
             
             if (SpawnNextRarity >= 0 && RarityMerchantsRemaining > 0)
             {
-                var shadyGuy = new Il2Cpp.InteractableShadyGuy(ptr);
+                var shadyGuy = __instance.Cast<Il2Cpp.InteractableShadyGuy>();
                 
-                // Read current rarity (Start() probably changed it)
-                int currentRarity = System.Runtime.InteropServices.Marshal.ReadInt32(ptr + 0x90);
-                MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Postfix: Rarity was {currentRarity}, re-setting to {SpawnNextRarity}");
+                // 1. Re-set rarity one last time
+                shadyGuy.rarity = (EItemRarity)SpawnNextRarity;
                 
-                // Re-set to what we want
-                System.Runtime.InteropServices.Marshal.WriteInt32(ptr + 0x90, SpawnNextRarity);
-                
-                // Apply the corresponding material
-                IntPtr meshRendererPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x70); // meshRenderer at 0x70
-                
-                if (meshRendererPtr != IntPtr.Zero)
+                // 2. Apply Material
+                if (shadyGuy.meshRenderer != null)
                 {
-                    try
+                    Material targetMat = null;
+                    switch (SpawnNextRarity)
                     {
-                        var meshRenderer = new UnityEngine.SkinnedMeshRenderer(meshRendererPtr);
-                        UnityEngine.Material rarityMaterial = null;
-                        
-                        // Get the appropriate material based on desired rarity
-                        if (SpawnNextRarity == 1) // Rare
-                        {
-                            IntPtr matPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x58); // matRare at 0x58
-                            if (matPtr != IntPtr.Zero) rarityMaterial = new UnityEngine.Material(matPtr);
-                        }
-                        else if (SpawnNextRarity == 2) // Epic
-                        {
-                            IntPtr matPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x60); // matEpic at 0x60
-                            if (matPtr != IntPtr.Zero) rarityMaterial = new UnityEngine.Material(matPtr);
-                        }
-                        else if (SpawnNextRarity == 3) // Legendary
-                        {
-                            IntPtr matPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x68); // matLegendary at 0x68
-                            if (matPtr != IntPtr.Zero) rarityMaterial = new UnityEngine.Material(matPtr);
-                        }
-                        
-                        if (rarityMaterial != null)
-                        {
-                            meshRenderer.material = rarityMaterial;
-                            MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Postfix: Applied material for rarity {SpawnNextRarity}");
-                        }
-                        
-                        // Force enable renderer
-                        meshRenderer.enabled = true;
-                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer");
+                        case 1: targetMat = shadyGuy.matRare; break;
+                        case 2: targetMat = shadyGuy.matEpic; break;
+                        case 3: targetMat = shadyGuy.matLegendary; break;
                     }
-                    catch (Exception e)
+
+                    if (targetMat != null)
                     {
-                        MelonLogger.Error($"[ShadyGuyVariantPatch] Failed to apply material/enable renderer: {e.Message}");
+                        shadyGuy.meshRenderer.material = targetMat;
+                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Applied material for rarity {SpawnNextRarity}");
                     }
+                    
+                    // 3. Force Enable Renderer
+                    shadyGuy.meshRenderer.enabled = true;
                 }
                 else
                 {
-                    MelonLogger.Error("[ShadyGuyVariantPatch] MeshRenderer pointer is null!");
+                    MelonLogger.Error("[ShadyGuyVariantPatch] meshRenderer is null!");
                 }
-                
-                // Check collider
-                var collider = shadyGuy.GetComponent<UnityEngine.Collider>();
+
+                // 4. Force Enable Collider
+                var collider = shadyGuy.GetComponent<Collider>();
                 if (collider != null)
                 {
                     collider.enabled = true;
-                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Postfix: Force enabled Collider ({collider.GetIl2CppType().Name})");
-                }
-                else
-                {
-                    MelonLogger.Error("[ShadyGuyVariantPatch] Collider not found on Shady Merchant!");
                 }
                 
-                // Check position
-                MelonLogger.Msg($"[ShadyGuyVariantPatch] Shady Merchant Position: {shadyGuy.transform.position.ToString()}");
-                
+                // 5. Ensure GameObject is active
+                shadyGuy.gameObject.SetActive(true);
+
+                // Cleanup
                 ModifiedMerchants.Remove(ptr);
                 RarityMerchantsRemaining--;
-                
                 if (RarityMerchantsRemaining <= 0)
                 {
                     SpawnNextRarity = -1;
@@ -165,7 +155,7 @@ public static class ShadyGuyVariantPatch
         }
         catch (Exception ex)
         {
-            MelonLogger.Error($"[ShadyGuyVariantPatch] Failed in Start postfix: {ex.Message}");
+            MelonLogger.Error($"[ShadyGuyVariantPatch] Start Postfix Error: {ex.Message}");
         }
     }
 }
