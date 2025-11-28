@@ -153,16 +153,11 @@ public static class ShadyGuyVariantPatch
                         staticVis.transform.localRotation = Quaternion.identity;
                         staticVis.transform.localScale = Vector3.one;
                         
-                        var mf = staticVis.AddComponent<MeshFilter>();
-                        mf.mesh = shadyGuy.meshRenderer.sharedMesh;
-                        
                         var mr = staticVis.AddComponent<MeshRenderer>();
                         mr.material = shadyGuy.meshRenderer.material;
                         
-                        MelonLogger.Msg("[ShadyGuyVariantPatch] Created Static Mesh Fallback to ensure visibility.");
-                        
                         // Disable the original SMR to prevent double rendering (if it ever decides to work)
-                        // shadyGuy.meshRenderer.enabled = false; 
+                        shadyGuy.meshRenderer.enabled = false; 
                     }
                     catch (Exception ex)
                     {
