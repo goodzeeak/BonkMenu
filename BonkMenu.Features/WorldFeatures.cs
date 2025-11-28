@@ -316,63 +316,156 @@ public static class WorldFeatures
         }
     }
 
-    // Shady Merchant Rare - Uses ShadyGuyVariantPatch
+    // Shady Merchant Rare - Spawns normal merchant then modifies to rare
     public static void SpawnShadyMerchantRare(int amount = 1)
     {
         try
         {
-            BonkMenu.Patches.ShadyGuyVariantPatch.SpawnNextRarity = 1; // Rare
-            BonkMenu.Patches.ShadyGuyVariantPatch.RarityMerchantsRemaining = amount;
-            
+            // Get existing merchs before spawning
+            var existingMerchs = Object.FindObjectsOfType(Il2CppType.Of<Il2Cpp.InteractableShadyGuy>());
+            var existingMerchSet = new System.Collections.Generic.HashSet<IntPtr>();
+            foreach (var merch in existingMerchs)
+            {
+                existingMerchSet.Add(((Il2CppObjectBase)merch).Pointer);
+            }
+
+            // Spawn normal shady merchant
             SpawnShadyMerchant(amount);
             
-            MelonLogger.Msg($"[BonkMenu] Initiated spawning of {amount} Rare Shady Merchant(s)!");
+            // Find newly spawned merchants and make them rare
+            var allMerchs = Object.FindObjectsOfType(Il2CppType.Of<Il2Cpp.InteractableShadyGuy>());
+            int rareCount = 0;
+            
+            foreach (var merch in allMerchs)
+            {
+                IntPtr merchPtr = ((Il2CppObjectBase)merch).Pointer;
+                if (!existingMerchSet.Contains(merchPtr) && rareCount < amount)
+                {
+                    // Offset 0x90 is EItemRarity (4 bytes for enum), 1 = Rare
+                    System.Runtime.InteropServices.Marshal.WriteInt32(merchPtr + 0x90, 1);
+                    
+                    // Apply rare material at offset 0x58 (matRare)
+                    IntPtr meshRendererPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(merchPtr + 0x70);
+                    IntPtr matRarePtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(merchPtr + 0x58);
+                    
+                    if (meshRendererPtr != IntPtr.Zero && matRarePtr != IntPtr.Zero)
+                    {
+                        var meshRenderer = new UnityEngine.SkinnedMeshRenderer(meshRendererPtr);
+                        var matRare = new UnityEngine.Material(matRarePtr);
+                        meshRenderer.material = matRare;
+                    }
+                    
+                    rareCount++;
+                }
+            }
+            
+            MelonLogger.Msg($"[BonkMenu] Spawned {rareCount} Rare Shady Merchant(s)!");
         }
         catch (Exception ex)
         {
             MelonLogger.Error("[BonkMenu] Failed to spawn Rare Shady Merchant: " + ex.Message);
-            BonkMenu.Patches.ShadyGuyVariantPatch.SpawnNextRarity = -1;
-            BonkMenu.Patches.ShadyGuyVariantPatch.RarityMerchantsRemaining = 0;
         }
     }
 
-    // Shady Merchant Epic - Uses ShadyGuyVariantPatch
+    // Shady Merchant Epic - Spawns normal merchant then modifies to epic
     public static void SpawnShadyMerchantEpic(int amount = 1)
     {
         try
         {
-            BonkMenu.Patches.ShadyGuyVariantPatch.SpawnNextRarity = 2; // Epic
-            BonkMenu.Patches.ShadyGuyVariantPatch.RarityMerchantsRemaining = amount;
-            
+            // Get existing merchs before spawning
+            var existingMerchs = Object.FindObjectsOfType(Il2CppType.Of<Il2Cpp.InteractableShadyGuy>());
+            var existingMerchSet = new System.Collections.Generic.HashSet<IntPtr>();
+            foreach (var merch in existingMerchs)
+            {
+                existingMerchSet.Add(((Il2CppObjectBase)merch).Pointer);
+            }
+
+            // Spawn normal shady merchant
             SpawnShadyMerchant(amount);
             
-            MelonLogger.Msg($"[BonkMenu] Initiated spawning of {amount} Epic Shady Merchant(s)!");
+            // Find newly spawned merchants and make them epic
+            var allMerchs = Object.FindObjectsOfType(Il2CppType.Of<Il2Cpp.InteractableShadyGuy>());
+            int epicCount = 0;
+            
+            foreach (var merch in allMerchs)
+            {
+                IntPtr merchPtr = ((Il2CppObjectBase)merch).Pointer;
+                if (!existingMerchSet.Contains(merchPtr) && epicCount < amount)
+                {
+                    // Offset 0x90 is EItemRarity (4 bytes for enum), 2 = Epic
+                    System.Runtime.InteropServices.Marshal.WriteInt32(merchPtr + 0x90, 2);
+                    
+                    // Apply epic material at offset 0x60 (matEpic)
+                    IntPtr meshRendererPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(merchPtr + 0x70);
+                    IntPtr matEpicPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(merchPtr + 0x60);
+                    
+                    if (meshRendererPtr != IntPtr.Zero && matEpicPtr != IntPtr.Zero)
+                    {
+                        var meshRenderer = new UnityEngine.SkinnedMeshRenderer(meshRendererPtr);
+                        var matEpic = new UnityEngine.Material(matEpicPtr);
+                        meshRenderer.material = matEpic;
+                    }
+                    
+                    epicCount++;
+                }
+            }
+            
+            MelonLogger.Msg($"[BonkMenu] Spawned {epicCount} Epic Shady Merchant(s)!");
         }
         catch (Exception ex)
         {
             MelonLogger.Error("[BonkMenu] Failed to spawn Epic Shady Merchant: " + ex.Message);
-            BonkMenu.Patches.ShadyGuyVariantPatch.SpawnNextRarity = -1;
-            BonkMenu.Patches.ShadyGuyVariantPatch.RarityMerchantsRemaining = 0;
         }
     }
 
-    // Shady Merchant Legendary - Uses ShadyGuyVariantPatch
+    // Shady Merchant Legendary - Spawns normal merchant then modifies to legendary
     public static void SpawnShadyMerchantLegendary(int amount = 1)
     {
         try
         {
-            BonkMenu.Patches.ShadyGuyVariantPatch.SpawnNextRarity = 3; // Legendary
-            BonkMenu.Patches.ShadyGuyVariantPatch.RarityMerchantsRemaining = amount;
-            
+            // Get existing merchs before spawning
+            var existingMerchs = Object.FindObjectsOfType(Il2CppType.Of<Il2Cpp.InteractableShadyGuy>());
+            var existingMerchSet = new System.Collections.Generic.HashSet<IntPtr>();
+            foreach (var merch in existingMerchs)
+            {
+                existingMerchSet.Add(((Il2CppObjectBase)merch).Pointer);
+            }
+
+            // Spawn normal shady merchant
             SpawnShadyMerchant(amount);
             
-            MelonLogger.Msg($"[BonkMenu] Initiated spawning of {amount} Legendary Shady Merchant(s)!");
+            // Find newly spawned merchants and make them legendary
+            var allMerchs = Object.FindObjectsOfType(Il2CppType.Of<Il2Cpp.InteractableShadyGuy>());
+            int legendaryCount = 0;
+            
+            foreach (var merch in allMerchs)
+            {
+                IntPtr merchPtr = ((Il2CppObjectBase)merch).Pointer;
+                if (!existingMerchSet.Contains(merchPtr) && legendaryCount < amount)
+                {
+                    // Offset 0x90 is EItemRarity (4 bytes for enum), 3 = Legendary
+                    System.Runtime.InteropServices.Marshal.WriteInt32(merchPtr + 0x90, 3);
+                    
+                    // Apply legendary material at offset 0x68 (matLegendary)
+                    IntPtr meshRendererPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(merchPtr + 0x70);
+                    IntPtr matLegendaryPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(merchPtr + 0x68);
+                    
+                    if (meshRendererPtr != IntPtr.Zero && matLegendaryPtr != IntPtr.Zero)
+                    {
+                        var meshRenderer = new UnityEngine.SkinnedMeshRenderer(meshRendererPtr);
+                        var matLegendary = new UnityEngine.Material(matLegendaryPtr);
+                        meshRenderer.material = matLegendary;
+                    }
+                    
+                    legendaryCount++;
+                }
+            }
+            
+            MelonLogger.Msg($"[BonkMenu] Spawned {legendaryCount} Legendary Shady Merchant(s)!");
         }
         catch (Exception ex)
         {
             MelonLogger.Error("[BonkMenu] Failed to spawn Legendary Shady Merchant: " + ex.Message);
-            BonkMenu.Patches.ShadyGuyVariantPatch.SpawnNextRarity = -1;
-            BonkMenu.Patches.ShadyGuyVariantPatch.RarityMerchantsRemaining = 0;
         }
     }
 
