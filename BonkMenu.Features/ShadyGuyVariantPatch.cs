@@ -132,7 +132,14 @@ public static class ShadyGuyVariantPatch
                     if (targetMat != null)
                     {
                         shadyGuy.meshRenderer.material = targetMat;
-                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Applied material: {targetMat.name} (Shader: {targetMat.shader?.name})");
+                        if (targetMat.HasProperty("_Color"))
+                        {
+                             MelonLogger.Msg($"[ShadyGuyVariantPatch] Applied material: {targetMat.name} (Color: {targetMat.color})");
+                        }
+                        else
+                        {
+                             MelonLogger.Msg($"[ShadyGuyVariantPatch] Applied material: {targetMat.name} (No _Color property)");
+                        }
                     }
                     else
                     {
@@ -191,6 +198,28 @@ public static class ShadyGuyVariantPatch
                     shadyGuy.transform.localScale = Vector3.one;
                     MelonLogger.Msg("[ShadyGuyVariantPatch] Fixed zero scale!");
                 }
+
+                // DIAGNOSTIC: Check SMR Quality
+                if (shadyGuy.meshRenderer != null)
+                {
+                     MelonLogger.Msg($"[ShadyGuyVariantPatch] SMR Quality: {(int)shadyGuy.meshRenderer.quality}");
+                     // Force high quality?
+                     // shadyGuy.meshRenderer.quality = (SkinQuality)4; // Bone4
+                }
+
+                /* Animator logic removed due to missing UnityEngine.AnimationModule reference
+                // DIAGNOSTIC: Check Animator
+                var animator = shadyGuy.GetComponent<UnityEngine.Animator>();
+                if (animator != null)
+                {
+                    animator.enabled = true;
+                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Force enabled Animator.");
+                }
+                else
+                {
+                    MelonLogger.Msg("[ShadyGuyVariantPatch] No Animator found.");
+                }
+                */
                 
                 // DIAGNOSTIC: Check hideAfterPurchase
                 if (shadyGuy.hideAfterPurchase != null)
