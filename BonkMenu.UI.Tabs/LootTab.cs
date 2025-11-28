@@ -108,8 +108,13 @@ public static class LootTab
 			"Charge Shrines",
 			"Gold Charge Shrines",
 			"Pots",
+			"Silver Pots",
 			"Microwaves",
-			"Shady Merchant"
+			"Big Pots (Microwave)",
+			"Shady Merchant",
+			"Shady Merchant (Rare)",
+			"Shady Merchant (Epic)",
+			"Shady Merchant (Legendary)"
 		};
 
 		UIFactory.CreateSpawner(parent, "Spawn Object", spawnOptions, delegate(int index, int amount)
@@ -149,11 +154,26 @@ public static class LootTab
 				case 10: // Pots
 					WorldFeatures.SpawnPots(amount);
 					break;
-				case 11: // Microwaves
+				case 11: // Silver Pots
+					WorldFeatures.SpawnSilverPots(amount);
+					break;
+				case 12: // Microwaves
 					WorldFeatures.SpawnMicrowaves(amount);
 					break;
-				case 12: // Shady Merchant
+				case 13: // Big Pots (Microwave)
+					WorldFeatures.SpawnBigPots(amount);
+					break;
+				case 14: // Shady Merchant
 					WorldFeatures.SpawnShadyMerchant(amount);
+					break;
+				case 15: // Shady Merchant (Rare)
+					WorldFeatures.SpawnShadyMerchantRare(amount);
+					break;
+				case 16: // Shady Merchant (Epic)
+					WorldFeatures.SpawnShadyMerchantEpic(amount);
+					break;
+				case 17: // Shady Merchant (Legendary)
+					WorldFeatures.SpawnShadyMerchantLegendary(amount);
 					break;
 			}
 		});
