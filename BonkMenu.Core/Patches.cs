@@ -22,6 +22,9 @@ public static class Patches
 			// Apply XP display patch
 			BonkMenu.Patches.XpDisplayPatch.Apply(_harmonyInstance);
 
+			// Apply golden shrine patch
+			BonkMenu.Patches.GoldenShrinePatch.Apply(_harmonyInstance);
+
 			MelonLogger.Msg("[Patches] All patches applied successfully!");
 		}
 		catch (Exception ex)

@@ -543,7 +543,7 @@ public static class UIFactory
 			labelRef = label;
 		});
 		int currentAmount = 1;
-		CreateSlider("Amount", 1f, 50f, 1f, delegate(float num)
+		CreateSlider("Amount", 1f, 100f, 1f, delegate(float num)
 		{
 			currentAmount = (int)num;
 		}, val);

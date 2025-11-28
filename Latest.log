@@ -1,0 +1,171 @@
+
+[13:34:17.397] ------------------------------
+[13:34:17.400] MelonLoader v0.7.2-ci.2367 Open-Beta
+[13:34:17.400] OS: Windows 11
+[13:34:17.400] Hash Code: D6BF00FD6659AE51BFB63FF3F0296A4AB54B28DA09BE826C7B88870E9E46AFFE
+[13:34:17.401] ------------------------------
+[13:34:17.401] Game Type: Il2cpp
+[13:34:17.401] Game Arch: x64
+[13:34:17.401] ------------------------------
+[13:34:17.401] Command-Line: 
+[13:34:17.401] ------------------------------
+[13:34:17.402] Core::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
+[13:34:17.402] Game::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
+[13:34:17.402] Game::DataPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk_Data
+[13:34:17.403] Game::ApplicationPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk.exe
+[13:34:17.403] Runtime Type: net6
+[13:34:17.459] ------------------------------
+[13:34:17.460] Game Name: Megabonk
+[13:34:17.460] Game Developer: Ved
+[13:34:17.461] Unity Version: 2023.2.22f1
+[13:34:17.461] Game Version: 1.0.19
+[13:34:17.462] ------------------------------
+
+[13:34:18.035] Preferences Loaded!
+
+[13:34:18.046] Loading UserLibs...
+[13:34:18.047] 0 UserLibs loaded.
+
+[13:34:18.048] Loading Plugins...
+[13:34:18.052] 0 Plugins loaded.
+
+[13:34:18.414] Loading Il2CppAssemblyGenerator...
+[13:34:18.446] [Il2CppAssemblyGenerator] Contacting RemoteAPI...
+[13:34:18.554] [Il2CppAssemblyGenerator] Game Not Found on RemoteAPI Host (https://api.melonloader.com/api/v1/game/megabonk)
+[13:34:18.554] [Il2CppAssemblyGenerator] RemoteAPI.DumperVersion = null
+[13:34:18.554] [Il2CppAssemblyGenerator] RemoteAPI.ObfuscationRegex = null
+[13:34:18.554] [Il2CppAssemblyGenerator] RemoteAPI.MappingURL = null
+[13:34:18.555] [Il2CppAssemblyGenerator] RemoteAPI.MappingFileSHA512 = null
+[13:34:18.558] [Il2CppAssemblyGenerator] Using Cpp2IL Version: 2022.1.0-pre-release.20
+[13:34:18.558] [Il2CppAssemblyGenerator] Using Il2CppInterop Version = 1.5.1+dbaf825aab891ff1e1627bea691bde0a81d1ad98
+[13:34:18.558] [Il2CppAssemblyGenerator] Using Unity Dependencies Version = 2023.2.22
+[13:34:18.558] [Il2CppAssemblyGenerator] Using Deobfuscation Regex = null
+[13:34:18.559] [Il2CppAssemblyGenerator] Cpp2IL is up to date.
+[13:34:18.559] [Il2CppAssemblyGenerator] Cpp2IL.Plugin.StrippedCodeRegSupport is up to date.
+[13:34:18.559] [Il2CppAssemblyGenerator] UnityDependencies is up to date.
+[13:34:18.559] [Il2CppAssemblyGenerator] Checking GameAssembly...
+[13:34:18.644] [Il2CppAssemblyGenerator] Assembly is up to date. No Generation Needed.
+
+[13:34:18.644] Loading Mods...
+[13:34:18.936] ------------------------------
+[13:34:18.946] Melon Assembly loaded: '.\Mods\BonkMenu.dll'
+[13:34:18.947] SHA256 Hash: 'F585C964ABB9FE2CBAD551D0C11A9175274132FB71CE44FFAD413123E2760051'
+[13:34:18.948] Melon Assembly loaded: '.\Mods\UsefullInfoUI.dll'
+[13:34:18.949] SHA256 Hash: 'EFC1EB17835C4BC6D2389515C4F50D05F59E2E376AAFC38F3E8907A3D3F0A234'
+
+[13:34:19.147] ------------------------------
+[13:34:19.147] BonkMenu v1.0.0
+[13:34:19.148] by Goodzy
+[13:34:19.148] Assembly: BonkMenu.dll
+[13:34:19.148] ------------------------------
+[13:34:19.150] ------------------------------
+[13:34:19.150] Useful Info UI v1.1.5
+[13:34:19.150] by Maskoliver
+[13:34:19.150] Assembly: UsefullInfoUI.dll
+[13:34:19.150] ------------------------------
+[13:34:19.150] ------------------------------
+[13:34:19.150] 2 Mods loaded.
+
+[13:34:19.911] [Il2CppInterop] Class::Init signatures have been exhausted, using a substitute!
+[13:34:20.036] [Il2CppInterop] Registered mono type MelonLoader.Support.MonoEnumeratorWrapper in il2cpp domain
+[13:34:20.115] Support Module Loaded: C:\Program Files (x86)\Steam\steamapps\common\Megabonk\MelonLoader\Dependencies\SupportModules\Il2Cpp.dll
+[13:34:20.668] [BonkMenu] [BonkMenu] === BonkMenu Initialized ===
+[13:34:20.669] [BonkMenu] No keybind config found, using defaults
+[13:34:20.669] [BonkMenu] [Patches] Initializing Harmony patches...
+[13:34:20.688] [BonkMenu] [LevelCapPatches] ✅ WeaponData.GetMaxLevel patched - max level set to int.MaxValue
+[13:34:20.707] [BonkMenu] [LevelCapPatches] ✅ TomeData.GetMaxLevel patched - max level set to int.MaxValue
+[13:34:20.725] [BonkMenu] [XpDisplayPatch] ✅ XpBarUI.SetLevelText patched - will show uncapped XP multiplier
+[13:34:20.726] [BonkMenu] [Patches] All patches applied successfully!
+[13:34:20.727] [BonkMenu] [BonkMenu] Press F1 to toggle menu
+[13:34:20.727] [BonkMenu] [BonkMenu] ==============================
+[13:34:20.732] MelonPreferences Loaded from UserData/UsefulInfoUI.cfg
+[13:34:20.861] [Useful_Info_UI] Harmony patches applied.
+[13:34:20.863] [Useful_Info_UI] Useful Info UI initialized!
+[13:34:20.983] [Useful_Info_UI] Useful Info UI initialized (Melon)
+[13:34:21.078] [Il2CppInterop] Registered mono type MelonLoader.Support.SM_Component in il2cpp domain
+[13:34:21.087] Registered mono icall UnityEngine.Transform::SetAsLastSibling in il2cpp domain
+[13:34:21.111] [Il2CppInterop] Registered mono type UniverseLib.UniversalBehaviour in il2cpp domain
+[13:34:21.491] [Il2CppInterop] Registered mono type UniverseLib.Runtime.Il2Cpp.Il2CppManagedEnumerator in il2cpp domain
+[13:34:21.732] Registered mono icall UnityEngine.Resources::FindObjectsOfTypeAll in il2cpp domain
+[13:34:21.758] [Il2CppInterop] Registered mono type Il2CppInterop.Runtime.DelegateSupport+Il2CppToMonoDelegateReference in il2cpp domain
+[13:34:25.843] ✅ XP MULT UNCAPPED!
+[13:34:30.095] [Useful_Info_UI] RunInfo UI created (TMPro)
+[13:34:30.096] [Useful_Info_UI] Player Stats UI created (TMPro)
+[13:34:41.882] [BonkMenu] [BonkMenu] Spawned object name: ChargeShrine(Clone)
+[13:34:41.883] [BonkMenu] [BonkMenu] Found component: Transform
+[13:34:41.883] [BonkMenu] [BonkMenu] Found component: MeshFilter
+[13:34:41.883] [BonkMenu] [BonkMenu] Found component: MeshRenderer
+[13:34:41.884] [BonkMenu] [BonkMenu] Found component: SphereCollider
+[13:34:41.884] [BonkMenu] [BonkMenu] Found component: ChargeShrine
+[13:34:41.884] [BonkMenu] [BonkMenu] Failed to spawn Gold Shrines: Method not found: '!0 ByRef Il2CppSystem.ReadOnlySpan`1.GetPinnableReference()'.
+[13:34:42.670] [BonkMenu] [BonkMenu] Spawned object name: ChargeShrine(Clone)
+[13:34:42.670] [BonkMenu] [BonkMenu] Found component: Transform
+[13:34:42.670] [BonkMenu] [BonkMenu] Found component: MeshFilter
+[13:34:42.671] [BonkMenu] [BonkMenu] Found component: MeshRenderer
+[13:34:42.671] [BonkMenu] [BonkMenu] Found component: SphereCollider
+[13:34:42.671] [BonkMenu] [BonkMenu] Found component: ChargeShrine
+[13:34:42.671] [BonkMenu] [BonkMenu] Failed to spawn Gold Shrines: Method not found: '!0 ByRef Il2CppSystem.ReadOnlySpan`1.GetPinnableReference()'.
+[13:34:42.846] [BonkMenu] [BonkMenu] Spawned object name: ChargeShrine(Clone)
+[13:34:42.846] [BonkMenu] [BonkMenu] Found component: Transform
+[13:34:42.846] [BonkMenu] [BonkMenu] Found component: MeshFilter
+[13:34:42.847] [BonkMenu] [BonkMenu] Found component: MeshRenderer
+[13:34:42.847] [BonkMenu] [BonkMenu] Found component: SphereCollider
+[13:34:42.847] [BonkMenu] [BonkMenu] Found component: ChargeShrine
+[13:34:42.847] [BonkMenu] [BonkMenu] Failed to spawn Gold Shrines: Method not found: '!0 ByRef Il2CppSystem.ReadOnlySpan`1.GetPinnableReference()'.
+[13:34:43.019] [BonkMenu] [BonkMenu] Spawned object name: ChargeShrine(Clone)
+[13:34:43.019] [BonkMenu] [BonkMenu] Found component: Transform
+[13:34:43.019] [BonkMenu] [BonkMenu] Found component: MeshFilter
+[13:34:43.020] [BonkMenu] [BonkMenu] Found component: MeshRenderer
+[13:34:43.020] [BonkMenu] [BonkMenu] Found component: SphereCollider
+[13:34:43.020] [BonkMenu] [BonkMenu] Found component: ChargeShrine
+[13:34:43.020] [BonkMenu] [BonkMenu] Failed to spawn Gold Shrines: Method not found: '!0 ByRef Il2CppSystem.ReadOnlySpan`1.GetPinnableReference()'.
+[13:34:43.179] [BonkMenu] [BonkMenu] Spawned object name: ChargeShrine(Clone)
+[13:34:43.179] [BonkMenu] [BonkMenu] Found component: Transform
+[13:34:43.180] [BonkMenu] [BonkMenu] Found component: MeshFilter
+[13:34:43.180] [BonkMenu] [BonkMenu] Found component: MeshRenderer
+[13:34:43.180] [BonkMenu] [BonkMenu] Found component: SphereCollider
+[13:34:43.180] [BonkMenu] [BonkMenu] Found component: ChargeShrine
+[13:34:43.180] [BonkMenu] [BonkMenu] Failed to spawn Gold Shrines: Method not found: '!0 ByRef Il2CppSystem.ReadOnlySpan`1.GetPinnableReference()'.
+[13:34:43.325] [BonkMenu] [BonkMenu] Spawned object name: ChargeShrine(Clone)
+[13:34:43.325] [BonkMenu] [BonkMenu] Found component: Transform
+[13:34:43.326] [BonkMenu] [BonkMenu] Found component: MeshFilter
+[13:34:43.326] [BonkMenu] [BonkMenu] Found component: MeshRenderer
+[13:34:43.326] [BonkMenu] [BonkMenu] Found component: SphereCollider
+[13:34:43.326] [BonkMenu] [BonkMenu] Found component: ChargeShrine
+[13:34:43.326] [BonkMenu] [BonkMenu] Failed to spawn Gold Shrines: Method not found: '!0 ByRef Il2CppSystem.ReadOnlySpan`1.GetPinnableReference()'.
+[13:34:43.478] [BonkMenu] [BonkMenu] Spawned object name: ChargeShrine(Clone)
+[13:34:43.478] [BonkMenu] [BonkMenu] Found component: Transform
+[13:34:43.479] [BonkMenu] [BonkMenu] Found component: MeshFilter
+[13:34:43.479] [BonkMenu] [BonkMenu] Found component: MeshRenderer
+[13:34:43.479] [BonkMenu] [BonkMenu] Found component: SphereCollider
+[13:34:43.479] [BonkMenu] [BonkMenu] Found component: ChargeShrine
+[13:34:43.480] [BonkMenu] [BonkMenu] Failed to spawn Gold Shrines: Method not found: '!0 ByRef Il2CppSystem.ReadOnlySpan`1.GetPinnableReference()'.
+[13:34:43.624] [BonkMenu] [BonkMenu] Spawned object name: ChargeShrine(Clone)
+[13:34:43.624] [BonkMenu] [BonkMenu] Found component: Transform
+[13:34:43.625] [BonkMenu] [BonkMenu] Found component: MeshFilter
+[13:34:43.625] [BonkMenu] [BonkMenu] Found component: MeshRenderer
+[13:34:43.625] [BonkMenu] [BonkMenu] Found component: SphereCollider
+[13:34:43.625] [BonkMenu] [BonkMenu] Found component: ChargeShrine
+[13:34:43.625] [BonkMenu] [BonkMenu] Failed to spawn Gold Shrines: Method not found: '!0 ByRef Il2CppSystem.ReadOnlySpan`1.GetPinnableReference()'.
+[13:34:43.782] [BonkMenu] [BonkMenu] Spawned object name: ChargeShrine(Clone)
+[13:34:43.782] [BonkMenu] [BonkMenu] Found component: Transform
+[13:34:43.782] [BonkMenu] [BonkMenu] Found component: MeshFilter
+[13:34:43.782] [BonkMenu] [BonkMenu] Found component: MeshRenderer
+[13:34:43.783] [BonkMenu] [BonkMenu] Found component: SphereCollider
+[13:34:43.783] [BonkMenu] [BonkMenu] Found component: ChargeShrine
+[13:34:43.783] [BonkMenu] [BonkMenu] Failed to spawn Gold Shrines: Method not found: '!0 ByRef Il2CppSystem.ReadOnlySpan`1.GetPinnableReference()'.
+[13:34:43.929] [BonkMenu] [BonkMenu] Spawned object name: ChargeShrine(Clone)
+[13:34:43.929] [BonkMenu] [BonkMenu] Found component: Transform
+[13:34:43.929] [BonkMenu] [BonkMenu] Found component: MeshFilter
+[13:34:43.929] [BonkMenu] [BonkMenu] Found component: MeshRenderer
+[13:34:43.930] [BonkMenu] [BonkMenu] Found component: SphereCollider
+[13:34:43.930] [BonkMenu] [BonkMenu] Found component: ChargeShrine
+[13:34:43.930] [BonkMenu] [BonkMenu] Failed to spawn Gold Shrines: Method not found: '!0 ByRef Il2CppSystem.ReadOnlySpan`1.GetPinnableReference()'.
+[13:34:44.115] [BonkMenu] [BonkMenu] Spawned object name: ChargeShrine(Clone)
+[13:34:44.115] [BonkMenu] [BonkMenu] Found component: Transform
+[13:34:44.115] [BonkMenu] [BonkMenu] Found component: MeshFilter
+[13:34:44.116] [BonkMenu] [BonkMenu] Found component: MeshRenderer
+[13:34:44.116] [BonkMenu] [BonkMenu] Found component: SphereCollider
+[13:34:44.116] [BonkMenu] [BonkMenu] Found component: ChargeShrine
+[13:34:44.116] [BonkMenu] [BonkMenu] Failed to spawn Gold Shrines: Method not found: '!0 ByRef Il2CppSystem.ReadOnlySpan`1.GetPinnableReference()'.
+[13:34:59.734] Preferences Saved!

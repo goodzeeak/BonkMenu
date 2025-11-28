@@ -1,3 +1,4 @@
+using BonkMenu.Features;
 using BonkMenu.Core;
 using BonkMenu.UI.Components;
 using UnityEngine;
@@ -30,5 +31,20 @@ public static class AboutTab
 		{
 			KeybindConfig.LoadKeybinds();
 		}, parent);
+
+        UIFactory.CreateSpacer(15, parent);
+        UIFactory.CreateSectionHeader("Debug / Inspection", parent);
+        
+        UIFactory.CreateCircularToggle("Log Interactables on Hover", DebugFeatures.EnableInteractableLogging, delegate(bool value)
+        {
+            DebugFeatures.EnableInteractableLogging = value;
+        }, parent);
+        
+        UIFactory.CreateButton("List Spawnable Objects", delegate
+        {
+            WorldFeatures.ListSpawnableObjects();
+        }, parent);
+        
+        UIFactory.CreateLabel("Check MelonLoader console for output", parent);
 	}
 }

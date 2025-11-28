@@ -99,33 +99,61 @@ public static class LootTab
 		{ 
 			"Chests", 
 			"Free Chests", 
-			"Statues", 
-			"Shrines",
+			"All Statues", 
+			"Challenge Shrines",
+			"Cursed Shrines",
+			"Greed Altars",
+			"Magnet Shrines",
+			"Moai Shrines",
+			"Charge Shrines",
+			"Gold Charge Shrines",
 			"Pots",
-			"Microwaves"
+			"Microwaves",
+			"Shady Merchant"
 		};
 
-		UIFactory.CreateSpawnerNoSlider(parent, "Spawn Object", spawnOptions, delegate(int index)
+		UIFactory.CreateSpawner(parent, "Spawn Object", spawnOptions, delegate(int index, int amount)
 		{
 			switch (index)
 			{
 				case 0: // Chests
-					WorldFeatures.SpawnChests();
+					WorldFeatures.SpawnChests(amount);
 					break;
 				case 1: // Free Chests
-					WorldFeatures.SpawnFreeChests();
+					WorldFeatures.SpawnFreeChests(amount);
 					break;
-				case 2: // Statues
-					WorldFeatures.SpawnStatues();
+				case 2: // All Statues
+					WorldFeatures.SpawnStatues(amount);
 					break;
-				case 3: // Shrines
-					WorldFeatures.SpawnShrines();
+				case 3: // Challenge Shrines
+					WorldFeatures.SpawnChallengeShrines(amount);
 					break;
-				case 4: // Pots
-					WorldFeatures.SpawnPots();
+				case 4: // Cursed Shrines
+					WorldFeatures.SpawnCursedShrines(amount);
 					break;
-				case 5: // Microwaves
-					WorldFeatures.SpawnMicrowaves();
+				case 5: // Greed Altars
+					WorldFeatures.SpawnGreedShrines(amount);
+					break;
+				case 6: // Magnet Shrines
+					WorldFeatures.SpawnMagnetShrines(amount);
+					break;
+				case 7: // Moai Shrines
+					WorldFeatures.SpawnMoaiShrines(amount);
+					break;
+				case 8: // Charge Shrines
+					WorldFeatures.SpawnShrines(amount);
+					break;
+				case 9: // Gold Charge Shrines
+					WorldFeatures.SpawnGoldShrines(amount);
+					break;
+				case 10: // Pots
+					WorldFeatures.SpawnPots(amount);
+					break;
+				case 11: // Microwaves
+					WorldFeatures.SpawnMicrowaves(amount);
+					break;
+				case 12: // Shady Merchant
+					WorldFeatures.SpawnShadyMerchant(amount);
 					break;
 			}
 		});

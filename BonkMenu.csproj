@@ -9,6 +9,9 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup />
+  <ItemGroup>
+    <Compile Remove="megabonk_split_dump/**/*.cs" />
+  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Reference Include="MelonLoader">
