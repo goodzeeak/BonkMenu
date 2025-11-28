@@ -111,6 +111,16 @@ public static class ShadyGuyVariantPatch
                 // 2. Apply Material
                 if (shadyGuy.meshRenderer != null)
                 {
+                    // DIAGNOSTIC: Check Mesh
+                    if (shadyGuy.meshRenderer.sharedMesh != null)
+                    {
+                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Mesh found: {shadyGuy.meshRenderer.sharedMesh.name} (Vertex Count: {shadyGuy.meshRenderer.sharedMesh.vertexCount})");
+                    }
+                    else
+                    {
+                        MelonLogger.Error("[ShadyGuyVariantPatch] CRITICAL: sharedMesh is NULL!");
+                    }
+
                     Material targetMat = null;
                     switch (SpawnNextRarity)
                     {
@@ -122,13 +132,21 @@ public static class ShadyGuyVariantPatch
                     if (targetMat != null)
                     {
                         shadyGuy.meshRenderer.material = targetMat;
-                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Applied material for rarity {SpawnNextRarity}");
+                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Applied material: {targetMat.name} (Shader: {targetMat.shader?.name})");
+                    }
+                    else
+                    {
+                        MelonLogger.Error($"[ShadyGuyVariantPatch] Target material for rarity {SpawnNextRarity} is NULL!");
                     }
                     
                     // 3. Force Enable Renderer & its GameObject
                     shadyGuy.meshRenderer.enabled = true;
                     shadyGuy.meshRenderer.gameObject.SetActive(true);
-                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Force enabled MeshRenderer and its GameObject");
+                    
+                    // Prevent culling
+                    shadyGuy.meshRenderer.updateWhenOffscreen = true;
+                    
+                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, and updateWhenOffscreen");
                 }
                 else
                 {
@@ -151,6 +169,20 @@ public static class ShadyGuyVariantPatch
                 {
                     shadyGuy.transform.localScale = Vector3.one;
                     MelonLogger.Msg("[ShadyGuyVariantPatch] Fixed zero scale!");
+                }
+                
+                // DIAGNOSTIC: Check hideAfterPurchase
+                if (shadyGuy.hideAfterPurchase != null)
+                {
+                    foreach (var obj in shadyGuy.hideAfterPurchase)
+                    {
+                        if (obj != null)
+                        {
+                            MelonLogger.Msg($"[ShadyGuyVariantPatch] hideAfterPurchase object: {obj.name} (Active: {obj.activeSelf})");
+                            // Ensure these are active initially
+                            obj.SetActive(true);
+                        }
+                    }
                 }
                 
                 MelonLogger.Msg($"[ShadyGuyVariantPatch] Final State - Pos: {shadyGuy.transform.position}, Scale: {shadyGuy.transform.localScale}, Active: {shadyGuy.gameObject.activeSelf}");
