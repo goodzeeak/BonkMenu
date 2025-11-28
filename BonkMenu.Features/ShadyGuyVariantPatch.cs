@@ -21,7 +21,7 @@ public static class ShadyGuyVariantPatch
             // Get the managed wrapper type for InteractableShadyGuy
             var shadyGuyType = typeof(Il2Cpp.InteractableShadyGuy);
             
-            // Patch Start where rarity is initialized
+            // Patch Start where rarity is used for initialization
             var startMethod = AccessTools.Method(shadyGuyType, "Start");
             if (startMethod != null)
             {
@@ -43,7 +43,7 @@ public static class ShadyGuyVariantPatch
         }
     }
 
-    // Prefix runs BEFORE Start - set rarity before initialization
+    // Prefix runs BEFORE Start - set rarity so merchant initializes with it
     private static void ShadyGuyStart_Prefix(Il2CppSystem.Object __instance)
     {
         try
@@ -52,9 +52,10 @@ public static class ShadyGuyVariantPatch
             {
                 IntPtr ptr = ((Il2CppInterop.Runtime.InteropTypes.Il2CppObjectBase)__instance).Pointer;
                 
-                // Offset 0x90 is EItemRarity rarity field (4 bytes for enum)
+                // Offset 0x90 is EItemRarity (4 bytes for enum)
                 System.Runtime.InteropServices.Marshal.WriteInt32(ptr + 0x90, SpawnNextRarity);
                 
+                // Track this merchant
                 ModifiedMerchants.Add(ptr);
                 
                 MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Prefix: Set rarity to {SpawnNextRarity}");
@@ -81,35 +82,46 @@ public static class ShadyGuyVariantPatch
             
             if (SpawnNextRarity >= 0 && RarityMerchantsRemaining > 0)
             {
+                // Read current rarity to confirm
+                int currentRarity = System.Runtime.InteropServices.Marshal.ReadInt32(ptr + 0x90);
+                MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Postfix: Rarity = {currentRarity}, applying material");
+                
                 // Apply the corresponding material
                 IntPtr meshRendererPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x70); // meshRenderer at 0x70
                 
                 if (meshRendererPtr != IntPtr.Zero)
                 {
-                    var meshRenderer = new UnityEngine.SkinnedMeshRenderer(meshRendererPtr);
-                    UnityEngine.Material rarityMaterial = null;
-                    
-                    // Get the appropriate material based on rarity
-                    if (SpawnNextRarity == 1) // Rare
+                    try
                     {
-                        IntPtr matPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x58); // matRare at 0x58
-                        if (matPtr != IntPtr.Zero) rarityMaterial = new UnityEngine.Material(matPtr);
+                        var meshRenderer = new UnityEngine.SkinnedMeshRenderer(meshRendererPtr);
+                        UnityEngine.Material rarityMaterial = null;
+                        
+                        // Get the appropriate material based on rarity
+                        if (currentRarity == 1) // Rare
+                        {
+                            IntPtr matPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x58); // matRare at 0x58
+                            if (matPtr != IntPtr.Zero) rarityMaterial = new UnityEngine.Material(matPtr);
+                        }
+                        else if (currentRarity == 2) // Epic
+                        {
+                            IntPtr matPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x60); // matEpic at 0x60
+                            if (matPtr != IntPtr.Zero) rarityMaterial = new UnityEngine.Material(matPtr);
+                        }
+                        else if (currentRarity == 3) // Legendary
+                        {
+                            IntPtr matPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x68); // matLegendary at 0x68
+                            if (matPtr != IntPtr.Zero) rarityMaterial = new UnityEngine.Material(matPtr);
+                        }
+                        
+                        if (rarityMaterial != null)
+                        {
+                            meshRenderer.material = rarityMaterial;
+                            MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Postfix: Applied material for rarity {currentRarity}");
+                        }
                     }
-                    else if (SpawnNextRarity == 2) // Epic
+                    catch (Exception e)
                     {
-                        IntPtr matPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x60); // matEpic at 0x60
-                        if (matPtr != IntPtr.Zero) rarityMaterial = new UnityEngine.Material(matPtr);
-                    }
-                    else if (SpawnNextRarity == 3) // Legendary
-                    {
-                        IntPtr matPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x68); // matLegendary at 0x68
-                        if (matPtr != IntPtr.Zero) rarityMaterial = new UnityEngine.Material(matPtr);
-                    }
-                    
-                    if (rarityMaterial != null)
-                    {
-                        meshRenderer.material = rarityMaterial;
-                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level {SpawnNextRarity}");
+                        MelonLogger.Error($"[ShadyGuyVariantPatch] Failed to apply material: {e.Message}");
                     }
                 }
                 
