@@ -146,7 +146,24 @@ public static class ShadyGuyVariantPatch
                     // Prevent culling
                     shadyGuy.meshRenderer.updateWhenOffscreen = true;
                     
-                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, and updateWhenOffscreen");
+                    // Force Layer to Default (0)
+                    shadyGuy.gameObject.layer = 0;
+                    shadyGuy.meshRenderer.gameObject.layer = 0;
+                    
+                    // Recalculate Bounds
+                    shadyGuy.meshRenderer.localBounds = new Bounds(Vector3.zero, Vector3.one * 5f); // Force large bounds
+                    
+                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen. Forced Layer 0.");
+                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Bounds: {shadyGuy.meshRenderer.bounds}, IsVisible: {shadyGuy.meshRenderer.isVisible}");
+                    
+                    if (shadyGuy.meshRenderer.rootBone != null)
+                    {
+                        MelonLogger.Msg($"[ShadyGuyVariantPatch] RootBone: {shadyGuy.meshRenderer.rootBone.name} (Active: {shadyGuy.meshRenderer.rootBone.gameObject.activeInHierarchy})");
+                    }
+                    else
+                    {
+                        MelonLogger.Msg("[ShadyGuyVariantPatch] RootBone is NULL");
+                    }
                 }
                 else
                 {
@@ -185,7 +202,7 @@ public static class ShadyGuyVariantPatch
                     }
                 }
                 
-                MelonLogger.Msg($"[ShadyGuyVariantPatch] Final State - Pos: {shadyGuy.transform.position}, Scale: {shadyGuy.transform.localScale}, Active: {shadyGuy.gameObject.activeSelf}");
+                MelonLogger.Msg($"[ShadyGuyVariantPatch] Final State - Pos: {shadyGuy.transform.position}, Scale: {shadyGuy.transform.localScale}, Active: {shadyGuy.gameObject.activeSelf}, Layer: {shadyGuy.gameObject.layer}");
 
                 // Cleanup
                 ModifiedMerchants.Remove(ptr);
