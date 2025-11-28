@@ -111,16 +111,6 @@ public static class ShadyGuyVariantPatch
                 // 2. Apply Material
                 if (shadyGuy.meshRenderer != null)
                 {
-                    // DIAGNOSTIC: Check Mesh
-                    if (shadyGuy.meshRenderer.sharedMesh != null)
-                    {
-                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Mesh found: {shadyGuy.meshRenderer.sharedMesh.name} (Vertex Count: {shadyGuy.meshRenderer.sharedMesh.vertexCount})");
-                    }
-                    else
-                    {
-                        MelonLogger.Error("[ShadyGuyVariantPatch] CRITICAL: sharedMesh is NULL!");
-                    }
-
                     Material targetMat = null;
                     switch (SpawnNextRarity)
                     {
@@ -132,93 +122,52 @@ public static class ShadyGuyVariantPatch
                     if (targetMat != null)
                     {
                         shadyGuy.meshRenderer.material = targetMat;
-                        if (targetMat.HasProperty("_Color"))
-                        {
-                             MelonLogger.Msg($"[ShadyGuyVariantPatch] Applied material: {targetMat.name} (Color: {targetMat.color})");
-                        }
-                        else
-                        {
-                             MelonLogger.Msg($"[ShadyGuyVariantPatch] Applied material: {targetMat.name} (No _Color property)");
-                        }
-                    }
-                    else
-                    {
-                        MelonLogger.Error($"[ShadyGuyVariantPatch] Target material for rarity {SpawnNextRarity} is NULL!");
                     }
                     
                     // 3. Force Enable Renderer & its GameObject
                     shadyGuy.meshRenderer.enabled = true;
                     shadyGuy.meshRenderer.gameObject.SetActive(true);
-                    
-                    // Prevent culling
                     shadyGuy.meshRenderer.updateWhenOffscreen = true;
-                    
-                    // Recalculate Bounds
-                    shadyGuy.meshRenderer.localBounds = new Bounds(Vector3.zero, Vector3.one * 5f); // Force large bounds
-                    
-                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.");
-                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Bounds: {shadyGuy.meshRenderer.bounds}, IsVisible: {shadyGuy.meshRenderer.isVisible}");
                     
                     // FIX: Force Enable RootBone
                     if (shadyGuy.meshRenderer.rootBone != null)
                     {
                         shadyGuy.meshRenderer.rootBone.gameObject.SetActive(true);
-                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Force enabled RootBone: {shadyGuy.meshRenderer.rootBone.name}");
-                        
-                        // Also ensure parent of root bone is active if it exists
                         if (shadyGuy.meshRenderer.rootBone.parent != null)
                         {
                              shadyGuy.meshRenderer.rootBone.parent.gameObject.SetActive(true);
                         }
-                        
-                        // DEBUG: Check RootBone Transform
-                        var rb = shadyGuy.meshRenderer.rootBone;
-                        MelonLogger.Msg($"[ShadyGuyVariantPatch] RootBone: {rb.name}, Pos: {rb.position}, Scale: {rb.lossyScale}");
-                    }
-                    else
-                    {
-                        MelonLogger.Msg("[ShadyGuyVariantPatch] RootBone is NULL");
                     }
 
-                    // DIAGNOSTIC: Check SMR Quality
-                    MelonLogger.Msg($"[ShadyGuyVariantPatch] SMR Quality: {(int)shadyGuy.meshRenderer.quality}");
-                    // Force high quality (Bone4 = 4)
+                    // Force high quality
                     shadyGuy.meshRenderer.quality = (SkinQuality)4; 
-                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)");
-                     
-                    // DEBUG: Check Layer Separation
-                    bool isSeparate = shadyGuy.meshRenderer.gameObject.GetInstanceID() != shadyGuy.gameObject.GetInstanceID();
-                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Renderer is on separate object: {isSeparate}");
-                     
-                    if (isSeparate)
+                    
+                    // FALLBACK: Create Static Mesh Visuals
+                    // If the SMR is failing to render (invisible), we create a static mesh copy.
+                    // This bypasses Animator/Bone issues entirely.
+                    try 
                     {
-                        shadyGuy.meshRenderer.gameObject.layer = 0; // Default
-                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Forced Renderer Layer to 0 (Default)");
+                        var staticVis = new GameObject("StaticVisuals_Fallback");
+                        staticVis.transform.SetParent(shadyGuy.transform, false);
+                        staticVis.transform.localPosition = Vector3.zero;
+                        staticVis.transform.localRotation = Quaternion.identity;
+                        staticVis.transform.localScale = Vector3.one;
+                        
+                        var mf = staticVis.AddComponent<MeshFilter>();
+                        mf.mesh = shadyGuy.meshRenderer.sharedMesh;
+                        
+                        var mr = staticVis.AddComponent<MeshRenderer>();
+                        mr.material = shadyGuy.meshRenderer.material;
+                        
+                        MelonLogger.Msg("[ShadyGuyVariantPatch] Created Static Mesh Fallback to ensure visibility.");
+                        
+                        // Disable the original SMR to prevent double rendering (if it ever decides to work)
+                        // shadyGuy.meshRenderer.enabled = false; 
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Renderer is on Main Object (Layer {shadyGuy.gameObject.layer}). Cannot change without affecting Collider.");
+                        MelonLogger.Error($"[ShadyGuyVariantPatch] Failed to create static fallback: {ex.Message}");
                     }
-
-                    // DEBUG: Force Material Swap to Standard/Red
-                    var shader = Shader.Find("Standard");
-                    if (shader == null) shader = Shader.Find("Legacy Shaders/Diffuse");
-                     
-                    if (shader != null)
-                    {
-                        var debugMat = new Material(shader);
-                        debugMat.color = Color.red;
-                        shadyGuy.meshRenderer.material = debugMat;
-                        MelonLogger.Msg($"[ShadyGuyVariantPatch] DEBUG: Swapped material to {shader.name} (Red) to test visibility.");
-                    }
-                    else
-                    {
-                        MelonLogger.Error("[ShadyGuyVariantPatch] Could not find Standard or Diffuse shader!");
-                    }
-                }
-                else
-                {
-                    MelonLogger.Error("[ShadyGuyVariantPatch] meshRenderer is null!");
                 }
 
                 // 4. Force Enable Collider
@@ -226,38 +175,25 @@ public static class ShadyGuyVariantPatch
                 if (collider != null)
                 {
                     collider.enabled = true;
-                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Force enabled Collider ({collider.GetIl2CppType().Name})");
                 }
                 
                 // 5. Ensure GameObject is active and scale is correct
                 shadyGuy.gameObject.SetActive(true);
                 
-                // DEBUG: Force Layer 0 (Default) to rule out Layer 12 culling
-                shadyGuy.gameObject.layer = 0;
-                MelonLogger.Msg($"[ShadyGuyVariantPatch] DEBUG: Forced Main Object Layer to 0 (Default)");
-                
                 // Check and fix scale if it's zero
                 if (shadyGuy.transform.localScale == Vector3.zero)
                 {
                     shadyGuy.transform.localScale = Vector3.one;
-                    MelonLogger.Msg("[ShadyGuyVariantPatch] Fixed zero scale!");
                 }
                 
-                // DIAGNOSTIC: Check hideAfterPurchase
+                // Ensure hideAfterPurchase objects are active
                 if (shadyGuy.hideAfterPurchase != null)
                 {
                     foreach (var obj in shadyGuy.hideAfterPurchase)
                     {
-                        if (obj != null)
-                        {
-                            MelonLogger.Msg($"[ShadyGuyVariantPatch] hideAfterPurchase object: {obj.name} (Active: {obj.activeSelf})");
-                            // Ensure these are active initially
-                            obj.SetActive(true);
-                        }
+                        if (obj != null) obj.SetActive(true);
                     }
                 }
-                
-                MelonLogger.Msg($"[ShadyGuyVariantPatch] Final State - Pos: {shadyGuy.transform.position}, Scale: {shadyGuy.transform.localScale}, Active: {shadyGuy.gameObject.activeSelf}, Layer: {shadyGuy.gameObject.layer}");
 
                 // Cleanup
                 ModifiedMerchants.Remove(ptr);
