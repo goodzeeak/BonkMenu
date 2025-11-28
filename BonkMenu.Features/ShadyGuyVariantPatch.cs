@@ -203,8 +203,9 @@ public static class ShadyGuyVariantPatch
                 if (shadyGuy.meshRenderer != null)
                 {
                      MelonLogger.Msg($"[ShadyGuyVariantPatch] SMR Quality: {(int)shadyGuy.meshRenderer.quality}");
-                     // Force high quality?
-                     // shadyGuy.meshRenderer.quality = (SkinQuality)4; // Bone4
+                     // Force high quality (Bone4 = 4)
+                     shadyGuy.meshRenderer.quality = (SkinQuality)4; 
+                     MelonLogger.Msg($"[ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)");
                 }
 
                 /* Animator logic removed due to missing UnityEngine.AnimationModule reference
