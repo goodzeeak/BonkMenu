@@ -146,19 +146,23 @@ public static class ShadyGuyVariantPatch
                     // Prevent culling
                     shadyGuy.meshRenderer.updateWhenOffscreen = true;
                     
-                    // Force Layer to Default (0)
-                    shadyGuy.gameObject.layer = 0;
-                    shadyGuy.meshRenderer.gameObject.layer = 0;
-                    
                     // Recalculate Bounds
                     shadyGuy.meshRenderer.localBounds = new Bounds(Vector3.zero, Vector3.one * 5f); // Force large bounds
                     
-                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen. Forced Layer 0.");
+                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.");
                     MelonLogger.Msg($"[ShadyGuyVariantPatch] Bounds: {shadyGuy.meshRenderer.bounds}, IsVisible: {shadyGuy.meshRenderer.isVisible}");
                     
+                    // FIX: Force Enable RootBone
                     if (shadyGuy.meshRenderer.rootBone != null)
                     {
-                        MelonLogger.Msg($"[ShadyGuyVariantPatch] RootBone: {shadyGuy.meshRenderer.rootBone.name} (Active: {shadyGuy.meshRenderer.rootBone.gameObject.activeInHierarchy})");
+                        shadyGuy.meshRenderer.rootBone.gameObject.SetActive(true);
+                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Force enabled RootBone: {shadyGuy.meshRenderer.rootBone.name}");
+                        
+                        // Also ensure parent of root bone is active if it exists
+                        if (shadyGuy.meshRenderer.rootBone.parent != null)
+                        {
+                             shadyGuy.meshRenderer.rootBone.parent.gameObject.SetActive(true);
+                        }
                     }
                     else
                     {
