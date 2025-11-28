@@ -1,258 +1,450 @@
 
-[23:15:03.187] ------------------------------
-[23:15:03.190] MelonLoader v0.7.2-ci.2367 Open-Beta
-[23:15:03.190] OS: Windows 11
-[23:15:03.191] Hash Code: D6BF00FD6659AE51BFB63FF3F0296A4AB54B28DA09BE826C7B88870E9E46AFFE
-[23:15:03.191] ------------------------------
-[23:15:03.191] Game Type: Il2cpp
-[23:15:03.191] Game Arch: x64
-[23:15:03.191] ------------------------------
-[23:15:03.191] Command-Line: 
-[23:15:03.191] ------------------------------
-[23:15:03.192] Core::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
-[23:15:03.192] Game::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
-[23:15:03.193] Game::DataPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk_Data
-[23:15:03.193] Game::ApplicationPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk.exe
-[23:15:03.193] Runtime Type: net6
-[23:15:03.254] ------------------------------
-[23:15:03.254] Game Name: Megabonk
-[23:15:03.254] Game Developer: Ved
-[23:15:03.256] Unity Version: 2023.2.22f1
-[23:15:03.256] Game Version: 1.0.19
-[23:15:03.256] ------------------------------
+[23:21:00.680] ------------------------------
+[23:21:00.683] MelonLoader v0.7.2-ci.2367 Open-Beta
+[23:21:00.684] OS: Windows 11
+[23:21:00.684] Hash Code: D6BF00FD6659AE51BFB63FF3F0296A4AB54B28DA09BE826C7B88870E9E46AFFE
+[23:21:00.684] ------------------------------
+[23:21:00.684] Game Type: Il2cpp
+[23:21:00.684] Game Arch: x64
+[23:21:00.684] ------------------------------
+[23:21:00.685] Command-Line: 
+[23:21:00.685] ------------------------------
+[23:21:00.685] Core::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
+[23:21:00.686] Game::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
+[23:21:00.686] Game::DataPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk_Data
+[23:21:00.687] Game::ApplicationPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk.exe
+[23:21:00.687] Runtime Type: net6
+[23:21:00.745] ------------------------------
+[23:21:00.746] Game Name: Megabonk
+[23:21:00.746] Game Developer: Ved
+[23:21:00.747] Unity Version: 2023.2.22f1
+[23:21:00.747] Game Version: 1.0.19
+[23:21:00.747] ------------------------------
 
-[23:15:03.833] Preferences Loaded!
+[23:21:01.325] Preferences Loaded!
 
-[23:15:03.844] Loading UserLibs...
-[23:15:03.846] 0 UserLibs loaded.
+[23:21:01.337] Loading UserLibs...
+[23:21:01.338] 0 UserLibs loaded.
 
-[23:15:03.846] Loading Plugins...
-[23:15:03.851] 0 Plugins loaded.
+[23:21:01.339] Loading Plugins...
+[23:21:01.343] 0 Plugins loaded.
 
-[23:15:04.187] Loading Il2CppAssemblyGenerator...
-[23:15:04.222] [Il2CppAssemblyGenerator] Contacting RemoteAPI...
-[23:15:04.329] [Il2CppAssemblyGenerator] Game Not Found on RemoteAPI Host (https://api.melonloader.com/api/v1/game/megabonk)
-[23:15:04.329] [Il2CppAssemblyGenerator] RemoteAPI.DumperVersion = null
-[23:15:04.329] [Il2CppAssemblyGenerator] RemoteAPI.ObfuscationRegex = null
-[23:15:04.330] [Il2CppAssemblyGenerator] RemoteAPI.MappingURL = null
-[23:15:04.330] [Il2CppAssemblyGenerator] RemoteAPI.MappingFileSHA512 = null
-[23:15:04.333] [Il2CppAssemblyGenerator] Using Cpp2IL Version: 2022.1.0-pre-release.20
-[23:15:04.333] [Il2CppAssemblyGenerator] Using Il2CppInterop Version = 1.5.1+dbaf825aab891ff1e1627bea691bde0a81d1ad98
-[23:15:04.333] [Il2CppAssemblyGenerator] Using Unity Dependencies Version = 2023.2.22
-[23:15:04.333] [Il2CppAssemblyGenerator] Using Deobfuscation Regex = null
-[23:15:04.334] [Il2CppAssemblyGenerator] Cpp2IL is up to date.
-[23:15:04.334] [Il2CppAssemblyGenerator] Cpp2IL.Plugin.StrippedCodeRegSupport is up to date.
-[23:15:04.334] [Il2CppAssemblyGenerator] UnityDependencies is up to date.
-[23:15:04.334] [Il2CppAssemblyGenerator] Checking GameAssembly...
-[23:15:04.420] [Il2CppAssemblyGenerator] Assembly is up to date. No Generation Needed.
+[23:21:01.711] Loading Il2CppAssemblyGenerator...
+[23:21:01.745] [Il2CppAssemblyGenerator] Contacting RemoteAPI...
+[23:21:01.927] [Il2CppAssemblyGenerator] Game Not Found on RemoteAPI Host (https://api.melonloader.com/api/v1/game/megabonk)
+[23:21:01.927] [Il2CppAssemblyGenerator] RemoteAPI.DumperVersion = null
+[23:21:01.928] [Il2CppAssemblyGenerator] RemoteAPI.ObfuscationRegex = null
+[23:21:01.928] [Il2CppAssemblyGenerator] RemoteAPI.MappingURL = null
+[23:21:01.928] [Il2CppAssemblyGenerator] RemoteAPI.MappingFileSHA512 = null
+[23:21:01.932] [Il2CppAssemblyGenerator] Using Cpp2IL Version: 2022.1.0-pre-release.20
+[23:21:01.932] [Il2CppAssemblyGenerator] Using Il2CppInterop Version = 1.5.1+dbaf825aab891ff1e1627bea691bde0a81d1ad98
+[23:21:01.932] [Il2CppAssemblyGenerator] Using Unity Dependencies Version = 2023.2.22
+[23:21:01.932] [Il2CppAssemblyGenerator] Using Deobfuscation Regex = null
+[23:21:01.932] [Il2CppAssemblyGenerator] Cpp2IL is up to date.
+[23:21:01.933] [Il2CppAssemblyGenerator] Cpp2IL.Plugin.StrippedCodeRegSupport is up to date.
+[23:21:01.933] [Il2CppAssemblyGenerator] UnityDependencies is up to date.
+[23:21:01.933] [Il2CppAssemblyGenerator] Checking GameAssembly...
+[23:21:02.020] [Il2CppAssemblyGenerator] Assembly is up to date. No Generation Needed.
 
-[23:15:04.421] Loading Mods...
-[23:15:04.729] ------------------------------
-[23:15:04.741] Melon Assembly loaded: '.\Mods\BonkMenu.dll'
-[23:15:04.741] SHA256 Hash: 'C324922F7F1B1A5AC368F2B784E723A4421E73721B5574765BFDBB35083A560B'
-[23:15:04.742] Melon Assembly loaded: '.\Mods\UsefullInfoUI.dll'
-[23:15:04.743] SHA256 Hash: 'F45AC948BB40923A644F197BA17E460B36A089AC9D089F559D1C25AD4DB962F7'
+[23:21:02.021] Loading Mods...
+[23:21:02.336] ------------------------------
+[23:21:02.348] Melon Assembly loaded: '.\Mods\BonkMenu.dll'
+[23:21:02.348] SHA256 Hash: '461216B13E5CEC97EFD4C8B7575ECF20981A377BD1BF9622983C67CEC87E037D'
+[23:21:02.350] Melon Assembly loaded: '.\Mods\UsefullInfoUI.dll'
+[23:21:02.350] SHA256 Hash: 'F45AC948BB40923A644F197BA17E460B36A089AC9D089F559D1C25AD4DB962F7'
 
-[23:15:04.895] ------------------------------
-[23:15:04.896] BonkMenu v1.0.0
-[23:15:04.896] by Goodzy
-[23:15:04.896] Assembly: BonkMenu.dll
-[23:15:04.896] ------------------------------
-[23:15:04.898] ------------------------------
-[23:15:04.898] Useful Info UI v1.1.5
-[23:15:04.898] by Maskoliver
-[23:15:04.898] Assembly: UsefullInfoUI.dll
-[23:15:04.898] ------------------------------
-[23:15:04.899] ------------------------------
-[23:15:04.899] 2 Mods loaded.
+[23:21:02.547] ------------------------------
+[23:21:02.547] BonkMenu v1.0.0
+[23:21:02.547] by Goodzy
+[23:21:02.547] Assembly: BonkMenu.dll
+[23:21:02.548] ------------------------------
+[23:21:02.550] ------------------------------
+[23:21:02.550] Useful Info UI v1.1.5
+[23:21:02.550] by Maskoliver
+[23:21:02.550] Assembly: UsefullInfoUI.dll
+[23:21:02.550] ------------------------------
+[23:21:02.550] ------------------------------
+[23:21:02.550] 2 Mods loaded.
 
-[23:15:05.626] [Il2CppInterop] Class::Init signatures have been exhausted, using a substitute!
-[23:15:05.751] [Il2CppInterop] Registered mono type MelonLoader.Support.MonoEnumeratorWrapper in il2cpp domain
-[23:15:05.832] Support Module Loaded: C:\Program Files (x86)\Steam\steamapps\common\Megabonk\MelonLoader\Dependencies\SupportModules\Il2Cpp.dll
-[23:15:06.361] [BonkMenu] [BonkMenu] === BonkMenu Initialized ===
-[23:15:06.362] [BonkMenu] No keybind config found, using defaults
-[23:15:06.362] [BonkMenu] [Patches] Initializing Harmony patches...
-[23:15:06.379] [BonkMenu] [LevelCapPatches] ✅ WeaponData.GetMaxLevel patched - max level set to int.MaxValue
-[23:15:06.396] [BonkMenu] [LevelCapPatches] ✅ TomeData.GetMaxLevel patched - max level set to int.MaxValue
-[23:15:06.412] [BonkMenu] [XpDisplayPatch] ✅ XpBarUI.SetLevelText patched - will show uncapped XP multiplier
-[23:15:06.448] [BonkMenu] [GoldenShrinePatch] ✅ ChargeShrine.Awake & Start patched - golden shrine support enabled
-[23:15:06.448] [BonkMenu] [PotVariantPatch] ✅ Pot variant patch ready (will modify post-spawn)
-[23:15:06.469] [BonkMenu] [ShadyGuyVariantPatch] ✅ InteractableShadyGuy.Start patched - variant support enabled
-[23:15:06.469] [BonkMenu] [Patches] All patches applied successfully!
-[23:15:06.470] [BonkMenu] [BonkMenu] Press F1 to toggle menu
-[23:15:06.470] [BonkMenu] [BonkMenu] ==============================
-[23:15:06.476] MelonPreferences Loaded from UserData/UsefulInfoUI.cfg
-[23:15:06.613] [Useful_Info_UI] Harmony patches applied.
-[23:15:06.614] [Useful_Info_UI] Useful Info UI initialized!
-[23:15:06.741] [Useful_Info_UI] Useful Info UI initialized (Melon)
-[23:15:06.847] [Il2CppInterop] Registered mono type MelonLoader.Support.SM_Component in il2cpp domain
-[23:15:06.856] Registered mono icall UnityEngine.Transform::SetAsLastSibling in il2cpp domain
-[23:15:06.881] [Il2CppInterop] Registered mono type UniverseLib.UniversalBehaviour in il2cpp domain
-[23:15:07.265] [Il2CppInterop] Registered mono type UniverseLib.Runtime.Il2Cpp.Il2CppManagedEnumerator in il2cpp domain
-[23:15:07.505] Registered mono icall UnityEngine.Resources::FindObjectsOfTypeAll in il2cpp domain
-[23:15:07.531] [Il2CppInterop] Registered mono type Il2CppInterop.Runtime.DelegateSupport+Il2CppToMonoDelegateReference in il2cpp domain
-[23:15:11.582] ✅ XP MULT UNCAPPED!
-[23:15:15.857] [Useful_Info_UI] RunInfo UI created (TMPro)
-[23:15:15.858] [Useful_Info_UI] Player Stats UI created (TMPro)
-[23:15:16.467] [Useful_Info_UI] Overlay toggled to detailed (F1)
-[23:15:21.205] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:21.205] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:21.207] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:21.207] [ShadyGuyVariantPatch] Start Postfix: Rarity was 0, re-setting to 3
-[23:15:21.210] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:21.210] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:21.211] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:21.212] [ShadyGuyVariantPatch] Shady Merchant Position: (121.44, 30.72, -266.04)
-[23:15:21.358] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:21.359] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:21.359] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:21.360] [ShadyGuyVariantPatch] Start Postfix: Rarity was 1, re-setting to 3
-[23:15:21.360] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:21.360] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:21.360] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:21.360] [ShadyGuyVariantPatch] Shady Merchant Position: (-96.45, -20.00, -7.23)
-[23:15:21.507] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:21.507] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:21.508] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:21.508] [ShadyGuyVariantPatch] Start Postfix: Rarity was 1, re-setting to 3
-[23:15:21.509] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:21.509] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:21.509] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:21.509] [ShadyGuyVariantPatch] Shady Merchant Position: (-154.52, -20.00, -15.10)
-[23:15:21.656] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:21.656] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:21.657] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:21.657] [ShadyGuyVariantPatch] Start Postfix: Rarity was 0, re-setting to 3
-[23:15:21.657] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:21.657] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:21.657] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:21.657] [ShadyGuyVariantPatch] Shady Merchant Position: (280.78, 3.07, 13.87)
-[23:15:21.805] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:21.805] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:21.806] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:21.806] [ShadyGuyVariantPatch] Start Postfix: Rarity was 3, re-setting to 3
-[23:15:21.806] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:21.806] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:21.806] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:21.807] [ShadyGuyVariantPatch] Shady Merchant Position: (-140.28, -20.00, -92.15)
-[23:15:21.964] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:21.965] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:21.965] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:21.965] [ShadyGuyVariantPatch] Start Postfix: Rarity was 0, re-setting to 3
-[23:15:21.966] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:21.966] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:21.966] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:21.966] [ShadyGuyVariantPatch] Shady Merchant Position: (116.78, 0.00, -240.71)
-[23:15:22.098] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:22.098] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:22.099] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:22.099] [ShadyGuyVariantPatch] Start Postfix: Rarity was 0, re-setting to 3
-[23:15:22.099] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:22.099] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:22.099] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:22.100] [ShadyGuyVariantPatch] Shady Merchant Position: (9.58, -20.00, -271.62)
-[23:15:22.254] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:22.254] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:22.255] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:22.255] [ShadyGuyVariantPatch] Start Postfix: Rarity was 0, re-setting to 3
-[23:15:22.255] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:22.255] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:22.255] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:22.255] [ShadyGuyVariantPatch] Shady Merchant Position: (183.22, -20.00, 171.26)
-[23:15:22.407] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:22.407] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:22.408] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:22.408] [ShadyGuyVariantPatch] Start Postfix: Rarity was 1, re-setting to 3
-[23:15:22.408] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:22.408] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:22.409] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:22.409] [ShadyGuyVariantPatch] Shady Merchant Position: (204.51, 66.29, -72.59)
-[23:15:22.562] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:22.563] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:22.563] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:22.563] [ShadyGuyVariantPatch] Start Postfix: Rarity was 2, re-setting to 3
-[23:15:22.564] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:22.564] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:22.564] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:22.564] [ShadyGuyVariantPatch] Shady Merchant Position: (-114.21, -6.75, 153.51)
-[23:15:22.710] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:22.710] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:22.711] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:22.711] [ShadyGuyVariantPatch] Start Postfix: Rarity was 0, re-setting to 3
-[23:15:22.711] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:22.711] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:22.711] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:22.711] [ShadyGuyVariantPatch] Shady Merchant Position: (-181.79, -20.00, 252.51)
-[23:15:22.863] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:22.863] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:22.864] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:22.864] [ShadyGuyVariantPatch] Start Postfix: Rarity was 1, re-setting to 3
-[23:15:22.864] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:22.864] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:22.864] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:22.864] [ShadyGuyVariantPatch] Shady Merchant Position: (-208.44, 0.00, -269.45)
-[23:15:23.025] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:23.025] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:23.026] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:23.026] [ShadyGuyVariantPatch] Start Postfix: Rarity was 0, re-setting to 3
-[23:15:23.026] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:23.026] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:23.026] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:23.027] [ShadyGuyVariantPatch] Shady Merchant Position: (-152.78, -20.00, -238.93)
-[23:15:23.166] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:23.166] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:23.167] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:23.167] [ShadyGuyVariantPatch] Start Postfix: Rarity was 0, re-setting to 3
-[23:15:23.167] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:23.167] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:23.167] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:23.168] [ShadyGuyVariantPatch] Shady Merchant Position: (-58.97, 0.00, -194.76)
-[23:15:23.320] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:23.320] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:23.321] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:23.321] [ShadyGuyVariantPatch] Start Postfix: Rarity was 0, re-setting to 3
-[23:15:23.321] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:23.321] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:23.321] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:23.321] [ShadyGuyVariantPatch] Shady Merchant Position: (181.56, -20.00, 33.95)
-[23:15:23.476] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:23.476] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:23.476] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:23.477] [ShadyGuyVariantPatch] Start Postfix: Rarity was 0, re-setting to 3
-[23:15:23.477] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:23.477] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:23.477] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:23.477] [ShadyGuyVariantPatch] Shady Merchant Position: (-194.51, 0.00, 100.37)
-[23:15:23.632] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:23.633] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:23.633] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:23.633] [ShadyGuyVariantPatch] Start Postfix: Rarity was 2, re-setting to 3
-[23:15:23.634] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:23.634] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:23.634] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:23.634] [ShadyGuyVariantPatch] Shady Merchant Position: (-135.46, -20.00, 27.74)
-[23:15:23.764] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:23.765] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:23.765] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:23.765] [ShadyGuyVariantPatch] Start Postfix: Rarity was 0, re-setting to 3
-[23:15:23.765] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:23.766] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:23.766] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:23.766] [ShadyGuyVariantPatch] Shady Merchant Position: (80.24, 0.00, 90.36)
-[23:15:23.923] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:23.923] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:23.924] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:23.924] [ShadyGuyVariantPatch] Start Postfix: Rarity was 0, re-setting to 3
-[23:15:23.924] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:23.924] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:23.924] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:23.924] [ShadyGuyVariantPatch] Shady Merchant Position: (-249.08, -20.00, 101.19)
-[23:15:24.170] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[23:15:24.170] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[23:15:24.170] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:15:24.170] [ShadyGuyVariantPatch] Start Postfix: Rarity was 0, re-setting to 3
-[23:15:24.171] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
-[23:15:24.171] [ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer
-[23:15:24.171] [ShadyGuyVariantPatch] Start Postfix: Force enabled Collider (SphereCollider)
-[23:15:24.171] [ShadyGuyVariantPatch] Shady Merchant Position: (227.66, 63.83, -290.94)
-[23:15:54.466] Preferences Saved!
+[23:21:03.341] [Il2CppInterop] Class::Init signatures have been exhausted, using a substitute!
+[23:21:03.466] [Il2CppInterop] Registered mono type MelonLoader.Support.MonoEnumeratorWrapper in il2cpp domain
+[23:21:03.546] Support Module Loaded: C:\Program Files (x86)\Steam\steamapps\common\Megabonk\MelonLoader\Dependencies\SupportModules\Il2Cpp.dll
+[23:21:04.120] [BonkMenu] [BonkMenu] === BonkMenu Initialized ===
+[23:21:04.121] [BonkMenu] No keybind config found, using defaults
+[23:21:04.121] [BonkMenu] [Patches] Initializing Harmony patches...
+[23:21:04.138] [BonkMenu] [LevelCapPatches] ✅ WeaponData.GetMaxLevel patched - max level set to int.MaxValue
+[23:21:04.156] [BonkMenu] [LevelCapPatches] ✅ TomeData.GetMaxLevel patched - max level set to int.MaxValue
+[23:21:04.174] [BonkMenu] [XpDisplayPatch] ✅ XpBarUI.SetLevelText patched - will show uncapped XP multiplier
+[23:21:04.209] [BonkMenu] [GoldenShrinePatch] ✅ ChargeShrine.Awake & Start patched - golden shrine support enabled
+[23:21:04.209] [BonkMenu] [PotVariantPatch] ✅ Pot variant patch ready (will modify post-spawn)
+[23:21:04.229] [BonkMenu] [ShadyGuyVariantPatch] ✅ InteractableShadyGuy.Start patched
+[23:21:04.245] [BonkMenu] [ShadyGuyVariantPatch] ✅ InteractableShadyGuy.FindItems patched
+[23:21:04.245] [BonkMenu] [Patches] All patches applied successfully!
+[23:21:04.246] [BonkMenu] [BonkMenu] Press F1 to toggle menu
+[23:21:04.246] [BonkMenu] [BonkMenu] ==============================
+[23:21:04.251] MelonPreferences Loaded from UserData/UsefulInfoUI.cfg
+[23:21:04.385] [Useful_Info_UI] Harmony patches applied.
+[23:21:04.387] [Useful_Info_UI] Useful Info UI initialized!
+[23:21:04.514] [Useful_Info_UI] Useful Info UI initialized (Melon)
+[23:21:04.624] [Il2CppInterop] Registered mono type MelonLoader.Support.SM_Component in il2cpp domain
+[23:21:04.634] Registered mono icall UnityEngine.Transform::SetAsLastSibling in il2cpp domain
+[23:21:04.661] [Il2CppInterop] Registered mono type UniverseLib.UniversalBehaviour in il2cpp domain
+[23:21:05.059] [Il2CppInterop] Registered mono type UniverseLib.Runtime.Il2Cpp.Il2CppManagedEnumerator in il2cpp domain
+[23:21:05.314] Registered mono icall UnityEngine.Resources::FindObjectsOfTypeAll in il2cpp domain
+[23:21:05.341] [Il2CppInterop] Registered mono type Il2CppInterop.Runtime.DelegateSupport+Il2CppToMonoDelegateReference in il2cpp domain
+[23:21:15.810] ✅ XP MULT UNCAPPED!
+[23:21:20.108] [Useful_Info_UI] RunInfo UI created (TMPro)
+[23:21:20.109] [Useful_Info_UI] Player Stats UI created (TMPro)
+[23:21:20.612] [Useful_Info_UI] Overlay toggled to detailed (F1)
+[23:21:24.007] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:24.007] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:24.009] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:24.016] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:24.164] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:24.164] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:24.165] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:24.165] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:24.316] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:24.316] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:24.317] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:24.317] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:24.458] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:24.458] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:24.458] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:24.459] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:24.595] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:24.596] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:24.596] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:24.596] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:24.740] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:24.740] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:24.741] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:24.741] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:24.890] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:24.890] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:24.891] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:24.891] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:25.038] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:25.038] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:25.039] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:25.039] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:25.190] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:25.190] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:25.191] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:25.191] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:25.337] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:25.338] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:25.338] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:25.338] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:25.494] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:25.494] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:25.495] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:25.495] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:25.638] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:25.638] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:25.638] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:25.639] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:25.790] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:25.790] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:25.791] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:25.791] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:25.940] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:25.940] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:25.940] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:25.941] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:26.095] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:26.095] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:26.096] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:26.096] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:26.252] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:26.252] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:26.253] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:26.253] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:26.393] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:26.393] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:26.394] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:26.394] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:26.544] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:26.544] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:26.545] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:26.545] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:26.702] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:26.702] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:26.702] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:26.703] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:26.850] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:26.850] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:26.851] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:26.851] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:26.992] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:21:26.992] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:21:26.993] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:26.993] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:42.230] [Useful_Info_UI] Overlay toggled to hidden (F1)
+[23:21:44.462] [BonkMenu] [BonkMenu] Spawned 18 Shady Merchant using game's spawn system!
+[23:21:44.462] [BonkMenu] [BonkMenu] Initiated spawning of 18 Legendary Shady Merchant(s)!
+[23:21:44.463] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.463] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.463] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.464] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.464] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.464] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.464] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.464] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.464] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.464] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.464] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.464] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.465] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.465] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.465] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.465] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.465] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.465] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.465] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.465] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.465] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.465] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.466] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.466] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.466] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.466] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.466] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.466] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.466] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.466] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.466] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.467] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.467] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.467] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.467] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.467] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.894] [BonkMenu] [BonkMenu] Spawned 18 Shady Merchant using game's spawn system!
+[23:21:44.895] [BonkMenu] [BonkMenu] Initiated spawning of 18 Legendary Shady Merchant(s)!
+[23:21:44.895] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.896] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.896] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.896] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.896] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.896] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.896] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.896] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.896] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.896] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.897] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.897] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.897] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.897] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.897] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.897] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.897] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.897] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.897] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.898] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.898] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.898] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.898] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.898] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.898] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.898] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.898] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.898] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.898] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.899] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.899] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.899] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.899] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.899] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:44.899] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:44.899] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.046] [BonkMenu] [BonkMenu] Spawned 18 Shady Merchant using game's spawn system!
+[23:21:45.046] [BonkMenu] [BonkMenu] Initiated spawning of 18 Legendary Shady Merchant(s)!
+[23:21:45.046] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.047] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.047] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.047] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.047] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.047] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.047] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.047] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.047] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.047] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.048] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.048] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.048] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.048] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.048] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.048] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.048] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.048] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.048] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.048] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.049] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.049] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.049] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.049] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.049] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.049] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.049] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.049] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.049] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.049] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.050] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.050] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.050] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.050] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.050] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.050] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.192] [BonkMenu] [BonkMenu] Spawned 18 Shady Merchant using game's spawn system!
+[23:21:45.192] [BonkMenu] [BonkMenu] Initiated spawning of 18 Legendary Shady Merchant(s)!
+[23:21:45.193] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.193] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.193] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.193] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.193] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.193] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.194] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.194] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.194] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.194] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.194] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.194] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.194] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.194] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.194] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.194] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.195] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.195] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.195] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.195] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.195] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.195] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.195] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.195] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.196] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.196] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.196] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.196] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.196] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.196] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.196] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.196] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.196] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.197] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.197] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.197] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.343] [BonkMenu] [BonkMenu] Spawned 18 Shady Merchant using game's spawn system!
+[23:21:45.343] [BonkMenu] [BonkMenu] Initiated spawning of 18 Legendary Shady Merchant(s)!
+[23:21:45.344] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.344] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.344] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.344] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.345] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.345] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.345] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.345] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.345] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.345] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.345] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.345] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.345] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.346] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.346] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.346] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.346] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.346] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.346] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.346] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.346] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.347] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.347] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.347] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.347] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.347] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.347] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.347] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.347] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.347] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.347] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.348] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.348] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.348] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.348] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.348] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.481] [BonkMenu] [BonkMenu] Spawned 18 Shady Merchant using game's spawn system!
+[23:21:45.481] [BonkMenu] [BonkMenu] Initiated spawning of 18 Legendary Shady Merchant(s)!
+[23:21:45.482] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.482] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.482] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.482] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.482] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.482] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.482] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.482] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.483] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.483] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.483] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.483] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.483] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.483] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.483] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.483] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.483] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.484] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.484] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.484] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.484] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.484] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.484] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.484] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.484] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.485] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.485] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.485] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.485] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.485] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.485] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.485] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.485] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.485] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.486] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.486] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.618] [BonkMenu] [BonkMenu] Spawned 18 Shady Merchant using game's spawn system!
+[23:21:45.619] [BonkMenu] [BonkMenu] Initiated spawning of 18 Legendary Shady Merchant(s)!
+[23:21:45.619] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.619] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.620] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.620] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.620] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.620] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.620] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.620] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.620] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.620] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.620] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.620] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.621] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.621] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.621] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.621] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.621] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.621] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.621] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.621] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.622] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.622] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.622] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.622] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.622] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.622] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.622] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.622] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.622] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.623] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.623] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.623] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.623] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.623] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:21:45.623] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:21:45.623] [ShadyGuyVariantPatch] Applied material for rarity 3
+[23:22:00.798] Preferences Saved!

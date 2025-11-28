@@ -125,8 +125,10 @@ public static class ShadyGuyVariantPatch
                         MelonLogger.Msg($"[ShadyGuyVariantPatch] Applied material for rarity {SpawnNextRarity}");
                     }
                     
-                    // 3. Force Enable Renderer
+                    // 3. Force Enable Renderer & its GameObject
                     shadyGuy.meshRenderer.enabled = true;
+                    shadyGuy.meshRenderer.gameObject.SetActive(true);
+                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Force enabled MeshRenderer and its GameObject");
                 }
                 else
                 {
@@ -138,10 +140,20 @@ public static class ShadyGuyVariantPatch
                 if (collider != null)
                 {
                     collider.enabled = true;
+                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Force enabled Collider ({collider.GetIl2CppType().Name})");
                 }
                 
-                // 5. Ensure GameObject is active
+                // 5. Ensure GameObject is active and scale is correct
                 shadyGuy.gameObject.SetActive(true);
+                
+                // Check and fix scale if it's zero
+                if (shadyGuy.transform.localScale == Vector3.zero)
+                {
+                    shadyGuy.transform.localScale = Vector3.one;
+                    MelonLogger.Msg("[ShadyGuyVariantPatch] Fixed zero scale!");
+                }
+                
+                MelonLogger.Msg($"[ShadyGuyVariantPatch] Final State - Pos: {shadyGuy.transform.position}, Scale: {shadyGuy.transform.localScale}, Active: {shadyGuy.gameObject.activeSelf}");
 
                 // Cleanup
                 ModifiedMerchants.Remove(ptr);
