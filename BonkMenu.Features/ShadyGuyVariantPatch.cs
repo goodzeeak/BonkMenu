@@ -206,6 +206,36 @@ public static class ShadyGuyVariantPatch
                      // Force high quality (Bone4 = 4)
                      shadyGuy.meshRenderer.quality = (SkinQuality)4; 
                      MelonLogger.Msg($"[ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)");
+                     
+                     // DEBUG: Check Layer Separation
+                     bool isSeparate = shadyGuy.meshRenderer.gameObject.GetInstanceID() != shadyGuy.gameObject.GetInstanceID();
+                     MelonLogger.Msg($"[ShadyGuyVariantPatch] Renderer is on separate object: {isSeparate}");
+                     
+                     if (isSeparate)
+                     {
+                         shadyGuy.meshRenderer.gameObject.layer = 0; // Default
+                         MelonLogger.Msg($"[ShadyGuyVariantPatch] Forced Renderer Layer to 0 (Default)");
+                     }
+                     else
+                     {
+                         MelonLogger.Msg($"[ShadyGuyVariantPatch] Renderer is on Main Object (Layer {shadyGuy.gameObject.layer}). Cannot change without affecting Collider.");
+                     }
+
+                     // DEBUG: Force Material Swap to Standard/Red
+                     var shader = Shader.Find("Standard");
+                     if (shader == null) shader = Shader.Find("Legacy Shaders/Diffuse");
+                     
+                     if (shader != null)
+                     {
+                         var debugMat = new Material(shader);
+                         debugMat.color = Color.red;
+                         shadyGuy.meshRenderer.material = debugMat;
+                         MelonLogger.Msg($"[ShadyGuyVariantPatch] DEBUG: Swapped material to {shader.name} (Red) to test visibility.");
+                     }
+                     else
+                     {
+                         MelonLogger.Error("[ShadyGuyVariantPatch] Could not find Standard or Diffuse shader!");
+                     }
                 }
 
                 /* Animator logic removed due to missing UnityEngine.AnimationModule reference
