@@ -170,10 +170,50 @@ public static class ShadyGuyVariantPatch
                         {
                              shadyGuy.meshRenderer.rootBone.parent.gameObject.SetActive(true);
                         }
+                        
+                        // DEBUG: Check RootBone Transform
+                        var rb = shadyGuy.meshRenderer.rootBone;
+                        MelonLogger.Msg($"[ShadyGuyVariantPatch] RootBone: {rb.name}, Pos: {rb.position}, Scale: {rb.lossyScale}");
                     }
                     else
                     {
                         MelonLogger.Msg("[ShadyGuyVariantPatch] RootBone is NULL");
+                    }
+
+                    // DIAGNOSTIC: Check SMR Quality
+                    MelonLogger.Msg($"[ShadyGuyVariantPatch] SMR Quality: {(int)shadyGuy.meshRenderer.quality}");
+                    // Force high quality (Bone4 = 4)
+                    shadyGuy.meshRenderer.quality = (SkinQuality)4; 
+                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)");
+                     
+                    // DEBUG: Check Layer Separation
+                    bool isSeparate = shadyGuy.meshRenderer.gameObject.GetInstanceID() != shadyGuy.gameObject.GetInstanceID();
+                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Renderer is on separate object: {isSeparate}");
+                     
+                    if (isSeparate)
+                    {
+                        shadyGuy.meshRenderer.gameObject.layer = 0; // Default
+                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Forced Renderer Layer to 0 (Default)");
+                    }
+                    else
+                    {
+                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Renderer is on Main Object (Layer {shadyGuy.gameObject.layer}). Cannot change without affecting Collider.");
+                    }
+
+                    // DEBUG: Force Material Swap to Standard/Red
+                    var shader = Shader.Find("Standard");
+                    if (shader == null) shader = Shader.Find("Legacy Shaders/Diffuse");
+                     
+                    if (shader != null)
+                    {
+                        var debugMat = new Material(shader);
+                        debugMat.color = Color.red;
+                        shadyGuy.meshRenderer.material = debugMat;
+                        MelonLogger.Msg($"[ShadyGuyVariantPatch] DEBUG: Swapped material to {shader.name} (Red) to test visibility.");
+                    }
+                    else
+                    {
+                        MelonLogger.Error("[ShadyGuyVariantPatch] Could not find Standard or Diffuse shader!");
                     }
                 }
                 else
@@ -192,65 +232,16 @@ public static class ShadyGuyVariantPatch
                 // 5. Ensure GameObject is active and scale is correct
                 shadyGuy.gameObject.SetActive(true);
                 
+                // DEBUG: Force Layer 0 (Default) to rule out Layer 12 culling
+                shadyGuy.gameObject.layer = 0;
+                MelonLogger.Msg($"[ShadyGuyVariantPatch] DEBUG: Forced Main Object Layer to 0 (Default)");
+                
                 // Check and fix scale if it's zero
                 if (shadyGuy.transform.localScale == Vector3.zero)
                 {
                     shadyGuy.transform.localScale = Vector3.one;
                     MelonLogger.Msg("[ShadyGuyVariantPatch] Fixed zero scale!");
                 }
-
-                // DIAGNOSTIC: Check SMR Quality
-                if (shadyGuy.meshRenderer != null)
-                {
-                     MelonLogger.Msg($"[ShadyGuyVariantPatch] SMR Quality: {(int)shadyGuy.meshRenderer.quality}");
-                     // Force high quality (Bone4 = 4)
-                     shadyGuy.meshRenderer.quality = (SkinQuality)4; 
-                     MelonLogger.Msg($"[ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)");
-                     
-                     // DEBUG: Check Layer Separation
-                     bool isSeparate = shadyGuy.meshRenderer.gameObject.GetInstanceID() != shadyGuy.gameObject.GetInstanceID();
-                     MelonLogger.Msg($"[ShadyGuyVariantPatch] Renderer is on separate object: {isSeparate}");
-                     
-                     if (isSeparate)
-                     {
-                         shadyGuy.meshRenderer.gameObject.layer = 0; // Default
-                         MelonLogger.Msg($"[ShadyGuyVariantPatch] Forced Renderer Layer to 0 (Default)");
-                     }
-                     else
-                     {
-                         MelonLogger.Msg($"[ShadyGuyVariantPatch] Renderer is on Main Object (Layer {shadyGuy.gameObject.layer}). Cannot change without affecting Collider.");
-                     }
-
-                     // DEBUG: Force Material Swap to Standard/Red
-                     var shader = Shader.Find("Standard");
-                     if (shader == null) shader = Shader.Find("Legacy Shaders/Diffuse");
-                     
-                     if (shader != null)
-                     {
-                         var debugMat = new Material(shader);
-                         debugMat.color = Color.red;
-                         shadyGuy.meshRenderer.material = debugMat;
-                         MelonLogger.Msg($"[ShadyGuyVariantPatch] DEBUG: Swapped material to {shader.name} (Red) to test visibility.");
-                     }
-                     else
-                     {
-                         MelonLogger.Error("[ShadyGuyVariantPatch] Could not find Standard or Diffuse shader!");
-                     }
-                }
-
-                /* Animator logic removed due to missing UnityEngine.AnimationModule reference
-                // DIAGNOSTIC: Check Animator
-                var animator = shadyGuy.GetComponent<UnityEngine.Animator>();
-                if (animator != null)
-                {
-                    animator.enabled = true;
-                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Force enabled Animator.");
-                }
-                else
-                {
-                    MelonLogger.Msg("[ShadyGuyVariantPatch] No Animator found.");
-                }
-                */
                 
                 // DIAGNOSTIC: Check hideAfterPurchase
                 if (shadyGuy.hideAfterPurchase != null)

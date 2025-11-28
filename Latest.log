@@ -1,1800 +1,269 @@
 
-[23:40:51.387] ------------------------------
-[23:40:51.389] MelonLoader v0.7.2-ci.2367 Open-Beta
-[23:40:51.390] OS: Windows 11
-[23:40:51.390] Hash Code: D6BF00FD6659AE51BFB63FF3F0296A4AB54B28DA09BE826C7B88870E9E46AFFE
-[23:40:51.390] ------------------------------
-[23:40:51.390] Game Type: Il2cpp
-[23:40:51.390] Game Arch: x64
-[23:40:51.390] ------------------------------
-[23:40:51.390] Command-Line: 
-[23:40:51.391] ------------------------------
-[23:40:51.391] Core::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
-[23:40:51.391] Game::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
-[23:40:51.392] Game::DataPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk_Data
-[23:40:51.392] Game::ApplicationPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk.exe
-[23:40:51.392] Runtime Type: net6
-[23:40:51.447] ------------------------------
-[23:40:51.448] Game Name: Megabonk
-[23:40:51.448] Game Developer: Ved
-[23:40:51.449] Unity Version: 2023.2.22f1
-[23:40:51.449] Game Version: 1.0.19
-[23:40:51.449] ------------------------------
+[23:43:04.860] ------------------------------
+[23:43:04.863] MelonLoader v0.7.2-ci.2367 Open-Beta
+[23:43:04.863] OS: Windows 11
+[23:43:04.863] Hash Code: D6BF00FD6659AE51BFB63FF3F0296A4AB54B28DA09BE826C7B88870E9E46AFFE
+[23:43:04.864] ------------------------------
+[23:43:04.864] Game Type: Il2cpp
+[23:43:04.864] Game Arch: x64
+[23:43:04.864] ------------------------------
+[23:43:04.864] Command-Line: 
+[23:43:04.864] ------------------------------
+[23:43:04.864] Core::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
+[23:43:04.865] Game::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
+[23:43:04.865] Game::DataPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk_Data
+[23:43:04.865] Game::ApplicationPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk.exe
+[23:43:04.865] Runtime Type: net6
+[23:43:04.922] ------------------------------
+[23:43:04.922] Game Name: Megabonk
+[23:43:04.922] Game Developer: Ved
+[23:43:04.924] Unity Version: 2023.2.22f1
+[23:43:04.924] Game Version: 1.0.19
+[23:43:04.924] ------------------------------
 
-[23:40:52.003] Preferences Loaded!
+[23:43:05.500] Preferences Loaded!
 
-[23:40:52.015] Loading UserLibs...
-[23:40:52.016] 0 UserLibs loaded.
+[23:43:05.511] Loading UserLibs...
+[23:43:05.514] 0 UserLibs loaded.
 
-[23:40:52.016] Loading Plugins...
-[23:40:52.020] 0 Plugins loaded.
+[23:43:05.514] Loading Plugins...
+[23:43:05.518] 0 Plugins loaded.
 
-[23:40:52.362] Loading Il2CppAssemblyGenerator...
-[23:40:52.395] [Il2CppAssemblyGenerator] Contacting RemoteAPI...
-[23:40:52.499] [Il2CppAssemblyGenerator] Game Not Found on RemoteAPI Host (https://api.melonloader.com/api/v1/game/megabonk)
-[23:40:52.499] [Il2CppAssemblyGenerator] RemoteAPI.DumperVersion = null
-[23:40:52.499] [Il2CppAssemblyGenerator] RemoteAPI.ObfuscationRegex = null
-[23:40:52.500] [Il2CppAssemblyGenerator] RemoteAPI.MappingURL = null
-[23:40:52.500] [Il2CppAssemblyGenerator] RemoteAPI.MappingFileSHA512 = null
-[23:40:52.503] [Il2CppAssemblyGenerator] Using Cpp2IL Version: 2022.1.0-pre-release.20
-[23:40:52.503] [Il2CppAssemblyGenerator] Using Il2CppInterop Version = 1.5.1+dbaf825aab891ff1e1627bea691bde0a81d1ad98
-[23:40:52.503] [Il2CppAssemblyGenerator] Using Unity Dependencies Version = 2023.2.22
-[23:40:52.503] [Il2CppAssemblyGenerator] Using Deobfuscation Regex = null
-[23:40:52.503] [Il2CppAssemblyGenerator] Cpp2IL is up to date.
-[23:40:52.504] [Il2CppAssemblyGenerator] Cpp2IL.Plugin.StrippedCodeRegSupport is up to date.
-[23:40:52.504] [Il2CppAssemblyGenerator] UnityDependencies is up to date.
-[23:40:52.504] [Il2CppAssemblyGenerator] Checking GameAssembly...
-[23:40:52.589] [Il2CppAssemblyGenerator] Assembly is up to date. No Generation Needed.
+[23:43:05.884] Loading Il2CppAssemblyGenerator...
+[23:43:05.920] [Il2CppAssemblyGenerator] Contacting RemoteAPI...
+[23:43:06.030] [Il2CppAssemblyGenerator] Game Not Found on RemoteAPI Host (https://api.melonloader.com/api/v1/game/megabonk)
+[23:43:06.031] [Il2CppAssemblyGenerator] RemoteAPI.DumperVersion = null
+[23:43:06.031] [Il2CppAssemblyGenerator] RemoteAPI.ObfuscationRegex = null
+[23:43:06.031] [Il2CppAssemblyGenerator] RemoteAPI.MappingURL = null
+[23:43:06.031] [Il2CppAssemblyGenerator] RemoteAPI.MappingFileSHA512 = null
+[23:43:06.035] [Il2CppAssemblyGenerator] Using Cpp2IL Version: 2022.1.0-pre-release.20
+[23:43:06.035] [Il2CppAssemblyGenerator] Using Il2CppInterop Version = 1.5.1+dbaf825aab891ff1e1627bea691bde0a81d1ad98
+[23:43:06.035] [Il2CppAssemblyGenerator] Using Unity Dependencies Version = 2023.2.22
+[23:43:06.035] [Il2CppAssemblyGenerator] Using Deobfuscation Regex = null
+[23:43:06.035] [Il2CppAssemblyGenerator] Cpp2IL is up to date.
+[23:43:06.036] [Il2CppAssemblyGenerator] Cpp2IL.Plugin.StrippedCodeRegSupport is up to date.
+[23:43:06.036] [Il2CppAssemblyGenerator] UnityDependencies is up to date.
+[23:43:06.036] [Il2CppAssemblyGenerator] Checking GameAssembly...
+[23:43:06.128] [Il2CppAssemblyGenerator] Assembly is up to date. No Generation Needed.
 
-[23:40:52.590] Loading Mods...
-[23:40:52.925] ------------------------------
-[23:40:52.937] Melon Assembly loaded: '.\Mods\BonkMenu.dll'
-[23:40:52.937] SHA256 Hash: '9B304EC33A2E8C6E641CED5147BB461A2E15D088C21ECBDDDB3213FA27E6D9DF'
-[23:40:52.939] Melon Assembly loaded: '.\Mods\UsefullInfoUI.dll'
-[23:40:52.939] SHA256 Hash: 'F45AC948BB40923A644F197BA17E460B36A089AC9D089F559D1C25AD4DB962F7'
+[23:43:06.129] Loading Mods...
+[23:43:06.441] ------------------------------
+[23:43:06.452] Melon Assembly loaded: '.\Mods\BonkMenu.dll'
+[23:43:06.452] SHA256 Hash: 'E703153EC91AB50EAD5034D6C769E95296DCF09913E4F4E9A559DEE6D3E6C92B'
+[23:43:06.454] Melon Assembly loaded: '.\Mods\UsefullInfoUI.dll'
+[23:43:06.454] SHA256 Hash: 'F45AC948BB40923A644F197BA17E460B36A089AC9D089F559D1C25AD4DB962F7'
 
-[23:40:53.086] ------------------------------
-[23:40:53.086] BonkMenu v1.0.0
-[23:40:53.086] by Goodzy
-[23:40:53.087] Assembly: BonkMenu.dll
-[23:40:53.087] ------------------------------
-[23:40:53.088] ------------------------------
-[23:40:53.089] Useful Info UI v1.1.5
-[23:40:53.089] by Maskoliver
-[23:40:53.089] Assembly: UsefullInfoUI.dll
-[23:40:53.089] ------------------------------
-[23:40:53.089] ------------------------------
-[23:40:53.089] 2 Mods loaded.
+[23:43:06.622] ------------------------------
+[23:43:06.623] BonkMenu v1.0.0
+[23:43:06.623] by Goodzy
+[23:43:06.623] Assembly: BonkMenu.dll
+[23:43:06.623] ------------------------------
+[23:43:06.626] ------------------------------
+[23:43:06.626] Useful Info UI v1.1.5
+[23:43:06.627] by Maskoliver
+[23:43:06.627] Assembly: UsefullInfoUI.dll
+[23:43:06.627] ------------------------------
+[23:43:06.627] ------------------------------
+[23:43:06.627] 2 Mods loaded.
 
-[23:40:53.836] [Il2CppInterop] Class::Init signatures have been exhausted, using a substitute!
-[23:40:53.982] [Il2CppInterop] Registered mono type MelonLoader.Support.MonoEnumeratorWrapper in il2cpp domain
-[23:40:54.055] Support Module Loaded: C:\Program Files (x86)\Steam\steamapps\common\Megabonk\MelonLoader\Dependencies\SupportModules\Il2Cpp.dll
-[23:40:54.537] [BonkMenu] [BonkMenu] === BonkMenu Initialized ===
-[23:40:54.538] [BonkMenu] No keybind config found, using defaults
-[23:40:54.538] [BonkMenu] [Patches] Initializing Harmony patches...
-[23:40:54.554] [BonkMenu] [LevelCapPatches] ✅ WeaponData.GetMaxLevel patched - max level set to int.MaxValue
-[23:40:54.570] [BonkMenu] [LevelCapPatches] ✅ TomeData.GetMaxLevel patched - max level set to int.MaxValue
-[23:40:54.586] [BonkMenu] [XpDisplayPatch] ✅ XpBarUI.SetLevelText patched - will show uncapped XP multiplier
-[23:40:54.617] [BonkMenu] [GoldenShrinePatch] ✅ ChargeShrine.Awake & Start patched - golden shrine support enabled
-[23:40:54.617] [BonkMenu] [PotVariantPatch] ✅ Pot variant patch ready (will modify post-spawn)
-[23:40:54.635] [BonkMenu] [ShadyGuyVariantPatch] ✅ InteractableShadyGuy.Start patched
-[23:40:54.650] [BonkMenu] [ShadyGuyVariantPatch] ✅ InteractableShadyGuy.FindItems patched
-[23:40:54.650] [BonkMenu] [Patches] All patches applied successfully!
-[23:40:54.651] [BonkMenu] [BonkMenu] Press F1 to toggle menu
-[23:40:54.651] [BonkMenu] [BonkMenu] ==============================
-[23:40:54.656] MelonPreferences Loaded from UserData/UsefulInfoUI.cfg
-[23:40:54.767] [Useful_Info_UI] Harmony patches applied.
-[23:40:54.769] [Useful_Info_UI] Useful Info UI initialized!
-[23:40:54.873] [Useful_Info_UI] Useful Info UI initialized (Melon)
-[23:40:54.989] [Il2CppInterop] Registered mono type MelonLoader.Support.SM_Component in il2cpp domain
-[23:40:54.998] Registered mono icall UnityEngine.Transform::SetAsLastSibling in il2cpp domain
-[23:40:55.022] [Il2CppInterop] Registered mono type UniverseLib.UniversalBehaviour in il2cpp domain
-[23:40:55.402] [Il2CppInterop] Registered mono type UniverseLib.Runtime.Il2Cpp.Il2CppManagedEnumerator in il2cpp domain
-[23:40:55.637] Registered mono icall UnityEngine.Resources::FindObjectsOfTypeAll in il2cpp domain
-[23:40:55.664] [Il2CppInterop] Registered mono type Il2CppInterop.Runtime.DelegateSupport+Il2CppToMonoDelegateReference in il2cpp domain
-[23:40:59.440] ✅ XP MULT UNCAPPED!
-[23:41:03.735] [Useful_Info_UI] RunInfo UI created (TMPro)
-[23:41:03.736] [Useful_Info_UI] Player Stats UI created (TMPro)
-[23:41:04.396] [Useful_Info_UI] Overlay toggled to detailed (F1)
-[23:41:09.545] [BonkMenu] [BonkMenu] Spawned 14 Shady Merchant using game's spawn system!
-[23:41:09.545] [BonkMenu] [BonkMenu] Initiated spawning of 14 Legendary Shady Merchant(s)!
-[23:41:09.547] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.552] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.557] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.559] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.559] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.560] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.561] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.561] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.561] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.562] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.562] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.563] [ShadyGuyVariantPatch] Final State - Pos: (-152.69, 20.00, -210.18), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.563] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.563] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.563] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.563] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.564] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.564] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.564] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.564] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.564] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.564] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.565] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.565] [ShadyGuyVariantPatch] Final State - Pos: (-22.18, -13.30, -153.40), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.566] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.566] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.566] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.566] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.566] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.566] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.566] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.566] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.566] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.566] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.567] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.567] [ShadyGuyVariantPatch] Final State - Pos: (-120.06, 20.00, -186.24), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.567] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.567] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.567] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.567] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.567] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.567] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.567] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.568] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.568] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.568] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.568] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.568] [ShadyGuyVariantPatch] Final State - Pos: (41.23, 0.00, -93.40), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.568] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.568] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.568] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.568] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.568] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.569] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.569] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.569] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.569] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.569] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.569] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.569] [ShadyGuyVariantPatch] Final State - Pos: (46.48, 0.00, 86.57), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.569] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.569] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.569] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.570] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.570] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.570] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.570] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.570] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.570] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.570] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.570] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.570] [ShadyGuyVariantPatch] Final State - Pos: (180.00, 0.00, -209.55), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.570] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.571] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.571] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.571] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.571] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.571] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.571] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.571] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.571] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.572] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.572] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.572] [ShadyGuyVariantPatch] Final State - Pos: (-190.58, 5.29, -261.09), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.572] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.572] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.572] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.572] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.572] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.573] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.573] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.573] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.573] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.573] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.573] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.573] [ShadyGuyVariantPatch] Final State - Pos: (217.38, 0.00, -230.90), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.573] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.573] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.573] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.574] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.575] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.575] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.575] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.575] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.575] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.575] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.576] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.576] [ShadyGuyVariantPatch] Final State - Pos: (72.72, -20.00, -117.37), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.576] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.576] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.576] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.576] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.576] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.576] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.576] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.576] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.577] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.577] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.577] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.577] [ShadyGuyVariantPatch] Final State - Pos: (285.72, -1.57, 176.86), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.577] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.577] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.577] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.577] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.577] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.577] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.578] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.578] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.578] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.578] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.578] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.578] [ShadyGuyVariantPatch] Final State - Pos: (-54.87, 17.43, -221.36), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.578] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.578] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.578] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.579] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.579] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.579] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.579] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.579] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.579] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.579] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.579] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.579] [ShadyGuyVariantPatch] Final State - Pos: (-269.26, 0.00, -173.14), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.579] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.580] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.580] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.580] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.580] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.580] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.580] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.580] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.580] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.581] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.581] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.581] [ShadyGuyVariantPatch] Final State - Pos: (-73.06, 0.00, -83.58), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.581] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.581] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.581] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.581] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.581] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.581] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.582] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.582] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.582] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.582] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.582] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.582] [ShadyGuyVariantPatch] Final State - Pos: (236.66, 8.33, -198.71), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.925] [BonkMenu] [BonkMenu] Spawned 14 Shady Merchant using game's spawn system!
-[23:41:09.925] [BonkMenu] [BonkMenu] Initiated spawning of 14 Legendary Shady Merchant(s)!
-[23:41:09.926] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.926] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.926] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.926] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.926] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.926] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.927] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.927] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.927] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.927] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.927] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.927] [ShadyGuyVariantPatch] Final State - Pos: (286.14, -20.00, -152.35), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.927] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.927] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.927] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.928] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.928] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.928] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.928] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.928] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.928] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.928] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.928] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.928] [ShadyGuyVariantPatch] Final State - Pos: (31.04, 0.00, 97.26), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.928] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.929] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.929] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.929] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.929] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.929] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.929] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.929] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.929] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.930] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.930] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.930] [ShadyGuyVariantPatch] Final State - Pos: (-57.20, 0.00, -295.97), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.930] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.930] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.930] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.930] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.930] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.930] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.931] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.931] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.931] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.931] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.931] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.931] [ShadyGuyVariantPatch] Final State - Pos: (195.72, 0.00, 183.73), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.931] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.931] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.931] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.931] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.932] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.932] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.932] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.932] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.932] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.932] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.932] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.932] [ShadyGuyVariantPatch] Final State - Pos: (-1.68, 0.00, 53.81), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.932] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.932] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.933] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.933] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.933] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.933] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.933] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.933] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.933] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.934] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.934] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.934] [ShadyGuyVariantPatch] Final State - Pos: (-79.80, 20.00, -106.81), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.934] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.934] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.934] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.934] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.936] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.936] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.936] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.936] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.936] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.936] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.936] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.936] [ShadyGuyVariantPatch] Final State - Pos: (-194.80, -7.40, 108.33), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.937] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.937] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.937] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.937] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.937] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.937] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.937] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.937] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.937] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.937] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.938] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.938] [ShadyGuyVariantPatch] Final State - Pos: (-85.54, 20.00, -148.59), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.938] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.938] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.938] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.938] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.938] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.938] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.938] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.939] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.939] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.939] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.939] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.939] [ShadyGuyVariantPatch] Final State - Pos: (15.52, -20.00, -160.49), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.939] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.939] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.939] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.939] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.939] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.940] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.940] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.940] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.940] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.940] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.940] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.940] [ShadyGuyVariantPatch] Final State - Pos: (-38.41, -20.00, 279.94), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.940] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.940] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.941] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.941] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.941] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.941] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.941] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.941] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.941] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.941] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.941] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.942] [ShadyGuyVariantPatch] Final State - Pos: (273.39, -1.37, 177.26), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.942] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.942] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.942] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.942] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.942] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.942] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.942] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.942] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.943] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.943] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.943] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.943] [ShadyGuyVariantPatch] Final State - Pos: (273.18, 20.00, -279.88), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.943] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.943] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.943] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.943] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.943] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.943] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.944] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.944] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.944] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.944] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.944] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.944] [ShadyGuyVariantPatch] Final State - Pos: (-199.81, 0.00, 170.42), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:09.944] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:09.944] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:09.944] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:09.946] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:09.946] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:09.946] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:09.946] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:09.946] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:09.946] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:09.946] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:09.946] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:09.946] [ShadyGuyVariantPatch] Final State - Pos: (12.28, -20.00, -176.02), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.095] [BonkMenu] [BonkMenu] Spawned 14 Shady Merchant using game's spawn system!
-[23:41:10.095] [BonkMenu] [BonkMenu] Initiated spawning of 14 Legendary Shady Merchant(s)!
-[23:41:10.096] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.096] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.096] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.096] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.096] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.096] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.097] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.097] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.097] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.097] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.097] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.097] [ShadyGuyVariantPatch] Final State - Pos: (-119.14, -11.89, -36.21), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.097] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.097] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.097] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.098] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.098] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.098] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.098] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.098] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.098] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.098] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.098] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.098] [ShadyGuyVariantPatch] Final State - Pos: (171.39, -20.00, -122.85), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.098] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.099] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.099] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.099] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.099] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.099] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.099] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.099] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.099] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.099] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.099] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.100] [ShadyGuyVariantPatch] Final State - Pos: (13.11, -20.00, -52.23), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.100] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.100] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.100] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.100] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.100] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.100] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.100] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.100] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.100] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.100] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.101] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.101] [ShadyGuyVariantPatch] Final State - Pos: (46.68, -20.00, -209.39), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.101] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.101] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.101] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.101] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.101] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.101] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.101] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.101] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.102] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.102] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.102] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.102] [ShadyGuyVariantPatch] Final State - Pos: (-161.33, -20.00, 11.22), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.102] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.102] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.102] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.102] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.102] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.102] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.103] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.103] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.103] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.103] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.103] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.103] [ShadyGuyVariantPatch] Final State - Pos: (-45.92, -42.33, 24.65), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.103] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.103] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.103] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.103] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.104] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.104] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.104] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.104] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.104] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.104] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.104] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.104] [ShadyGuyVariantPatch] Final State - Pos: (225.75, -20.00, -143.12), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.106] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.106] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.106] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.106] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.106] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.106] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.106] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.106] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.107] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.107] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.107] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.107] [ShadyGuyVariantPatch] Final State - Pos: (-255.70, -20.00, 106.60), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.107] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.107] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.107] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.107] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.107] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.108] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.108] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.108] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.108] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.108] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.108] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.108] [ShadyGuyVariantPatch] Final State - Pos: (-37.47, -20.00, 231.61), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.108] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.108] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.109] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.109] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.109] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.109] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.109] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.109] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.109] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.109] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.109] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.110] [ShadyGuyVariantPatch] Final State - Pos: (-118.94, -40.00, 200.34), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.110] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.110] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.110] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.110] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.110] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.110] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.110] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.110] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.110] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.111] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.111] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.111] [ShadyGuyVariantPatch] Final State - Pos: (-165.70, 20.00, -195.31), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.111] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.111] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.111] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.111] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.111] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.111] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.112] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.112] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.112] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.112] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.112] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.112] [ShadyGuyVariantPatch] Final State - Pos: (135.96, -2.02, 284.95), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.112] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.112] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.112] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.112] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.113] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.113] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.113] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.113] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.113] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.113] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.113] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.113] [ShadyGuyVariantPatch] Final State - Pos: (-82.69, 20.00, -205.18), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.114] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.114] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.114] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.114] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.114] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.114] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.114] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.114] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.115] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.116] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.116] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.116] [ShadyGuyVariantPatch] Final State - Pos: (-103.39, 20.00, -172.82), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.249] [BonkMenu] [BonkMenu] Spawned 14 Shady Merchant using game's spawn system!
-[23:41:10.249] [BonkMenu] [BonkMenu] Initiated spawning of 14 Legendary Shady Merchant(s)!
-[23:41:10.249] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.249] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.250] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.250] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.250] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.250] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.250] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.250] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.250] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.250] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.250] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.251] [ShadyGuyVariantPatch] Final State - Pos: (172.26, -3.87, -273.55), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.251] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.251] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.251] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.251] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.251] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.251] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.251] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.251] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.252] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.252] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.252] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.252] [ShadyGuyVariantPatch] Final State - Pos: (-189.23, 0.00, 164.52), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.252] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.252] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.252] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.252] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.252] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.252] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.253] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.253] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.253] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.253] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.253] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.253] [ShadyGuyVariantPatch] Final State - Pos: (-90.23, 20.00, -186.14), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.253] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.253] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.254] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.254] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.254] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.254] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.254] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.254] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.254] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.254] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.254] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.254] [ShadyGuyVariantPatch] Final State - Pos: (87.87, 0.00, -210.99), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.255] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.255] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.255] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.255] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.255] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.255] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.255] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.255] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.255] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.256] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.256] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.256] [ShadyGuyVariantPatch] Final State - Pos: (-188.87, 4.43, -289.23), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.256] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.256] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.256] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.256] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.256] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.256] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.257] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.257] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.257] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.257] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.257] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.257] [ShadyGuyVariantPatch] Final State - Pos: (60.65, 20.00, 201.70), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.257] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.257] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.257] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.257] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.258] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.258] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.259] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.259] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.259] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.259] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.259] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.259] [ShadyGuyVariantPatch] Final State - Pos: (-32.56, 0.00, -78.24), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.260] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.260] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.260] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.260] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.260] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.260] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.260] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.260] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.260] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.261] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.261] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.261] [ShadyGuyVariantPatch] Final State - Pos: (-135.36, 20.00, -115.11), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.261] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.261] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.261] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.261] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.261] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.261] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.261] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.262] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.262] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.262] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.262] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.262] [ShadyGuyVariantPatch] Final State - Pos: (-175.91, 0.00, 206.91), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.262] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.262] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.262] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.262] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.262] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.263] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.263] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.263] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.263] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.263] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.263] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.263] [ShadyGuyVariantPatch] Final State - Pos: (25.63, 0.00, -32.26), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.263] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.264] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.264] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.264] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.264] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.264] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.264] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.264] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.264] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.264] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.264] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.265] [ShadyGuyVariantPatch] Final State - Pos: (42.05, -8.98, -11.11), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.265] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.265] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.265] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.265] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.265] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.265] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.265] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.265] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.265] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.266] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.266] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.266] [ShadyGuyVariantPatch] Final State - Pos: (254.97, 40.00, 281.99), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.266] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.266] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.266] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.266] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.266] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.266] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.266] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.267] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.267] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.267] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.267] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.267] [ShadyGuyVariantPatch] Final State - Pos: (295.32, 40.00, 269.16), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.267] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.267] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.267] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.267] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.267] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.268] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.268] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.268] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.268] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.268] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.269] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.269] [ShadyGuyVariantPatch] Final State - Pos: (237.46, 20.00, -281.41), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.407] [BonkMenu] [BonkMenu] Spawned 14 Shady Merchant using game's spawn system!
-[23:41:10.407] [BonkMenu] [BonkMenu] Initiated spawning of 14 Legendary Shady Merchant(s)!
-[23:41:10.408] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.408] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.408] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.408] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.408] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.408] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.409] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.409] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.409] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.409] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.409] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.409] [ShadyGuyVariantPatch] Final State - Pos: (-141.25, 0.00, 160.70), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.409] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.409] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.409] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.409] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.410] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.410] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.410] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.410] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.410] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.410] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.410] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.410] [ShadyGuyVariantPatch] Final State - Pos: (211.20, 0.00, -7.30), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.410] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.410] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.411] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.411] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.411] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.411] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.411] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.411] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.411] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.411] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.411] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.411] [ShadyGuyVariantPatch] Final State - Pos: (-32.88, -20.00, 178.11), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.412] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.412] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.412] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.412] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.412] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.412] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.412] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.412] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.412] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.413] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.413] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.413] [ShadyGuyVariantPatch] Final State - Pos: (115.41, 20.00, 87.96), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.413] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.413] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.413] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.413] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.413] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.413] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.414] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.414] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.414] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.414] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.414] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.414] [ShadyGuyVariantPatch] Final State - Pos: (-216.03, -20.00, 296.48), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.414] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.414] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.414] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.414] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.414] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.415] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.415] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.415] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.415] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.415] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.415] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.415] [ShadyGuyVariantPatch] Final State - Pos: (12.80, -20.00, 247.79), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.415] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.415] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.416] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.416] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.416] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.417] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.417] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.417] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.417] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.417] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.417] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.418] [ShadyGuyVariantPatch] Final State - Pos: (219.53, 0.00, -202.02), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.418] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.418] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.418] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.418] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.418] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.418] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.418] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.418] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.419] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.419] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.419] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.419] [ShadyGuyVariantPatch] Final State - Pos: (208.73, 0.00, 62.09), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.419] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.419] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.419] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.419] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.419] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.419] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.420] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.420] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.420] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.420] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.420] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.420] [ShadyGuyVariantPatch] Final State - Pos: (117.99, -13.72, -152.56), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.420] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.420] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.420] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.420] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.421] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.421] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.421] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.421] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.421] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.421] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.421] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.421] [ShadyGuyVariantPatch] Final State - Pos: (288.34, -7.90, -115.81), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.422] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.422] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.422] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.422] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.422] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.422] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.422] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.422] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.422] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.423] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.423] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.423] [ShadyGuyVariantPatch] Final State - Pos: (-215.75, 0.00, -126.81), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.423] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.423] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.423] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.423] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.423] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.423] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.423] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.424] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.424] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.424] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.424] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.424] [ShadyGuyVariantPatch] Final State - Pos: (12.02, -20.00, -26.11), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.424] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.424] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.424] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.425] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.425] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.425] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.425] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.425] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.425] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.425] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.425] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.425] [ShadyGuyVariantPatch] Final State - Pos: (-187.94, 0.00, -75.59), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.425] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.426] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.426] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.427] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.427] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.427] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.427] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.427] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.427] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.427] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.428] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.428] [ShadyGuyVariantPatch] Final State - Pos: (-176.44, 1.78, -154.34), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.560] [BonkMenu] [BonkMenu] Spawned 14 Shady Merchant using game's spawn system!
-[23:41:10.560] [BonkMenu] [BonkMenu] Initiated spawning of 14 Legendary Shady Merchant(s)!
-[23:41:10.561] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.561] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.561] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.561] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.561] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.561] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.562] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.562] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.562] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.562] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.562] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.562] [ShadyGuyVariantPatch] Final State - Pos: (-0.89, 0.00, -280.27), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.562] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.562] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.563] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.563] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.563] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.563] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.563] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.563] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.563] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.563] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.563] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.564] [ShadyGuyVariantPatch] Final State - Pos: (-231.04, -14.48, 295.54), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.564] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.564] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.564] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.564] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.564] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.564] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.564] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.564] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.564] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.565] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.565] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.565] [ShadyGuyVariantPatch] Final State - Pos: (283.42, -7.66, 164.68), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.565] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.565] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.565] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.565] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.565] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.565] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.566] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.566] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.566] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.566] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.566] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.566] [ShadyGuyVariantPatch] Final State - Pos: (126.30, 0.00, -68.10), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.566] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.566] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.566] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.567] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.567] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.567] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.567] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.567] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.567] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.567] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.567] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.567] [ShadyGuyVariantPatch] Final State - Pos: (263.31, 0.00, -22.44), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.567] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.568] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.568] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.568] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.568] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.568] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.568] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.568] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.568] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.568] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.568] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.569] [ShadyGuyVariantPatch] Final State - Pos: (-251.44, 0.00, 245.41), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.569] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.570] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.570] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.570] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.570] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.571] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.571] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.571] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.571] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.571] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.571] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.571] [ShadyGuyVariantPatch] Final State - Pos: (-208.20, 14.10, -276.15), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.571] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.571] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.572] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.572] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.572] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.572] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.572] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.572] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.572] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.572] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.572] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.572] [ShadyGuyVariantPatch] Final State - Pos: (-196.68, -11.66, -0.23), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.573] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.573] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.573] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.573] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.573] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.573] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.573] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.573] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.573] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.574] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.574] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.574] [ShadyGuyVariantPatch] Final State - Pos: (-250.26, -20.00, 160.93), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.574] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.574] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.574] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.574] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.574] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.574] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.575] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.575] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.575] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.575] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.575] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.575] [ShadyGuyVariantPatch] Final State - Pos: (-240.45, -9.78, 262.65), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.575] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.575] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.575] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.575] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.576] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.576] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.576] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.576] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.576] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.576] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.576] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.576] [ShadyGuyVariantPatch] Final State - Pos: (53.71, 0.00, -43.16), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.576] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.576] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.576] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.577] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.577] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.577] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.577] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.577] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.577] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.577] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.577] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.577] [ShadyGuyVariantPatch] Final State - Pos: (-215.72, 17.86, -274.51), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.577] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.578] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.578] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.578] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.578] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.578] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.578] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.578] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.578] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.580] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.580] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.580] [ShadyGuyVariantPatch] Final State - Pos: (-163.68, -20.00, -48.05), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.580] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.580] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.580] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.580] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.580] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.581] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.581] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.581] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.581] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.581] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.581] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.581] [ShadyGuyVariantPatch] Final State - Pos: (210.46, 0.00, 195.39), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.722] [BonkMenu] [BonkMenu] Spawned 14 Shady Merchant using game's spawn system!
-[23:41:10.722] [BonkMenu] [BonkMenu] Initiated spawning of 14 Legendary Shady Merchant(s)!
-[23:41:10.723] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.723] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.723] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.723] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.723] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.724] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.724] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.724] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.724] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.724] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.724] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.725] [ShadyGuyVariantPatch] Final State - Pos: (252.88, 0.00, 68.44), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.725] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.725] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.725] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.725] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.725] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.725] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.725] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.725] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.726] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.726] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.726] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.726] [ShadyGuyVariantPatch] Final State - Pos: (234.12, 0.00, -97.27), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.726] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.726] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.726] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.726] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.726] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.727] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.727] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.727] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.727] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.727] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.727] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.727] [ShadyGuyVariantPatch] Final State - Pos: (-110.52, 20.00, -205.14), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.727] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.727] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.728] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.728] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.728] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.728] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.728] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.728] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.728] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.728] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.728] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.728] [ShadyGuyVariantPatch] Final State - Pos: (-215.69, -17.85, 138.69), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.729] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.729] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.729] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.729] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.729] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.730] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.730] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.730] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.730] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.730] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.730] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.730] [ShadyGuyVariantPatch] Final State - Pos: (180.53, 0.00, 36.81), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.730] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.730] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.731] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.731] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.731] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.731] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.731] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.731] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.731] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.731] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.732] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.733] [ShadyGuyVariantPatch] Final State - Pos: (148.43, -20.00, -233.67), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.733] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.733] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.734] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.734] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.734] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.734] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.734] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.734] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.734] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.734] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.734] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.735] [ShadyGuyVariantPatch] Final State - Pos: (-97.10, -18.55, -293.52), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.735] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.735] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.735] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.735] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.735] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.735] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.735] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.735] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.736] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.736] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.736] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.736] [ShadyGuyVariantPatch] Final State - Pos: (250.83, 15.42, -19.09), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.736] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.736] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.736] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.736] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.736] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.737] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.737] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.737] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.737] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.737] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.737] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.737] [ShadyGuyVariantPatch] Final State - Pos: (103.68, 20.00, 116.78), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.737] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.737] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.738] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.738] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.738] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.738] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.738] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.738] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.738] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.738] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.738] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.738] [ShadyGuyVariantPatch] Final State - Pos: (62.70, 1.35, 125.50), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.738] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.739] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.739] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.739] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.739] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.739] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.739] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.739] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.739] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.739] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.739] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.740] [ShadyGuyVariantPatch] Final State - Pos: (67.82, -20.00, -248.90), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.740] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.740] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.740] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.740] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.740] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.740] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.740] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.740] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.740] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.741] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.741] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.741] [ShadyGuyVariantPatch] Final State - Pos: (-220.76, -19.62, 262.63), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.741] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.741] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.741] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.741] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.741] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.743] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.743] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.743] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.743] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.743] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.743] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.743] [ShadyGuyVariantPatch] Final State - Pos: (-225.21, -2.60, -34.21), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.744] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.744] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.744] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.744] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.744] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.744] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.744] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.744] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.745] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.745] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.745] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.745] [ShadyGuyVariantPatch] Final State - Pos: (250.14, 20.00, -287.59), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.868] [BonkMenu] [BonkMenu] Spawned 14 Shady Merchant using game's spawn system!
-[23:41:10.868] [BonkMenu] [BonkMenu] Initiated spawning of 14 Legendary Shady Merchant(s)!
-[23:41:10.869] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.869] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.869] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.869] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.869] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.870] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.870] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.870] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.870] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.870] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.870] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.870] [ShadyGuyVariantPatch] Final State - Pos: (152.50, -13.75, -278.85), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.870] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.870] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.871] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.871] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.871] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.871] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.871] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.871] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.871] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.871] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.872] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.872] [ShadyGuyVariantPatch] Final State - Pos: (244.79, 0.00, -117.83), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.872] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.872] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.872] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.872] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.872] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.872] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.872] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.873] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.873] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.873] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.873] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.873] [ShadyGuyVariantPatch] Final State - Pos: (-97.78, -48.31, 36.62), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.873] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.873] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.873] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.873] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.873] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.873] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.874] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.874] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.874] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.874] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.874] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.874] [ShadyGuyVariantPatch] Final State - Pos: (139.51, -20.00, -117.75), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.874] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.874] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.874] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.874] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.875] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.875] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.875] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.875] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.875] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.875] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.875] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.875] [ShadyGuyVariantPatch] Final State - Pos: (-110.57, -20.00, 298.18), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.875] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.876] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.876] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.876] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.876] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.876] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.876] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.876] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.876] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.876] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.876] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.877] [ShadyGuyVariantPatch] Final State - Pos: (257.59, -20.00, 105.38), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.877] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.877] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.877] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.877] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.877] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.879] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.879] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.879] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.879] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.879] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.879] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.879] [ShadyGuyVariantPatch] Final State - Pos: (-243.13, -18.94, 182.11), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.879] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.879] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.879] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.880] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.880] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.880] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.880] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.880] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.880] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.880] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.880] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.880] [ShadyGuyVariantPatch] Final State - Pos: (27.37, 3.68, 145.68), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.880] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.881] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.881] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.881] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.881] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.881] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.881] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.881] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.881] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.881] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.882] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.882] [ShadyGuyVariantPatch] Final State - Pos: (185.19, -2.60, -167.28), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.882] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.882] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.882] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.882] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.882] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.882] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.882] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.882] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.883] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.883] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.883] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.883] [ShadyGuyVariantPatch] Final State - Pos: (220.90, 0.00, 97.37), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.883] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.883] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.883] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.883] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.883] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.883] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.883] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.884] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.884] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.884] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.884] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.884] [ShadyGuyVariantPatch] Final State - Pos: (202.16, 0.00, 213.85), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.884] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.884] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.884] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.885] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.885] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.885] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.885] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.885] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.885] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.885] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.885] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.885] [ShadyGuyVariantPatch] Final State - Pos: (-40.20, -13.35, -153.30), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.886] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.886] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.886] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.886] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.886] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.886] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.886] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.886] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.886] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.886] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.886] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.887] [ShadyGuyVariantPatch] Final State - Pos: (190.96, -5.04, 110.07), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:10.887] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:10.887] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:10.887] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:10.887] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:10.887] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:10.889] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:10.889] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:10.889] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:10.889] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:10.889] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:10.890] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:10.890] [ShadyGuyVariantPatch] Final State - Pos: (-237.74, -1.54, -176.93), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.028] [BonkMenu] [BonkMenu] Spawned 14 Shady Merchant using game's spawn system!
-[23:41:11.028] [BonkMenu] [BonkMenu] Initiated spawning of 14 Legendary Shady Merchant(s)!
-[23:41:11.029] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.029] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.029] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.029] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.029] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.029] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.030] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.030] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.030] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.030] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.030] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.030] [ShadyGuyVariantPatch] Final State - Pos: (229.28, 20.00, -288.96), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.030] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.030] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.030] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.030] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.031] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.031] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.031] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.031] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.031] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.031] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.031] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.031] [ShadyGuyVariantPatch] Final State - Pos: (193.41, 0.00, 4.71), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.031] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.032] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.032] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.032] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.032] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.032] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.032] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.032] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.032] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.032] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.033] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.033] [ShadyGuyVariantPatch] Final State - Pos: (280.90, 20.00, -189.73), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.033] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.033] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.033] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.033] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.033] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.033] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.033] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.034] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.034] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.034] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.034] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.034] [ShadyGuyVariantPatch] Final State - Pos: (70.50, -20.00, -120.54), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.034] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.034] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.034] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.034] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.034] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.035] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.035] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.035] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.035] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.035] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.035] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.035] [ShadyGuyVariantPatch] Final State - Pos: (-90.13, -35.06, 181.07), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.035] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.035] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.035] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.036] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.036] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.036] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.036] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.036] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.036] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.036] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.036] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.036] [ShadyGuyVariantPatch] Final State - Pos: (-229.98, 13.33, -206.66), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.037] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.038] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.038] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.038] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.038] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.038] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.038] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.039] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.039] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.039] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.039] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.039] [ShadyGuyVariantPatch] Final State - Pos: (-252.43, 20.00, -232.27), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.039] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.039] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.039] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.039] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.039] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.040] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.040] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.040] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.040] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.040] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.040] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.040] [ShadyGuyVariantPatch] Final State - Pos: (-137.06, 20.00, -148.37), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.040] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.040] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.040] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.040] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.041] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.041] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.041] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.041] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.041] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.041] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.041] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.041] [ShadyGuyVariantPatch] Final State - Pos: (-25.26, -52.33, 44.66), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.041] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.041] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.042] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.042] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.042] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.042] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.042] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.042] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.042] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.042] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.043] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.043] [ShadyGuyVariantPatch] Final State - Pos: (174.55, 0.00, -143.50), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.043] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.043] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.043] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.043] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.043] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.043] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.043] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.044] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.044] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.044] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.044] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.044] [ShadyGuyVariantPatch] Final State - Pos: (-62.09, 20.00, -212.13), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.044] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.044] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.044] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.044] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.044] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.045] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.045] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.045] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.045] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.045] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.045] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.045] [ShadyGuyVariantPatch] Final State - Pos: (-204.02, 12.01, -271.37), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.045] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.045] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.045] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.046] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.046] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.046] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.046] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.046] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.046] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.046] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.046] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.046] [ShadyGuyVariantPatch] Final State - Pos: (-169.55, 20.00, -214.44), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.046] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.047] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.047] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.047] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.047] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.048] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.048] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.048] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.048] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.049] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.049] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.049] [ShadyGuyVariantPatch] Final State - Pos: (136.52, -38.26, 227.15), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.182] [BonkMenu] [BonkMenu] Spawned 14 Shady Merchant using game's spawn system!
-[23:41:11.182] [BonkMenu] [BonkMenu] Initiated spawning of 14 Legendary Shady Merchant(s)!
-[23:41:11.183] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.183] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.183] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.183] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.183] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.183] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.183] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.184] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.184] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.184] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.184] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.184] [ShadyGuyVariantPatch] Final State - Pos: (-55.05, -47.13, 34.27), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.184] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.184] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.184] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.184] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.184] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.185] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.185] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.185] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.185] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.185] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.185] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.185] [ShadyGuyVariantPatch] Final State - Pos: (63.02, 0.00, 0.35), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.185] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.185] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.186] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.186] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.186] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.186] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.186] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.186] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.186] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.186] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.186] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.186] [ShadyGuyVariantPatch] Final State - Pos: (234.11, 0.00, -48.98), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.187] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.187] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.187] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.187] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.187] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.187] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.187] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.187] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.187] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.187] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.188] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.188] [ShadyGuyVariantPatch] Final State - Pos: (-65.91, 20.00, -205.01), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.188] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.188] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.188] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.188] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.188] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.188] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.188] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.188] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.188] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.189] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.189] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.189] [ShadyGuyVariantPatch] Final State - Pos: (-256.34, -1.83, 277.25), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.189] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.189] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.189] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.189] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.189] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.189] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.190] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.190] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.190] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.190] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.190] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.190] [ShadyGuyVariantPatch] Final State - Pos: (-131.67, 20.00, -213.08), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.190] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.190] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.190] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.192] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.192] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.192] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.192] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.192] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.192] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.192] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.192] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.192] [ShadyGuyVariantPatch] Final State - Pos: (48.36, 0.00, 59.27), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.193] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.193] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.193] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.193] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.193] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.193] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.193] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.193] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.194] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.194] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.194] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.194] [ShadyGuyVariantPatch] Final State - Pos: (278.34, 35.36, 250.72), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.194] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.194] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.194] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.194] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.194] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.194] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.195] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.195] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.195] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.195] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.195] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.195] [ShadyGuyVariantPatch] Final State - Pos: (-132.34, -25.68, 248.64), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.195] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.195] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.195] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.196] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.196] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.196] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.196] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.196] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.196] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.196] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.196] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.196] [ShadyGuyVariantPatch] Final State - Pos: (-243.23, -1.58, 216.85), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.196] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.197] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.197] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.197] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.197] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.197] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.197] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.197] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.197] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.197] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.197] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.198] [ShadyGuyVariantPatch] Final State - Pos: (22.41, 0.00, 91.18), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.198] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.198] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.198] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.198] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.198] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.198] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.198] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.198] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.198] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.199] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.199] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.199] [ShadyGuyVariantPatch] Final State - Pos: (-179.30, -19.65, 97.11), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.199] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.199] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.199] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.199] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.199] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.199] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.200] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.200] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.200] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.200] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.200] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.201] [ShadyGuyVariantPatch] Final State - Pos: (140.00, 0.00, -11.15), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:11.201] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[23:41:11.201] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
-[23:41:11.202] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
-[23:41:11.202] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
-[23:41:11.202] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
-[23:41:11.202] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
-[23:41:11.202] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
-[23:41:11.202] [ShadyGuyVariantPatch] SMR Quality: 0
-[23:41:11.202] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
-[23:41:11.202] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
-[23:41:11.202] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
-[23:41:11.203] [ShadyGuyVariantPatch] Final State - Pos: (237.87, 8.93, 4.48), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
-[23:41:17.895] [Useful_Info_UI] Overlay toggled to hidden (F1)
-[23:41:52.141] Preferences Saved!
+[23:43:07.379] [Il2CppInterop] Class::Init signatures have been exhausted, using a substitute!
+[23:43:07.529] [Il2CppInterop] Registered mono type MelonLoader.Support.MonoEnumeratorWrapper in il2cpp domain
+[23:43:07.608] Support Module Loaded: C:\Program Files (x86)\Steam\steamapps\common\Megabonk\MelonLoader\Dependencies\SupportModules\Il2Cpp.dll
+[23:43:08.191] [BonkMenu] [BonkMenu] === BonkMenu Initialized ===
+[23:43:08.192] [BonkMenu] No keybind config found, using defaults
+[23:43:08.193] [BonkMenu] [Patches] Initializing Harmony patches...
+[23:43:08.215] [BonkMenu] [LevelCapPatches] ✅ WeaponData.GetMaxLevel patched - max level set to int.MaxValue
+[23:43:08.235] [BonkMenu] [LevelCapPatches] ✅ TomeData.GetMaxLevel patched - max level set to int.MaxValue
+[23:43:08.253] [BonkMenu] [XpDisplayPatch] ✅ XpBarUI.SetLevelText patched - will show uncapped XP multiplier
+[23:43:08.290] [BonkMenu] [GoldenShrinePatch] ✅ ChargeShrine.Awake & Start patched - golden shrine support enabled
+[23:43:08.291] [BonkMenu] [PotVariantPatch] ✅ Pot variant patch ready (will modify post-spawn)
+[23:43:08.310] [BonkMenu] [ShadyGuyVariantPatch] ✅ InteractableShadyGuy.Start patched
+[23:43:08.329] [BonkMenu] [ShadyGuyVariantPatch] ✅ InteractableShadyGuy.FindItems patched
+[23:43:08.330] [BonkMenu] [Patches] All patches applied successfully!
+[23:43:08.331] [BonkMenu] [BonkMenu] Press F1 to toggle menu
+[23:43:08.331] [BonkMenu] [BonkMenu] ==============================
+[23:43:08.343] MelonPreferences Loaded from UserData/UsefulInfoUI.cfg
+[23:43:08.474] [Useful_Info_UI] Harmony patches applied.
+[23:43:08.476] [Useful_Info_UI] Useful Info UI initialized!
+[23:43:08.596] [Useful_Info_UI] Useful Info UI initialized (Melon)
+[23:43:08.702] [Il2CppInterop] Registered mono type MelonLoader.Support.SM_Component in il2cpp domain
+[23:43:08.711] Registered mono icall UnityEngine.Transform::SetAsLastSibling in il2cpp domain
+[23:43:08.737] [Il2CppInterop] Registered mono type UniverseLib.UniversalBehaviour in il2cpp domain
+[23:43:09.143] [Il2CppInterop] Registered mono type UniverseLib.Runtime.Il2Cpp.Il2CppManagedEnumerator in il2cpp domain
+[23:43:09.386] Registered mono icall UnityEngine.Resources::FindObjectsOfTypeAll in il2cpp domain
+[23:43:09.411] [Il2CppInterop] Registered mono type Il2CppInterop.Runtime.DelegateSupport+Il2CppToMonoDelegateReference in il2cpp domain
+[23:43:13.373] ✅ XP MULT UNCAPPED!
+[23:43:17.625] [Useful_Info_UI] RunInfo UI created (TMPro)
+[23:43:17.626] [Useful_Info_UI] Player Stats UI created (TMPro)
+[23:43:17.989] [Useful_Info_UI] Overlay toggled to detailed (F1)
+[23:43:21.586] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:43:21.586] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:43:21.588] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:43:21.594] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
+[23:43:21.599] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
+[23:43:21.600] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
+[23:43:21.601] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
+[23:43:21.602] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
+[23:43:21.603] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
+[23:43:21.603] [ShadyGuyVariantPatch] SMR Quality: 0
+[23:43:21.603] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
+[23:43:21.604] [ShadyGuyVariantPatch] Renderer is on separate object: False
+[23:43:21.604] [ShadyGuyVariantPatch] Renderer is on Main Object (Layer 12). Cannot change without affecting Collider.
+[23:43:21.606] [ShadyGuyVariantPatch] DEBUG: Swapped material to Standard (Red) to test visibility.
+[23:43:21.607] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
+[23:43:21.607] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
+[23:43:21.607] [ShadyGuyVariantPatch] Final State - Pos: (276.11, -16.42, 147.15), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
+[23:43:21.798] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:43:21.798] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:43:21.799] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:43:21.799] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
+[23:43:21.799] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
+[23:43:21.799] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
+[23:43:21.799] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
+[23:43:21.799] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
+[23:43:21.799] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
+[23:43:21.800] [ShadyGuyVariantPatch] SMR Quality: 0
+[23:43:21.800] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
+[23:43:21.800] [ShadyGuyVariantPatch] Renderer is on separate object: False
+[23:43:21.800] [ShadyGuyVariantPatch] Renderer is on Main Object (Layer 12). Cannot change without affecting Collider.
+[23:43:21.800] [ShadyGuyVariantPatch] DEBUG: Swapped material to Standard (Red) to test visibility.
+[23:43:21.800] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
+[23:43:21.800] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
+[23:43:21.800] [ShadyGuyVariantPatch] Final State - Pos: (284.81, -20.00, 295.64), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
+[23:43:21.953] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:43:21.953] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:43:21.954] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:43:21.954] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
+[23:43:21.954] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
+[23:43:21.954] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
+[23:43:21.954] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
+[23:43:21.955] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
+[23:43:21.955] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
+[23:43:21.955] [ShadyGuyVariantPatch] SMR Quality: 0
+[23:43:21.955] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
+[23:43:21.955] [ShadyGuyVariantPatch] Renderer is on separate object: False
+[23:43:21.955] [ShadyGuyVariantPatch] Renderer is on Main Object (Layer 12). Cannot change without affecting Collider.
+[23:43:21.955] [ShadyGuyVariantPatch] DEBUG: Swapped material to Standard (Red) to test visibility.
+[23:43:21.956] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
+[23:43:21.956] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
+[23:43:21.956] [ShadyGuyVariantPatch] Final State - Pos: (-207.25, -21.68, 143.36), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
+[23:43:22.089] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:43:22.089] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:43:22.090] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:43:22.090] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
+[23:43:22.090] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
+[23:43:22.090] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
+[23:43:22.090] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
+[23:43:22.090] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
+[23:43:22.091] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
+[23:43:22.091] [ShadyGuyVariantPatch] SMR Quality: 0
+[23:43:22.091] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
+[23:43:22.091] [ShadyGuyVariantPatch] Renderer is on separate object: False
+[23:43:22.091] [ShadyGuyVariantPatch] Renderer is on Main Object (Layer 12). Cannot change without affecting Collider.
+[23:43:22.091] [ShadyGuyVariantPatch] DEBUG: Swapped material to Standard (Red) to test visibility.
+[23:43:22.091] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
+[23:43:22.091] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
+[23:43:22.091] [ShadyGuyVariantPatch] Final State - Pos: (169.54, 0.00, 210.95), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
+[23:43:22.250] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:43:22.250] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:43:22.251] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:43:22.251] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
+[23:43:22.251] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
+[23:43:22.251] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
+[23:43:22.251] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
+[23:43:22.251] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
+[23:43:22.252] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
+[23:43:22.252] [ShadyGuyVariantPatch] SMR Quality: 0
+[23:43:22.252] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
+[23:43:22.252] [ShadyGuyVariantPatch] Renderer is on separate object: False
+[23:43:22.252] [ShadyGuyVariantPatch] Renderer is on Main Object (Layer 12). Cannot change without affecting Collider.
+[23:43:22.252] [ShadyGuyVariantPatch] DEBUG: Swapped material to Standard (Red) to test visibility.
+[23:43:22.252] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
+[23:43:22.252] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
+[23:43:22.252] [ShadyGuyVariantPatch] Final State - Pos: (284.78, 0.00, 22.69), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
+[23:43:22.405] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:43:22.406] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:43:22.406] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:43:22.406] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
+[23:43:22.406] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
+[23:43:22.407] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
+[23:43:22.407] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
+[23:43:22.407] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
+[23:43:22.407] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
+[23:43:22.407] [ShadyGuyVariantPatch] SMR Quality: 0
+[23:43:22.407] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
+[23:43:22.407] [ShadyGuyVariantPatch] Renderer is on separate object: False
+[23:43:22.407] [ShadyGuyVariantPatch] Renderer is on Main Object (Layer 12). Cannot change without affecting Collider.
+[23:43:22.408] [ShadyGuyVariantPatch] DEBUG: Swapped material to Standard (Red) to test visibility.
+[23:43:22.408] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
+[23:43:22.408] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
+[23:43:22.408] [ShadyGuyVariantPatch] Final State - Pos: (-124.43, -0.26, 60.52), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
+[23:43:22.551] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:43:22.551] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:43:22.552] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:43:22.552] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
+[23:43:22.552] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
+[23:43:22.552] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
+[23:43:22.553] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
+[23:43:22.553] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
+[23:43:22.553] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
+[23:43:22.553] [ShadyGuyVariantPatch] SMR Quality: 0
+[23:43:22.553] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
+[23:43:22.553] [ShadyGuyVariantPatch] Renderer is on separate object: False
+[23:43:22.553] [ShadyGuyVariantPatch] Renderer is on Main Object (Layer 12). Cannot change without affecting Collider.
+[23:43:22.553] [ShadyGuyVariantPatch] DEBUG: Swapped material to Standard (Red) to test visibility.
+[23:43:22.554] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
+[23:43:22.554] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
+[23:43:22.554] [ShadyGuyVariantPatch] Final State - Pos: (-67.03, -12.73, 234.54), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
+[23:43:22.704] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:43:22.704] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:43:22.705] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:43:22.705] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
+[23:43:22.705] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
+[23:43:22.705] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
+[23:43:22.705] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
+[23:43:22.705] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
+[23:43:22.706] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
+[23:43:22.706] [ShadyGuyVariantPatch] SMR Quality: 0
+[23:43:22.706] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
+[23:43:22.706] [ShadyGuyVariantPatch] Renderer is on separate object: False
+[23:43:22.706] [ShadyGuyVariantPatch] Renderer is on Main Object (Layer 12). Cannot change without affecting Collider.
+[23:43:22.706] [ShadyGuyVariantPatch] DEBUG: Swapped material to Standard (Red) to test visibility.
+[23:43:22.706] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
+[23:43:22.706] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
+[23:43:22.706] [ShadyGuyVariantPatch] Final State - Pos: (264.85, 0.00, 211.41), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
+[23:43:22.843] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:43:22.843] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:43:22.844] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:43:22.844] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
+[23:43:22.844] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
+[23:43:22.844] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
+[23:43:22.844] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
+[23:43:22.844] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
+[23:43:22.845] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
+[23:43:22.845] [ShadyGuyVariantPatch] SMR Quality: 0
+[23:43:22.845] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
+[23:43:22.845] [ShadyGuyVariantPatch] Renderer is on separate object: False
+[23:43:22.845] [ShadyGuyVariantPatch] Renderer is on Main Object (Layer 12). Cannot change without affecting Collider.
+[23:43:22.845] [ShadyGuyVariantPatch] DEBUG: Swapped material to Standard (Red) to test visibility.
+[23:43:22.845] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
+[23:43:22.845] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
+[23:43:22.846] [ShadyGuyVariantPatch] Final State - Pos: (-35.54, -32.23, -1.82), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
+[23:43:22.984] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:43:22.984] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:43:22.985] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:43:22.985] [ShadyGuyVariantPatch] Mesh found: ShadyGuy (Vertex Count: 1262)
+[23:43:22.985] [ShadyGuyVariantPatch] Applied material: ShadyGuyLegendary (Color: RGBA(1.000, 1.000, 1.000, 1.000))
+[23:43:22.985] [ShadyGuyVariantPatch] Force enabled MeshRenderer, GameObject, updateWhenOffscreen.
+[23:43:22.985] [ShadyGuyVariantPatch] Bounds: Center: (110.08, 2.44, 79.20), Extents: (2.43, 2.49, 0.57), IsVisible: True
+[23:43:22.985] [ShadyGuyVariantPatch] Force enabled RootBone: Hips
+[23:43:22.985] [ShadyGuyVariantPatch] Force enabled Collider (SphereCollider)
+[23:43:22.986] [ShadyGuyVariantPatch] SMR Quality: 0
+[23:43:22.986] [ShadyGuyVariantPatch] Forced SMR Quality to Bone4 (4)
+[23:43:22.986] [ShadyGuyVariantPatch] Renderer is on separate object: False
+[23:43:22.986] [ShadyGuyVariantPatch] Renderer is on Main Object (Layer 12). Cannot change without affecting Collider.
+[23:43:22.986] [ShadyGuyVariantPatch] DEBUG: Swapped material to Standard (Red) to test visibility.
+[23:43:22.986] [ShadyGuyVariantPatch] hideAfterPurchase object: MinimapIcon (1) (Active: True)
+[23:43:22.986] [ShadyGuyVariantPatch] hideAfterPurchase object: AltarIcon (1) (Active: True)
+[23:43:22.986] [ShadyGuyVariantPatch] Final State - Pos: (5.56, 20.00, -191.29), Scale: (1.00, 1.00, 1.00), Active: True, Layer: 12
+[23:44:16.971] Preferences Saved!
