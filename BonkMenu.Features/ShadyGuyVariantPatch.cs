@@ -67,7 +67,7 @@ public static class ShadyGuyVariantPatch
         }
     }
 
-    // Postfix runs AFTER Start - apply material and cleanup
+    // Postfix runs AFTER Start - re-set rarity and apply material
     private static void ShadyGuyStart_Postfix(Il2CppSystem.Object __instance)
     {
         try
@@ -82,9 +82,14 @@ public static class ShadyGuyVariantPatch
             
             if (SpawnNextRarity >= 0 && RarityMerchantsRemaining > 0)
             {
-                // Read current rarity to confirm
+                var shadyGuy = new Il2Cpp.InteractableShadyGuy(ptr);
+                
+                // Read current rarity (Start() probably changed it)
                 int currentRarity = System.Runtime.InteropServices.Marshal.ReadInt32(ptr + 0x90);
-                MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Postfix: Rarity = {currentRarity}, applying material");
+                MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Postfix: Rarity was {currentRarity}, re-setting to {SpawnNextRarity}");
+                
+                // Re-set to what we want
+                System.Runtime.InteropServices.Marshal.WriteInt32(ptr + 0x90, SpawnNextRarity);
                 
                 // Apply the corresponding material
                 IntPtr meshRendererPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x70); // meshRenderer at 0x70
@@ -96,18 +101,18 @@ public static class ShadyGuyVariantPatch
                         var meshRenderer = new UnityEngine.SkinnedMeshRenderer(meshRendererPtr);
                         UnityEngine.Material rarityMaterial = null;
                         
-                        // Get the appropriate material based on rarity
-                        if (currentRarity == 1) // Rare
+                        // Get the appropriate material based on desired rarity
+                        if (SpawnNextRarity == 1) // Rare
                         {
                             IntPtr matPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x58); // matRare at 0x58
                             if (matPtr != IntPtr.Zero) rarityMaterial = new UnityEngine.Material(matPtr);
                         }
-                        else if (currentRarity == 2) // Epic
+                        else if (SpawnNextRarity == 2) // Epic
                         {
                             IntPtr matPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x60); // matEpic at 0x60
                             if (matPtr != IntPtr.Zero) rarityMaterial = new UnityEngine.Material(matPtr);
                         }
-                        else if (currentRarity == 3) // Legendary
+                        else if (SpawnNextRarity == 3) // Legendary
                         {
                             IntPtr matPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x68); // matLegendary at 0x68
                             if (matPtr != IntPtr.Zero) rarityMaterial = new UnityEngine.Material(matPtr);
@@ -116,14 +121,37 @@ public static class ShadyGuyVariantPatch
                         if (rarityMaterial != null)
                         {
                             meshRenderer.material = rarityMaterial;
-                            MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Postfix: Applied material for rarity {currentRarity}");
+                            MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Postfix: Applied material for rarity {SpawnNextRarity}");
                         }
+                        
+                        // Force enable renderer
+                        meshRenderer.enabled = true;
+                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Postfix: Force enabled MeshRenderer");
                     }
                     catch (Exception e)
                     {
-                        MelonLogger.Error($"[ShadyGuyVariantPatch] Failed to apply material: {e.Message}");
+                        MelonLogger.Error($"[ShadyGuyVariantPatch] Failed to apply material/enable renderer: {e.Message}");
                     }
                 }
+                else
+                {
+                    MelonLogger.Error("[ShadyGuyVariantPatch] MeshRenderer pointer is null!");
+                }
+                
+                // Check collider
+                var collider = shadyGuy.GetComponent<UnityEngine.Collider>();
+                if (collider != null)
+                {
+                    collider.enabled = true;
+                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Postfix: Force enabled Collider ({collider.GetIl2CppType().Name})");
+                }
+                else
+                {
+                    MelonLogger.Error("[ShadyGuyVariantPatch] Collider not found on Shady Merchant!");
+                }
+                
+                // Check position
+                MelonLogger.Msg($"[ShadyGuyVariantPatch] Shady Merchant Position: {shadyGuy.transform.position.ToString()}");
                 
                 ModifiedMerchants.Remove(ptr);
                 RarityMerchantsRemaining--;

@@ -1,402 +1,407 @@
 
-[22:57:44.466] ------------------------------
-[22:57:44.468] MelonLoader v0.7.2-ci.2367 Open-Beta
-[22:57:44.469] OS: Windows 11
-[22:57:44.469] Hash Code: D6BF00FD6659AE51BFB63FF3F0296A4AB54B28DA09BE826C7B88870E9E46AFFE
-[22:57:44.469] ------------------------------
-[22:57:44.470] Game Type: Il2cpp
-[22:57:44.470] Game Arch: x64
-[22:57:44.470] ------------------------------
-[22:57:44.470] Command-Line: 
-[22:57:44.470] ------------------------------
-[22:57:44.471] Core::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
-[22:57:44.471] Game::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
-[22:57:44.471] Game::DataPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk_Data
-[22:57:44.472] Game::ApplicationPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk.exe
-[22:57:44.472] Runtime Type: net6
-[22:57:44.529] ------------------------------
-[22:57:44.529] Game Name: Megabonk
-[22:57:44.529] Game Developer: Ved
-[22:57:44.531] Unity Version: 2023.2.22f1
-[22:57:44.531] Game Version: 1.0.19
-[22:57:44.531] ------------------------------
+[23:09:15.415] ------------------------------
+[23:09:15.418] MelonLoader v0.7.2-ci.2367 Open-Beta
+[23:09:15.419] OS: Windows 11
+[23:09:15.419] Hash Code: D6BF00FD6659AE51BFB63FF3F0296A4AB54B28DA09BE826C7B88870E9E46AFFE
+[23:09:15.419] ------------------------------
+[23:09:15.419] Game Type: Il2cpp
+[23:09:15.419] Game Arch: x64
+[23:09:15.419] ------------------------------
+[23:09:15.419] Command-Line: 
+[23:09:15.420] ------------------------------
+[23:09:15.420] Core::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
+[23:09:15.420] Game::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
+[23:09:15.421] Game::DataPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk_Data
+[23:09:15.421] Game::ApplicationPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk.exe
+[23:09:15.421] Runtime Type: net6
+[23:09:15.479] ------------------------------
+[23:09:15.479] Game Name: Megabonk
+[23:09:15.479] Game Developer: Ved
+[23:09:15.481] Unity Version: 2023.2.22f1
+[23:09:15.481] Game Version: 1.0.19
+[23:09:15.481] ------------------------------
 
-[22:57:45.090] Preferences Loaded!
+[23:09:16.077] Preferences Loaded!
 
-[22:57:45.101] Loading UserLibs...
-[22:57:45.103] 0 UserLibs loaded.
+[23:09:16.089] Loading UserLibs...
+[23:09:16.091] 0 UserLibs loaded.
 
-[22:57:45.103] Loading Plugins...
-[22:57:45.107] 0 Plugins loaded.
+[23:09:16.091] Loading Plugins...
+[23:09:16.096] 0 Plugins loaded.
 
-[22:57:45.471] Loading Il2CppAssemblyGenerator...
-[22:57:45.505] [Il2CppAssemblyGenerator] Contacting RemoteAPI...
-[22:57:45.665] [Il2CppAssemblyGenerator] Game Not Found on RemoteAPI Host (https://api.melonloader.com/api/v1/game/megabonk)
-[22:57:45.665] [Il2CppAssemblyGenerator] RemoteAPI.DumperVersion = null
-[22:57:45.666] [Il2CppAssemblyGenerator] RemoteAPI.ObfuscationRegex = null
-[22:57:45.666] [Il2CppAssemblyGenerator] RemoteAPI.MappingURL = null
-[22:57:45.666] [Il2CppAssemblyGenerator] RemoteAPI.MappingFileSHA512 = null
-[22:57:45.669] [Il2CppAssemblyGenerator] Using Cpp2IL Version: 2022.1.0-pre-release.20
-[22:57:45.669] [Il2CppAssemblyGenerator] Using Il2CppInterop Version = 1.5.1+dbaf825aab891ff1e1627bea691bde0a81d1ad98
-[22:57:45.669] [Il2CppAssemblyGenerator] Using Unity Dependencies Version = 2023.2.22
-[22:57:45.669] [Il2CppAssemblyGenerator] Using Deobfuscation Regex = null
-[22:57:45.670] [Il2CppAssemblyGenerator] Cpp2IL is up to date.
-[22:57:45.670] [Il2CppAssemblyGenerator] Cpp2IL.Plugin.StrippedCodeRegSupport is up to date.
-[22:57:45.670] [Il2CppAssemblyGenerator] UnityDependencies is up to date.
-[22:57:45.670] [Il2CppAssemblyGenerator] Checking GameAssembly...
-[22:57:45.754] [Il2CppAssemblyGenerator] Assembly is up to date. No Generation Needed.
+[23:09:16.465] Loading Il2CppAssemblyGenerator...
+[23:09:16.500] [Il2CppAssemblyGenerator] Contacting RemoteAPI...
+[23:09:16.610] [Il2CppAssemblyGenerator] Game Not Found on RemoteAPI Host (https://api.melonloader.com/api/v1/game/megabonk)
+[23:09:16.610] [Il2CppAssemblyGenerator] RemoteAPI.DumperVersion = null
+[23:09:16.611] [Il2CppAssemblyGenerator] RemoteAPI.ObfuscationRegex = null
+[23:09:16.611] [Il2CppAssemblyGenerator] RemoteAPI.MappingURL = null
+[23:09:16.611] [Il2CppAssemblyGenerator] RemoteAPI.MappingFileSHA512 = null
+[23:09:16.615] [Il2CppAssemblyGenerator] Using Cpp2IL Version: 2022.1.0-pre-release.20
+[23:09:16.615] [Il2CppAssemblyGenerator] Using Il2CppInterop Version = 1.5.1+dbaf825aab891ff1e1627bea691bde0a81d1ad98
+[23:09:16.615] [Il2CppAssemblyGenerator] Using Unity Dependencies Version = 2023.2.22
+[23:09:16.615] [Il2CppAssemblyGenerator] Using Deobfuscation Regex = null
+[23:09:16.616] [Il2CppAssemblyGenerator] Cpp2IL is up to date.
+[23:09:16.616] [Il2CppAssemblyGenerator] Cpp2IL.Plugin.StrippedCodeRegSupport is up to date.
+[23:09:16.616] [Il2CppAssemblyGenerator] UnityDependencies is up to date.
+[23:09:16.616] [Il2CppAssemblyGenerator] Checking GameAssembly...
+[23:09:16.701] [Il2CppAssemblyGenerator] Assembly is up to date. No Generation Needed.
 
-[22:57:45.755] Loading Mods...
-[22:57:46.090] ------------------------------
-[22:57:46.102] Melon Assembly loaded: '.\Mods\BonkMenu.dll'
-[22:57:46.102] SHA256 Hash: 'F62C9AFE941B3DBC76DF1A09E6FAC6D532EB7B1B9C9F727C61F3E1247A071D50'
-[22:57:46.104] Melon Assembly loaded: '.\Mods\UsefullInfoUI.dll'
-[22:57:46.104] SHA256 Hash: 'F45AC948BB40923A644F197BA17E460B36A089AC9D089F559D1C25AD4DB962F7'
+[23:09:16.702] Loading Mods...
+[23:09:17.037] ------------------------------
+[23:09:17.047] Melon Assembly loaded: '.\Mods\BonkMenu.dll'
+[23:09:17.048] SHA256 Hash: '1987C788FB4FDE5E1BE744BD8850599090E15A0BCD34B8A1941D0844E9E58090'
+[23:09:17.049] Melon Assembly loaded: '.\Mods\UsefullInfoUI.dll'
+[23:09:17.049] SHA256 Hash: 'F45AC948BB40923A644F197BA17E460B36A089AC9D089F559D1C25AD4DB962F7'
 
-[22:57:46.254] ------------------------------
-[22:57:46.255] BonkMenu v1.0.0
-[22:57:46.255] by Goodzy
-[22:57:46.255] Assembly: BonkMenu.dll
-[22:57:46.255] ------------------------------
-[22:57:46.257] ------------------------------
-[22:57:46.257] Useful Info UI v1.1.5
-[22:57:46.257] by Maskoliver
-[22:57:46.257] Assembly: UsefullInfoUI.dll
-[22:57:46.257] ------------------------------
-[22:57:46.257] ------------------------------
-[22:57:46.258] 2 Mods loaded.
+[23:09:17.199] ------------------------------
+[23:09:17.199] BonkMenu v1.0.0
+[23:09:17.199] by Goodzy
+[23:09:17.199] Assembly: BonkMenu.dll
+[23:09:17.199] ------------------------------
+[23:09:17.202] ------------------------------
+[23:09:17.202] Useful Info UI v1.1.5
+[23:09:17.202] by Maskoliver
+[23:09:17.202] Assembly: UsefullInfoUI.dll
+[23:09:17.202] ------------------------------
+[23:09:17.202] ------------------------------
+[23:09:17.202] 2 Mods loaded.
 
-[22:57:46.975] [Il2CppInterop] Class::Init signatures have been exhausted, using a substitute!
-[22:57:47.122] [Il2CppInterop] Registered mono type MelonLoader.Support.MonoEnumeratorWrapper in il2cpp domain
-[22:57:47.197] Support Module Loaded: C:\Program Files (x86)\Steam\steamapps\common\Megabonk\MelonLoader\Dependencies\SupportModules\Il2Cpp.dll
-[22:57:47.693] [BonkMenu] [BonkMenu] === BonkMenu Initialized ===
-[22:57:47.694] [BonkMenu] No keybind config found, using defaults
-[22:57:47.694] [BonkMenu] [Patches] Initializing Harmony patches...
-[22:57:47.712] [BonkMenu] [LevelCapPatches] ✅ WeaponData.GetMaxLevel patched - max level set to int.MaxValue
-[22:57:47.729] [BonkMenu] [LevelCapPatches] ✅ TomeData.GetMaxLevel patched - max level set to int.MaxValue
-[22:57:47.747] [BonkMenu] [XpDisplayPatch] ✅ XpBarUI.SetLevelText patched - will show uncapped XP multiplier
-[22:57:47.782] [BonkMenu] [GoldenShrinePatch] ✅ ChargeShrine.Awake & Start patched - golden shrine support enabled
-[22:57:47.782] [BonkMenu] [PotVariantPatch] ✅ Pot variant patch ready (will modify post-spawn)
-[22:57:47.804] [BonkMenu] [ShadyGuyVariantPatch] ✅ InteractableShadyGuy.Start patched - variant support enabled
-[22:57:47.804] [BonkMenu] [Patches] All patches applied successfully!
-[22:57:47.805] [BonkMenu] [BonkMenu] Press F1 to toggle menu
-[22:57:47.805] [BonkMenu] [BonkMenu] ==============================
-[22:57:47.811] MelonPreferences Loaded from UserData/UsefulInfoUI.cfg
-[22:57:47.940] [Useful_Info_UI] Harmony patches applied.
-[22:57:47.942] [Useful_Info_UI] Useful Info UI initialized!
-[22:57:48.043] [Useful_Info_UI] Useful Info UI initialized (Melon)
-[22:57:48.142] [Il2CppInterop] Registered mono type MelonLoader.Support.SM_Component in il2cpp domain
-[22:57:48.152] Registered mono icall UnityEngine.Transform::SetAsLastSibling in il2cpp domain
-[22:57:48.178] [Il2CppInterop] Registered mono type UniverseLib.UniversalBehaviour in il2cpp domain
-[22:57:48.555] [Il2CppInterop] Registered mono type UniverseLib.Runtime.Il2Cpp.Il2CppManagedEnumerator in il2cpp domain
-[22:57:48.799] Registered mono icall UnityEngine.Resources::FindObjectsOfTypeAll in il2cpp domain
-[22:57:48.824] [Il2CppInterop] Registered mono type Il2CppInterop.Runtime.DelegateSupport+Il2CppToMonoDelegateReference in il2cpp domain
-[22:57:52.753] ✅ XP MULT UNCAPPED!
-[22:57:57.033] [Useful_Info_UI] RunInfo UI created (TMPro)
-[22:57:57.034] [Useful_Info_UI] Player Stats UI created (TMPro)
-[22:57:59.009] [Useful_Info_UI] Overlay toggled to detailed (F1)
-[22:58:04.836] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:04.836] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:04.839] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:04.842] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:05.241] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:05.241] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:05.242] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:05.242] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:05.439] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:05.439] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:05.439] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:05.440] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:05.592] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:05.592] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:05.592] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:05.593] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:05.746] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:05.746] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:05.746] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:05.747] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:05.895] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:05.895] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:05.896] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:05.896] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:06.170] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:06.170] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:06.171] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:06.171] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:06.333] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:06.333] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:06.334] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:06.334] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:06.486] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:06.486] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:06.487] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:06.487] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:06.646] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:06.646] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:06.646] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:06.647] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:06.799] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:06.800] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:06.800] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:06.800] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:06.960] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:06.960] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:06.961] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:06.961] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:07.103] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:07.103] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:07.104] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:07.104] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:07.249] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:07.249] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:07.250] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:07.250] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:07.408] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:07.408] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:07.409] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:07.409] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:07.541] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:07.541] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:07.542] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:07.542] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:07.710] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:07.710] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:07.711] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:07.711] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:07.845] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:07.845] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:07.846] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:07.846] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:07.997] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:07.997] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:07.998] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:07.998] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:08.151] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:08.151] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:08.152] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:08.152] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:08.292] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:08.292] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:08.293] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:08.293] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:08.447] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:08.448] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:08.448] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:08.448] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:08.576] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:08.576] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:08.577] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:08.577] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:26.063] [Useful_Info_UI] Overlay toggled to hidden (F1)
-[22:58:27.863] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:27.863] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:27.864] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:27.864] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:28.015] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:28.015] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:28.016] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:28.016] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:28.157] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:28.157] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:28.158] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:28.158] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:28.297] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:28.298] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:28.298] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:28.298] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:28.426] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:28.426] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:28.427] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:28.427] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:28.571] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:28.571] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:28.572] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:28.572] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:28.716] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:28.716] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:28.717] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:28.717] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:28.858] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:28.858] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:28.858] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:28.859] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:28.989] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:28.989] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:28.990] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:28.990] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:29.126] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:29.126] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:29.126] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:29.126] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:29.281] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:29.281] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:29.282] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:29.282] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:29.426] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:29.426] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:29.427] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:29.427] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:29.573] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:29.573] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:29.574] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:29.574] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:29.711] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:29.712] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:29.712] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:29.713] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:29.866] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:29.866] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:29.866] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:29.867] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:29.997] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:29.997] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:29.997] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:29.998] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:30.152] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:30.152] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:30.153] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:30.153] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:30.412] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:30.412] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:30.413] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:30.413] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:30.578] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:30.579] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:30.579] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:30.579] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:30.724] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:30.724] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:30.725] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:30.725] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:30.861] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:30.861] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:30.862] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:30.862] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:31.020] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:31.020] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:31.021] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:31.021] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:31.154] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:31.154] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:31.154] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:31.155] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:31.309] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:31.309] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:31.310] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:31.310] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:31.454] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:31.454] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:31.455] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:31.455] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:31.621] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:31.621] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:31.622] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:31.622] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:31.757] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:31.758] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:31.758] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:31.759] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:31.896] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:31.896] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
-[22:58:31.897] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
-[22:58:31.897] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 3
-[22:58:33.367] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:33.367] [BonkMenu] Initiated spawning of 1 Epic Shady Merchant(s)!
-[22:58:33.367] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 2
-[22:58:33.368] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 2
-[22:58:33.547] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:33.547] [BonkMenu] Initiated spawning of 1 Epic Shady Merchant(s)!
-[22:58:33.547] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 2
-[22:58:33.548] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 2
-[22:58:33.690] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:33.690] [BonkMenu] Initiated spawning of 1 Epic Shady Merchant(s)!
-[22:58:33.691] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 2
-[22:58:33.691] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 2
-[22:58:33.846] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:33.847] [BonkMenu] Initiated spawning of 1 Epic Shady Merchant(s)!
-[22:58:33.847] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 2
-[22:58:33.847] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 2
-[22:58:33.973] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:33.973] [BonkMenu] Initiated spawning of 1 Epic Shady Merchant(s)!
-[22:58:33.974] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 2
-[22:58:33.974] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 2
-[22:58:34.121] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:34.121] [BonkMenu] Initiated spawning of 1 Epic Shady Merchant(s)!
-[22:58:34.122] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 2
-[22:58:34.122] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 2
-[22:58:34.264] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:34.264] [BonkMenu] Initiated spawning of 1 Epic Shady Merchant(s)!
-[22:58:34.265] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 2
-[22:58:34.265] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 2
-[22:58:34.417] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:34.417] [BonkMenu] Initiated spawning of 1 Epic Shady Merchant(s)!
-[22:58:34.418] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 2
-[22:58:34.418] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 2
-[22:58:35.151] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:35.151] [BonkMenu] Initiated spawning of 1 Rare Shady Merchant(s)!
-[22:58:35.152] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 1
-[22:58:35.152] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 1
-[22:58:35.320] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:35.320] [BonkMenu] Initiated spawning of 1 Rare Shady Merchant(s)!
-[22:58:35.321] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 1
-[22:58:35.321] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 1
-[22:58:35.462] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:35.462] [BonkMenu] Initiated spawning of 1 Rare Shady Merchant(s)!
-[22:58:35.463] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 1
-[22:58:35.463] [ShadyGuyVariantPatch] Start Postfix: Applied rarity material for level 1
-[22:58:36.447] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:36.589] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:36.724] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:36.861] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:37.007] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:37.152] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:37.300] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:37.442] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:37.599] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
-[22:58:45.868] [BonkMenu] Spawned Microwaves (x1 multiplier)!
-[22:58:46.319] [BonkMenu] Spawned Microwaves (x1 multiplier)!
-[22:58:46.469] [BonkMenu] Spawned Microwaves (x1 multiplier)!
-[22:58:46.769] [BonkMenu] Spawned Microwaves (x1 multiplier)!
-[22:58:46.945] [BonkMenu] Spawned Microwaves (x1 multiplier)!
-[22:58:47.090] [BonkMenu] Spawned Microwaves (x1 multiplier)!
-[22:58:47.260] [BonkMenu] Spawned Microwaves (x1 multiplier)!
-[22:58:48.539] [BonkMenu] [BonkMenu] Found and added Silver Pot!
-[22:58:48.550] [BonkMenu] [BonkMenu] Spawned 5 types of pots (x1 multiplier)!
-[22:58:48.551] [Bonk Menu] Spawned 1 Silver Pots!
-[22:58:48.694] [BonkMenu] [BonkMenu] Found and added Silver Pot!
-[22:58:48.702] [BonkMenu] [BonkMenu] Spawned 5 types of pots (x1 multiplier)!
-[22:58:48.703] [Bonk Menu] Spawned 1 Silver Pots!
-[22:58:48.846] [BonkMenu] [BonkMenu] Found and added Silver Pot!
-[22:58:48.854] [BonkMenu] [BonkMenu] Spawned 5 types of pots (x1 multiplier)!
-[22:58:48.856] [Bonk Menu] Spawned 1 Silver Pots!
-[22:58:49.418] [BonkMenu] [BonkMenu] Found and added Silver Pot!
-[22:58:49.425] [BonkMenu] [BonkMenu] Spawned 5 types of pots (x1 multiplier)!
-[22:58:49.426] [Bonk Menu] Spawned 1 Silver Pots!
-[22:58:50.720] [BonkMenu] Found and added Silver Pot!
-[22:58:50.727] [BonkMenu] Spawned 5 types of pots (x1 multiplier)!
-[22:58:50.887] [BonkMenu] Found and added Silver Pot!
-[22:58:50.893] [BonkMenu] Spawned 5 types of pots (x1 multiplier)!
-[22:58:51.041] [BonkMenu] Found and added Silver Pot!
-[22:58:51.047] [BonkMenu] Spawned 5 types of pots (x1 multiplier)!
-[22:58:51.199] [BonkMenu] Found and added Silver Pot!
-[22:58:51.205] [BonkMenu] Spawned 5 types of pots (x1 multiplier)!
-[22:58:51.373] [BonkMenu] Found and added Silver Pot!
-[22:58:51.379] [BonkMenu] Spawned 5 types of pots (x1 multiplier)!
-[22:58:52.854] [GoldenShrinePatch] Awake Prefix: Set isGolden=true, 1 remaining
-[22:58:52.855] [GoldenShrinePatch] Awake Postfix: isGolden currently = 0, setting to true
-[22:58:52.855] [BonkMenu] Spawned 1 Golden Shrines using native positioning + Harmony patch!
-[22:58:52.856] [GoldenShrinePatch] Start Prefix: Our shrine, isGolden = 1
-[22:58:52.856] [GoldenShrinePatch] Start Postfix: Our shrine, isGolden = 1
-[22:58:52.856] [GoldenShrinePatch] Start Postfix: Applied gold material manually!
-[22:58:53.021] [GoldenShrinePatch] Awake Prefix: Set isGolden=true, 1 remaining
-[22:58:53.021] [GoldenShrinePatch] Awake Postfix: isGolden currently = 0, setting to true
-[22:58:53.021] [BonkMenu] Spawned 1 Golden Shrines using native positioning + Harmony patch!
-[22:58:53.022] [GoldenShrinePatch] Start Prefix: Our shrine, isGolden = 1
-[22:58:53.022] [GoldenShrinePatch] Start Postfix: Our shrine, isGolden = 1
-[22:58:53.022] [GoldenShrinePatch] Start Postfix: Applied gold material manually!
-[22:58:53.171] [GoldenShrinePatch] Awake Prefix: Set isGolden=true, 1 remaining
-[22:58:53.171] [GoldenShrinePatch] Awake Postfix: isGolden currently = 0, setting to true
-[22:58:53.172] [BonkMenu] Spawned 1 Golden Shrines using native positioning + Harmony patch!
-[22:58:53.172] [GoldenShrinePatch] Start Prefix: Our shrine, isGolden = 1
-[22:58:53.172] [GoldenShrinePatch] Start Postfix: Our shrine, isGolden = 1
-[22:58:53.172] [GoldenShrinePatch] Start Postfix: Applied gold material manually!
+[23:09:17.924] [Il2CppInterop] Class::Init signatures have been exhausted, using a substitute!
+[23:09:18.048] [Il2CppInterop] Registered mono type MelonLoader.Support.MonoEnumeratorWrapper in il2cpp domain
+[23:09:18.129] Support Module Loaded: C:\Program Files (x86)\Steam\steamapps\common\Megabonk\MelonLoader\Dependencies\SupportModules\Il2Cpp.dll
+[23:09:18.686] [BonkMenu] [BonkMenu] === BonkMenu Initialized ===
+[23:09:18.687] [BonkMenu] No keybind config found, using defaults
+[23:09:18.687] [BonkMenu] [Patches] Initializing Harmony patches...
+[23:09:18.705] [BonkMenu] [LevelCapPatches] ✅ WeaponData.GetMaxLevel patched - max level set to int.MaxValue
+[23:09:18.721] [BonkMenu] [LevelCapPatches] ✅ TomeData.GetMaxLevel patched - max level set to int.MaxValue
+[23:09:18.736] [BonkMenu] [XpDisplayPatch] ✅ XpBarUI.SetLevelText patched - will show uncapped XP multiplier
+[23:09:18.769] [BonkMenu] [GoldenShrinePatch] ✅ ChargeShrine.Awake & Start patched - golden shrine support enabled
+[23:09:18.769] [BonkMenu] [PotVariantPatch] ✅ Pot variant patch ready (will modify post-spawn)
+[23:09:18.788] [BonkMenu] [ShadyGuyVariantPatch] ✅ InteractableShadyGuy.Start patched - variant support enabled
+[23:09:18.789] [BonkMenu] [Patches] All patches applied successfully!
+[23:09:18.790] [BonkMenu] [BonkMenu] Press F1 to toggle menu
+[23:09:18.790] [BonkMenu] [BonkMenu] ==============================
+[23:09:18.795] MelonPreferences Loaded from UserData/UsefulInfoUI.cfg
+[23:09:18.918] [Useful_Info_UI] Harmony patches applied.
+[23:09:18.919] [Useful_Info_UI] Useful Info UI initialized!
+[23:09:19.024] [Useful_Info_UI] Useful Info UI initialized (Melon)
+[23:09:19.123] [Il2CppInterop] Registered mono type MelonLoader.Support.SM_Component in il2cpp domain
+[23:09:19.133] Registered mono icall UnityEngine.Transform::SetAsLastSibling in il2cpp domain
+[23:09:19.159] [Il2CppInterop] Registered mono type UniverseLib.UniversalBehaviour in il2cpp domain
+[23:09:19.544] [Il2CppInterop] Registered mono type UniverseLib.Runtime.Il2Cpp.Il2CppManagedEnumerator in il2cpp domain
+[23:09:19.780] Registered mono icall UnityEngine.Resources::FindObjectsOfTypeAll in il2cpp domain
+[23:09:19.809] [Il2CppInterop] Registered mono type Il2CppInterop.Runtime.DelegateSupport+Il2CppToMonoDelegateReference in il2cpp domain
+[23:09:23.637] ✅ XP MULT UNCAPPED!
+[23:09:27.890] [Useful_Info_UI] RunInfo UI created (TMPro)
+[23:09:27.891] [Useful_Info_UI] Player Stats UI created (TMPro)
+[23:09:31.060] [Useful_Info_UI] Overlay toggled to detailed (F1)
+[23:09:35.689] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:09:35.689] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:09:35.692] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:09:35.692] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:09:35.695] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:09:43.181] [Useful_Info_UI] Overlay toggled to hidden (F1)
+[23:09:44.803] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:09:44.803] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:09:44.804] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:09:44.804] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:09:44.949] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:09:44.950] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:09:44.950] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:09:44.951] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:09:45.112] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:09:45.112] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:09:45.113] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:09:45.113] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:09:45.254] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:09:45.254] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:09:45.255] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:09:45.255] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:09:45.414] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:09:45.414] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:09:45.415] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:09:45.415] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:09:45.545] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:09:45.545] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:09:45.546] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:09:45.546] [ShadyGuyVariantPatch] Start Postfix: Rarity = 2, applying material
+[23:09:45.546] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 2
+[23:09:45.684] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:09:45.685] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:09:45.685] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:09:45.685] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:09:45.822] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:09:45.823] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:09:45.823] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:09:45.824] [ShadyGuyVariantPatch] Start Postfix: Rarity = 2, applying material
+[23:09:45.824] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 2
+[23:09:45.974] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:09:45.974] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:09:45.974] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:09:45.975] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:09:45.975] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:09:46.123] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:09:46.123] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:09:46.124] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:09:46.124] [ShadyGuyVariantPatch] Start Postfix: Rarity = 2, applying material
+[23:09:46.124] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 2
+[23:09:46.266] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:09:46.266] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:09:46.267] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:09:46.267] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:09:46.409] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:09:46.410] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:09:46.411] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:09:46.411] [ShadyGuyVariantPatch] Start Postfix: Rarity = 2, applying material
+[23:09:46.411] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 2
+[23:09:46.560] [BonkMenu] [BonkMenu] Spawned 1 Shady Merchant using game's spawn system!
+[23:09:46.561] [BonkMenu] [BonkMenu] Initiated spawning of 1 Legendary Shady Merchant(s)!
+[23:09:46.561] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:09:46.561] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:09:46.562] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:09:54.144] [Useful_Info_UI] Overlay toggled to default (F1)
+[23:09:55.769] [Useful_Info_UI] Overlay toggled to detailed (F1)
+[23:09:56.020] [Useful_Info_UI] Overlay toggled to hidden (F1)
+[23:09:56.816] [Useful_Info_UI] Overlay toggled to default (F1)
+[23:09:57.015] [Useful_Info_UI] Overlay toggled to detailed (F1)
+[23:10:05.035] [Useful_Info_UI] Overlay toggled to hidden (F1)
+[23:10:08.164] [BonkMenu] [BonkMenu] Spawned 100 Shady Merchant using game's spawn system!
+[23:10:08.164] [BonkMenu] [BonkMenu] Initiated spawning of 100 Legendary Shady Merchant(s)!
+[23:10:08.165] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.165] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.165] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.165] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.166] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.166] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.166] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.166] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.166] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.166] [ShadyGuyVariantPatch] Start Postfix: Rarity = 3, applying material
+[23:10:08.166] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
+[23:10:08.166] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.166] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.166] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.167] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.167] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.167] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.167] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.167] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.167] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.167] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.167] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.168] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.168] [ShadyGuyVariantPatch] Start Postfix: Rarity = 2, applying material
+[23:10:08.168] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 2
+[23:10:08.168] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.168] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.168] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.168] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.168] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.168] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.169] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.169] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.169] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.169] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.169] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.169] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.169] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.169] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.169] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.170] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.170] [ShadyGuyVariantPatch] Start Postfix: Rarity = 3, applying material
+[23:10:08.170] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
+[23:10:08.170] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.170] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.170] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.170] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.170] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.170] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.171] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.171] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.171] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.171] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.171] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.171] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.171] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.171] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.171] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.172] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.172] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.172] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.172] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.172] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.172] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.172] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.172] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.172] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.172] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.172] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.172] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.173] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.173] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.173] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.173] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.173] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.173] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.173] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.173] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.173] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.173] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.174] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.174] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.174] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.174] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.174] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.174] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.175] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.176] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.176] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.176] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.176] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.176] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.176] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.176] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.176] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.176] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.177] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.177] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.177] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.177] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.177] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.177] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.177] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.177] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.177] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.177] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.178] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.178] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.178] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.178] [ShadyGuyVariantPatch] Start Postfix: Rarity = 2, applying material
+[23:10:08.178] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 2
+[23:10:08.178] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.178] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.178] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.178] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.179] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.179] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.179] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.179] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.179] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.179] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.179] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.179] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.179] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.179] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.179] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.179] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.180] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.180] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.180] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.180] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.180] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.180] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.180] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.180] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.180] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.181] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.181] [ShadyGuyVariantPatch] Start Postfix: Rarity = 3, applying material
+[23:10:08.181] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
+[23:10:08.181] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.181] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.181] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.181] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.181] [ShadyGuyVariantPatch] Start Postfix: Rarity = 3, applying material
+[23:10:08.181] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
+[23:10:08.181] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.182] [ShadyGuyVariantPatch] Start Postfix: Rarity = 3, applying material
+[23:10:08.182] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
+[23:10:08.182] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.182] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.182] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.182] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.182] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.182] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.182] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.182] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.183] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.183] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.183] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.183] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.183] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.183] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.183] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.183] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.183] [ShadyGuyVariantPatch] Start Postfix: Rarity = 2, applying material
+[23:10:08.183] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 2
+[23:10:08.184] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.184] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.184] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.184] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.184] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.184] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.184] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.186] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.186] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.186] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.186] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.186] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.186] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.186] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.186] [ShadyGuyVariantPatch] Start Postfix: Rarity = 2, applying material
+[23:10:08.187] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 2
+[23:10:08.187] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.187] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.187] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.187] [ShadyGuyVariantPatch] Start Postfix: Rarity = 3, applying material
+[23:10:08.187] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
+[23:10:08.187] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.187] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.187] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.188] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.188] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.188] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.188] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.188] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.188] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.188] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.188] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.188] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.188] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.188] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.189] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.189] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.189] [ShadyGuyVariantPatch] Start Postfix: Rarity = 3, applying material
+[23:10:08.189] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 3
+[23:10:08.189] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.189] [ShadyGuyVariantPatch] Start Postfix: Rarity = 2, applying material
+[23:10:08.189] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 2
+[23:10:08.189] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.189] [ShadyGuyVariantPatch] Start Postfix: Rarity = 2, applying material
+[23:10:08.189] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 2
+[23:10:08.190] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.190] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.190] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.190] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.190] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.190] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.190] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.190] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.190] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.191] [ShadyGuyVariantPatch] Start Postfix: Rarity = 2, applying material
+[23:10:08.191] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 2
+[23:10:08.191] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.191] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.191] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.191] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.191] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.191] [ShadyGuyVariantPatch] Start Postfix: Rarity = 1, applying material
+[23:10:08.191] [ShadyGuyVariantPatch] Start Postfix: Applied material for rarity 1
+[23:10:08.191] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.191] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.192] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.192] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.192] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.192] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:08.192] [ShadyGuyVariantPatch] Start Prefix: Set rarity to 3
+[23:10:08.192] [ShadyGuyVariantPatch] Start Postfix: Rarity = 0, applying material
+[23:10:45.693] Preferences Saved!
