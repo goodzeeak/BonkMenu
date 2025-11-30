@@ -142,9 +142,7 @@ public static class ShadyGuyVariantPatch
                     // Force high quality
                     shadyGuy.meshRenderer.quality = (SkinQuality)4; 
                     
-                    // FALLBACK: Create Static Mesh Visuals
-                    // If the SMR is failing to render (invisible), we create a static mesh copy.
-                    // This bypasses Animator/Bone issues entirely.
+                    // STATIC MESH FALLBACK (Required - SMR won't render)
                     try 
                     {
                         var staticVis = new GameObject("StaticVisuals_Fallback");
@@ -153,10 +151,13 @@ public static class ShadyGuyVariantPatch
                         staticVis.transform.localRotation = Quaternion.identity;
                         staticVis.transform.localScale = Vector3.one;
                         
+                        var mf = staticVis.AddComponent<MeshFilter>();
+                        mf.mesh = shadyGuy.meshRenderer.sharedMesh;
+                        
                         var mr = staticVis.AddComponent<MeshRenderer>();
                         mr.material = shadyGuy.meshRenderer.material;
                         
-                        // Disable the original SMR to prevent double rendering (if it ever decides to work)
+                        // Disable SMR since it won't render anyway
                         shadyGuy.meshRenderer.enabled = false; 
                     }
                     catch (Exception ex)
