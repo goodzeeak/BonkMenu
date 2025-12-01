@@ -11,6 +11,7 @@
   <PropertyGroup />
   <ItemGroup>
     <Compile Remove="megabonk_split_dump/**/*.cs" />
+    <Compile Remove="cpp2il_dump/**/*.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MelonLoader">

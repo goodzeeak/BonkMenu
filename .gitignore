@@ -4,6 +4,9 @@ obj/
 *.suo
 .vs/
 *.dll
-*.pdb
+*.pdb 
 
-
+# Dump directories
+megabonk_split_dump/
+cpp2il_dump/
+Cpp2IL-*/
