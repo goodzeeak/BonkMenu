@@ -5,7 +5,7 @@ obj/
 .vs/
 *.dll
 *.pdb 
-
+Bugs&Features.md
 # Dump directories
 megabonk_split_dump/
 cpp2il_dump/
