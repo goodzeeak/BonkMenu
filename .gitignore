@@ -6,6 +6,8 @@ obj/
 *.dll
 *.pdb 
 Bugs&Features.md
+# Allow Libs directory DLLs to be committed
+!Libs/**
 # Dump directories
 megabonk_split_dump/
 cpp2il_dump/
