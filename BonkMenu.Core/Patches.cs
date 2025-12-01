@@ -30,7 +30,7 @@ public static class Patches
 
 			// Apply shady guy variant patch
 			BonkMenu.Patches.ShadyGuyVariantPatch.Apply(_harmonyInstance);
-
+			
 			MelonLogger.Msg("[Patches] All patches applied successfully!");
 		}
 		catch (Exception ex)

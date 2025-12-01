@@ -51,29 +51,50 @@ public static class WorldFeatures
                 return;
             }
 
-            // Find the prefab among all BaseInteractables
-            var allInteractables = UnityEngine.Resources.FindObjectsOfTypeAll<BaseInteractable>();
-            
+            // 1. Try to find the prefab in RandomObjectPlacer (Best source - configured for spawning)
             GameObject prefab = null;
-            foreach (var interactable in allInteractables)
+            if (placer.randomObjects != null)
             {
-                if (interactable.gameObject.name.Equals(prefabName, StringComparison.OrdinalIgnoreCase) 
-                    && !interactable.gameObject.scene.IsValid())
+                foreach (var obj in placer.randomObjects)
                 {
-                    prefab = interactable.gameObject;
-                    break;
+                    if (obj.prefabs != null && obj.prefabs.Length > 0)
+                    {
+                        // Check if any prefab in this map object matches the name
+                        foreach (var p in obj.prefabs)
+                        {
+                            if (p != null && p.name.Equals(prefabName, StringComparison.OrdinalIgnoreCase))
+                            {
+                                prefab = p;
+                                MelonLogger.Msg($"[BonkMenu] Found prefab '{prefabName}' in RandomObjectPlacer");
+                                break;
+                            }
+                        }
+                    }
+                    if (prefab != null) break;
+                }
+            }
+
+            // 2. Fallback: Find in Resources (Might be incomplete/unconfigured)
+            if (prefab == null)
+            {
+                var allInteractables = UnityEngine.Resources.FindObjectsOfTypeAll<BaseInteractable>();
+                foreach (var interactable in allInteractables)
+                {
+                    if (interactable.gameObject.name.Equals(prefabName, StringComparison.OrdinalIgnoreCase) 
+                        && !interactable.gameObject.scene.IsValid())
+                    {
+                        // CRITICAL: Ensure we use the ROOT object, not just the child with the component
+                        // This ensures we get the full hierarchy including bones and UI icons
+                        prefab = interactable.transform.root.gameObject;
+                        MelonLogger.Warning($"[BonkMenu] Found prefab '{prefabName}' in Resources (Fallback) - Using Root: {prefab.name}");
+                        break;
+                    }
                 }
             }
 
             if ((Object)(object)prefab == (Object)null)
             {
                 MelonLogger.Warning($"[BonkMenu] Prefab '{prefabName}' not found for {displayName}");
-                MelonLogger.Warning("[BonkMenu] Available Interactables:");
-                foreach (var interactable in allInteractables)
-                {
-                    if (interactable.gameObject.scene.IsValid()) continue; // Skip scene objects
-                    MelonLogger.Warning($" - {interactable.gameObject.name}");
-                }
                 return;
             }
 

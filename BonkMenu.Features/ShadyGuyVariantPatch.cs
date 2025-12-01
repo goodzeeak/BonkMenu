@@ -93,7 +93,7 @@ public static class ShadyGuyVariantPatch
         }
     }
 
-    // Start Postfix: Apply visuals and ensure visibility
+    // Start Postfix: Apply visuals matching natural spawn configuration
     private static void ShadyGuyStart_Postfix(Il2CppSystem.Object __instance)
     {
         try
@@ -107,8 +107,9 @@ public static class ShadyGuyVariantPatch
                 
                 // 1. Re-set rarity one last time
                 shadyGuy.rarity = (EItemRarity)SpawnNextRarity;
+                MelonLogger.Msg($"[ShadyGuyVariantPatch] Set rarity to {SpawnNextRarity}");
                 
-                // 2. Apply Material
+                // 2. Apply Material (matching natural spawn)
                 if (shadyGuy.meshRenderer != null)
                 {
                     Material targetMat = null;
@@ -122,75 +123,69 @@ public static class ShadyGuyVariantPatch
                     if (targetMat != null)
                     {
                         shadyGuy.meshRenderer.material = targetMat;
+                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Applied material: {targetMat.name}");
                     }
                     
-                    // 3. Force Enable Renderer & its GameObject
+                    // 3. Configure SkinnedMeshRenderer (match natural spawn exactly)
                     shadyGuy.meshRenderer.enabled = true;
                     shadyGuy.meshRenderer.gameObject.SetActive(true);
                     shadyGuy.meshRenderer.updateWhenOffscreen = true;
                     
-                    // FIX: Force Enable RootBone
-                    if (shadyGuy.meshRenderer.rootBone != null)
-                    {
-                        shadyGuy.meshRenderer.rootBone.gameObject.SetActive(true);
-                        if (shadyGuy.meshRenderer.rootBone.parent != null)
-                        {
-                             shadyGuy.meshRenderer.rootBone.parent.gameObject.SetActive(true);
-                        }
-                    }
-
-                    // Force high quality
-                    shadyGuy.meshRenderer.quality = (SkinQuality)4; 
+                    // CRITICAL: Use Auto quality like natural spawns (not 4)
+                    shadyGuy.meshRenderer.quality = SkinQuality.Auto;
                     
-                    // STATIC MESH FALLBACK (Required - SMR won't render)
-                    try 
+                    // 4. Enable bone hierarchy
+                    if (shadyGuy.meshRenderer.bones != null && shadyGuy.meshRenderer.bones.Length > 0)
                     {
-                        var staticVis = new GameObject("StaticVisuals_Fallback");
-                        staticVis.transform.SetParent(shadyGuy.transform, false);
-                        staticVis.transform.localPosition = Vector3.zero;
-                        staticVis.transform.localRotation = Quaternion.identity;
-                        staticVis.transform.localScale = Vector3.one;
-                        
-                        var mf = staticVis.AddComponent<MeshFilter>();
-                        mf.mesh = shadyGuy.meshRenderer.sharedMesh;
-                        
-                        var mr = staticVis.AddComponent<MeshRenderer>();
-                        mr.material = shadyGuy.meshRenderer.material;
-                        
-                        // Disable SMR since it won't render anyway
-                        shadyGuy.meshRenderer.enabled = false; 
+                        foreach (var bone in shadyGuy.meshRenderer.bones)
+                        {
+                            if (bone != null)
+                            {
+                                bone.gameObject.SetActive(true);
+                            }
+                        }
+                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Activated {shadyGuy.meshRenderer.bones.Length} bones");
                     }
-                    catch (Exception ex)
-                    {
-                        MelonLogger.Error($"[ShadyGuyVariantPatch] Failed to create static fallback: {ex.Message}");
-                    }
+                    
+                    MelonLogger.Msg($"[ShadyGuyVariantPatch] SkinnedMeshRenderer configured (Auto quality)");
+                    
+                    // 5. STATIC MESH FALLBACK REMOVED - Animated mesh is working!
+                    
                 }
 
-                // 4. Force Enable Collider
+                // 6. Ensure collider is enabled
                 var collider = shadyGuy.GetComponent<Collider>();
                 if (collider != null)
                 {
                     collider.enabled = true;
                 }
                 
-                // 5. Ensure GameObject is active and scale is correct
+                // 6. Ensure GameObject is active
                 shadyGuy.gameObject.SetActive(true);
                 
-                // Check and fix scale if it's zero
+                // Fix scale if zero
                 if (shadyGuy.transform.localScale == Vector3.zero)
                 {
                     shadyGuy.transform.localScale = Vector3.one;
                 }
                 
-                // Ensure hideAfterPurchase objects are active
+                // 7. CRITICAL: Fix UI Icons (MinimapIcon, AltarIcon)
+                // These are in hideAfterPurchase. We now trust the native hierarchy.
                 if (shadyGuy.hideAfterPurchase != null)
                 {
-                    foreach (var obj in shadyGuy.hideAfterPurchase)
+                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Processing {shadyGuy.hideAfterPurchase.Length} hideAfterPurchase objects (UI Icons):");
+                    for (int i = 0; i < shadyGuy.hideAfterPurchase.Length; i++)
                     {
-                        if (obj != null) obj.SetActive(true);
+                        var obj = shadyGuy.hideAfterPurchase[i];
+                        if (obj != null)
+                        {
+                            // Just activate it. Don't move it. Don't reparent it.
+                            obj.SetActive(true);
+                            MelonLogger.Msg($"[ShadyGuyVariantPatch]   [{i}] {obj.name} - Activated. Pos: {obj.transform.localPosition}, Parent: {obj.transform.parent?.name ?? "null"}");
+                        }
                     }
                 }
-
+                
                 // Cleanup
                 ModifiedMerchants.Remove(ptr);
                 RarityMerchantsRemaining--;
@@ -199,6 +194,8 @@ public static class ShadyGuyVariantPatch
                     SpawnNextRarity = -1;
                     RarityMerchantsRemaining = 0;
                 }
+                
+                MelonLogger.Msg($"[ShadyGuyVariantPatch] ✅ Shady Guy spawn complete - matches natural configuration");
             }
         }
         catch (Exception ex)
