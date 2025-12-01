@@ -2,7 +2,7 @@
 
   <h1>BonkMenu</h1>
   <p>
-    A modern MelonLoader mod menu for IL2CPP Unity games. Clean UI, rock-solid stability, and a fast workflow with keybinds and live toasts.
+    A modern MelonLoader mod menu for MegaBonk. Clean UI, rock-solid stability, and a fast workflow with keybinds and live toasts.
   </p>
   <p>
     <img alt=".NET 6" src="https://img.shields.io/badge/.NET-6.0-512BD4?logo=dotnet&logoColor=white" />
@@ -15,7 +15,7 @@
 </div>
 
 ## Overview
-BonkMenu adds a polished in-game menu, quick toggles, and spawn helpers designed for IL2CPP titles. It uses UniverseLib (IL2CPP) for UI and includes bottom-right Windows-style toasts that aggregate counts while you hold a key.
+BonkMenu adds a polished in-game menu, quick toggles, and spawn helpers designed for MegaBonk. It uses UniverseLib (IL2CPP) for UI and includes bottom-right Windows-style toasts that aggregate counts while you hold a key.
 
 ## Highlights
 - Organized menu with tabs and a minimal dark theme
@@ -38,9 +38,9 @@ BonkMenu adds a polished in-game menu, quick toggles, and spawn helpers designed
   - The repo ships `Libs/UniverseLib.IL2CPP.dll` and other required stubs so you can build immediately after cloning.
 
 ## Quick Start
-1. Install MelonLoader for your game.
+1. Install MelonLoader for MegaBonk.
 2. Download the prebuilt `BonkMenu.dll` from releases or build it yourself.
-3. Drop `BonkMenu.dll` into your game’s `Mods` folder.
+3. Drop `BonkMenu.dll` into MegaBonks `Mods` folder.
 4. Launch the game and press `F1` to open BonkMenu.
 
 ## Keybinds
