@@ -82,11 +82,12 @@ public static class ModConfig
         Log.Info("Freeze Enemies: " + (FreezeEnemies ? "ON" : "OFF"));
 	}
 
-	public static void ToggleGodMode()
-	{
-		GodMode = !GodMode;
+    public static void ToggleGodMode()
+    {
+        GodMode = !GodMode;
         Log.Info("God Mode: " + (GodMode ? "ON" : "OFF"));
-	}
+        BonkMenu.UI.Components.UIFactory.SetToggleState("🛡️ God Mode", GodMode);
+    }
 
 
     public static void ToggleUnlimitedWeaponLevels()
@@ -141,5 +142,6 @@ public static class ModConfig
 	{
 		UnlimitedXp = !UnlimitedXp;
         Log.Info("Unlimited XP: " + (UnlimitedXp ? "ON" : "OFF"));
+        BonkMenu.UI.Components.UIFactory.SetToggleState("∞ Unlimited XP", UnlimitedXp);
 	}
 }

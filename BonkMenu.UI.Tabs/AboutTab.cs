@@ -29,7 +29,8 @@ public static class AboutTab
 		UIFactory.CreateKeybindRow("All Statues", KeybindConfig.SpawnStatuesKey, parent);
 		UIFactory.CreateKeybindRow("Challenge Shrine", KeybindConfig.SpawnChallengeShrinesKey, parent);
 		UIFactory.CreateKeybindRow("Cursed Shrine", KeybindConfig.SpawnCursedShrinesKey, parent);
-		UIFactory.CreateKeybindRow("Greed Altar", KeybindConfig.SpawnGreedAltarsKey, parent);
+        UIFactory.CreateKeybindRow("Greed Shrine", KeybindConfig.SpawnGreedShrinesKey, parent);
+        UIFactory.CreateKeybindRow("Greed Altar", KeybindConfig.SpawnGreedAltarsKey, parent);
 		UIFactory.CreateKeybindRow("Magnet Shrine", KeybindConfig.SpawnMagnetShrinesKey, parent);
 		UIFactory.CreateKeybindRow("Moai Shrine", KeybindConfig.SpawnMoaiShrinesKey, parent);
 		UIFactory.CreateKeybindRow("Charge Shrine", KeybindConfig.SpawnChargeShrinesKey, parent);

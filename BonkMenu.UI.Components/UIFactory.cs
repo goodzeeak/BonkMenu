@@ -494,6 +494,92 @@ public static class UIFactory
 		});
 	}
 
+    public static void ShowToast(string message)
+    {
+        GameObject canvas = GameObject.Find("BonkMenuCanvas");
+        if ((UnityEngine.Object)canvas == (UnityEngine.Object)null) return;
+        Transform t = canvas.transform.Find("ToastContainer");
+        GameObject container;
+        if ((UnityEngine.Object)t == (UnityEngine.Object)null)
+        {
+            container = new GameObject("ToastContainer");
+            container.transform.SetParent(canvas.transform, false);
+            RectTransform crt = container.AddComponent<RectTransform>();
+            crt.anchorMin = new Vector2(1f, 0f);
+            crt.anchorMax = new Vector2(1f, 0f);
+            crt.pivot = new Vector2(1f, 0f);
+            crt.anchoredPosition = new Vector2(-12f, 12f);
+            VerticalLayoutGroup v = container.AddComponent<VerticalLayoutGroup>();
+            ((HorizontalOrVerticalLayoutGroup)v).spacing = 6f;
+            ((HorizontalOrVerticalLayoutGroup)v).childControlHeight = true;
+            ((HorizontalOrVerticalLayoutGroup)v).childControlWidth = true;
+            ((HorizontalOrVerticalLayoutGroup)v).childForceExpandHeight = false;
+            ((HorizontalOrVerticalLayoutGroup)v).childForceExpandWidth = false;
+            ((LayoutGroup)v).childAlignment = (TextAnchor)8;
+            ContentSizeFitter fit = container.AddComponent<ContentSizeFitter>();
+            fit.verticalFit = (FitMode)2;
+            fit.horizontalFit = (FitMode)0;
+        }
+        else
+        {
+            container = t.gameObject;
+        }
+
+        GameObject toast = new GameObject("Toast");
+        toast.transform.SetParent(container.transform, false);
+        RectTransform rt = toast.AddComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(320f, 32f);
+        Image bg = toast.AddComponent<Image>();
+        ((Graphic)bg).color = new Color(0.08f, 0.08f, 0.1f, 0.95f);
+        Outline outline = toast.AddComponent<Outline>();
+        ((Shadow)outline).effectColor = new Color(0.2f, 0.8f, 1f, 0.25f);
+        ((Shadow)outline).effectDistance = new Vector2(1f, -1f);
+        HorizontalLayoutGroup h = toast.AddComponent<HorizontalLayoutGroup>();
+        ((HorizontalOrVerticalLayoutGroup)h).spacing = 8f;
+        ((HorizontalOrVerticalLayoutGroup)h).childControlWidth = true;
+        ((HorizontalOrVerticalLayoutGroup)h).childControlHeight = true;
+        ((HorizontalOrVerticalLayoutGroup)h).childForceExpandWidth = true;
+        LayoutElement le = toast.AddComponent<LayoutElement>();
+        le.preferredHeight = 32f;
+        le.flexibleWidth = 0f;
+
+        GameObject txtGO = new GameObject("Text");
+        txtGO.transform.SetParent(toast.transform, false);
+        RectTransform txtRT = txtGO.AddComponent<RectTransform>();
+        txtRT.anchorMin = Vector2.zero;
+        txtRT.anchorMax = Vector2.one;
+        txtRT.sizeDelta = Vector2.zero;
+        Text txt = txtGO.AddComponent<Text>();
+        txt.text = message;
+        txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        txt.fontSize = 14;
+        ((Graphic)txt).color = ColorTextMain;
+        txt.alignment = (TextAnchor)4;
+
+        Object.Destroy(toast, 2f);
+    }
+
+    public static void SetToggleState(string label, bool value)
+    {
+        var roots = UniverseLib.RuntimeHelper.FindObjectsOfTypeAll<GameObject>();
+        for (int i = 0; i < roots.Length; i++)
+        {
+            var go = roots[i];
+            if (go != null && go.name == ("Toggle_" + label))
+            {
+                var checkbox = go.transform.Find("Checkbox");
+                if ((UnityEngine.Object)checkbox != (UnityEngine.Object)null)
+                {
+                    var tg = checkbox.GetComponent<Toggle>();
+                    if ((UnityEngine.Object)tg != (UnityEngine.Object)null)
+                    {
+                        tg.isOn = value;
+                    }
+                }
+            }
+        }
+    }
+
 	public static GameObject CreateTabContent(string name)
 	{
 		//IL_0002: Unknown result type (might be due to invalid IL or missing references)

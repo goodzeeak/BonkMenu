@@ -1,0 +1,103 @@
+
+[21:53:20.086] ------------------------------
+[21:53:20.089] MelonLoader v0.7.2-ci.2367 Open-Beta
+[21:53:20.090] OS: Windows 11
+[21:53:20.090] Hash Code: D6BF00FD6659AE51BFB63FF3F0296A4AB54B28DA09BE826C7B88870E9E46AFFE
+[21:53:20.090] ------------------------------
+[21:53:20.090] Game Type: Il2cpp
+[21:53:20.090] Game Arch: x64
+[21:53:20.091] ------------------------------
+[21:53:20.091] Command-Line: 
+[21:53:20.091] ------------------------------
+[21:53:20.091] Core::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
+[21:53:20.092] Game::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
+[21:53:20.092] Game::DataPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk_Data
+[21:53:20.092] Game::ApplicationPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk.exe
+[21:53:20.093] Runtime Type: net6
+[21:53:20.149] ------------------------------
+[21:53:20.149] Game Name: Megabonk
+[21:53:20.149] Game Developer: Ved
+[21:53:20.151] Unity Version: 2023.2.22f1
+[21:53:20.151] Game Version: 1.0.19
+[21:53:20.151] ------------------------------
+
+[21:53:20.717] Preferences Loaded!
+
+[21:53:20.729] Loading UserLibs...
+[21:53:20.730] 0 UserLibs loaded.
+
+[21:53:20.730] Loading Plugins...
+[21:53:20.735] 0 Plugins loaded.
+
+[21:53:21.086] Loading Il2CppAssemblyGenerator...
+[21:53:21.112] [Il2CppAssemblyGenerator] Contacting RemoteAPI...
+[21:53:21.223] [Il2CppAssemblyGenerator] Game Not Found on RemoteAPI Host (https://api.melonloader.com/api/v1/game/megabonk)
+[21:53:21.223] [Il2CppAssemblyGenerator] RemoteAPI.DumperVersion = null
+[21:53:21.224] [Il2CppAssemblyGenerator] RemoteAPI.ObfuscationRegex = null
+[21:53:21.224] [Il2CppAssemblyGenerator] RemoteAPI.MappingURL = null
+[21:53:21.224] [Il2CppAssemblyGenerator] RemoteAPI.MappingFileSHA512 = null
+[21:53:21.227] [Il2CppAssemblyGenerator] Using Cpp2IL Version: 2022.1.0-pre-release.20
+[21:53:21.227] [Il2CppAssemblyGenerator] Using Il2CppInterop Version = 1.5.1+dbaf825aab891ff1e1627bea691bde0a81d1ad98
+[21:53:21.227] [Il2CppAssemblyGenerator] Using Unity Dependencies Version = 2023.2.22
+[21:53:21.227] [Il2CppAssemblyGenerator] Using Deobfuscation Regex = null
+[21:53:21.228] [Il2CppAssemblyGenerator] Cpp2IL is up to date.
+[21:53:21.228] [Il2CppAssemblyGenerator] Cpp2IL.Plugin.StrippedCodeRegSupport is up to date.
+[21:53:21.228] [Il2CppAssemblyGenerator] UnityDependencies is up to date.
+[21:53:21.228] [Il2CppAssemblyGenerator] Checking GameAssembly...
+[21:53:21.312] [Il2CppAssemblyGenerator] Assembly is up to date. No Generation Needed.
+
+[21:53:21.313] Loading Mods...
+[21:53:21.666] ------------------------------
+[21:53:21.676] Melon Assembly loaded: '.\Mods\BonkMenu.dll'
+[21:53:21.677] SHA256 Hash: 'EAB1134E0F4D8B83ABE9EDF965F2523B867173178B559648E907740A904C9CA9'
+[21:53:21.678] Melon Assembly loaded: '.\Mods\UsefullInfoUI.dll'
+[21:53:21.678] SHA256 Hash: 'F45AC948BB40923A644F197BA17E460B36A089AC9D089F559D1C25AD4DB962F7'
+
+[21:53:21.832] ------------------------------
+[21:53:21.832] BonkMenu v1.0.0
+[21:53:21.832] by Goodzy
+[21:53:21.832] Assembly: BonkMenu.dll
+[21:53:21.832] ------------------------------
+[21:53:21.834] ------------------------------
+[21:53:21.834] Useful Info UI v1.1.5
+[21:53:21.835] by Maskoliver
+[21:53:21.835] Assembly: UsefullInfoUI.dll
+[21:53:21.835] ------------------------------
+[21:53:21.835] ------------------------------
+[21:53:21.835] 2 Mods loaded.
+
+[21:53:22.538] [Il2CppInterop] Class::Init signatures have been exhausted, using a substitute!
+[21:53:22.662] [Il2CppInterop] Registered mono type MelonLoader.Support.MonoEnumeratorWrapper in il2cpp domain
+[21:53:22.745] Support Module Loaded: C:\Program Files (x86)\Steam\steamapps\common\Megabonk\MelonLoader\Dependencies\SupportModules\Il2Cpp.dll
+[21:53:23.259] [BonkMenu] [BonkMenu] === BonkMenu Initialized ===
+[21:53:23.262] [BonkMenu] [BonkMenu] Keybinds loaded. Toggle Key: Insert
+[21:53:23.263] [BonkMenu] [Patches] Initializing Harmony patches...
+[21:53:23.280] [BonkMenu] [LevelCapPatches] ✅ WeaponData.GetMaxLevel patched - max level set to int.MaxValue
+[21:53:23.296] [BonkMenu] [LevelCapPatches] ✅ TomeData.GetMaxLevel patched - max level set to int.MaxValue
+[21:53:23.313] [BonkMenu] [XpDisplayPatch] ✅ XpBarUI.SetLevelText patched - will show uncapped XP multiplier
+[21:53:23.350] [BonkMenu] [GoldenShrinePatch] ✅ ChargeShrine.Awake & Start patched - golden shrine support enabled
+[21:53:23.350] [BonkMenu] [PotVariantPatch] ✅ Pot variant patch ready (will modify post-spawn)
+[21:53:23.370] [BonkMenu] [ShadyGuyVariantPatch] ✅ InteractableShadyGuy.Start patched
+[21:53:23.388] [BonkMenu] [ShadyGuyVariantPatch] ✅ InteractableShadyGuy.FindItems patched
+[21:53:23.450] [BonkMenu] [PlayerHealthPatches] ✅ PlayerHealth patched (God Mode/Infinite Health enabled)
+[21:53:23.516] [BonkMenu] [Patches] ✅ PassiveInventory patches applied
+[21:53:23.516] [BonkMenu] [Patches] All patches applied successfully!
+[21:53:23.517] [BonkMenu] [BonkMenu] Press Insert to toggle menu
+[21:53:23.517] [BonkMenu] [BonkMenu] MelonLoader: 0.7.2.2367
+[21:53:23.517] [BonkMenu] [BonkMenu] UniverseLib: 2.0.0.0
+[21:53:23.517] [BonkMenu] [BonkMenu] ==============================
+[21:53:23.522] MelonPreferences Loaded from UserData/UsefulInfoUI.cfg
+[21:53:23.652] [Useful_Info_UI] Harmony patches applied.
+[21:53:23.654] [Useful_Info_UI] Useful Info UI initialized!
+[21:53:23.776] [Useful_Info_UI] Useful Info UI initialized (Melon)
+[21:53:23.873] [Il2CppInterop] Registered mono type MelonLoader.Support.SM_Component in il2cpp domain
+[21:53:23.882] Registered mono icall UnityEngine.Transform::SetAsLastSibling in il2cpp domain
+[21:53:23.906] [Il2CppInterop] Registered mono type UniverseLib.UniversalBehaviour in il2cpp domain
+[21:53:24.282] [Il2CppInterop] Registered mono type UniverseLib.Runtime.Il2Cpp.Il2CppManagedEnumerator in il2cpp domain
+[21:53:24.525] Registered mono icall UnityEngine.Resources::FindObjectsOfTypeAll in il2cpp domain
+[21:53:24.549] [Il2CppInterop] Registered mono type Il2CppInterop.Runtime.DelegateSupport+Il2CppToMonoDelegateReference in il2cpp domain
+[21:53:33.543] [Useful_Info_UI] RunInfo UI created (TMPro)
+[21:53:33.544] [Useful_Info_UI] Player Stats UI created (TMPro)
+[21:53:39.245] [BonkMenu] Unlimited XP: ON
+[21:53:45.057] [BonkMenu] Unlimited XP: OFF
+[21:53:46.189] [BonkMenu] Unlimited XP: ON

@@ -15,6 +15,7 @@ public static class KeybindConfig
     private static MelonPreferences_Entry<KeyCode> _spawnStatuesKeyEntry;
     private static MelonPreferences_Entry<KeyCode> _spawnChallengeShrinesKeyEntry;
     private static MelonPreferences_Entry<KeyCode> _spawnCursedShrinesKeyEntry;
+    private static MelonPreferences_Entry<KeyCode> _spawnGreedShrinesKeyEntry;
     private static MelonPreferences_Entry<KeyCode> _spawnGreedAltarsKeyEntry;
     private static MelonPreferences_Entry<KeyCode> _spawnMagnetShrinesKeyEntry;
     private static MelonPreferences_Entry<KeyCode> _spawnMoaiShrinesKeyEntry;
@@ -47,7 +48,8 @@ public static class KeybindConfig
     public static KeyCode SpawnStatuesKey => _spawnStatuesKeyEntry?.Value ?? KeyCode.Alpha3;
     public static KeyCode SpawnChallengeShrinesKey => _spawnChallengeShrinesKeyEntry?.Value ?? KeyCode.Alpha4;
     public static KeyCode SpawnCursedShrinesKey => _spawnCursedShrinesKeyEntry?.Value ?? KeyCode.Alpha5;
-    public static KeyCode SpawnGreedAltarsKey => _spawnGreedAltarsKeyEntry?.Value ?? KeyCode.Alpha6;
+    public static KeyCode SpawnGreedShrinesKey => _spawnGreedShrinesKeyEntry?.Value ?? KeyCode.Alpha6;
+    public static KeyCode SpawnGreedAltarsKey => _spawnGreedAltarsKeyEntry?.Value ?? KeyCode.F11;
     public static KeyCode SpawnMagnetShrinesKey => _spawnMagnetShrinesKeyEntry?.Value ?? KeyCode.Alpha7;
     public static KeyCode SpawnMoaiShrinesKey => _spawnMoaiShrinesKeyEntry?.Value ?? KeyCode.Alpha8;
     public static KeyCode SpawnChargeShrinesKey => _spawnChargeShrinesKeyEntry?.Value ?? KeyCode.Alpha9;
@@ -70,7 +72,8 @@ public static class KeybindConfig
         _spawnStatuesKeyEntry = _category.CreateEntry("SpawnStatuesKey", KeyCode.Alpha3, "Spawn All Statues", "Spawn statues once");
         _spawnChallengeShrinesKeyEntry = _category.CreateEntry("SpawnChallengeShrinesKey", KeyCode.Alpha4, "Spawn Challenge Shrine", "Spawn 1 Challenge Shrine");
         _spawnCursedShrinesKeyEntry = _category.CreateEntry("SpawnCursedShrinesKey", KeyCode.Alpha5, "Spawn Cursed Shrine", "Spawn 1 Cursed Shrine");
-        _spawnGreedAltarsKeyEntry = _category.CreateEntry("SpawnGreedAltarsKey", KeyCode.Alpha6, "Spawn Greed Altar", "Spawn 1 Greed Altar");
+        _spawnGreedShrinesKeyEntry = _category.CreateEntry("SpawnGreedShrinesKey", KeyCode.Alpha6, "Spawn Greed Shrine", "Spawn 1 Greed Shrine");
+        _spawnGreedAltarsKeyEntry = _category.CreateEntry("SpawnGreedAltarsKey", KeyCode.F11, "Spawn Greed Altar", "Spawn 1 Greed Altar");
         _spawnMagnetShrinesKeyEntry = _category.CreateEntry("SpawnMagnetShrinesKey", KeyCode.Alpha7, "Spawn Magnet Shrine", "Spawn 1 Magnet Shrine");
         _spawnMoaiShrinesKeyEntry = _category.CreateEntry("SpawnMoaiShrinesKey", KeyCode.Alpha8, "Spawn Moai Shrine", "Spawn 1 Moai Shrine");
         _spawnChargeShrinesKeyEntry = _category.CreateEntry("SpawnChargeShrinesKey", KeyCode.Alpha9, "Spawn Charge Shrine", "Spawn 1 Charge Shrine");
