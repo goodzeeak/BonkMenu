@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using BonkMenu.Core;
 using UnityEngine.UI;
 using UniverseLib;
 
@@ -507,6 +508,7 @@ public static class UIFactory
 
     public static void ShowToast(string message)
     {
+        if (!ModConfig.EnableToasts) return;
         GameObject canvas = GameObject.Find("BonkMenuCanvas");
         if ((UnityEngine.Object)canvas == (UnityEngine.Object)null) return;
         Transform t = canvas.transform.Find("ToastContainer");
@@ -616,11 +618,13 @@ public static class UIFactory
 
     public static void IncrementSpawnToast(string key, string label)
     {
+        if (!ModConfig.EnableToasts) return;
         IncrementSpawnToast(key, label, 1);
     }
 
     public static void IncrementSpawnToast(string key, string label, int increment)
     {
+        if (!ModConfig.EnableToasts) return;
         GameObject canvas = GameObject.Find("BonkMenuCanvas");
         if ((UnityEngine.Object)canvas == (UnityEngine.Object)null) return;
         Transform t = canvas.transform.Find("ToastContainer");
@@ -729,6 +733,18 @@ public static class UIFactory
 
     public static void TickToasts()
     {
+        if (!ModConfig.EnableToasts)
+        {
+            var keysAll = new System.Collections.Generic.List<string>(_spawnToasts.Keys);
+            for (int i = 0; i < keysAll.Count; i++)
+            {
+                var tr = _spawnToasts[keysAll[i]];
+                if (tr != null && (UnityEngine.Object)tr.go != (UnityEngine.Object)null)
+                    Object.Destroy(tr.go);
+            }
+            _spawnToasts.Clear();
+            return;
+        }
         float now = Time.unscaledTime;
         var keys = new System.Collections.Generic.List<string>(_spawnToasts.Keys);
         for (int i = 0; i < keys.Count; i++)

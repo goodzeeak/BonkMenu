@@ -41,6 +41,12 @@ public static class AboutTab
 		UIFactory.CreateKeybindRow("Shady Merchant (Epic)", KeybindConfig.SpawnShadyMerchantEpicKey, parent);
 		UIFactory.CreateKeybindRow("Shady Merchant (Legendary)", KeybindConfig.SpawnShadyMerchantLegendaryKey, parent);
 		UIFactory.CreateSpacer(8, parent);
+		UIFactory.CreateSectionHeader("UI / Feedback", parent);
+		UIFactory.CreateCircularToggle("Show Toasts", ModConfig.EnableToasts, delegate(bool value)
+		{
+			ModConfig.EnableToasts = value;
+		}, parent);
+		UIFactory.CreateSpacer(8, parent);
 		UIFactory.CreateButton("Save Keybinds", delegate { KeybindConfig.SaveKeybinds(); }, parent);
 		UIFactory.CreateButton("Reload Keybinds", delegate { KeybindConfig.LoadKeybinds(); }, parent);
 

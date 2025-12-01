@@ -24,7 +24,7 @@ public static class ModConfig
 
 	public static bool NoCooldowns { get; set; } = false;
 
-	public static bool FreezeEnemies { get; set; } = false;
+    public static bool FreezeEnemies { get; set; } = false;
 
     public static bool UnlimitedWeaponLevels { get; set; } = false;
     public static bool UnlimitedTomeLevels { get; set; } = false;
@@ -32,7 +32,9 @@ public static class ModConfig
     public static HashSet<string> UnlimitedWeaponNames { get; } = new HashSet<string>(System.StringComparer.OrdinalIgnoreCase);
     public static HashSet<string> UnlimitedTomeNames { get; } = new HashSet<string>(System.StringComparer.OrdinalIgnoreCase);
 
-	public static bool UnlimitedXp { get; set; } = false;
+    public static bool UnlimitedXp { get; set; } = false;
+
+    public static bool EnableToasts { get; set; } = true;
 
 	public static void ToggleInfiniteHealth()
 	{
@@ -138,10 +140,16 @@ public static class ModConfig
         }
     }
 
-	public static void ToggleUnlimitedXp()
-	{
-		UnlimitedXp = !UnlimitedXp;
+    public static void ToggleUnlimitedXp()
+    {
+        UnlimitedXp = !UnlimitedXp;
         Log.Info("Unlimited XP: " + (UnlimitedXp ? "ON" : "OFF"));
         BonkMenu.UI.Components.UIFactory.SetToggleState("∞ Unlimited XP", UnlimitedXp);
-	}
+    }
+
+    public static void ToggleToasts()
+    {
+        EnableToasts = !EnableToasts;
+        Log.Info("Toasts: " + (EnableToasts ? "ON" : "OFF"));
+    }
 }
