@@ -26,7 +26,6 @@ public static class AboutTab
 		UIFactory.CreateSectionHeader("Spawnables", parent);
 		UIFactory.CreateKeybindRow("Chests", KeybindConfig.SpawnChestsKey, parent);
 		UIFactory.CreateKeybindRow("Free Chests", KeybindConfig.SpawnFreeChestsKey, parent);
-		UIFactory.CreateKeybindRow("All Statues", KeybindConfig.SpawnStatuesKey, parent);
 		UIFactory.CreateKeybindRow("Challenge Shrine", KeybindConfig.SpawnChallengeShrinesKey, parent);
 		UIFactory.CreateKeybindRow("Cursed Shrine", KeybindConfig.SpawnCursedShrinesKey, parent);
         UIFactory.CreateKeybindRow("Greed Shrine", KeybindConfig.SpawnGreedShrinesKey, parent);

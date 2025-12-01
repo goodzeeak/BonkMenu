@@ -12,7 +12,6 @@ public static class KeybindConfig
     private static MelonPreferences_Entry<KeyCode> _toggleUnlimitedXpKeyEntry;
     private static MelonPreferences_Entry<KeyCode> _spawnChestsKeyEntry;
     private static MelonPreferences_Entry<KeyCode> _spawnFreeChestsKeyEntry;
-    private static MelonPreferences_Entry<KeyCode> _spawnStatuesKeyEntry;
     private static MelonPreferences_Entry<KeyCode> _spawnChallengeShrinesKeyEntry;
     private static MelonPreferences_Entry<KeyCode> _spawnCursedShrinesKeyEntry;
     private static MelonPreferences_Entry<KeyCode> _spawnGreedShrinesKeyEntry;
@@ -45,7 +44,6 @@ public static class KeybindConfig
     public static KeyCode ToggleUnlimitedXpKey => _toggleUnlimitedXpKeyEntry?.Value ?? KeyCode.F3;
     public static KeyCode SpawnChestsKey => _spawnChestsKeyEntry?.Value ?? KeyCode.Alpha1;
     public static KeyCode SpawnFreeChestsKey => _spawnFreeChestsKeyEntry?.Value ?? KeyCode.Alpha2;
-    public static KeyCode SpawnStatuesKey => _spawnStatuesKeyEntry?.Value ?? KeyCode.Alpha3;
     public static KeyCode SpawnChallengeShrinesKey => _spawnChallengeShrinesKeyEntry?.Value ?? KeyCode.Alpha4;
     public static KeyCode SpawnCursedShrinesKey => _spawnCursedShrinesKeyEntry?.Value ?? KeyCode.Alpha5;
     public static KeyCode SpawnGreedShrinesKey => _spawnGreedShrinesKeyEntry?.Value ?? KeyCode.Alpha6;
@@ -69,7 +67,6 @@ public static class KeybindConfig
         _toggleUnlimitedXpKeyEntry = _category.CreateEntry("ToggleUnlimitedXpKey", KeyCode.F3, "Toggle Unlimited XP", "Key to toggle Unlimited XP");
         _spawnChestsKeyEntry = _category.CreateEntry("SpawnChestsKey", KeyCode.Alpha1, "Spawn Chests", "Spawn 1 Chest");
         _spawnFreeChestsKeyEntry = _category.CreateEntry("SpawnFreeChestsKey", KeyCode.Alpha2, "Spawn Free Chests", "Spawn 1 Free Chest");
-        _spawnStatuesKeyEntry = _category.CreateEntry("SpawnStatuesKey", KeyCode.Alpha3, "Spawn All Statues", "Spawn statues once");
         _spawnChallengeShrinesKeyEntry = _category.CreateEntry("SpawnChallengeShrinesKey", KeyCode.Alpha4, "Spawn Challenge Shrine", "Spawn 1 Challenge Shrine");
         _spawnCursedShrinesKeyEntry = _category.CreateEntry("SpawnCursedShrinesKey", KeyCode.Alpha5, "Spawn Cursed Shrine", "Spawn 1 Cursed Shrine");
         _spawnGreedShrinesKeyEntry = _category.CreateEntry("SpawnGreedShrinesKey", KeyCode.Alpha6, "Spawn Greed Shrine", "Spawn 1 Greed Shrine");

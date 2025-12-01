@@ -8,6 +8,17 @@ namespace BonkMenu.UI.Components;
 
 public static class UIFactory
 {
+    private class ToastRef
+    {
+        public GameObject go;
+        public Text text;
+        public Text icon;
+        public Image bg;
+        public float expireAt;
+        public int count;
+        public string baseLabel;
+    }
+    private static System.Collections.Generic.Dictionary<string, ToastRef> _spawnToasts = new System.Collections.Generic.Dictionary<string, ToastRef>();
 	private static readonly Color ColorBgDark = new Color(0.1f, 0.1f, 0.12f, 1f);
 
 	private static readonly Color ColorBgLighter = new Color(0.15f, 0.15f, 0.2f, 1f);
@@ -518,7 +529,7 @@ public static class UIFactory
             ((LayoutGroup)v).childAlignment = (TextAnchor)8;
             ContentSizeFitter fit = container.AddComponent<ContentSizeFitter>();
             fit.verticalFit = (FitMode)2;
-            fit.horizontalFit = (FitMode)0;
+            fit.horizontalFit = (FitMode)2;
         }
         else
         {
@@ -528,20 +539,55 @@ public static class UIFactory
         GameObject toast = new GameObject("Toast");
         toast.transform.SetParent(container.transform, false);
         RectTransform rt = toast.AddComponent<RectTransform>();
-        rt.sizeDelta = new Vector2(320f, 32f);
+        rt.sizeDelta = new Vector2(0f, 34f);
         Image bg = toast.AddComponent<Image>();
-        ((Graphic)bg).color = new Color(0.08f, 0.08f, 0.1f, 0.95f);
+        ((Graphic)bg).color = new Color(0.06f, 0.06f, 0.08f, 0.96f);
         Outline outline = toast.AddComponent<Outline>();
-        ((Shadow)outline).effectColor = new Color(0.2f, 0.8f, 1f, 0.25f);
+        ((Shadow)outline).effectColor = new Color(0f, 0f, 0f, 0.35f);
         ((Shadow)outline).effectDistance = new Vector2(1f, -1f);
         HorizontalLayoutGroup h = toast.AddComponent<HorizontalLayoutGroup>();
-        ((HorizontalOrVerticalLayoutGroup)h).spacing = 8f;
+        RectOffset pad = new RectOffset();
+        pad.left = 2; pad.right = 10; pad.top = 4; pad.bottom = 4;
+        ((LayoutGroup)h).padding = pad;
+        ((HorizontalOrVerticalLayoutGroup)h).spacing = 6f;
         ((HorizontalOrVerticalLayoutGroup)h).childControlWidth = true;
         ((HorizontalOrVerticalLayoutGroup)h).childControlHeight = true;
         ((HorizontalOrVerticalLayoutGroup)h).childForceExpandWidth = true;
+        ((LayoutGroup)h).childAlignment = (TextAnchor)8;
         LayoutElement le = toast.AddComponent<LayoutElement>();
-        le.preferredHeight = 32f;
-        le.flexibleWidth = 0f;
+        le.preferredHeight = 34f;
+        le.flexibleWidth = 1f;
+        ContentSizeFitter toastFit = toast.AddComponent<ContentSizeFitter>();
+        toastFit.horizontalFit = (FitMode)2;
+
+        Color accentColor = ColorAccent;
+        string lower = (message ?? "").ToLowerInvariant();
+        if (lower.Contains("off")) accentColor = new Color(0.95f, 0.35f, 0.35f, 1f);
+        else if (lower.Contains("on") || lower.Contains("spawned")) accentColor = new Color(0.2f, 0.85f, 0.55f, 1f);
+
+        GameObject accentGO = new GameObject("Accent");
+        accentGO.transform.SetParent(toast.transform, false);
+        RectTransform art = accentGO.AddComponent<RectTransform>();
+        art.sizeDelta = new Vector2(4f, 0f);
+        Image accentImg = accentGO.AddComponent<Image>();
+        ((Graphic)accentImg).color = accentColor;
+        LayoutElement ale = accentGO.AddComponent<LayoutElement>();
+        ale.preferredWidth = 4f;
+        ale.flexibleWidth = 0f;
+
+        GameObject iconGO = new GameObject("Icon");
+        iconGO.transform.SetParent(toast.transform, false);
+        RectTransform iconRT = iconGO.AddComponent<RectTransform>();
+        iconRT.sizeDelta = new Vector2(20f, 20f);
+        Text iconTxt = iconGO.AddComponent<Text>();
+        iconTxt.text = lower.Contains("off") ? "×" : (lower.Contains("on") ? "✓" : "•");
+        iconTxt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        iconTxt.fontSize = 16;
+        ((Graphic)iconTxt).color = accentColor;
+        iconTxt.alignment = (TextAnchor)4;
+        LayoutElement ile = iconGO.AddComponent<LayoutElement>();
+        ile.preferredWidth = 24f;
+        ile.flexibleWidth = 0f;
 
         GameObject txtGO = new GameObject("Text");
         txtGO.transform.SetParent(toast.transform, false);
@@ -555,8 +601,147 @@ public static class UIFactory
         txt.fontSize = 14;
         ((Graphic)txt).color = ColorTextMain;
         txt.alignment = (TextAnchor)4;
+        LayoutElement tle = txtGO.AddComponent<LayoutElement>();
+        tle.flexibleWidth = 1f;
 
-        Object.Destroy(toast, 2f);
+        ((Graphic)bg).CrossFadeAlpha(0f, 0f, true);
+        ((Graphic)bg).CrossFadeAlpha(1f, 0.12f, true);
+        ((Graphic)txt).CrossFadeAlpha(0f, 0f, true);
+        ((Graphic)txt).CrossFadeAlpha(1f, 0.12f, true);
+        ((Graphic)iconTxt).CrossFadeAlpha(0f, 0f, true);
+        ((Graphic)iconTxt).CrossFadeAlpha(1f, 0.12f, true);
+
+        Object.Destroy(toast, 2.3f);
+    }
+
+    public static void IncrementSpawnToast(string key, string label)
+    {
+        IncrementSpawnToast(key, label, 1);
+    }
+
+    public static void IncrementSpawnToast(string key, string label, int increment)
+    {
+        GameObject canvas = GameObject.Find("BonkMenuCanvas");
+        if ((UnityEngine.Object)canvas == (UnityEngine.Object)null) return;
+        Transform t = canvas.transform.Find("ToastContainer");
+        GameObject container = (UnityEngine.Object)t == (UnityEngine.Object)null ? null : t.gameObject;
+        if ((UnityEngine.Object)container == (UnityEngine.Object)null)
+        {
+            container = new GameObject("ToastContainer");
+            container.transform.SetParent(canvas.transform, false);
+            RectTransform crt = container.AddComponent<RectTransform>();
+            crt.anchorMin = new Vector2(1f, 0f);
+            crt.anchorMax = new Vector2(1f, 0f);
+            crt.pivot = new Vector2(1f, 0f);
+            crt.anchoredPosition = new Vector2(-12f, 12f);
+            VerticalLayoutGroup v = container.AddComponent<VerticalLayoutGroup>();
+            ((HorizontalOrVerticalLayoutGroup)v).spacing = 6f;
+            ((HorizontalOrVerticalLayoutGroup)v).childControlHeight = true;
+            ((HorizontalOrVerticalLayoutGroup)v).childControlWidth = true;
+            ((HorizontalOrVerticalLayoutGroup)v).childForceExpandHeight = false;
+            ((HorizontalOrVerticalLayoutGroup)v).childForceExpandWidth = false;
+            ((LayoutGroup)v).childAlignment = (TextAnchor)8;
+            ContentSizeFitter fit = container.AddComponent<ContentSizeFitter>();
+            fit.verticalFit = (FitMode)2;
+            fit.horizontalFit = (FitMode)2;
+        }
+
+        ToastRef tr;
+        if (!_spawnToasts.TryGetValue(key, out tr) || (UnityEngine.Object)tr.go == (UnityEngine.Object)null)
+        {
+            GameObject toast = new GameObject("Toast_Spawn_" + key);
+            toast.transform.SetParent(container.transform, false);
+            RectTransform rt = toast.AddComponent<RectTransform>();
+            rt.sizeDelta = new Vector2(0f, 34f);
+            Image bg = toast.AddComponent<Image>();
+            ((Graphic)bg).color = new Color(0.06f, 0.06f, 0.08f, 0.96f);
+            Outline outline = toast.AddComponent<Outline>();
+            ((Shadow)outline).effectColor = new Color(0f, 0f, 0f, 0.35f);
+            ((Shadow)outline).effectDistance = new Vector2(1f, -1f);
+            HorizontalLayoutGroup h = toast.AddComponent<HorizontalLayoutGroup>();
+            RectOffset pad = new RectOffset();
+            pad.left = 2; pad.right = 10; pad.top = 4; pad.bottom = 4;
+            ((LayoutGroup)h).padding = pad;
+            ((HorizontalOrVerticalLayoutGroup)h).spacing = 6f;
+            ((HorizontalOrVerticalLayoutGroup)h).childControlWidth = true;
+            ((HorizontalOrVerticalLayoutGroup)h).childControlHeight = true;
+            ((HorizontalOrVerticalLayoutGroup)h).childForceExpandWidth = true;
+            ((LayoutGroup)h).childAlignment = (TextAnchor)8;
+            LayoutElement le = toast.AddComponent<LayoutElement>();
+            le.preferredHeight = 34f;
+            le.flexibleWidth = 1f;
+            ContentSizeFitter toastFit = toast.AddComponent<ContentSizeFitter>();
+            toastFit.horizontalFit = (FitMode)2;
+
+            GameObject accentGO = new GameObject("Accent");
+            accentGO.transform.SetParent(toast.transform, false);
+            RectTransform art = accentGO.AddComponent<RectTransform>();
+            art.sizeDelta = new Vector2(4f, 0f);
+            Image accentImg = accentGO.AddComponent<Image>();
+            ((Graphic)accentImg).color = new Color(0.2f, 0.85f, 0.55f, 1f);
+            LayoutElement ale = accentGO.AddComponent<LayoutElement>();
+            ale.preferredWidth = 4f;
+            ale.flexibleWidth = 0f;
+
+            GameObject iconGO = new GameObject("Icon");
+            iconGO.transform.SetParent(toast.transform, false);
+            RectTransform iconRT = iconGO.AddComponent<RectTransform>();
+            iconRT.sizeDelta = new Vector2(20f, 20f);
+            Text iconTxt = iconGO.AddComponent<Text>();
+            iconTxt.text = "•";
+            iconTxt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            iconTxt.fontSize = 16;
+            ((Graphic)iconTxt).color = new Color(0.2f, 0.85f, 0.55f, 1f);
+            iconTxt.alignment = (TextAnchor)4;
+            LayoutElement ile = iconGO.AddComponent<LayoutElement>();
+            ile.preferredWidth = 24f;
+            ile.flexibleWidth = 0f;
+
+            GameObject txtGO = new GameObject("Text");
+            txtGO.transform.SetParent(toast.transform, false);
+            RectTransform txtRT = txtGO.AddComponent<RectTransform>();
+            txtRT.anchorMin = Vector2.zero;
+            txtRT.anchorMax = Vector2.one;
+            txtRT.sizeDelta = Vector2.zero;
+            Text txt = txtGO.AddComponent<Text>();
+            txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            txt.fontSize = 14;
+            ((Graphic)txt).color = ColorTextMain;
+            txt.alignment = (TextAnchor)4;
+            LayoutElement tle = txtGO.AddComponent<LayoutElement>();
+            tle.flexibleWidth = 1f;
+
+            tr = new ToastRef { go = toast, text = txt, icon = iconTxt, bg = bg, count = 0, expireAt = 0f, baseLabel = label };
+            _spawnToasts[key] = tr;
+        }
+
+        tr.count += Math.Max(1, increment);
+        if (string.IsNullOrEmpty(tr.baseLabel)) tr.baseLabel = label;
+        tr.text.text = tr.count > 1 ? ("Spawned " + tr.baseLabel + " ×" + tr.count) : ("Spawned " + tr.baseLabel);
+        tr.expireAt = Time.unscaledTime + 2.5f;
+        ((Graphic)tr.bg).CrossFadeAlpha(0f, 0f, true);
+        ((Graphic)tr.bg).CrossFadeAlpha(1f, 0.12f, true);
+        ((Graphic)tr.text).CrossFadeAlpha(0f, 0f, true);
+        ((Graphic)tr.text).CrossFadeAlpha(1f, 0.12f, true);
+        ((Graphic)tr.icon).CrossFadeAlpha(0f, 0f, true);
+        ((Graphic)tr.icon).CrossFadeAlpha(1f, 0.12f, true);
+    }
+
+    public static void TickToasts()
+    {
+        float now = Time.unscaledTime;
+        var keys = new System.Collections.Generic.List<string>(_spawnToasts.Keys);
+        for (int i = 0; i < keys.Count; i++)
+        {
+            var k = keys[i];
+            var tr = _spawnToasts[k];
+            if (tr == null || (UnityEngine.Object)tr.go == (UnityEngine.Object)null || now >= tr.expireAt)
+            {
+                if (tr != null && (UnityEngine.Object)tr.go != (UnityEngine.Object)null)
+                    Object.Destroy(tr.go);
+                _spawnToasts.Remove(k);
+            }
+        }
     }
 
     public static void SetToggleState(string label, bool value)
