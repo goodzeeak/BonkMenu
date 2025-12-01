@@ -1,4 +1,5 @@
 using MelonLoader;
+using BonkMenu.Core;
 using UnityEngine;
 
 namespace BonkMenu.Core;
@@ -26,7 +27,7 @@ public static class KeybindConfig
         _category = MelonPreferences.CreateCategory("BonkMenu", "BonkMenu Settings");
         _toggleMenuKeyEntry = _category.CreateEntry("ToggleMenuKey", KeyCode.F1, "Toggle Menu Key", "Key to toggle the menu visibility");
         
-        MelonLogger.Msg($"[BonkMenu] Keybinds loaded. Toggle Key: {ToggleMenuKey}");
+        Log.Info($"[BonkMenu] Keybinds loaded. Toggle Key: {ToggleMenuKey}");
     }
 
     public static void SaveKeybinds()

@@ -32,11 +32,24 @@ public class BonkMenuMod : MelonMod
 		//IL_00b2: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00f0: Unknown result type (might be due to invalid IL or missing references)
 		//IL_012e: Unknown result type (might be due to invalid IL or missing references)
-		MelonLogger.Msg("[BonkMenu] === BonkMenu Initialized ===");
-		KeybindConfig.LoadKeybinds();
-		Patches.Apply();
-		MelonLogger.Msg($"[BonkMenu] Press {KeybindConfig.ToggleMenuKey} to toggle menu");
-		MelonLogger.Msg("[BonkMenu] ==============================");
+        Log.Info("[BonkMenu] === BonkMenu Initialized ===");
+        KeybindConfig.LoadKeybinds();
+        Patches.Apply();
+        Log.Info($"[BonkMenu] Press {KeybindConfig.ToggleMenuKey} to toggle menu");
+        var mlVer = typeof(MelonMod).Assembly.GetName().Version;
+        var uniVer = typeof(UniverseLib.Universe).Assembly.GetName().Version;
+        Log.Info($"[BonkMenu] MelonLoader: {mlVer}");
+        Log.Info($"[BonkMenu] UniverseLib: {uniVer}");
+        try
+        {
+            var minVer = new Version(0,7,2,2367);
+            if (mlVer != null && mlVer < minVer)
+            {
+                Log.Warn("[BonkMenu] MelonLoader below tested version 0.7.2.2367");
+            }
+        }
+        catch {}
+        Log.Info("[BonkMenu] ==============================");
 	}
 
 	public override void OnSceneWasLoaded(int buildIndex, string sceneName)
@@ -63,13 +76,13 @@ public class BonkMenuMod : MelonMod
 					var prop = playerXpType.GetProperty("maxXpMultiplier", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public); 
 					if (prop != null) 
 					{ 
-						prop.SetValue(null, 99999f); 
-						MelonLogger.Msg("✅ XP MULT UNCAPPED!"); 
-						_hasModifiedXpMultiplier = true; 
-					} 
-				} 
-			} 
-			catch { }
+                        prop.SetValue(null, 99999f); 
+                        Log.Info("✅ XP MULT UNCAPPED!"); 
+                        _hasModifiedXpMultiplier = true; 
+                    } 
+                } 
+            } 
+            catch { }
 		}
 	}
 	
@@ -77,8 +90,8 @@ public class BonkMenuMod : MelonMod
 	{
 		yield break;
 		// Poll for components to appear (map generation may take time)
-		/*
-		MelonLogger.Msg("[BonkMenu] Waiting for map components to initialize...");
+        /*
+        Log.Info("[BonkMenu] Waiting for map components to initialize...");
 		float waitTime = 0f;
 		float maxWait = 10f; // Max 10 seconds
 		bool componentsFound = false;
@@ -102,11 +115,11 @@ public class BonkMenuMod : MelonMod
 		
 		if (componentsFound)
 		{
-			MelonLogger.Msg($"[BonkMenu] Components found after {waitTime:F1}s - extracting prefabs...");
+            Log.Info($"[BonkMenu] Components found after {waitTime:F1}s - extracting prefabs...");
 		}
 		else
 		{
-			MelonLogger.Warning($"[BonkMenu] Components not found after {maxWait}s - attempting extraction anyway...");
+            Log.Warn($"[BonkMenu] Components not found after {maxWait}s - attempting extraction anyway...");
 		}
 		
 		try
@@ -115,7 +128,7 @@ public class BonkMenuMod : MelonMod
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Error($"[BonkMenu] Failed to auto-extract prefabs: {ex.Message}");
+            Log.Error($"[BonkMenu] Failed to auto-extract prefabs: {ex.Message}");
 		}
 		*/
 	}
@@ -219,10 +232,10 @@ public class BonkMenuMod : MelonMod
 			{
 			}
 		}
-		if (!ModConfig.FreezeEnemies)
-		{
-			return;
-		}
+        if (!ModConfig.FreezeEnemies)
+        {
+            return;
+        }
 		try
 		{
 			if (!((Object)EnemyManager.Instance != (Object)null))

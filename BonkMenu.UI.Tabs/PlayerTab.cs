@@ -31,13 +31,6 @@ public static class PlayerTab
 				ModConfig.ToggleGodMode();
 			}
 		}, parent);
-		UIFactory.CreateCircularToggle("✈\ufe0f Flight Mode", ModConfig.FlightMode, delegate(bool value)
-		{
-			if (value != ModConfig.FlightMode)
-			{
-				ModConfig.ToggleFlightMode();
-			}
-		}, parent);
 		UIFactory.CreateCircularToggle("Infinite Health", ModConfig.InfiniteHealth, delegate(bool value)
 		{
 			if (value != ModConfig.InfiniteHealth)
@@ -57,13 +50,6 @@ public static class PlayerTab
 			if (value != ModConfig.NoCooldowns)
 			{
 				ModConfig.ToggleNoCooldowns();
-			}
-		}, parent);
-		UIFactory.CreateCircularToggle("∞ Unlimited Levels", ModConfig.UnlimitedLevels, delegate(bool value)
-		{
-			if (value != ModConfig.UnlimitedLevels)
-			{
-				ModConfig.ToggleUnlimitedLevels();
 			}
 		}, parent);
 		UIFactory.CreateCircularToggle("∞ Unlimited XP", ModConfig.UnlimitedXp, delegate(bool value)
@@ -87,20 +73,30 @@ public static class PlayerTab
 		}, parent);
 	}
 
-	private static void CreateStatusEffectBuffs(GameObject parent)
-	{
-		string[] buffs = new string[4] { "Rage", "Haste", "Shield", "Invulnerability" };
-		UIFactory.CreateSpawnerNoSlider(parent, "Apply Buff", buffs, delegate(int id)
-		{
-			switch (id)
-			{
-				case 0: StatusEffects.ApplyRage(); break;
-				case 1: StatusEffects.ApplyHaste(); break;
-				case 2: StatusEffects.ApplyShield(); break;
-				case 3: StatusEffects.ApplyInvulnerability(); break;
-			}
-		});
-	}
+    private static void CreateStatusEffectBuffs(GameObject parent)
+    {
+        string[] buffs = new string[4] { "Rage", "Haste", "Shield", "Invulnerability" };
+        int[] map;
+        var sorted = SortWithMap(buffs, out map);
+        UIFactory.CreateSpawnerNoSlider(parent, "Apply Buff", sorted, delegate(int id)
+        {
+            int originalId = map[id];
+            string chosen = buffs[originalId];
+            if (chosen == "Haste") StatusEffects.ApplyHaste();
+            else if (chosen == "Invulnerability") StatusEffects.ApplyInvulnerability();
+            else if (chosen == "Rage") StatusEffects.ApplyRage();
+            else if (chosen == "Shield") StatusEffects.ApplyShield();
+        });
+    }
+
+    private static string[] SortWithMap(string[] names, out int[] map)
+    {
+        var sorted = (string[])names.Clone();
+        map = new int[names.Length];
+        for (int i = 0; i < map.Length; i++) map[i] = i;
+        System.Array.Sort(sorted, map, System.StringComparer.OrdinalIgnoreCase);
+        return sorted;
+    }
 
 	private static void CreateSliders(GameObject parent)
 	{

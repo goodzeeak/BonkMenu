@@ -40,15 +40,20 @@ public static class ItemsTab
 		"QuinsMask"
 	};
 
-	private static readonly string[] passives = new string[21]
-	{
-		"Bullseye", "RngBlessing", "SpeedDemon", "Reinforced", "Flowstate", "CritHappens", "Warrior", "Flex", "WallClimb", "None",
-		"Float", "Enduring", "Plague", "Quantum", "Shadowstep", "Gamba", "Vampire", "Curse", "Stonks", "LockIn",
-		"Zap"
-	};
+    private static readonly string[] passives = new string[21]
+    {
+        "Bullseye", "RngBlessing", "SpeedDemon", "Reinforced", "Flowstate", "CritHappens", "Warrior", "Flex", "WallClimb", "None",
+        "Float", "Enduring", "Plague", "Quantum", "Shadowstep", "Gamba", "Vampire", "Curse", "Stonks", "LockIn",
+        "Zap"
+    };
 
-	public static void Create(GameObject parent)
-	{
+    private static int selectedUnlimitedWeaponIndex = 0;
+    private static int selectedUnlimitedTomeIndex = 0;
+    private static UnityEngine.UI.Text unlimitedWeaponLabel;
+    private static UnityEngine.UI.Text unlimitedTomeLabel;
+
+    public static void Create(GameObject parent)
+    {
 
 		UIFactory.CreateSpacer(8, parent);
 		UIFactory.CreateSectionHeader("Pickups", parent);
@@ -60,26 +65,33 @@ public static class ItemsTab
 		UIFactory.CreateSectionHeader("Tomes", parent);
 		CreateTomes(parent);
 		UIFactory.CreateSpacer(8, parent);
-		UIFactory.CreateSectionHeader("Items (Passive)", parent);
-		CreateItems(parent);
-		UIFactory.CreateSpacer(8, parent);
-		UIFactory.CreateSectionHeader("Abilities (Passive)", parent);
-		CreatePassives(parent);
-	}
+        UIFactory.CreateSectionHeader("Items (Passive)", parent);
+        CreateItems(parent);
+        UIFactory.CreateSpacer(8, parent);
+        UIFactory.CreateSectionHeader("Abilities (Passive)", parent);
+        CreatePassives(parent);
+
+        UIFactory.CreateSpacer(8, parent);
+        UIFactory.CreateSectionHeader("Unlimited Levels By Name", parent);
+        CreateUnlimitedByName(parent);
+    }
 
 
 
-	private static void CreatePickups(GameObject parent)
-	{
-		UIFactory.CreateSpawner(parent, "Spawn Pickup", pickups, delegate(int id, int amount)
-		{
-			string itemName = pickups[id];
-			PlayerFeatures.SpawnPickup((EPickup)id, amount, itemName);
-		});
-	}
+    private static void CreatePickups(GameObject parent)
+    {
+        int[] map;
+        var sorted = SortWithMap(pickups, out map);
+        UIFactory.CreateSpawner(parent, "Spawn Pickup", sorted, delegate(int id, int amount)
+        {
+            int originalId = map[id];
+            string itemName = pickups[originalId];
+            PlayerFeatures.SpawnPickup((EPickup)originalId, amount, itemName);
+        });
+    }
 
-	private static void CreateWeapons(GameObject parent)
-	{
+    private static void CreateWeapons(GameObject parent)
+    {
 		UIFactory.CreateButton("\ud83c\udf81 Grant All Weapons", delegate
 		{
 			WeaponFeatures.GrantAllWeapons();
@@ -89,15 +101,18 @@ public static class ItemsTab
 			WeaponFeatures.MaxAllWeapons();
 		}, parent);
 		UIFactory.CreateSpacer(4, parent);
-		UIFactory.CreateSpawnerNoSlider(parent, "Grant Weapon", weapons, delegate(int id)
-		{
-			string weaponName = weapons[id];
-			WeaponFeatures.GrantWeapon(id, weaponName);
-		});
-	}
+        int[] map;
+        var sorted = SortWithMap(weapons, out map);
+        UIFactory.CreateSpawnerNoSlider(parent, "Grant Weapon", sorted, delegate(int id)
+        {
+            int originalId = map[id];
+            string weaponName = weapons[originalId];
+            WeaponFeatures.GrantWeapon(originalId, weaponName);
+        });
+    }
 
-	private static void CreateTomes(GameObject parent)
-	{
+    private static void CreateTomes(GameObject parent)
+    {
 		UIFactory.CreateButton("\ud83c\udf81 Grant All Tomes", delegate
 		{
 			TomeFeatures.GrantAllTomes();
@@ -107,37 +122,94 @@ public static class ItemsTab
 			TomeFeatures.MaxAllTomes();
 		}, parent);
 		UIFactory.CreateSpacer(4, parent);
-		UIFactory.CreateSpawnerNoSlider(parent, "Grant Tome", tomes, delegate(int id)
-		{
-			string tomeName = tomes[id];
-			TomeFeatures.GrantTome(id, tomeName);
-		});
-	}
+        int[] map;
+        var sorted = SortWithMap(tomes, out map);
+        UIFactory.CreateSpawnerNoSlider(parent, "Grant Tome", sorted, delegate(int id)
+        {
+            int originalId = map[id];
+            string tomeName = tomes[originalId];
+            TomeFeatures.GrantTome(originalId, tomeName);
+        });
+    }
 
-	private static void CreateItems(GameObject parent)
-	{
+    private static void CreateItems(GameObject parent)
+    {
 		UIFactory.CreateButton("\ud83c\udf81 Grant All Items", delegate
 		{
 			ItemFeatures.GrantAllItems();
 		}, parent);
 		UIFactory.CreateSpacer(4, parent);
-		UIFactory.CreateSpawner(parent, "Grant Item", items, delegate(int id, int amount)
-		{
-			string itemName = items[id];
-			for (int i = 0; i < amount; i++)
-			{
-				ItemFeatures.GrantItem(id, itemName);
-			}
-		});
-	}
+        int[] map;
+        var sorted = SortWithMap(items, out map);
+        UIFactory.CreateSpawner(parent, "Grant Item", sorted, delegate(int id, int amount)
+        {
+            int originalId = map[id];
+            string itemName = items[originalId];
+            for (int i = 0; i < amount; i++)
+            {
+                ItemFeatures.GrantItem(originalId, itemName);
+            }
+        });
+    }
 
-	private static void CreatePassives(GameObject parent)
-	{
-		UIFactory.CreateSpacer(4, parent);
-		UIFactory.CreateSpawnerNoSlider(parent, "Grant Passive", passives, delegate(int id)
-		{
-			string passiveName = passives[id];
-			PassiveFeatures.GrantPassive(id, passiveName);
-		});
-	}
+    private static void CreatePassives(GameObject parent)
+    {
+        UIFactory.CreateSpacer(4, parent);
+        int[] map;
+        var sorted = SortWithMap(passives, out map);
+        UIFactory.CreateSpawnerNoSlider(parent, "Grant Passive", sorted, delegate(int id)
+        {
+            int originalId = map[id];
+            string passiveName = passives[originalId];
+            PassiveFeatures.GrantPassive(originalId, passiveName);
+        });
+    }
+
+    private static void CreateUnlimitedByName(GameObject parent)
+    {
+        // Weapons selector
+        int[] wMap;
+        var wSorted = SortWithMap(weapons, out wMap);
+        UIFactory.CreateSelector(parent, wSorted, () => selectedUnlimitedWeaponIndex, (int val) => selectedUnlimitedWeaponIndex = val, (UnityEngine.UI.Text lbl) => { unlimitedWeaponLabel = lbl; });
+        UIFactory.CreateButton("Enable for Selected Weapon", () =>
+        {
+            var originalId = wMap[selectedUnlimitedWeaponIndex];
+            var name = weapons[originalId];
+            BonkMenu.Core.ModConfig.EnableUnlimitedForWeapon(name);
+        }, parent);
+        UIFactory.CreateButton("Disable for Selected Weapon", () =>
+        {
+            var originalId = wMap[selectedUnlimitedWeaponIndex];
+            var name = weapons[originalId];
+            BonkMenu.Core.ModConfig.DisableUnlimitedForWeapon(name);
+        }, parent);
+
+        UIFactory.CreateSpacer(8, parent);
+
+        // Tomes selector
+        int[] tMap;
+        var tSorted = SortWithMap(tomes, out tMap);
+        UIFactory.CreateSelector(parent, tSorted, () => selectedUnlimitedTomeIndex, (int val) => selectedUnlimitedTomeIndex = val, (UnityEngine.UI.Text lbl) => { unlimitedTomeLabel = lbl; });
+        UIFactory.CreateButton("Enable for Selected Tome", () =>
+        {
+            var originalId = tMap[selectedUnlimitedTomeIndex];
+            var name = tomes[originalId];
+            BonkMenu.Core.ModConfig.EnableUnlimitedForTome(name);
+        }, parent);
+        UIFactory.CreateButton("Disable for Selected Tome", () =>
+        {
+            var originalId = tMap[selectedUnlimitedTomeIndex];
+            var name = tomes[originalId];
+            BonkMenu.Core.ModConfig.DisableUnlimitedForTome(name);
+        }, parent);
+    }
+
+    private static string[] SortWithMap(string[] names, out int[] map)
+    {
+        var sorted = (string[])names.Clone();
+        map = new int[names.Length];
+        for (int i = 0; i < map.Length; i++) map[i] = i;
+        System.Array.Sort(sorted, map, System.StringComparer.OrdinalIgnoreCase);
+        return sorted;
+    }
 }

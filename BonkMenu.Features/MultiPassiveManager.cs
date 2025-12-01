@@ -3,7 +3,7 @@ using System.Linq;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Actors.Player;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.AbilitiesPassive;
-using MelonLoader;
+using BonkMenu.Core;
 
 namespace BonkMenu.Features;
 
@@ -26,26 +26,34 @@ public static class MultiPassiveManager
 		return multiPassives[inventory];
 	}
 
-	public static void AddPassive(PlayerInventory inventory, PassiveAbility passive)
-	{
-		if (inventory == null || passive == null)
-		{
-			return;
-		}
+    public static void AddPassive(PlayerInventory inventory, PassiveAbility passive)
+    {
+        if (inventory == null || passive == null)
+        {
+            return;
+        }
 
-		var passives = GetPassives(inventory);
-		
-		// Check if already have this passive type
-		var existingPassive = passives.FirstOrDefault(p => p.GetPassiveType() == passive.GetPassiveType());
-		if (existingPassive != null)
-		{
-			MelonLogger.Msg($"[MultiPassiveManager] Player already has passive {passive.GetPassiveType()}, skipping");
-			return;
-		}
+        var passives = GetPassives(inventory);
+        
+        // Check if already have this passive type
+        var existingPassive = passives.FirstOrDefault(p => p.GetPassiveType() == passive.GetPassiveType());
+        if (existingPassive != null)
+        {
+            Log.Info($"[MultiPassiveManager] Player already has passive {passive.GetPassiveType()}, skipping");
+            return;
+        }
 
-		passives.Add(passive);
-		MelonLogger.Msg($"[MultiPassiveManager] Added passive {passive.GetPassiveType()}. Total passives: {passives.Count}");
-	}
+        passives.Add(passive);
+        try
+        {
+            passive.Init();
+        }
+        catch (System.Exception ex)
+        {
+            Log.Warn($"[MultiPassiveManager] Error initializing passive {passive.GetPassiveType()}: {ex.Message}");
+        }
+        Log.Info($"[MultiPassiveManager] Added passive {passive.GetPassiveType()}. Total passives: {passives.Count}");
+    }
 
 	public static void RemovePassive(PlayerInventory inventory, PassiveAbility passive)
 	{
@@ -55,9 +63,9 @@ public static class MultiPassiveManager
 		}
 
 		var passives = GetPassives(inventory);
-		passives.Remove(passive);
-		MelonLogger.Msg($"[MultiPassiveManager] Removed passive. Total passives: {passives.Count}");
-	}
+        passives.Remove(passive);
+        Log.Info($"[MultiPassiveManager] Removed passive. Total passives: {passives.Count}");
+    }
 
 	public static void ClearPassives(PlayerInventory inventory)
 	{
@@ -68,12 +76,12 @@ public static class MultiPassiveManager
 
 		if (multiPassives.ContainsKey(inventory))
 		{
-			var passives = multiPassives[inventory];
-			MelonLogger.Msg($"[MultiPassiveManager] Clearing {passives.Count} passives");
-			passives.Clear();
-			multiPassives.Remove(inventory);
-		}
-	}
+            var passives = multiPassives[inventory];
+            Log.Info($"[MultiPassiveManager] Clearing {passives.Count} passives");
+            passives.Clear();
+            multiPassives.Remove(inventory);
+        }
+    }
 
 	public static bool HasPassive(PlayerInventory inventory, EPassive ePassive)
 	{

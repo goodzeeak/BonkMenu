@@ -12,14 +12,14 @@ namespace BonkMenu.UI.Tabs;
 
 public static class CombatTab
 {
-	private static readonly string[] enemies = new string[41]
-	{
-		"Skeleton", "GoldenSkeleton", "XpSkeleton", "ArmoredSkeleton", "SkeletonDusty", "ArmoredSkeletonDusty", "Ghoul", "MinibossPig", "Mummy", "Slime",
-		"Test", "Test2", "Goblin", "GoblinStrong", "GoblinTank", "MinibossGolem", "Ghost", "GreaterGhost", "SkeletonMage", "Ent1",
-		"Ent2", "Ent3", "BoomerSpider", "Golem", "Bee", "MinibossGolemSand", "Scorpion", "MinibossScorpion", "Wisp", "CactusShooter",
-		"ScorpionMedium", "MummyTank", "MummyAncient", "Tumblebone", "Pharaoh1", "Pharaoh2", "Pharaoh3", "Bandit", "Bush", "GhostRed",
-		"GhostPurple"
-	};
+    private static readonly string[] enemies = new string[41]
+    {
+        "Skeleton", "GoldenSkeleton", "XpSkeleton", "ArmoredSkeleton", "SkeletonDusty", "ArmoredSkeletonDusty", "Ghoul", "MinibossPig", "Mummy", "Slime",
+        "Test", "Test2", "Goblin", "GoblinStrong", "GoblinTank", "MinibossGolem", "Ghost", "GreaterGhost", "SkeletonMage", "Ent1",
+        "Ent2", "Ent3", "BoomerSpider", "Golem", "Bee", "MinibossGolemSand", "Scorpion", "MinibossScorpion", "Wisp", "CactusShooter",
+        "ScorpionMedium", "MummyTank", "MummyAncient", "Tumblebone", "Pharaoh1", "Pharaoh2", "Pharaoh3", "Bandit", "Bush", "GhostRed",
+        "GhostPurple"
+    };
 
 	public static void Create(GameObject parent)
 	{
@@ -75,30 +75,45 @@ public static class CombatTab
 		}, parent);
 	}
 
-	private static void CreateEnemySpawning(GameObject parent)
-	{
-		UIFactory.CreateSpawner(parent, "SPAWN ENEMIES", enemies, delegate(int id, int amount)
-		{
-			for (int i = 0; i < amount; i++)
-			{
-				CombatFeatures.SpawnSpecificEnemy(id);
-			}
-		});
-	}
+    private static void CreateEnemySpawning(GameObject parent)
+    {
+        int[] map;
+        var sorted = SortWithMap(enemies, out map);
+        UIFactory.CreateSpawner(parent, "SPAWN ENEMIES", sorted, delegate(int id, int amount)
+        {
+            int originalId = map[id];
+            for (int i = 0; i < amount; i++)
+            {
+                CombatFeatures.SpawnSpecificEnemy(originalId);
+            }
+        });
+    }
 
-	private static void CreateDebuffs(GameObject parent)
-	{
-		string[] debuffs = new string[7] { "Poison", "Freeze", "Burn", "Stun", "Echo", "Charm", "Bloodmark" };
-		UIFactory.CreateSpawnerNoSlider(parent, "Apply Debuff to All", debuffs, delegate(int id)
-		{
-			string debuffName = debuffs[id];
-			DebuffFeatures.ApplyDebuff(id, debuffName);
-		});
-		UIFactory.CreateButton("🧹 Remove All Debuffs", delegate
-		{
-			DebuffFeatures.RemoveAllDebuffs();
-		}, parent);
-	}
+    private static string[] SortWithMap(string[] names, out int[] map)
+    {
+        var sorted = (string[])names.Clone();
+        map = new int[names.Length];
+        for (int i = 0; i < map.Length; i++) map[i] = i;
+        System.Array.Sort(sorted, map, System.StringComparer.OrdinalIgnoreCase);
+        return sorted;
+    }
+
+    private static void CreateDebuffs(GameObject parent)
+    {
+        string[] debuffs = new string[7] { "Poison", "Freeze", "Burn", "Stun", "Echo", "Charm", "Bloodmark" };
+        int[] map;
+        var sorted = SortWithMap(debuffs, out map);
+        UIFactory.CreateSpawnerNoSlider(parent, "Apply Debuff to All", sorted, delegate(int id)
+        {
+            int originalId = map[id];
+            string debuffName = debuffs[originalId];
+            DebuffFeatures.ApplyDebuff(originalId, debuffName);
+        });
+        UIFactory.CreateButton("🧹 Remove All Debuffs", delegate
+        {
+            DebuffFeatures.RemoveAllDebuffs();
+        }, parent);
+    }
 
 	private static void CreateEnemyActions(GameObject parent)
 	{
