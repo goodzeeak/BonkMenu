@@ -55,25 +55,17 @@ public static class ItemsTab
     public static void Create(GameObject parent)
     {
 
-		UIFactory.CreateSpacer(8, parent);
-		UIFactory.CreateSectionHeader("Pickups", parent);
-		CreatePickups(parent);
-		UIFactory.CreateSpacer(8, parent);
-		UIFactory.CreateSectionHeader("Weapons", parent);
-		CreateWeapons(parent);
-		UIFactory.CreateSpacer(8, parent);
-		UIFactory.CreateSectionHeader("Tomes", parent);
-		CreateTomes(parent);
-		UIFactory.CreateSpacer(8, parent);
-        UIFactory.CreateSectionHeader("Items (Passive)", parent);
-        CreateItems(parent);
-        UIFactory.CreateSpacer(8, parent);
-        UIFactory.CreateSectionHeader("Abilities (Passive)", parent);
-        CreatePassives(parent);
-
-        UIFactory.CreateSpacer(8, parent);
-        UIFactory.CreateSectionHeader("Unlimited Levels By Name", parent);
-        CreateUnlimitedByName(parent);
+		UIFactory.CreateCollapsibleSection("Pickups", parent, CreatePickups);
+		UIFactory.CreateSpacer(4, parent);
+		UIFactory.CreateCollapsibleSection("Weapons", parent, CreateWeapons);
+		UIFactory.CreateSpacer(4, parent);
+		UIFactory.CreateCollapsibleSection("Tomes", parent, CreateTomes);
+		UIFactory.CreateSpacer(4, parent);
+		UIFactory.CreateCollapsibleSection("Items (Passive)", parent, CreateItems);
+		UIFactory.CreateSpacer(4, parent);
+		UIFactory.CreateCollapsibleSection("Abilities (Passive)", parent, CreatePassives);
+		UIFactory.CreateSpacer(4, parent);
+		UIFactory.CreateCollapsibleSection("Unlimited Levels By Name", parent, CreateUnlimitedByName);
     }
 
 

@@ -171,6 +171,37 @@ public class BonkMenuMod : MelonMod
 			UniverseUI.Toggle();
 		}
 
+		if (InputManager.GetKeyDown(KeybindConfig.ToggleGodModeKey))
+		{
+			ModConfig.ToggleGodMode();
+		}
+
+		if (InputManager.GetKeyDown(KeybindConfig.ToggleUnlimitedXpKey))
+		{
+			ModConfig.ToggleUnlimitedXp();
+			if (ModConfig.UnlimitedXp)
+			{
+				TryUncapXpMultiplier();
+			}
+		}
+
+		if (InputManager.GetKeyDown(KeybindConfig.SpawnChestsKey)) { WorldFeatures.SpawnChests(1); }
+		if (InputManager.GetKeyDown(KeybindConfig.SpawnFreeChestsKey)) { WorldFeatures.SpawnFreeChests(1); }
+		if (InputManager.GetKeyDown(KeybindConfig.SpawnStatuesKey)) { WorldFeatures.SpawnStatues(1); }
+		if (InputManager.GetKeyDown(KeybindConfig.SpawnChallengeShrinesKey)) { WorldFeatures.SpawnChallengeShrines(1); }
+		if (InputManager.GetKeyDown(KeybindConfig.SpawnCursedShrinesKey)) { WorldFeatures.SpawnCursedShrines(1); }
+		if (InputManager.GetKeyDown(KeybindConfig.SpawnGreedAltarsKey)) { WorldFeatures.SpawnGreedAltars(1); }
+		if (InputManager.GetKeyDown(KeybindConfig.SpawnMagnetShrinesKey)) { WorldFeatures.SpawnMagnetShrines(1); }
+		if (InputManager.GetKeyDown(KeybindConfig.SpawnMoaiShrinesKey)) { WorldFeatures.SpawnMoaiShrines(1); }
+		if (InputManager.GetKeyDown(KeybindConfig.SpawnChargeShrinesKey)) { WorldFeatures.SpawnShrines(1); }
+		if (InputManager.GetKeyDown(KeybindConfig.SpawnGoldChargeShrinesKey)) { WorldFeatures.SpawnGoldShrines(1); }
+		if (InputManager.GetKeyDown(KeybindConfig.SpawnPotsKey)) { WorldFeatures.SpawnPots(1); }
+		if (InputManager.GetKeyDown(KeybindConfig.SpawnMicrowavesKey)) { WorldFeatures.SpawnMicrowaves(1); }
+		if (InputManager.GetKeyDown(KeybindConfig.SpawnShadyMerchantKey)) { WorldFeatures.SpawnShadyMerchant(1); }
+		if (InputManager.GetKeyDown(KeybindConfig.SpawnShadyMerchantRareKey)) { WorldFeatures.SpawnShadyMerchantRare(1); }
+		if (InputManager.GetKeyDown(KeybindConfig.SpawnShadyMerchantEpicKey)) { WorldFeatures.SpawnShadyMerchantEpic(1); }
+		if (InputManager.GetKeyDown(KeybindConfig.SpawnShadyMerchantLegendaryKey)) { WorldFeatures.SpawnShadyMerchantLegendary(1); }
+
 		if (ModConfig.InfiniteRefreshes)
 		{
 			try
@@ -256,5 +287,28 @@ public class BonkMenuMod : MelonMod
 		catch
 		{
 		}
+	}
+
+	private void TryUncapXpMultiplier()
+	{
+		try 
+		{ 
+			System.Type playerXpType = null;
+			foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
+			{
+				try { playerXpType = asm.GetTypes().FirstOrDefault(x => x.Name == "PlayerXp"); if (playerXpType != null) break; } catch { }
+			}
+			if (playerXpType != null) 
+			{ 
+				var prop = playerXpType.GetProperty("maxXpMultiplier", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public); 
+				if (prop != null) 
+				{ 
+					prop.SetValue(null, 99999f); 
+					Log.Info("✅ XP MULT UNCAPPED!"); 
+					_hasModifiedXpMultiplier = true; 
+				} 
+			} 
+		}
+		catch { }
 	}
 }

@@ -22,17 +22,14 @@ public static class LootTab
 
 	private static Text itemRarityLabel;
 
-	public static void Create(GameObject parent)
-	{
-		UIFactory.CreateSectionHeader("Rarity Control", parent);
-		CreateRarityControl(parent);
-		UIFactory.CreateSpacer(8, parent);
-		UIFactory.CreateSectionHeader("Luck Modifiers", parent);
-		CreateLuckModifiers(parent);
-		UIFactory.CreateSpacer(8, parent);
-		UIFactory.CreateSectionHeader("Spawning", parent);
-		CreateSpawning(parent);
-	}
+    public static void Create(GameObject parent)
+    {
+		UIFactory.CreateCollapsibleSection("Rarity Control", parent, CreateRarityControl);
+		UIFactory.CreateSpacer(4, parent);
+		UIFactory.CreateCollapsibleSection("Luck Modifiers", parent, CreateLuckModifiers);
+		UIFactory.CreateSpacer(4, parent);
+		UIFactory.CreateCollapsibleSection("Spawning", parent, CreateSpawning);
+    }
 
 	private static void CreateRarityControl(GameObject parent)
 	{

@@ -21,23 +21,18 @@ public static class CombatTab
         "GhostPurple"
     };
 
-	public static void Create(GameObject parent)
-	{
-		UIFactory.CreateSectionHeader("Toggles", parent);
-		CreateToggles(parent);
-		UIFactory.CreateSpacer(8, parent);
-		UIFactory.CreateSectionHeader("Enemy Modifiers", parent);
-		CreateEnemyModifiers(parent);
-		UIFactory.CreateSpacer(8, parent);
-		UIFactory.CreateSectionHeader("Enemy Spawning", parent);
-		CreateEnemySpawning(parent);
-		UIFactory.CreateSpacer(8, parent);
-		UIFactory.CreateSectionHeader("Debuffs", parent);
-		CreateDebuffs(parent);
-		UIFactory.CreateSpacer(8, parent);
-		UIFactory.CreateSectionHeader("Actions", parent);
-		CreateEnemyActions(parent);
-	}
+    public static void Create(GameObject parent)
+    {
+		UIFactory.CreateCollapsibleSection("Toggles", parent, CreateToggles);
+		UIFactory.CreateSpacer(4, parent);
+		UIFactory.CreateCollapsibleSection("Enemy Modifiers", parent, CreateEnemyModifiers);
+		UIFactory.CreateSpacer(4, parent);
+		UIFactory.CreateCollapsibleSection("Enemy Spawning", parent, CreateEnemySpawning);
+		UIFactory.CreateSpacer(4, parent);
+		UIFactory.CreateCollapsibleSection("Debuffs", parent, CreateDebuffs);
+		UIFactory.CreateSpacer(4, parent);
+		UIFactory.CreateCollapsibleSection("Actions", parent, CreateEnemyActions);
+    }
 
 	private static void CreateToggles(GameObject parent)
 	{

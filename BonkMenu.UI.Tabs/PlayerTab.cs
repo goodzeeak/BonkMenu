@@ -10,16 +10,13 @@ public static class PlayerTab
 {
 	public static void Create(GameObject parent)
 	{
-		UIFactory.CreateSectionHeader("Toggles", parent);
-		CreateToggles(parent);
-		UIFactory.CreateSpacer(8, parent);
-		UIFactory.CreateSectionHeader("Utilities", parent);
-		CreateUtilities(parent);
-		UIFactory.CreateSpacer(8, parent);
-		UIFactory.CreateSectionHeader("Status Buffs", parent);
-		CreateStatusEffectBuffs(parent);
-		UIFactory.CreateSpacer(8, parent);
-		CreateSliders(parent);
+		UIFactory.CreateCollapsibleSection("Toggles", parent, CreateToggles);
+		UIFactory.CreateSpacer(4, parent);
+		UIFactory.CreateCollapsibleSection("Utilities", parent, CreateUtilities);
+		UIFactory.CreateSpacer(4, parent);
+		UIFactory.CreateCollapsibleSection("Status Buffs", parent, CreateStatusEffectBuffs);
+		UIFactory.CreateSpacer(4, parent);
+		UIFactory.CreateCollapsibleSection("Advanced Stats", parent, CreateSliders);
 	}
 
 	private static void CreateToggles(GameObject parent)

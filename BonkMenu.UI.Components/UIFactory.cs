@@ -82,6 +82,9 @@ public static class UIFactory
 		val.transform.SetParent(parent.transform, false);
 		RectTransform val2 = val.AddComponent<RectTransform>();
 		val2.sizeDelta = new Vector2(0f, 35f);
+		LayoutElement le = val.AddComponent<LayoutElement>();
+		le.preferredHeight = 35f;
+		le.minHeight = 35f;
 		Image val3 = val.AddComponent<Image>();
 		((Graphic)val3).color = ColorBgLighter;
 		Button val4 = val.AddComponent<Button>();
@@ -114,8 +117,8 @@ public static class UIFactory
 		return val4;
 	}
 
-	public static Text CreateLabel(string text, GameObject parent)
-	{
+    public static Text CreateLabel(string text, GameObject parent)
+    {
 		//IL_0006: Unknown result type (might be due to invalid IL or missing references)
 		//IL_000c: Expected O, but got Unknown
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
@@ -130,11 +133,55 @@ public static class UIFactory
 		val3.fontSize = 14;
 		((Graphic)val3).color = ColorTextDim;
 		val3.alignment = (TextAnchor)3;
-		return val3;
-	}
+        return val3;
+    }
 
-	public static void CreateSpacer(int height, GameObject parent)
-	{
+    public static void CreateKeybindRow(string action, KeyCode key, GameObject parent)
+    {
+        GameObject row = new GameObject("Keybind_" + action);
+        row.transform.SetParent(parent.transform, false);
+        RectTransform rt = row.AddComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(0f, 28f);
+        HorizontalLayoutGroup h = row.AddComponent<HorizontalLayoutGroup>();
+        ((HorizontalOrVerticalLayoutGroup)h).childControlWidth = true;
+        ((HorizontalOrVerticalLayoutGroup)h).childControlHeight = true;
+        ((HorizontalOrVerticalLayoutGroup)h).spacing = 6f;
+        h.childForceExpandWidth = true;
+        Image bg = row.AddComponent<Image>();
+        ((Graphic)bg).color = ColorBgDark;
+        Outline outline = row.AddComponent<Outline>();
+        ((Shadow)outline).effectColor = new Color(0f, 0f, 0f, 0.35f);
+        ((Shadow)outline).effectDistance = new Vector2(1f, -1f);
+
+        GameObject left = new GameObject("Action");
+        left.transform.SetParent(row.transform, false);
+        RectTransform lrt = left.AddComponent<RectTransform>();
+        lrt.sizeDelta = new Vector2(0f, 28f);
+        Text ltxt = left.AddComponent<Text>();
+        ltxt.text = action;
+        ltxt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        ltxt.fontSize = 13;
+        ((Graphic)ltxt).color = ColorTextMain;
+        ltxt.alignment = (TextAnchor)3;
+        LayoutElement lle = left.AddComponent<LayoutElement>();
+        lle.flexibleWidth = 1f;
+
+        GameObject right = new GameObject("Key");
+        right.transform.SetParent(row.transform, false);
+        RectTransform rrt = right.AddComponent<RectTransform>();
+        rrt.sizeDelta = new Vector2(0f, 28f);
+        Text rtxt = right.AddComponent<Text>();
+        rtxt.text = key.ToString();
+        rtxt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        rtxt.fontSize = 13;
+        ((Graphic)rtxt).color = ColorAccent;
+        rtxt.alignment = (TextAnchor)5;
+        LayoutElement rle = right.AddComponent<LayoutElement>();
+        rle.preferredWidth = 120f;
+    }
+
+    public static void CreateSpacer(int height, GameObject parent)
+    {
 		//IL_0006: Unknown result type (might be due to invalid IL or missing references)
 		//IL_000c: Expected O, but got Unknown
 		//IL_002e: Unknown result type (might be due to invalid IL or missing references)
@@ -142,7 +189,99 @@ public static class UIFactory
 		val.transform.SetParent(parent.transform, false);
 		RectTransform val2 = val.AddComponent<RectTransform>();
 		val2.sizeDelta = new Vector2(0f, (float)height);
-	}
+    }
+
+    public static GameObject CreateCollapsibleSection(string title, GameObject parent, Action<GameObject> build, bool defaultOpen = false)
+    {
+        GameObject root = new GameObject("Collapsible_" + title);
+        root.transform.SetParent(parent.transform, false);
+        RectTransform rt = root.AddComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(0f, 0f);
+        VerticalLayoutGroup vlg = root.AddComponent<VerticalLayoutGroup>();
+        ((HorizontalOrVerticalLayoutGroup)vlg).childControlWidth = true;
+        ((HorizontalOrVerticalLayoutGroup)vlg).childControlHeight = true;
+        ((HorizontalOrVerticalLayoutGroup)vlg).spacing = 4f;
+        ContentSizeFitter rootFit = root.AddComponent<ContentSizeFitter>();
+        rootFit.verticalFit = (FitMode)2;
+        rootFit.horizontalFit = (FitMode)0;
+
+        GameObject header = new GameObject("Header");
+        header.transform.SetParent(root.transform, false);
+        RectTransform hrt = header.AddComponent<RectTransform>();
+        hrt.sizeDelta = new Vector2(0f, 35f);
+        Image hbg = header.AddComponent<Image>();
+        ((Graphic)hbg).color = ColorBgLighter;
+        Outline hOutline = header.AddComponent<Outline>();
+        ((Shadow)hOutline).effectColor = new Color(0f, 0f, 0f, 0.4f);
+        ((Shadow)hOutline).effectDistance = new Vector2(1f, -1f);
+        Button btn = header.AddComponent<Button>();
+        ((Selectable)btn).targetGraphic = (Graphic)(object)hbg;
+        ColorBlock cb = ((Selectable)btn).colors;
+        cb.normalColor = ColorBgLighter;
+        cb.highlightedColor = new Color(0.25f, 0.25f, 0.35f, 1f);
+        cb.pressedColor = new Color(0.1f, 0.1f, 0.15f, 1f);
+        cb.selectedColor = cb.normalColor;
+        cb.colorMultiplier = 1f;
+        cb.fadeDuration = 0.1f;
+        RuntimeHelper.SetColorBlock((Selectable)(object)btn, cb);
+        LayoutElement headerLE = header.AddComponent<LayoutElement>();
+        headerLE.preferredHeight = 35f;
+
+        GameObject hTextGO = new GameObject("Text");
+        hTextGO.transform.SetParent(header.transform, false);
+        RectTransform hTextRT = hTextGO.AddComponent<RectTransform>();
+        hTextRT.anchorMin = Vector2.zero;
+        hTextRT.anchorMax = Vector2.one;
+        hTextRT.sizeDelta = Vector2.zero;
+        Text hText = hTextGO.AddComponent<Text>();
+        hText.text = (defaultOpen ? "▼ " : "▶ ") + title;
+        hText.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        hText.fontSize = 14;
+        ((Graphic)hText).color = ColorTextMain;
+        hText.alignment = (TextAnchor)3;
+
+        GameObject content = new GameObject("Content");
+        content.transform.SetParent(root.transform, false);
+        RectTransform crt = content.AddComponent<RectTransform>();
+        crt.sizeDelta = new Vector2(0f, 0f);
+        VerticalLayoutGroup cvlg = content.AddComponent<VerticalLayoutGroup>();
+        ((HorizontalOrVerticalLayoutGroup)cvlg).childControlWidth = true;
+        ((HorizontalOrVerticalLayoutGroup)cvlg).childControlHeight = true;
+        ((HorizontalOrVerticalLayoutGroup)cvlg).spacing = 6f;
+        ContentSizeFitter contentFit = content.AddComponent<ContentSizeFitter>();
+        contentFit.verticalFit = (FitMode)2;
+        contentFit.horizontalFit = (FitMode)0;
+
+        content.SetActive(defaultOpen);
+
+        Action refresh = () =>
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(crt);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
+        };
+
+        ((UnityEngine.Events.UnityEvent)btn.onClick).AddListener((UnityEngine.Events.UnityAction)(() =>
+        {
+            bool newActive = !content.activeSelf;
+            content.SetActive(newActive);
+            hText.text = (newActive ? "▼ " : "▶ ") + title;
+            refresh();
+        }));
+
+        bool previousActive = content.activeSelf;
+        content.SetActive(true);
+        try
+        {
+            build(content);
+        }
+        catch
+        {
+            // keep header visible even if build fails
+        }
+        content.SetActive(previousActive && defaultOpen);
+        refresh();
+        return root;
+    }
 
 	public static void CreateCircularToggle(string label, bool initialValue, Action<bool> onChange, GameObject parent)
 	{
@@ -444,6 +583,9 @@ public static class UIFactory
 		val.transform.SetParent(parent.transform, false);
 		RectTransform val2 = val.AddComponent<RectTransform>();
 		val2.sizeDelta = new Vector2(0f, 40f);
+		LayoutElement le = val.AddComponent<LayoutElement>();
+		le.preferredHeight = 40f;
+		le.minHeight = 40f;
 		HorizontalLayoutGroup val3 = val.AddComponent<HorizontalLayoutGroup>();
 		((HorizontalOrVerticalLayoutGroup)val3).childControlWidth = true;
 		((HorizontalOrVerticalLayoutGroup)val3).childForceExpandWidth = true;

@@ -18,19 +18,31 @@ public static class AboutTab
 		UIFactory.CreateLabel("BonkMenu v1.0.0", parent);
 		UIFactory.CreateLabel("Created by Goodzy", parent);
 		UIFactory.CreateSpacer(10, parent);
-		UIFactory.CreateSectionHeader("Keybind Settings", parent);
-		UIFactory.CreateLabel($"Toggle Menu: {KeybindConfig.ToggleMenuKey}", parent);
-		UIFactory.CreateLabel("(Other features accessible via UI buttons)", parent);
+		UIFactory.CreateSectionHeader("Keybinds", parent);
+		UIFactory.CreateKeybindRow("Toggle Menu", KeybindConfig.ToggleMenuKey, parent);
+		UIFactory.CreateKeybindRow("Toggle God Mode", KeybindConfig.ToggleGodModeKey, parent);
+		UIFactory.CreateKeybindRow("Toggle Unlimited XP", KeybindConfig.ToggleUnlimitedXpKey, parent);
+		UIFactory.CreateSpacer(6, parent);
+		UIFactory.CreateSectionHeader("Spawnables", parent);
+		UIFactory.CreateKeybindRow("Chests", KeybindConfig.SpawnChestsKey, parent);
+		UIFactory.CreateKeybindRow("Free Chests", KeybindConfig.SpawnFreeChestsKey, parent);
+		UIFactory.CreateKeybindRow("All Statues", KeybindConfig.SpawnStatuesKey, parent);
+		UIFactory.CreateKeybindRow("Challenge Shrine", KeybindConfig.SpawnChallengeShrinesKey, parent);
+		UIFactory.CreateKeybindRow("Cursed Shrine", KeybindConfig.SpawnCursedShrinesKey, parent);
+		UIFactory.CreateKeybindRow("Greed Altar", KeybindConfig.SpawnGreedAltarsKey, parent);
+		UIFactory.CreateKeybindRow("Magnet Shrine", KeybindConfig.SpawnMagnetShrinesKey, parent);
+		UIFactory.CreateKeybindRow("Moai Shrine", KeybindConfig.SpawnMoaiShrinesKey, parent);
+		UIFactory.CreateKeybindRow("Charge Shrine", KeybindConfig.SpawnChargeShrinesKey, parent);
+		UIFactory.CreateKeybindRow("Gold Charge Shrine", KeybindConfig.SpawnGoldChargeShrinesKey, parent);
+		UIFactory.CreateKeybindRow("Pots", KeybindConfig.SpawnPotsKey, parent);
+		UIFactory.CreateKeybindRow("Microwaves", KeybindConfig.SpawnMicrowavesKey, parent);
+		UIFactory.CreateKeybindRow("Shady Merchant", KeybindConfig.SpawnShadyMerchantKey, parent);
+		UIFactory.CreateKeybindRow("Shady Merchant (Rare)", KeybindConfig.SpawnShadyMerchantRareKey, parent);
+		UIFactory.CreateKeybindRow("Shady Merchant (Epic)", KeybindConfig.SpawnShadyMerchantEpicKey, parent);
+		UIFactory.CreateKeybindRow("Shady Merchant (Legendary)", KeybindConfig.SpawnShadyMerchantLegendaryKey, parent);
 		UIFactory.CreateSpacer(8, parent);
-		UIFactory.CreateLabel("Note: Edit keybinds in UserData/BonkMenu_Keybinds.txt", parent);
-		UIFactory.CreateButton("Save Current Keybinds", delegate
-		{
-			KeybindConfig.SaveKeybinds();
-		}, parent);
-		UIFactory.CreateButton("Reload Keybinds", delegate
-		{
-			KeybindConfig.LoadKeybinds();
-		}, parent);
+		UIFactory.CreateButton("Save Keybinds", delegate { KeybindConfig.SaveKeybinds(); }, parent);
+		UIFactory.CreateButton("Reload Keybinds", delegate { KeybindConfig.LoadKeybinds(); }, parent);
 
         UIFactory.CreateSpacer(15, parent);
         UIFactory.CreateSectionHeader("Debug / Inspection", parent);
@@ -45,6 +57,6 @@ public static class AboutTab
             WorldFeatures.ListSpawnableObjects();
         }, parent);
         
-        UIFactory.CreateLabel("Check MelonLoader console for output", parent);
+		UIFactory.CreateLabel("Check MelonLoader console for output", parent);
 	}
 }
