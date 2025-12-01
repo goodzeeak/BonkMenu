@@ -49,7 +49,7 @@ public class BonkMenuMod : MelonMod
 		// 	// DumpFields("RandomObjectPlacer");
 		// }
 
-		if (!_hasModifiedXpMultiplier && sceneName == "GeneratedMap")
+		if (!_hasModifiedXpMultiplier && ModConfig.UnlimitedXp && sceneName == "GeneratedMap")
 		{
 			try 
 			{ 

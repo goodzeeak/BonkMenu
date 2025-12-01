@@ -98,6 +98,12 @@ public static class UniverseUI
 				isDragging = false;
 				EnsureTabInitialized(currentTab);
 			}
+			else
+			{
+				// Force cursor lock when closing menu to fix interaction bugs (e.g. portals)
+				Cursor.lockState = CursorLockMode.Locked;
+				Cursor.visible = false;
+			}
 
 		}
 	}

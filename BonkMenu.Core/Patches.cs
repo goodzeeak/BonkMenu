@@ -30,6 +30,12 @@ public static class Patches
 
 			// Apply shady guy variant patch
 			BonkMenu.Patches.ShadyGuyVariantPatch.Apply(_harmonyInstance);
+
+			// Apply player health patches (God Mode, etc.)
+			BonkMenu.Patches.PlayerHealthPatches.Apply(_harmonyInstance);
+
+			// Apply player movement patches (Flight Mode, etc.)
+			BonkMenu.Patches.PlayerMovementPatches.Apply(_harmonyInstance);
 			
 			MelonLogger.Msg("[Patches] All patches applied successfully!");
 		}

@@ -66,6 +66,13 @@ public static class PlayerTab
 				ModConfig.ToggleUnlimitedLevels();
 			}
 		}, parent);
+		UIFactory.CreateCircularToggle("∞ Unlimited XP", ModConfig.UnlimitedXp, delegate(bool value)
+		{
+			if (value != ModConfig.UnlimitedXp)
+			{
+				ModConfig.ToggleUnlimitedXp();
+			}
+		}, parent);
 	}
 
 	private static void CreateUtilities(GameObject parent)

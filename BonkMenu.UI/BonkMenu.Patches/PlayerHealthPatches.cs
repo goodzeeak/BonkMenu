@@ -80,4 +80,16 @@ public class PlayerHealthPatches
 			return true;
 		}
 	}
+	public static void Apply(HarmonyLib.Harmony harmony)
+	{
+		try
+		{
+			harmony.PatchAll(typeof(PlayerHealthPatches));
+			MelonLogger.Msg("[PlayerHealthPatches] ✅ PlayerHealth patched (God Mode/Infinite Health enabled)");
+		}
+		catch (Exception ex)
+		{
+			MelonLogger.Error($"[PlayerHealthPatches] Failed to patch: {ex.Message}");
+		}
+	}
 }

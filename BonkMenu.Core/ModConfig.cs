@@ -26,7 +26,9 @@ public static class ModConfig
 
 	public static bool FreezeEnemies { get; set; } = false;
 
-	public static bool UnlimitedLevels { get; set; } = true;
+	public static bool UnlimitedLevels { get; set; } = false;
+
+	public static bool UnlimitedXp { get; set; } = false;
 
 	public static void ToggleInfiniteHealth()
 	{
@@ -92,5 +94,11 @@ public static class ModConfig
 	{
 		UnlimitedLevels = !UnlimitedLevels;
 		MelonLogger.Msg("Unlimited Levels: " + (UnlimitedLevels ? "ON" : "OFF"));
+	}
+
+	public static void ToggleUnlimitedXp()
+	{
+		UnlimitedXp = !UnlimitedXp;
+		MelonLogger.Msg("Unlimited XP: " + (UnlimitedXp ? "ON" : "OFF"));
 	}
 }

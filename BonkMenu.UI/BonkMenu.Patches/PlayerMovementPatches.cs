@@ -34,4 +34,16 @@ public class PlayerMovementPatches
 			}
 		}
 	}
+	public static void Apply(HarmonyLib.Harmony harmony)
+	{
+		try
+		{
+			harmony.PatchAll(typeof(PlayerMovementPatches));
+			MelonLogger.Msg("[PlayerMovementPatches] ✅ PlayerMovementValues.GetGravity patched");
+		}
+		catch (Exception ex)
+		{
+			MelonLogger.Error($"[PlayerMovementPatches] Failed to patch: {ex.Message}");
+		}
+	}
 }
