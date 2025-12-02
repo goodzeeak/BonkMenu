@@ -1,15 +1,14 @@
 using BonkMenu.Core;
 using BonkMenu.Features;
 using BonkMenu.UI.Components;
-using Il2Cpp;
-using Il2CppAssets.Scripts.Actors.Player;
-using Il2CppAssets.Scripts.Inventory__Items__Pickups.Stats;
 using Il2CppAssets.Scripts.Menu.Shop;
-using Il2CppSystem.Collections.Generic;
 using UnityEngine;
 
 namespace BonkMenu.UI.Tabs;
 
+/// <summary>
+/// Provides enemy controls, modifiers, and spawning tools.
+/// </summary>
 public static class CombatTab
 {
     private static readonly string[] enemies = new string[41]
@@ -21,6 +20,9 @@ public static class CombatTab
         "GhostPurple"
     };
 
+    /// <summary>
+    /// Builds the Combat tab UI under the given parent.
+    /// </summary>
     public static void Create(GameObject parent)
     {
 		UIFactory.CreateCollapsibleSection("Toggles", parent, CreateToggles);

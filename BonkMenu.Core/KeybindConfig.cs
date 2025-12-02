@@ -1,9 +1,11 @@
 using MelonLoader;
-using BonkMenu.Core;
 using UnityEngine;
 
 namespace BonkMenu.Core;
 
+/// <summary>
+/// Centralized keybinds for toggles and spawn actions.
+/// </summary>
 public static class KeybindConfig
 {
     private static MelonPreferences_Category _category;
@@ -27,6 +29,9 @@ public static class KeybindConfig
     private static MelonPreferences_Entry<KeyCode> _spawnShadyMerchantEpicKeyEntry;
     private static MelonPreferences_Entry<KeyCode> _spawnShadyMerchantLegendaryKeyEntry;
 
+    /// <summary>
+    /// Key to toggle the BonkMenu UI.
+    /// </summary>
     public static KeyCode ToggleMenuKey 
     { 
         get => _toggleMenuKeyEntry?.Value ?? KeyCode.F1;
@@ -40,25 +45,82 @@ public static class KeybindConfig
         }
     }
 
+    /// <summary>
+    /// Key to toggle God Mode.
+    /// </summary>
     public static KeyCode ToggleGodModeKey => _toggleGodModeKeyEntry?.Value ?? KeyCode.F2;
+    /// <summary>
+    /// Key to toggle Unlimited XP.
+    /// </summary>
     public static KeyCode ToggleUnlimitedXpKey => _toggleUnlimitedXpKeyEntry?.Value ?? KeyCode.F3;
+    /// <summary>
+    /// Key to spawn chests.
+    /// </summary>
     public static KeyCode SpawnChestsKey => _spawnChestsKeyEntry?.Value ?? KeyCode.Alpha1;
+    /// <summary>
+    /// Key to spawn free chests.
+    /// </summary>
     public static KeyCode SpawnFreeChestsKey => _spawnFreeChestsKeyEntry?.Value ?? KeyCode.Alpha2;
+    /// <summary>
+    /// Key to spawn challenge shrines.
+    /// </summary>
     public static KeyCode SpawnChallengeShrinesKey => _spawnChallengeShrinesKeyEntry?.Value ?? KeyCode.Alpha4;
+    /// <summary>
+    /// Key to spawn cursed shrines.
+    /// </summary>
     public static KeyCode SpawnCursedShrinesKey => _spawnCursedShrinesKeyEntry?.Value ?? KeyCode.Alpha5;
+    /// <summary>
+    /// Key to spawn greed shrines.
+    /// </summary>
     public static KeyCode SpawnGreedShrinesKey => _spawnGreedShrinesKeyEntry?.Value ?? KeyCode.Alpha6;
+    /// <summary>
+    /// Key to spawn greed altars.
+    /// </summary>
     public static KeyCode SpawnGreedAltarsKey => _spawnGreedAltarsKeyEntry?.Value ?? KeyCode.F11;
+    /// <summary>
+    /// Key to spawn magnet shrines.
+    /// </summary>
     public static KeyCode SpawnMagnetShrinesKey => _spawnMagnetShrinesKeyEntry?.Value ?? KeyCode.Alpha7;
+    /// <summary>
+    /// Key to spawn moai shrines.
+    /// </summary>
     public static KeyCode SpawnMoaiShrinesKey => _spawnMoaiShrinesKeyEntry?.Value ?? KeyCode.Alpha8;
+    /// <summary>
+    /// Key to spawn charge shrines.
+    /// </summary>
     public static KeyCode SpawnChargeShrinesKey => _spawnChargeShrinesKeyEntry?.Value ?? KeyCode.Alpha9;
+    /// <summary>
+    /// Key to spawn gold charge shrines.
+    /// </summary>
     public static KeyCode SpawnGoldChargeShrinesKey => _spawnGoldChargeShrinesKeyEntry?.Value ?? KeyCode.Alpha0;
+    /// <summary>
+    /// Key to spawn pots.
+    /// </summary>
     public static KeyCode SpawnPotsKey => _spawnPotsKeyEntry?.Value ?? KeyCode.F5;
+    /// <summary>
+    /// Key to spawn microwaves.
+    /// </summary>
     public static KeyCode SpawnMicrowavesKey => _spawnMicrowavesKeyEntry?.Value ?? KeyCode.F6;
+    /// <summary>
+    /// Key to spawn a Shady Merchant.
+    /// </summary>
     public static KeyCode SpawnShadyMerchantKey => _spawnShadyMerchantKeyEntry?.Value ?? KeyCode.F7;
+    /// <summary>
+    /// Key to spawn a Rare Shady Merchant.
+    /// </summary>
     public static KeyCode SpawnShadyMerchantRareKey => _spawnShadyMerchantRareKeyEntry?.Value ?? KeyCode.F8;
+    /// <summary>
+    /// Key to spawn an Epic Shady Merchant.
+    /// </summary>
     public static KeyCode SpawnShadyMerchantEpicKey => _spawnShadyMerchantEpicKeyEntry?.Value ?? KeyCode.F9;
+    /// <summary>
+    /// Key to spawn a Legendary Shady Merchant.
+    /// </summary>
     public static KeyCode SpawnShadyMerchantLegendaryKey => _spawnShadyMerchantLegendaryKeyEntry?.Value ?? KeyCode.F10;
 
+    /// <summary>
+    /// Initializes keybind entries and loads defaults.
+    /// </summary>
     public static void LoadKeybinds()
     {
         _category = MelonPreferences.CreateCategory("BonkMenu", "BonkMenu Settings");
@@ -85,6 +147,9 @@ public static class KeybindConfig
         Log.Info($"[BonkMenu] Keybinds loaded. Toggle Key: {ToggleMenuKey}");
     }
 
+    /// <summary>
+    /// Persists current keybind values.
+    /// </summary>
     public static void SaveKeybinds()
     {
         MelonPreferences.Save();

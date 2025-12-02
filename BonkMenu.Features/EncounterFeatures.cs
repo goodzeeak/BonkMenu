@@ -1,14 +1,18 @@
-using System;
 using Il2CppAssets.Scripts.UI.InGame.Levelup;
 using Il2CppAssets.Scripts.UI.InGame.Rewards;
 using MelonLoader;
-using UnityEngine;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// Controls level-up encounter windows and rewards.
+/// </summary>
 public static class EncounterFeatures
 {
-	public static void ForceEncounter(int encounterId, string encounterName)
+    /// <summary>
+    /// Forces an encounter by type id.
+    /// </summary>
+    public static void ForceEncounter(int encounterId, string encounterName)
 	{
 		//IL_0080: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0099: Unknown result type (might be due to invalid IL or missing references)
@@ -35,7 +39,10 @@ public static class EncounterFeatures
 		}
 	}
 
-	public static void SkipEncounter()
+    /// <summary>
+    /// Skips the current encounter and finishes rewards.
+    /// </summary>
+    public static void SkipEncounter()
 	{
 		MelonLogger.Msg("[SkipEncounter] Attempting to skip current encounter");
 		try

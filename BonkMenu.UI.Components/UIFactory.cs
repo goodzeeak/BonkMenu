@@ -7,6 +7,9 @@ using UniverseLib;
 
 namespace BonkMenu.UI.Components;
 
+/// <summary>
+/// Helper factory for building BonkMenu UI elements and controls.
+/// </summary>
 public static class UIFactory
 {
     private class ToastRef
@@ -32,7 +35,10 @@ public static class UIFactory
 
 	private static readonly Color ColorTextDim = new Color(0.7f, 0.7f, 0.8f, 1f);
 
-	public static void CreateSectionHeader(string text, GameObject parent)
+    /// <summary>
+    /// Creates a styled section header with title and separator line.
+    /// </summary>
+    public static void CreateSectionHeader(string text, GameObject parent)
 	{
 		//IL_000c: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0012: Expected O, but got Unknown
@@ -69,7 +75,10 @@ public static class UIFactory
 		val8.preferredHeight = 2f;
 	}
 
-	public static Button CreateButton(string text, Action onClick, GameObject parent)
+    /// <summary>
+    /// Creates a button with label and click handler under the parent.
+    /// </summary>
+    public static Button CreateButton(string text, Action onClick, GameObject parent)
 	{
 		//IL_000c: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0012: Expected O, but got Unknown
@@ -129,6 +138,9 @@ public static class UIFactory
 		return val4;
 	}
 
+    /// <summary>
+    /// Creates a simple text label under the parent.
+    /// </summary>
     public static Text CreateLabel(string text, GameObject parent)
     {
 		//IL_0006: Unknown result type (might be due to invalid IL or missing references)
@@ -148,6 +160,9 @@ public static class UIFactory
         return val3;
     }
 
+    /// <summary>
+    /// Displays a keybind row with action name and bound key.
+    /// </summary>
     public static void CreateKeybindRow(string action, KeyCode key, GameObject parent)
     {
         GameObject row = new GameObject("Keybind_" + action);
@@ -192,6 +207,9 @@ public static class UIFactory
         rle.preferredWidth = 120f;
     }
 
+    /// <summary>
+    /// Inserts vertical space in the layout.
+    /// </summary>
     public static void CreateSpacer(int height, GameObject parent)
     {
 		//IL_0006: Unknown result type (might be due to invalid IL or missing references)
@@ -203,6 +221,9 @@ public static class UIFactory
 		val2.sizeDelta = new Vector2(0f, (float)height);
     }
 
+    /// <summary>
+    /// Creates a collapsible container with a header and builds its content.
+    /// </summary>
     public static GameObject CreateCollapsibleSection(string title, GameObject parent, Action<GameObject> build, bool defaultOpen = false)
     {
         GameObject root = new GameObject("Collapsible_" + title);
@@ -295,7 +316,10 @@ public static class UIFactory
         return root;
     }
 
-	public static void CreateCircularToggle(string label, bool initialValue, Action<bool> onChange, GameObject parent)
+    /// <summary>
+    /// Creates a checkbox-like toggle with a label.
+    /// </summary>
+    public static void CreateCircularToggle(string label, bool initialValue, Action<bool> onChange, GameObject parent)
 	{
 		//IL_000c: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0012: Expected O, but got Unknown
@@ -365,7 +389,10 @@ public static class UIFactory
 		val15.alignment = (TextAnchor)3;
 	}
 
-	public static void CreateSlider(string label, float min, float max, float defaultValue, Action<float> onChange, GameObject parent)
+    /// <summary>
+    /// Creates a slider with label, numeric input, and change callback.
+    /// </summary>
+    public static void CreateSlider(string label, float min, float max, float defaultValue, Action<float> onChange, GameObject parent)
 	{
 		//IL_001a: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0020: Expected O, but got Unknown
@@ -506,6 +533,9 @@ public static class UIFactory
 		});
 	}
 
+    /// <summary>
+    /// Shows a short-lived toast notification.
+    /// </summary>
     public static void ShowToast(string message)
     {
         if (!ModConfig.EnableToasts) return;
@@ -616,12 +646,18 @@ public static class UIFactory
         Object.Destroy(toast, 2.3f);
     }
 
+    /// <summary>
+    /// Increments or creates a spawn toast counter.
+    /// </summary>
     public static void IncrementSpawnToast(string key, string label)
     {
         if (!ModConfig.EnableToasts) return;
         IncrementSpawnToast(key, label, 1);
     }
 
+    /// <summary>
+    /// Increments a spawn toast counter by a specific amount.
+    /// </summary>
     public static void IncrementSpawnToast(string key, string label, int increment)
     {
         if (!ModConfig.EnableToasts) return;
@@ -731,6 +767,9 @@ public static class UIFactory
         ((Graphic)tr.icon).CrossFadeAlpha(1f, 0.12f, true);
     }
 
+    /// <summary>
+    /// Updates and cleans up active toast notifications.
+    /// </summary>
     public static void TickToasts()
     {
         if (!ModConfig.EnableToasts)
@@ -760,6 +799,9 @@ public static class UIFactory
         }
     }
 
+    /// <summary>
+    /// Sets a toggle control to the given value by label.
+    /// </summary>
     public static void SetToggleState(string label, bool value)
     {
         var roots = UniverseLib.RuntimeHelper.FindObjectsOfTypeAll<GameObject>();
@@ -781,7 +823,10 @@ public static class UIFactory
         }
     }
 
-	public static GameObject CreateTabContent(string name)
+    /// <summary>
+    /// Creates a scrollable tab content root.
+    /// </summary>
+    public static GameObject CreateTabContent(string name)
 	{
 		//IL_0002: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0008: Expected O, but got Unknown
@@ -854,7 +899,10 @@ public static class UIFactory
 		return val;
 	}
 
-	public static void CreateSelector(GameObject parent, string[] dataList, Func<int> getIndex, Action<int> setIndex, Action<Text> setLabelRef)
+    /// <summary>
+    /// Creates a left/right selector with a label bound to an index.
+    /// </summary>
+    public static void CreateSelector(GameObject parent, string[] dataList, Func<int> getIndex, Action<int> setIndex, Action<Text> setLabelRef)
 	{
 		//IL_0021: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0027: Expected O, but got Unknown
@@ -932,7 +980,10 @@ public static class UIFactory
 		val10.flexibleWidth = 0f;
 	}
 
-	public static void CreateSpawner(GameObject parent, string title, string[] dataList, Action<int, int> onSpawn)
+    /// <summary>
+    /// Creates a spawner widget with selector and amount slider.
+    /// </summary>
+    public static void CreateSpawner(GameObject parent, string title, string[] dataList, Action<int, int> onSpawn)
 	{
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_001f: Expected O, but got Unknown
@@ -983,7 +1034,10 @@ public static class UIFactory
 		CreateSpacer(8, parent);
 	}
 
-	public static void CreateSpawnerNoSlider(GameObject parent, string title, string[] dataList, Action<int> onSpawn)
+    /// <summary>
+    /// Creates a spawner widget with selector and a single-click action.
+    /// </summary>
+    public static void CreateSpawnerNoSlider(GameObject parent, string title, string[] dataList, Action<int> onSpawn)
 	{
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_001f: Expected O, but got Unknown

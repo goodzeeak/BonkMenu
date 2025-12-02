@@ -1,22 +1,39 @@
 using System;
-using HarmonyLib;
 using MelonLoader;
 
 namespace BonkMenu.Patches;
 
+/// <summary>
+/// Controls pot variants such as silver and big (microwave).
+/// </summary>
 public static class PotVariantPatch
 {
     // Static flags to control pot variants
+    /// <summary>
+    /// When true, upcoming pots spawn as silver until exhausted.
+    /// </summary>
     public static bool SpawnNextAsSilver = false;
+    /// <summary>
+    /// Remaining count of silver pots to spawn.
+    /// </summary>
     public static int SilverPotsRemaining = 0;
     
+    /// <summary>
+    /// When true, upcoming pots spawn as big (microwave) until exhausted.
+    /// </summary>
     public static bool SpawnNextAsBig = false;
+    /// <summary>
+    /// Remaining count of big pots to spawn.
+    /// </summary>
     public static int BigPotsRemaining = 0;
     
     // Track which pots we've modified so we don't affect naturally spawned pots
     private static System.Collections.Generic.HashSet<IntPtr> ModifiedPots = new System.Collections.Generic.HashSet<IntPtr>();
 
-    public static void Apply(HarmonyLib.Harmony harmony)
+    /// <summary>
+    /// Prepares variant patch for runtime application after instantiation.
+    /// </summary>
+    public static void Apply()
     {
         try
         {
@@ -36,6 +53,9 @@ public static class PotVariantPatch
     }
 
     // Helper method to apply variant to a pot instance
+    /// <summary>
+    /// Applies variant flags to a spawned pot instance.
+    /// </summary>
     public static void ApplyVariant(Il2CppAssets.Scripts.Inventory__Items__Pickups.Interactables.InteractablePot pot)
     {
         try

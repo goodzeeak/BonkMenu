@@ -1,21 +1,25 @@
-using System;
 using System.Linq;
 using BonkMenu.Features;
 using HarmonyLib;
 using Il2Cpp;
-using Il2CppAssets.Scripts.Actors.Player;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.AbilitiesPassive;
 using MelonLoader;
 
 namespace BonkMenu.Patches;
 
+/// <summary>
+/// Supports multiple passive abilities on the player inventory.
+/// </summary>
 [HarmonyPatch]
 public static class PassiveInventoryPatches
 {
 	// Patch HasPassive to check our collection
-	[HarmonyPrefix]
-	[HarmonyPatch(typeof(PlayerInventory), nameof(PlayerInventory.HasPassive))]
-	public static bool HasPassive_Prefix(PlayerInventory __instance, EPassive passive, ref bool __result)
+    /// <summary>
+    /// Prefix that resolves multi-passive state against the inventory.
+    /// </summary>
+    [HarmonyPrefix]
+    [HarmonyPatch(typeof(PlayerInventory), nameof(PlayerInventory.HasPassive))]
+    public static bool HasPassive_Prefix(PlayerInventory __instance, EPassive passive, ref bool __result)
 	{
 		try
 		{
@@ -30,9 +34,12 @@ public static class PassiveInventoryPatches
 	}
 
 	// Patch Update to update all active passives
-	[HarmonyPostfix]
-	[HarmonyPatch(typeof(PlayerInventory), nameof(PlayerInventory.Update))]
-	public static void Update_Postfix(PlayerInventory __instance)
+    /// <summary>
+    /// Postfix that ticks all active passives.
+    /// </summary>
+    [HarmonyPostfix]
+    [HarmonyPatch(typeof(PlayerInventory), nameof(PlayerInventory.Update))]
+    public static void Update_Postfix(PlayerInventory __instance)
 	{
 		try
 		{
@@ -56,9 +63,12 @@ public static class PassiveInventoryPatches
 	}
 
 	// Patch PhysicsTick to physics-update all active passives  
-	[HarmonyPostfix]
-	[HarmonyPatch(typeof(PlayerInventory), nameof(PlayerInventory.PhysicsTick))]
-	public static void PhysicsTick_Postfix(PlayerInventory __instance)
+    /// <summary>
+    /// Postfix that performs physics ticks for passives when appropriate.
+    /// </summary>
+    [HarmonyPostfix]
+    [HarmonyPatch(typeof(PlayerInventory), nameof(PlayerInventory.PhysicsTick))]
+    public static void PhysicsTick_Postfix(PlayerInventory __instance)
 	{
 		try
 		{
@@ -82,9 +92,12 @@ public static class PassiveInventoryPatches
 	}
 
 	// Patch Cleanup to clean up all passives
-	[HarmonyPostfix]
-	[HarmonyPatch(typeof(PlayerInventory), nameof(PlayerInventory.Cleanup))]
-	public static void Cleanup_Postfix(PlayerInventory __instance)
+    /// <summary>
+    /// Postfix that cleans up all passives and clears the manager.
+    /// </summary>
+    [HarmonyPostfix]
+    [HarmonyPatch(typeof(PlayerInventory), nameof(PlayerInventory.Cleanup))]
+    public static void Cleanup_Postfix(PlayerInventory __instance)
 	{
 		try
 		{

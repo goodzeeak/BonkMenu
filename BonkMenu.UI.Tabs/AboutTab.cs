@@ -5,9 +5,15 @@ using UnityEngine;
 
 namespace BonkMenu.UI.Tabs;
 
+/// <summary>
+/// Displays mod information, keybinds, and debug options.
+/// </summary>
 public static class AboutTab
 {
-	public static void Create(GameObject parent)
+    /// <summary>
+    /// Builds the About tab UI under the given parent.
+    /// </summary>
+    public static void Create(GameObject parent)
 	{
 		//IL_0053: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0085: Unknown result type (might be due to invalid IL or missing references)

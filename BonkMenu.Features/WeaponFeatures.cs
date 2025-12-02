@@ -1,17 +1,21 @@
-using System;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Actors.Player;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.Stats;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.Weapons;
 using Il2CppSystem.Collections.Generic;
 using MelonLoader;
-using UnityEngine;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// Grants and maximizes weapons for the player.
+/// </summary>
 public static class WeaponFeatures
 {
-	public static void GrantWeapon(int weaponId, string weaponName)
+    /// <summary>
+    /// Grants a specific weapon to the player by id and name.
+    /// </summary>
+    public static void GrantWeapon(int weaponId, string weaponName)
 	{
 		//IL_0108: Unknown result type (might be due to invalid IL or missing references)
 		//IL_010c: Unknown result type (might be due to invalid IL or missing references)
@@ -68,7 +72,10 @@ public static class WeaponFeatures
 		}
 	}
 
-	public static void GrantAllWeapons()
+    /// <summary>
+    /// Grants all available weapons to the player.
+    /// </summary>
+    public static void GrantAllWeapons()
 	{
 		MelonLogger.Msg("[GrantAllWeapons] Granting all 30 weapons");
 		try
@@ -97,7 +104,10 @@ public static class WeaponFeatures
 		}
 	}
 
-	public static void MaxAllWeapons()
+    /// <summary>
+    /// Maxes all currently owned weapons.
+    /// </summary>
+    public static void MaxAllWeapons()
 	{
 		MelonLogger.Msg("[MaxAllWeapons] Maxing currently owned weapons...");
 		try

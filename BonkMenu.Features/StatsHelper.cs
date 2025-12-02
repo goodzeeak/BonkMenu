@@ -1,20 +1,21 @@
-using System;
-using System.Reflection;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Actors.Player;
-using Il2CppAssets.Scripts.Inventory__Items__Pickups;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.Stats;
 using Il2CppAssets.Scripts.Menu.Shop;
-using Il2CppSystem;
 using Il2CppSystem.Collections.Generic;
 using MelonLoader;
-using UnityEngine;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// Convenience helpers for reading and writing player stats.
+/// </summary>
 public static class StatsHelper
 {
-	public static void SetStatAndUpdate(EStat stat, float value)
+    /// <summary>
+    /// Sets a stat and triggers a stat update event if available.
+    /// </summary>
+    public static void SetStatAndUpdate(EStat stat, float value)
 	{
 		//IL_0001: Unknown result type (might be due to invalid IL or missing references)
 		try
@@ -68,7 +69,10 @@ public static class StatsHelper
 		}
 	}
 
-	public static float GetCurrentStatValue(EStat stat, float defaultValue = 0f)
+    /// <summary>
+    /// Reads the current stat value or returns a default.
+    /// </summary>
+    public static float GetCurrentStatValue(EStat stat, float defaultValue = 0f)
 	{
 		//IL_0001: Unknown result type (might be due to invalid IL or missing references)
 		try
@@ -119,7 +123,10 @@ public static class StatsHelper
 		(EStat)38,  // Difficulty
 	};
 
-	public static bool IsPercentageStat(EStat stat)
+    /// <summary>
+    /// Returns true if the stat is displayed as a percentage.
+    /// </summary>
+    public static bool IsPercentageStat(EStat stat)
 	{
 		foreach (var pStat in PercentageStats)
 		{
@@ -128,14 +135,20 @@ public static class StatsHelper
 		return false;
 	}
 
-	public static float GetDisplayValue(EStat stat, float defaultValue = 0f)
+    /// <summary>
+    /// Returns a stat value formatted for display (percent-aware).
+    /// </summary>
+    public static float GetDisplayValue(EStat stat, float defaultValue = 0f)
 	{
 		float value = GetCurrentStatValue(stat, defaultValue);
 		// Convert decimal to percentage for display (0.5 -> 50)
 		return IsPercentageStat(stat) ? value * 100f : value;
 	}
 
-	public static void SetStatFromDisplay(EStat stat, float displayValue)
+    /// <summary>
+    /// Converts a display value into the stored value and sets it.
+    /// </summary>
+    public static void SetStatFromDisplay(EStat stat, float displayValue)
 	{
 		// Convert percentage to decimal for storage (50 -> 0.5)
 		float actualValue = IsPercentageStat(stat) ? displayValue / 100f : displayValue;

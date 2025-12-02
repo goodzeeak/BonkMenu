@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace BonkMenu.UI.Tabs;
 
+/// <summary>
+/// Manages items, passives, and unlimited-by-name controls.
+/// </summary>
 public static class ItemsTab
 {
 	private static readonly string[] pickups = new string[11]
@@ -49,9 +52,11 @@ public static class ItemsTab
 
     private static int selectedUnlimitedWeaponIndex = 0;
     private static int selectedUnlimitedTomeIndex = 0;
-    private static UnityEngine.UI.Text unlimitedWeaponLabel;
-    private static UnityEngine.UI.Text unlimitedTomeLabel;
+    
 
+    /// <summary>
+    /// Builds the Items tab UI under the given parent.
+    /// </summary>
     public static void Create(GameObject parent)
     {
 
@@ -162,7 +167,7 @@ public static class ItemsTab
         // Weapons selector
         int[] wMap;
         var wSorted = SortWithMap(weapons, out wMap);
-        UIFactory.CreateSelector(parent, wSorted, () => selectedUnlimitedWeaponIndex, (int val) => selectedUnlimitedWeaponIndex = val, (UnityEngine.UI.Text lbl) => { unlimitedWeaponLabel = lbl; });
+        UIFactory.CreateSelector(parent, wSorted, () => selectedUnlimitedWeaponIndex, (int val) => selectedUnlimitedWeaponIndex = val, (UnityEngine.UI.Text _) => { });
         UIFactory.CreateButton("Enable for Selected Weapon", () =>
         {
             var originalId = wMap[selectedUnlimitedWeaponIndex];
@@ -181,7 +186,7 @@ public static class ItemsTab
         // Tomes selector
         int[] tMap;
         var tSorted = SortWithMap(tomes, out tMap);
-        UIFactory.CreateSelector(parent, tSorted, () => selectedUnlimitedTomeIndex, (int val) => selectedUnlimitedTomeIndex = val, (UnityEngine.UI.Text lbl) => { unlimitedTomeLabel = lbl; });
+        UIFactory.CreateSelector(parent, tSorted, () => selectedUnlimitedTomeIndex, (int val) => selectedUnlimitedTomeIndex = val, (UnityEngine.UI.Text _) => { });
         UIFactory.CreateButton("Enable for Selected Tome", () =>
         {
             var originalId = tMap[selectedUnlimitedTomeIndex];

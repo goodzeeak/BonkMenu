@@ -1,18 +1,22 @@
 using HarmonyLib;
 using BonkMenu.Features;
 using Il2CppAssets.Scripts.Game.Other;
-using Il2CppAssets.Scripts.Inventory__Items__Pickups.Stats;
 using Il2CppAssets.Scripts.Menu.Shop;
-using Il2CppAssets.Scripts.Actors.Player;
 using Il2Cpp;
 using MelonLoader;
 
 namespace BonkMenu.Patches;
 
+/// <summary>
+/// Adjusts silver multiplier based on custom stat settings.
+/// </summary>
 [HarmonyPatch(typeof(RunConfig), nameof(RunConfig.GetSilverMultiplier))]
 public static class SilverMultiplierPatch
 {
-	public static void Postfix(ref float __result)
+    /// <summary>
+    /// Postfix that multiplies the game's silver multiplier by a custom value.
+    /// </summary>
+    public static void Postfix(ref float __result)
 	{
 		try
 		{
@@ -32,10 +36,16 @@ public static class SilverMultiplierPatch
 	}
 }
 
+/// <summary>
+/// Scales silver gains added to player inventory.
+/// </summary>
 [HarmonyPatch(typeof(PlayerInventory), nameof(PlayerInventory.AddSilver))]
 public static class PlayerInventoryAddSilverPatch
 {
-	public static void Prefix(ref int amount)
+    /// <summary>
+    /// Prefix that scales the silver amount before it is added.
+    /// </summary>
+    public static void Prefix(ref int amount)
 	{
 		try
 		{

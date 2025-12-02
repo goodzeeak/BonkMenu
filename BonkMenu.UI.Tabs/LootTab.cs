@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 namespace BonkMenu.UI.Tabs;
 
+/// <summary>
+/// Controls loot rarity, luck, and spawn helpers.
+/// </summary>
 public static class LootTab
 {
 	private static readonly string[] upgradeRarities = new string[5] { "Common", "Uncommon", "Rare", "Epic", "Legendary" };
@@ -18,10 +21,11 @@ public static class LootTab
 
 	private static int selectedItemRarityIndex = 0;
 
-	private static Text upgradeRarityLabel;
+    
 
-	private static Text itemRarityLabel;
-
+    /// <summary>
+    /// Builds the Loot tab UI under the given parent.
+    /// </summary>
     public static void Create(GameObject parent)
     {
 		UIFactory.CreateCollapsibleSection("Rarity Control", parent, CreateRarityControl);
@@ -38,29 +42,27 @@ public static class LootTab
 			LootConfig.ForceUpgradeRarity = value;
 		}, parent);
 		UIFactory.CreateSpacer(4, parent);
-		UIFactory.CreateSelector(parent, upgradeRarities, () => selectedUpgradeRarityIndex, delegate(int val)
-		{
-			selectedUpgradeRarityIndex = val;
-			LootConfig.DesiredUpgradeRarity = (ERarity)(val + 1);
-		}, delegate(Text label)
-		{
-			upgradeRarityLabel = label;
-		});
+        UIFactory.CreateSelector(parent, upgradeRarities, () => selectedUpgradeRarityIndex, delegate(int val)
+        {
+            selectedUpgradeRarityIndex = val;
+            LootConfig.DesiredUpgradeRarity = (ERarity)(val + 1);
+        }, delegate(Text _)
+        {
+        });
 		UIFactory.CreateSpacer(8, parent);
 		UIFactory.CreateCircularToggle("Force Item Rarity", LootConfig.ForceItemRarity, delegate(bool value)
 		{
 			LootConfig.ForceItemRarity = value;
 		}, parent);
 		UIFactory.CreateSpacer(4, parent);
-		UIFactory.CreateSelector(parent, itemRarities, () => selectedItemRarityIndex, delegate(int val)
-		{
-			//IL_0008: Unknown result type (might be due to invalid IL or missing references)
-			selectedItemRarityIndex = val;
-			LootConfig.DesiredItemRarity = MapIndexToItemRarity(val);
-		}, delegate(Text label)
-		{
-			itemRarityLabel = label;
-		});
+        UIFactory.CreateSelector(parent, itemRarities, () => selectedItemRarityIndex, delegate(int val)
+        {
+            //IL_0008: Unknown result type (might be due to invalid IL or missing references)
+            selectedItemRarityIndex = val;
+            LootConfig.DesiredItemRarity = MapIndexToItemRarity(val);
+        }, delegate(Text _)
+        {
+        });
 	}
 
 	private static EItemRarity MapIndexToItemRarity(int index)

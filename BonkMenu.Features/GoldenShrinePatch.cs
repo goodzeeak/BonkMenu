@@ -1,19 +1,30 @@
 using System;
 using HarmonyLib;
-using Il2CppInterop.Runtime;
 using MelonLoader;
 
 namespace BonkMenu.Patches;
 
+/// <summary>
+/// Enables spawning Charge Shrines as golden and applies visuals.
+/// </summary>
 public static class GoldenShrinePatch
 {
     // Static flag to control when shrines should spawn as golden
+    /// <summary>
+    /// When true, upcoming Charge Shrines spawn as golden.
+    /// </summary>
     public static bool SpawnNextAsGolden = false;
+    /// <summary>
+    /// Number of golden shrines to convert before disabling.
+    /// </summary>
     public static int GoldenShrinesRemaining = 0;
     
     // Track which shrines we've modified so we don't affect naturally spawned golden shrines
     private static System.Collections.Generic.HashSet<IntPtr> ModifiedShrines = new System.Collections.Generic.HashSet<IntPtr>();
 
+    /// <summary>
+    /// Applies patches to ChargeShrine Awake/Start for golden handling.
+    /// </summary>
     public static void Apply(HarmonyLib.Harmony harmony)
     {
         try

@@ -6,9 +6,15 @@ using UnityEngine;
 
 namespace BonkMenu.UI.Tabs;
 
+/// <summary>
+/// Offers player toggles, utilities, buffs, and advanced stats.
+/// </summary>
 public static class PlayerTab
 {
-	public static void Create(GameObject parent)
+    /// <summary>
+    /// Builds the Player tab UI under the given parent.
+    /// </summary>
+    public static void Create(GameObject parent)
 	{
 		UIFactory.CreateCollapsibleSection("Toggles", parent, CreateToggles);
 		UIFactory.CreateSpacer(4, parent);

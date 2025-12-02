@@ -1,4 +1,3 @@
-using System;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Actors.Player;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.Stats;
@@ -8,24 +7,39 @@ using UnityEngine;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// Applies temporary status effects to the player.
+/// </summary>
 public static class StatusEffects
 {
-	public static void ApplyRage(float duration = 30f)
+    /// <summary>
+    /// Applies Rage for the specified duration.
+    /// </summary>
+    public static void ApplyRage(float duration = 30f)
 	{
 		ApplyStatusEffect((EStatusEffect)1, duration, "Rage");
 	}
 
-	public static void ApplyHaste(float duration = 30f)
+    /// <summary>
+    /// Applies Haste for the specified duration.
+    /// </summary>
+    public static void ApplyHaste(float duration = 30f)
 	{
 		ApplyStatusEffect((EStatusEffect)0, duration, "Haste");
 	}
 
-	public static void ApplyShield(float duration = 30f)
+    /// <summary>
+    /// Applies Shield for the specified duration.
+    /// </summary>
+    public static void ApplyShield(float duration = 30f)
 	{
 		ApplyStatusEffect((EStatusEffect)2, duration, "Shield");
 	}
 
-	public static void ApplyInvulnerability(float duration = 10f)
+    /// <summary>
+    /// Applies Invulnerability for the specified duration.
+    /// </summary>
+    public static void ApplyInvulnerability(float duration = 10f)
 	{
 		ApplyStatusEffect((EStatusEffect)5, duration, "Invulnerability");
 	}

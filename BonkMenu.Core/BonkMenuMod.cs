@@ -6,7 +6,6 @@ using Il2Cpp;
 using Il2CppAssets.Scripts.Actors.Enemies;
 using Il2CppAssets.Scripts.Actors.Player;
 using Il2CppAssets.Scripts.Managers;
-using Il2CppInterop.Runtime.InteropTypes.Arrays;
 using Il2CppSystem.Collections.Generic;
 using MelonLoader;
 using UnityEngine;
@@ -14,23 +13,37 @@ using UniverseLib.Input;
 
 namespace BonkMenu.Core;
 
+/// <summary>
+/// Main mod entrypoint: initializes patches, UI, and per-frame updates.
+/// </summary>
 public class BonkMenuMod : MelonMod
 {
-	public const string ModName = "BonkMenu";
+    /// <summary>
+    /// Human-friendly mod name.
+    /// </summary>
+    public const string ModName = "BonkMenu";
 
-	public const string ModVersion = "1.0.0";
+    /// <summary>
+    /// Mod version string.
+    /// </summary>
+    public const string ModVersion = "1.0.0";
 
-	public const string ModAuthor = "Goodzy";
+    /// <summary>
+    /// Mod author name.
+    /// </summary>
+    public const string ModAuthor = "Goodzy";
 
     private bool _uiInitialized = false;
     private bool _hasModifiedXpMultiplier = false;
     private bool _pendingXpUncap = false;
-    private float _nextXpAttemptTime = 0f;
     private static readonly System.Collections.Generic.Dictionary<KeyCode, float> _nextSpawnTime = new System.Collections.Generic.Dictionary<KeyCode, float>();
     private const float SpawnRepeatInterval = 0.2f;
     private static readonly System.Collections.Generic.HashSet<KeyCode> _handledKeys = new System.Collections.Generic.HashSet<KeyCode>();
 
-	public override void OnInitializeMelon()
+    /// <summary>
+    /// Called when the mod is initialized.
+    /// </summary>
+    public override void OnInitializeMelon()
 	{
 		//IL_0036: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0074: Unknown result type (might be due to invalid IL or missing references)
@@ -57,6 +70,9 @@ public class BonkMenuMod : MelonMod
         Log.Info("[BonkMenu] ==============================");
 	}
 
+    /// <summary>
+    /// Called after a scene is loaded.
+    /// </summary>
     public override void OnSceneWasLoaded(int buildIndex, string sceneName)
     {
 		// Automatically cache prefabs when entering a procedural run
@@ -92,53 +108,10 @@ public class BonkMenuMod : MelonMod
         }
 	}
 	
-	private System.Collections.IEnumerator DelayedPrefabExtraction()
-	{
-		yield break;
-		// Poll for components to appear (map generation may take time)
-        /*
-        Log.Info("[BonkMenu] Waiting for map components to initialize...");
-		float waitTime = 0f;
-		float maxWait = 10f; // Max 10 seconds
-		bool componentsFound = false;
-		
-		while (waitTime < maxWait && !componentsFound)
-		{
-			yield return new UnityEngine.WaitForSeconds(0.5f);
-			waitTime += 0.5f;
-			
-			// Check if spawn components exist yet
-			var allComps = UnityEngine.Resources.FindObjectsOfTypeAll<UnityEngine.MonoBehaviour>();
-			foreach (var comp in allComps)
-			{
-				if (comp.GetType().Name == "SpawnInteractables" || comp.GetType().Name == "RandomObjectPlacer")
-				{
-					componentsFound = true;
-					break;
-				}
-			}
-		}
-		
-		if (componentsFound)
-		{
-            Log.Info($"[BonkMenu] Components found after {waitTime:F1}s - extracting prefabs...");
-		}
-		else
-		{
-            Log.Warn($"[BonkMenu] Components not found after {maxWait}s - attempting extraction anyway...");
-		}
-		
-		try
-		{
-			// WorldFeatures.RefreshPrefabCache(); // REMOVED
-		}
-		catch (Exception ex)
-		{
-            Log.Error($"[BonkMenu] Failed to auto-extract prefabs: {ex.Message}");
-		}
-		*/
-	}
 
+    /// <summary>
+    /// Per-frame update handler for UI and features.
+    /// </summary>
     public override void OnUpdate()
     {
 		//IL_0029: Unknown result type (might be due to invalid IL or missing references)
@@ -192,7 +165,6 @@ public class BonkMenuMod : MelonMod
             if (ModConfig.UnlimitedXp)
             {
                 _pendingXpUncap = true;
-                _nextXpAttemptTime = Time.unscaledTime + 0.25f;
             }
             else
             {
@@ -201,22 +173,22 @@ public class BonkMenuMod : MelonMod
             }
         }
 
-        HandleSpawnHold(KeybindConfig.SpawnChestsKey, () => WorldFeatures.SpawnChests(1), "Chest", "Chest");
-        HandleSpawnHold(KeybindConfig.SpawnFreeChestsKey, () => WorldFeatures.SpawnFreeChests(1), "FreeChest", "Free Chest");
-        HandleSpawnHold(KeybindConfig.SpawnChallengeShrinesKey, () => WorldFeatures.SpawnChallengeShrines(1), "ChallengeShrine", "Challenge Shrine");
-        HandleSpawnHold(KeybindConfig.SpawnCursedShrinesKey, () => WorldFeatures.SpawnCursedShrines(1), "CursedShrine", "Cursed Shrine");
-        HandleSpawnHold(KeybindConfig.SpawnGreedAltarsKey, () => WorldFeatures.SpawnGreedAltars(1), "GreedAltar", "Greed Altar");
-        HandleSpawnHold(KeybindConfig.SpawnGreedShrinesKey, () => WorldFeatures.SpawnGreedShrines(1), "GreedShrine", "Greed Shrine");
-        HandleSpawnHold(KeybindConfig.SpawnMagnetShrinesKey, () => WorldFeatures.SpawnMagnetShrines(1), "MagnetShrine", "Magnet Shrine");
-        HandleSpawnHold(KeybindConfig.SpawnMoaiShrinesKey, () => WorldFeatures.SpawnMoaiShrines(1), "MoaiShrine", "Moai Shrine");
-        HandleSpawnHold(KeybindConfig.SpawnChargeShrinesKey, () => WorldFeatures.SpawnShrines(1), "ChargeShrine", "Charge Shrine");
-        HandleSpawnHold(KeybindConfig.SpawnGoldChargeShrinesKey, () => WorldFeatures.SpawnGoldShrines(1), "GoldShrine", "Gold Shrine");
-        HandleSpawnHold(KeybindConfig.SpawnPotsKey, () => WorldFeatures.SpawnPots(1), "Pots", "Pots");
-        HandleSpawnHold(KeybindConfig.SpawnMicrowavesKey, () => WorldFeatures.SpawnMicrowaves(1), "Microwaves", "Microwaves");
-        HandleSpawnHold(KeybindConfig.SpawnShadyMerchantKey, () => WorldFeatures.SpawnShadyMerchant(1), "Merchant", "Merchant");
-        HandleSpawnHold(KeybindConfig.SpawnShadyMerchantRareKey, () => WorldFeatures.SpawnShadyMerchantRare(1), "MerchantRare", "Merchant (Rare)");
-        HandleSpawnHold(KeybindConfig.SpawnShadyMerchantEpicKey, () => WorldFeatures.SpawnShadyMerchantEpic(1), "MerchantEpic", "Merchant (Epic)");
-        HandleSpawnHold(KeybindConfig.SpawnShadyMerchantLegendaryKey, () => WorldFeatures.SpawnShadyMerchantLegendary(1), "MerchantLegendary", "Merchant (Legendary)");
+        HandleSpawnHold(KeybindConfig.SpawnChestsKey, () => WorldFeatures.SpawnChests(1), "Chest");
+        HandleSpawnHold(KeybindConfig.SpawnFreeChestsKey, () => WorldFeatures.SpawnFreeChests(1), "Free Chest");
+        HandleSpawnHold(KeybindConfig.SpawnChallengeShrinesKey, () => WorldFeatures.SpawnChallengeShrines(1), "Challenge Shrine");
+        HandleSpawnHold(KeybindConfig.SpawnCursedShrinesKey, () => WorldFeatures.SpawnCursedShrines(1), "Cursed Shrine");
+        HandleSpawnHold(KeybindConfig.SpawnGreedAltarsKey, () => WorldFeatures.SpawnGreedAltars(1), "Greed Altar");
+        HandleSpawnHold(KeybindConfig.SpawnGreedShrinesKey, () => WorldFeatures.SpawnGreedShrines(1), "Greed Shrine");
+        HandleSpawnHold(KeybindConfig.SpawnMagnetShrinesKey, () => WorldFeatures.SpawnMagnetShrines(1), "Magnet Shrine");
+        HandleSpawnHold(KeybindConfig.SpawnMoaiShrinesKey, () => WorldFeatures.SpawnMoaiShrines(1), "Moai Shrine");
+        HandleSpawnHold(KeybindConfig.SpawnChargeShrinesKey, () => WorldFeatures.SpawnShrines(1), "Charge Shrine");
+        HandleSpawnHold(KeybindConfig.SpawnGoldChargeShrinesKey, () => WorldFeatures.SpawnGoldShrines(1), "Gold Shrine");
+        HandleSpawnHold(KeybindConfig.SpawnPotsKey, () => WorldFeatures.SpawnPots(1), "Pots");
+        HandleSpawnHold(KeybindConfig.SpawnMicrowavesKey, () => WorldFeatures.SpawnMicrowaves(1), "Microwaves");
+        HandleSpawnHold(KeybindConfig.SpawnShadyMerchantKey, () => WorldFeatures.SpawnShadyMerchant(1), "Merchant");
+        HandleSpawnHold(KeybindConfig.SpawnShadyMerchantRareKey, () => WorldFeatures.SpawnShadyMerchantRare(1), "Merchant (Rare)");
+        HandleSpawnHold(KeybindConfig.SpawnShadyMerchantEpicKey, () => WorldFeatures.SpawnShadyMerchantEpic(1), "Merchant (Epic)");
+        HandleSpawnHold(KeybindConfig.SpawnShadyMerchantLegendaryKey, () => WorldFeatures.SpawnShadyMerchantLegendary(1), "Merchant (Legendary)");
 
 		if (ModConfig.InfiniteRefreshes)
 		{
@@ -305,74 +277,12 @@ public class BonkMenuMod : MelonMod
 		}
     }
 
-    private void TryUncapXpMultiplier()
-    {
-        try 
-        { 
-            System.Type playerXpType = null;
-            foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
-            {
-                try 
-                { 
-                    playerXpType = asm.GetTypes().FirstOrDefault(x => x.Name == "PlayerXp" && (x.Namespace == null || x.Namespace.Contains("Xp_and_Levels"))); 
-                    if (playerXpType != null) break; 
-                } 
-                catch { }
-            }
-            if (playerXpType != null) 
-            { 
-                var field = playerXpType.GetField("maxXpMultiplier", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public);
-                if (field != null)
-                {
-                    if (field.FieldType == typeof(float))
-                        field.SetValue(null, 99999f);
-                    else
-                        field.SetValue(null, System.Convert.ChangeType(99999f, field.FieldType));
-                    Log.Info("✅ XP MULT UNCAPPED via field!");
-                    _hasModifiedXpMultiplier = true;
-                }
-                else
-                {
-                    var prop = playerXpType.GetProperty("maxXpMultiplier", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public);
-                    if (prop != null)
-                    {
-                        prop.SetValue(null, 99999f);
-                        Log.Info("✅ XP MULT UNCAPPED via property!");
-                        _hasModifiedXpMultiplier = true;
-                    }
-                }
-            } 
-        }
-        catch { }
-    }
+    
 
-    private bool IsRunActive()
-    {
-        try
-        {
-            var gm = GameManager.Instance;
-            if ((UnityEngine.Object)gm == (UnityEngine.Object)null) return false;
-            var player = gm.player;
-            if ((UnityEngine.Object)player == (UnityEngine.Object)null) return false;
-            return player.inventory != null;
-        }
-        catch { return false; }
-    }
+    
 
-    private void Update()
-    {
-        if (_pendingXpUncap && !_hasModifiedXpMultiplier && IsRunActive())
-        {
-            if (Time.unscaledTime >= _nextXpAttemptTime)
-            {
-                TryUncapXpMultiplier();
-                if (_hasModifiedXpMultiplier) _pendingXpUncap = false;
-                else _nextXpAttemptTime = Time.unscaledTime + 0.5f;
-            }
-        }
-    }
 
-    private void HandleSpawnHold(KeyCode key, System.Action action, string toastKey, string toastLabel, int increment = 1)
+    private void HandleSpawnHold(KeyCode key, System.Action action, string toastLabel, int increment = 1)
     {
         bool down = InputManager.GetKeyDown(key);
         bool held = InputManager.GetKey(key);

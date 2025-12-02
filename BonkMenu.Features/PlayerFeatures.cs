@@ -1,4 +1,3 @@
-using System;
 using System.Reflection;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Actors.Player;
@@ -7,16 +6,21 @@ using Il2CppAssets.Scripts.Inventory__Items__Pickups.Pickups;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.Stats;
 using Il2CppAssets.Scripts.Menu.Shop;
 using Il2CppAssets.Scripts.Saves___Serialization.SaveFiles;
-using Il2CppSystem;
 using Il2CppSystem.Collections.Generic;
 using MelonLoader;
 using UnityEngine;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// Player utilities for healing, pickups, currency, status effects, and stats.
+/// </summary>
 public static class PlayerFeatures
 {
-	public static void FullHeal()
+    /// <summary>
+    /// Fully heals HP and Shield to their maximum values.
+    /// </summary>
+    public static void FullHeal()
 	{
 		MelonLogger.Msg("[FullHeal] Starting full heal...");
 		try
@@ -57,7 +61,10 @@ public static class PlayerFeatures
 		}
 	}
 
-	public static void SpawnPickup(EPickup type, int amount, string itemName)
+    /// <summary>
+    /// Spawns a pickup of the given type near the player.
+    /// </summary>
+    public static void SpawnPickup(EPickup type, int amount, string itemName)
 	{
 		//IL_00b8: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00cc: Unknown result type (might be due to invalid IL or missing references)
@@ -99,7 +106,10 @@ public static class PlayerFeatures
 		}
 	}
 
-	public static void AddProgressionCurrency(int amount)
+    /// <summary>
+    /// Adds silver (progression currency) to the save file.
+    /// </summary>
+    public static void AddProgressionCurrency(int amount)
 	{
 		MelonLogger.Msg($"[AddProgressionCurrency] Adding {amount} silver");
 		try
@@ -182,7 +192,10 @@ public static class PlayerFeatures
 		}
 	}
 
-	public static void ClearAllStatusEffects()
+    /// <summary>
+    /// Removes all active status effects from the player.
+    /// </summary>
+    public static void ClearAllStatusEffects()
 	{
 		MelonLogger.Msg("[ClearAllStatusEffects] Clearing all status effects");
 		try
@@ -221,7 +234,10 @@ public static class PlayerFeatures
 		}
 	}
 
-	public static void SetStat(EStat stat, float value)
+    /// <summary>
+    /// Sets a player stat to the specified value.
+    /// </summary>
+    public static void SetStat(EStat stat, float value)
 	{
 		//IL_001a: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00fb: Unknown result type (might be due to invalid IL or missing references)

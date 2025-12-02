@@ -7,14 +7,20 @@ using UnityEngine;
 namespace BonkMenu.Patches;
 
 /// <summary>
-/// Patches to fix the in-game HUD XP multiplier display to show uncapped values
+/// Shows uncapped XP multiplier in HUD by patching level text.
 /// </summary>
 public static class XpDisplayPatch
 {
-	[HarmonyPatch(typeof(XpBarUI), "SetLevelText")]
-	public static class XpBarUI_SetLevelText_Patch
+	    /// <summary>
+	    /// Postfix for XpBarUI.SetLevelText to replace capped multiplier.
+	    /// </summary>
+	    [HarmonyPatch(typeof(XpBarUI), "SetLevelText")]
+	    public static class XpBarUI_SetLevelText_Patch
 	{
-		public static void Postfix(XpBarUI __instance, int level)
+        /// <summary>
+        /// Rewrites the displayed multiplier using the actual uncapped value.
+        /// </summary>
+        public static void Postfix(XpBarUI __instance)
 		{
 			try
 			{
@@ -110,7 +116,10 @@ public static class XpDisplayPatch
 		}
 	}
 
-	public static void Apply(HarmonyLib.Harmony harmony)
+    /// <summary>
+    /// Applies the XpBarUI patches.
+    /// </summary>
+    public static void Apply(HarmonyLib.Harmony harmony)
 	{
 		try
 		{

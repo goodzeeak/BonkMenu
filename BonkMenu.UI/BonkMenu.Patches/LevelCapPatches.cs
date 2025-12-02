@@ -1,6 +1,5 @@
 using HarmonyLib;
 using Il2Cpp;
-using MelonLoader;
 using BonkMenu.Core;
 
 namespace BonkMenu.Patches;
@@ -8,11 +7,20 @@ namespace BonkMenu.Patches;
 /// <summary>
 /// Patches to override GetMaxLevel() for weapons and tomes to return int.MaxValue
 /// </summary>
+/// <summary>
+/// Overrides max level for weapons and tomes based on config and names.
+/// </summary>
 public static class LevelCapPatches
 {
+	/// <summary>
+	/// Patch class for WeaponData.GetMaxLevel returning int.MaxValue when enabled.
+	/// </summary>
 	[HarmonyPatch(typeof(WeaponData), nameof(WeaponData.GetMaxLevel))]
     public static class WeaponData_GetMaxLevel_Patch
     {
+        /// <summary>
+        /// Prefix that sets max level to int.MaxValue when unlimited levels or name-based override is enabled.
+        /// </summary>
         public static bool Prefix(Il2Cpp.WeaponData __instance, ref int __result)
         {
             if (ModConfig.UnlimitedWeaponLevels)
@@ -39,9 +47,15 @@ public static class LevelCapPatches
         }
     }
 
+	/// <summary>
+	/// Patch class for TomeData.GetMaxLevel returning int.MaxValue when enabled.
+	/// </summary>
 	[HarmonyPatch(typeof(TomeData), nameof(TomeData.GetMaxLevel))]
     public static class TomeData_GetMaxLevel_Patch
     {
+        /// <summary>
+        /// Prefix that sets max level to int.MaxValue when unlimited levels or name-based override is enabled.
+        /// </summary>
         public static bool Prefix(Il2Cpp.TomeData __instance, ref int __result)
         {
             if (ModConfig.UnlimitedTomeLevels)
@@ -67,6 +81,9 @@ public static class LevelCapPatches
         }
     }
 
+	/// <summary>
+	/// Applies patch classes for weapon and tome max level overrides.
+	/// </summary>
 	public static void Apply(HarmonyLib.Harmony harmony)
 	{
         try

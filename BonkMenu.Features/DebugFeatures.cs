@@ -1,19 +1,28 @@
-using System;
 using HarmonyLib;
 using MelonLoader;
-using UnityEngine;
 using Il2Cpp;
-using Il2CppAssets.Scripts.Inventory__Items__Pickups.Interactables;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// Debug helpers for logging interactable hover events.
+/// </summary>
 public static class DebugFeatures
 {
+    /// <summary>
+    /// When true, logs hovered interactables to the console.
+    /// </summary>
     public static bool EnableInteractableLogging = false;
 
+    /// <summary>
+    /// Logs interactable name and type when the player hovers over it.
+    /// </summary>
     [HarmonyPatch(typeof(BaseInteractable), "StartHover")]
     public static class BaseInteractable_StartHover_Patch
     {
+        /// <summary>
+        /// Postfix that outputs hover details when logging is enabled.
+        /// </summary>
         public static void Postfix(BaseInteractable __instance)
         {
             if (EnableInteractableLogging)

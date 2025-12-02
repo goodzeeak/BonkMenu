@@ -1,16 +1,20 @@
-using System;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Actors.Player;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.AbilitiesPassive;
 using BonkMenu.Core;
-using UnityEngine;
 using UniverseLib;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// Grants passive abilities to the player.
+/// </summary>
 public static class PassiveFeatures
 {
-	public static void GrantPassive(int passiveId, string passiveName)
+    /// <summary>
+    /// Grants a passive by id, initializing and tracking it.
+    /// </summary>
+    public static void GrantPassive(int passiveId, string passiveName)
 	{
 		//IL_00be: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00d8: Unknown result type (might be due to invalid IL or missing references)

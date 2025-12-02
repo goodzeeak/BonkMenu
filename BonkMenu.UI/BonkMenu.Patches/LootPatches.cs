@@ -1,4 +1,3 @@
-using System;
 using BonkMenu.Core;
 using HarmonyLib;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups;
@@ -9,11 +8,20 @@ using MelonLoader;
 
 namespace BonkMenu.Patches;
 
+/// <summary>
+/// Controls loot rarity outcomes for upgrades, items, and luck.
+/// </summary>
 public static class LootPatches
 {
+	/// <summary>
+	/// Patch class that forces upgrade offer rarity when configured.
+	/// </summary>
 	[HarmonyPatch(typeof(Rarity), "GetUpgradeOfferRarity")]
 	public static class Rarity_GetUpgradeOfferRarity_Patch
 	{
+		/// <summary>
+		/// Postfix that sets the offered upgrade rarity.
+		/// </summary>
 		public static void Postfix(ref ERarity __result)
 		{
 			//IL_0056: Unknown result type (might be due to invalid IL or missing references)
@@ -38,9 +46,15 @@ public static class LootPatches
 		}
 	}
 
+	/// <summary>
+	/// Patch class that forces item rarity when configured.
+	/// </summary>
 	[HarmonyPatch(typeof(Rarity), "GetItemRarity")]
 	public static class Rarity_GetItemRarity_Patch
 	{
+		/// <summary>
+		/// Postfix that sets the item rarity.
+		/// </summary>
 		public static void Postfix(ref EItemRarity __result)
 		{
 			//IL_0056: Unknown result type (might be due to invalid IL or missing references)
@@ -65,11 +79,15 @@ public static class LootPatches
 		}
 	}
 
+	/// <summary>
+	/// Patch class that sets max luck stat when enabled.
+	/// </summary>
 	[HarmonyPatch(typeof(PlayerStatsNew), "GetStat")]
 	public static class PlayerStatsNew_GetStat_Patch
 	{
-
-
+		/// <summary>
+		/// Postfix that sets luck to 100 when configured.
+		/// </summary>
 		public static void Postfix(EStat stat, ref float __result)
 		{
 			//IL_0009: Unknown result type (might be due to invalid IL or missing references)

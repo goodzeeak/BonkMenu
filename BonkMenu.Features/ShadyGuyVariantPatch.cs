@@ -1,23 +1,33 @@
 using System;
 using HarmonyLib;
-using Il2CppInterop.Runtime;
 using Il2CppInterop.Runtime.InteropTypes;
 using MelonLoader;
 using UnityEngine;
-using Il2CppAssets.Scripts.Inventory__Items__Pickups;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.Items;
 
 namespace BonkMenu.Patches;
 
+/// <summary>
+/// Forces Shady Guy rarity and visuals for upcoming spawns.
+/// </summary>
 public static class ShadyGuyVariantPatch
 {
     // Static flags to control shady merchant rarity
+    /// <summary>
+    /// Next rarity to apply (-1 none, 1 Rare, 2 Epic, 3 Legendary).
+    /// </summary>
     public static int SpawnNextRarity = -1; // -1 = none, 1 = Rare, 2 = Epic, 3 = Legendary
+    /// <summary>
+    /// Remaining count of merchants to modify.
+    /// </summary>
     public static int RarityMerchantsRemaining = 0;
     
     // Track which merchants we've modified
     private static System.Collections.Generic.HashSet<IntPtr> ModifiedMerchants = new System.Collections.Generic.HashSet<IntPtr>();
 
+    /// <summary>
+    /// Applies patches to InteractableShadyGuy Start/FindItems.
+    /// </summary>
     public static void Apply(HarmonyLib.Harmony harmony)
     {
         try

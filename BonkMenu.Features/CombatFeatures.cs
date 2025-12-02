@@ -10,9 +10,15 @@ using UnityEngine;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// Combat utilities for killing and spawning enemies.
+/// </summary>
 public static class CombatFeatures
 {
-	public static void KillAllEnemies()
+    /// <summary>
+    /// Kills all living enemies currently present.
+    /// </summary>
+    public static void KillAllEnemies()
 	{
 		MelonLogger.Msg("[KillAllEnemies] Starting enemy kill sequence");
 		try
@@ -58,7 +64,10 @@ public static class CombatFeatures
 		}
 	}
 
-	public static void SpawnEnemy()
+    /// <summary>
+    /// Spawns the test enemy near the player.
+    /// </summary>
+    public static void SpawnEnemy()
 	{
 		//IL_00a5: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00b9: Unknown result type (might be due to invalid IL or missing references)
@@ -105,7 +114,10 @@ public static class CombatFeatures
 		}
 	}
 
-	public static void SpawnSpecificEnemy(int enemyId)
+    /// <summary>
+    /// Spawns a specific enemy by numeric id near the player.
+    /// </summary>
+    public static void SpawnSpecificEnemy(int enemyId)
 	{
 		//IL_01a7: Unknown result type (might be due to invalid IL or missing references)
 		//IL_01bb: Unknown result type (might be due to invalid IL or missing references)

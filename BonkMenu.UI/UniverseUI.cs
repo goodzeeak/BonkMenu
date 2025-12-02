@@ -11,6 +11,9 @@ using UniverseLib.Input;
 
 namespace BonkMenu.UI;
 
+/// <summary>
+/// Provides the in-game BonkMenu UI panel and tabbed interface.
+/// </summary>
 public static class UniverseUI
 {
 	private static GameObject panelRoot;
@@ -37,7 +40,10 @@ public static class UniverseUI
 
 	private static Font _cachedFont;
 
-	public static void Initialize()
+    /// <summary>
+    /// Initializes UniverseLib and prepares the BonkMenu UI.
+    /// </summary>
+    public static void Initialize()
 	{
 		//IL_0132: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0138: Unknown result type (might be due to invalid IL or missing references)
@@ -87,7 +93,10 @@ public static class UniverseUI
 		}
 	}
 
-	public static void Toggle()
+    /// <summary>
+    /// Shows or hides the BonkMenu panel.
+    /// </summary>
+    public static void Toggle()
 	{
 		if ((Object)(object)panelRoot != (Object)null)
 		{
@@ -174,7 +183,10 @@ public static class UniverseUI
 		panelRoot.SetActive(false);
 	}
 
-	public static void Update()
+    /// <summary>
+    /// Handles per-frame UI interactions such as drag and input.
+    /// </summary>
+    public static void Update()
 	{
 		//IL_0027: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002c: Unknown result type (might be due to invalid IL or missing references)
@@ -496,7 +508,7 @@ public static class UniverseUI
 			{
 				continue;
 			}
-			Button component = tabButtons[i].GetComponent<Button>();
+            
 			Image component2 = tabButtons[i].GetComponent<Image>();
 			Transform obj = tabButtons[i].transform.Find("Text");
 			Text val = ((obj != null) ? ((Component)obj).GetComponent<Text>() : null);

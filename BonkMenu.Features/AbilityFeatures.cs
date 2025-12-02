@@ -1,14 +1,18 @@
-using System;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Actors.Player;
 using MelonLoader;
-using UnityEngine;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// Manages granting and removing active abilities.
+/// </summary>
 public static class AbilityFeatures
 {
-	public static void GrantAbility(int abilityId, string abilityName)
+    /// <summary>
+    /// Attempts to grant an ability by id.
+    /// </summary>
+    public static void GrantAbility(int abilityId, string abilityName)
 	{
 		MelonLogger.Msg($"[GrantAbility] Granting ability: {abilityName} (ID: {abilityId})");
 		try
@@ -42,7 +46,10 @@ public static class AbilityFeatures
 		}
 	}
 
-	public static void GrantAllAbilities()
+    /// <summary>
+    /// Attempts to grant all abilities.
+    /// </summary>
+    public static void GrantAllAbilities()
 	{
 		MelonLogger.Msg("[GrantAllAbilities] Starting grant all abilities");
 		try
@@ -58,7 +65,10 @@ public static class AbilityFeatures
 		}
 	}
 
-	public static void RemoveAbility(int abilityId)
+    /// <summary>
+    /// Attempts to remove an ability by id.
+    /// </summary>
+    public static void RemoveAbility(int abilityId)
 	{
 		MelonLogger.Msg($"[RemoveAbility] Removing ability ID: {abilityId}");
 		try

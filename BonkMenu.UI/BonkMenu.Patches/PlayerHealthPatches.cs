@@ -1,4 +1,3 @@
-using System;
 using BonkMenu.Core;
 using HarmonyLib;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups;
@@ -6,6 +5,9 @@ using MelonLoader;
 
 namespace BonkMenu.Patches;
 
+/// <summary>
+/// Implements God Mode and Infinite Health protections.
+/// </summary>
 [HarmonyPatch(typeof(PlayerHealth))]
 public class PlayerHealthPatches
 {
@@ -13,9 +15,12 @@ public class PlayerHealthPatches
 
 	private static bool _hasLoggedError;
 
-	[HarmonyPatch("DamagePlayer")]
-	[HarmonyPrefix]
-	public static bool DamagePlayer_Prefix(PlayerHealth __instance)
+    /// <summary>
+    /// Prevents incoming damage when enabled.
+    /// </summary>
+    [HarmonyPatch("DamagePlayer")]
+    [HarmonyPrefix]
+    public static bool DamagePlayer_Prefix()
 	{
 		try
 		{
@@ -37,9 +42,12 @@ public class PlayerHealthPatches
 		}
 	}
 
-	[HarmonyPatch("DamagePlayerExternal")]
-	[HarmonyPrefix]
-	public static bool DamagePlayerExternal_Prefix(PlayerHealth __instance)
+    /// <summary>
+    /// Prevents external damage sources when enabled.
+    /// </summary>
+    [HarmonyPatch("DamagePlayerExternal")]
+    [HarmonyPrefix]
+    public static bool DamagePlayerExternal_Prefix()
 	{
 		try
 		{
@@ -60,9 +68,12 @@ public class PlayerHealthPatches
 		}
 	}
 
-	[HarmonyPatch("KillPlayer")]
-	[HarmonyPrefix]
-	public static bool KillPlayer_Prefix(PlayerHealth __instance)
+    /// <summary>
+    /// Blocks player kill when protections are active.
+    /// </summary>
+    [HarmonyPatch("KillPlayer")]
+    [HarmonyPrefix]
+    public static bool KillPlayer_Prefix()
 	{
 		try
 		{
@@ -80,7 +91,10 @@ public class PlayerHealthPatches
 			return true;
 		}
 	}
-	public static void Apply(HarmonyLib.Harmony harmony)
+    /// <summary>
+    /// Applies patches on PlayerHealth API.
+    /// </summary>
+    public static void Apply(HarmonyLib.Harmony harmony)
 	{
 		try
 		{

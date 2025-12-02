@@ -1,28 +1,31 @@
-using System;
 using System.Collections.Generic;
 using BonkMenu.Core;
 using HarmonyLib;
-using Il2Cpp;
-using Il2CppAssets.Scripts.Actors.Player;
-using Il2CppAssets.Scripts.Inventory__Items__Pickups;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.Stats;
 using Il2CppAssets.Scripts.Menu.Shop;
-using Il2CppSystem;
 using MelonLoader;
-using UnityEngine;
 
 namespace BonkMenu.Patches;
 
+/// <summary>
+/// Modifies player stat calculations and clamps to support custom values.
+/// </summary>
 [HarmonyPatch(typeof(PlayerStatsNew))]
 public class StatsPatches
 {
 	private static bool _hasLoggedError;
 	
 	// Store custom stat values as OFFSETS from base values (public so XpPatches can access)
-	public static Dictionary<EStat, float> _customStatOffsets = new Dictionary<EStat, float>();
+    /// <summary>
+    /// Custom stat offsets applied on top of base values.
+    /// </summary>
+    public static Dictionary<EStat, float> _customStatOffsets = new Dictionary<EStat, float>();
 
 	// Public method to set a stat to an absolute value
-	public static void SetStatAbsolute(EStat stat, float value)
+    /// <summary>
+    /// Sets a stat to an absolute value by computing and storing its offset.
+    /// </summary>
+    public static void SetStatAbsolute(EStat stat, float value)
 	{
 		float baseValue = PlayerStatsNew.GetBaseValue(stat);
 		float offset = value - baseValue;
@@ -30,9 +33,12 @@ public class StatsPatches
 
 	}
 
-	[HarmonyPatch("GetStat")]
-	[HarmonyPostfix]
-	public static void GetStat_Postfix(PlayerStatsNew __instance, EStat stat, ref float __result)
+    /// <summary>
+    /// Postfix that applies custom offsets and special toggles to stat values.
+    /// </summary>
+    [HarmonyPatch("GetStat")]
+    [HarmonyPostfix]
+    public static void GetStat_Postfix(EStat stat, ref float __result)
 	{
 		//IL_0002: Unknown result type (might be due to invalid IL or missing references)
 		try
@@ -75,13 +81,17 @@ public class StatsPatches
 		}
 	}
 
-	[HarmonyPatch("CheckFinalValue")]
-	[HarmonyPrefix]
-	public static bool CheckFinalValue_Prefix(EStat stat, float value, ref float __result)
-	{
-		//IL_0000: Unknown result type (might be due to invalid IL or missing references)
-		try
-		{
+    /// <summary>
+    /// Prefix that bypasses clamping and returns the raw value.
+    /// </summary>
+    [HarmonyPatch("CheckFinalValue")]
+    [HarmonyPrefix]
+    public static bool CheckFinalValue_Prefix(EStat stat, float value, ref float __result)
+{
+    _ = stat;
+    //IL_0000: Unknown result type (might be due to invalid IL or missing references)
+    try
+    {
 			// Bypass clamping for ALL stats - let players go wild!
 			__result = value;
 			return false; // Skip original method - NO CAPS ON ANYTHING!
@@ -94,9 +104,12 @@ public class StatsPatches
 		return true; // Run original method only on error
 	}
 	
-	[HarmonyPatch("GetUnclampedStat")]
-	[HarmonyPostfix]
-	public static void GetUnclampedStat_Postfix(PlayerStatsNew __instance, EStat stat, ref float __result)
+    /// <summary>
+    /// Postfix that applies custom offsets to unclamped stat queries.
+    /// </summary>
+    [HarmonyPatch("GetUnclampedStat")]
+    [HarmonyPostfix]
+    public static void GetUnclampedStat_Postfix(EStat stat, ref float __result)
 	{
 		//IL_0002: Unknown result type (might be due to invalid IL or missing references)
 		try

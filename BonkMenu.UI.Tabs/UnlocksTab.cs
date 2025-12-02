@@ -4,9 +4,15 @@ using UnityEngine;
 
 namespace BonkMenu.UI.Tabs;
 
+/// <summary>
+/// Provides shortcuts for global and character unlocks.
+/// </summary>
 public static class UnlocksTab
 {
-	public static void Create(GameObject parent)
+    /// <summary>
+    /// Builds the Unlocks tab UI under the given parent.
+    /// </summary>
+    public static void Create(GameObject parent)
 	{
 		UIFactory.CreateSectionHeader("Global Unlocks", parent);
 		UIFactory.CreateButton("\ud83d\udd13 Unlock EVERYTHING", delegate

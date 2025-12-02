@@ -11,16 +11,28 @@ using UnityEngine;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// World spawning utilities for chests, shrines, pots, merchants, and microwaves.
+/// </summary>
 public static class WorldFeatures
 {
     // --- Spawning (Mirrored from BonkAdder) ---
 
     // Use prefab spawning for granular control
+    /// <summary>
+    /// Spawns standard chests using native placement.
+    /// </summary>
     public static void SpawnChests(int amount = 1) => SpawnSpecificInteractable("Chest", amount, "Chests");
 
     // Use prefab spawning for granular control
+    /// <summary>
+    /// Spawns free chests using native placement.
+    /// </summary>
     public static void SpawnFreeChests(int amount = 1) => SpawnSpecificInteractable("ChestFree", amount, "Free Chests");
 
+    /// <summary>
+    /// Triggers statue spawning via the game's SpawnInteractables.
+    /// </summary>
     public static void SpawnStatues(int times = 1)
     {
         SpawnInteractables spawner = Object.FindObjectOfType<SpawnInteractables>();
@@ -125,13 +137,34 @@ public static class WorldFeatures
         }
     }
 
+    /// <summary>
+    /// Spawns Challenge Shrines using native placement.
+    /// </summary>
     public static void SpawnChallengeShrines(int amount = 3) => SpawnSpecificInteractable("ChallengeShrine", amount, "Challenge Shrines");
+    /// <summary>
+    /// Spawns Cursed Shrines using native placement.
+    /// </summary>
     public static void SpawnCursedShrines(int amount = 3) => SpawnSpecificInteractable("CursedShrine", amount, "Cursed Shrines");
+    /// <summary>
+    /// Spawns Greed Shrines using native placement.
+    /// </summary>
     public static void SpawnGreedShrines(int amount = 3) => SpawnSpecificInteractable("GreedShrine", amount, "Greed Shrines");
+    /// <summary>
+    /// Spawns Magnet Shrines using native placement.
+    /// </summary>
     public static void SpawnMagnetShrines(int amount = 3) => SpawnSpecificInteractable("MagnetShrine", amount, "Magnet Shrines");
+    /// <summary>
+    /// Spawns Moai Shrines using native placement.
+    /// </summary>
     public static void SpawnMoaiShrines(int amount = 3) => SpawnSpecificInteractable("ShrineMaoi", amount, "Moai Shrines");
+    /// <summary>
+    /// Spawns Shady Merchant using native placement.
+    /// </summary>
     public static void SpawnShadyMerchant(int amount = 1) => SpawnSpecificInteractable("ShadyGuy", amount, "Shady Merchant");
     
+    /// <summary>
+    /// Logs spawnable objects and special prefabs in the current map.
+    /// </summary>
     public static void ListSpawnableObjects()
     {
         RandomObjectPlacer placer = Object.FindObjectOfType<RandomObjectPlacer>();
@@ -163,6 +196,9 @@ public static class WorldFeatures
 
 
     // Use prefab spawning for granular control
+    /// <summary>
+    /// Spawns Charge Shrines using template from RandomObjectPlacer.
+    /// </summary>
     public static void SpawnShrines(int amount = 6)
     {
         RandomObjectPlacer placer = Object.FindObjectOfType<RandomObjectPlacer>();
@@ -207,6 +243,9 @@ public static class WorldFeatures
     }
 
     // Gold Charge Shrines - Uses Harmony patch to convert shrines to golden during native spawn
+    /// <summary>
+    /// Spawns Charge Shrines and converts them to golden via Harmony.
+    /// </summary>
     public static void SpawnGoldShrines(int amount = 6)
     {
         RandomObjectPlacer placer = Object.FindObjectOfType<RandomObjectPlacer>();
@@ -260,6 +299,9 @@ public static class WorldFeatures
     }
 
     // Silver Pots - Spawns normal pots then modifies them to silver
+    /// <summary>
+    /// Spawns pots and converts newly spawned ones to silver.
+    /// </summary>
     public static void SpawnSilverPots(int amount = 5)
     {
         try
@@ -299,6 +341,9 @@ public static class WorldFeatures
     }
 
     // Big Pots (Microwaves) - Spawns normal microwaves then modifies them to big
+    /// <summary>
+    /// Spawns microwaves and converts newly spawned pots to big.
+    /// </summary>
     public static void SpawnBigPots(int amount = 5)
     {
         try
@@ -338,6 +383,9 @@ public static class WorldFeatures
     }
 
     // Shady Merchant Rare - Uses ShadyGuyVariantPatch
+    /// <summary>
+    /// Spawns Shady Merchant with Rare visual/rarity.
+    /// </summary>
     public static void SpawnShadyMerchantRare(int amount = 1)
     {
         try
@@ -358,6 +406,9 @@ public static class WorldFeatures
     }
 
     // Shady Merchant Epic - Uses ShadyGuyVariantPatch
+    /// <summary>
+    /// Spawns Shady Merchant with Epic visual/rarity.
+    /// </summary>
     public static void SpawnShadyMerchantEpic(int amount = 1)
     {
         try
@@ -378,6 +429,9 @@ public static class WorldFeatures
     }
 
     // Shady Merchant Legendary - Uses ShadyGuyVariantPatch
+    /// <summary>
+    /// Spawns Shady Merchant with Legendary visual/rarity.
+    /// </summary>
     public static void SpawnShadyMerchantLegendary(int amount = 1)
     {
         try
@@ -397,6 +451,9 @@ public static class WorldFeatures
         }
     }
 
+    /// <summary>
+    /// Spawns standard pots; adds silver variant if prefab is found.
+    /// </summary>
     public static void SpawnPots(int amountMultiplier = 1)
     {
         RandomObjectPlacer placer = Object.FindObjectOfType<RandomObjectPlacer>();
@@ -507,6 +564,9 @@ public static class WorldFeatures
         }
     }
 
+    /// <summary>
+    /// Spawns microwave interactables with multiplier on amount.
+    /// </summary>
     public static void SpawnMicrowaves(int amountMultiplier = 1)
     {
         RandomObjectPlacer placer = Object.FindObjectOfType<RandomObjectPlacer>();
@@ -567,6 +627,9 @@ public static class WorldFeatures
 
 
 
+    /// <summary>
+    /// Spawns Greed Altars by configuring matching random map objects.
+    /// </summary>
     public static void SpawnGreedAltars(int amount = 3)
     {
         RandomObjectPlacer placer = Object.FindObjectOfType<RandomObjectPlacer>();

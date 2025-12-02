@@ -1,17 +1,21 @@
-using System;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Actors.Player;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups;
 using Il2CppAssets.Scripts._Data.Tomes;
 using MelonLoader;
-using UnityEngine;
 using Il2CppSystem.Collections.Generic;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// Grants and maximizes tomes for the player.
+/// </summary>
 public static class TomeFeatures
 {
-	public static void GrantTome(int tomeId, string tomeName)
+    /// <summary>
+    /// Grants a specific tome to the player at level 1.
+    /// </summary>
+    public static void GrantTome(int tomeId, string tomeName)
 	{
 		//IL_0108: Unknown result type (might be due to invalid IL or missing references)
 		//IL_010c: Unknown result type (might be due to invalid IL or missing references)
@@ -77,7 +81,10 @@ public static class TomeFeatures
 		}
 	}
 
-	public static void GrantAllTomes()
+    /// <summary>
+    /// Grants all available tomes to the player.
+    /// </summary>
+    public static void GrantAllTomes()
 	{
 		MelonLogger.Msg("[GrantAllTomes] Granting all 27 tomes (maxed)");
 		try
@@ -106,7 +113,10 @@ public static class TomeFeatures
 		}
 	}
 
-	public static void MaxAllTomes()
+    /// <summary>
+    /// Maxes all currently owned tomes.
+    /// </summary>
+    public static void MaxAllTomes()
 	{
 		MelonLogger.Msg("[MaxAllTomes] Maxing currently owned tomes...");
 		try

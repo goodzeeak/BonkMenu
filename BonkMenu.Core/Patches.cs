@@ -1,14 +1,16 @@
-using System;
-using HarmonyLib;
-using MelonLoader;
-
 namespace BonkMenu.Core;
 
+/// <summary>
+/// Coordinates application of Harmony patches across BonkMenu modules.
+/// </summary>
 public static class Patches
 {
 	private static HarmonyLib.Harmony _harmonyInstance;
 
-	public static void Apply()
+    /// <summary>
+    /// Applies all Harmony patches and logs status.
+    /// </summary>
+    public static void Apply()
 	{
 		try
 		{
@@ -26,7 +28,7 @@ public static class Patches
             BonkMenu.Patches.GoldenShrinePatch.Apply(_harmonyInstance);
 
 			// Apply pot variant patch
-            BonkMenu.Patches.PotVariantPatch.Apply(_harmonyInstance);
+            BonkMenu.Patches.PotVariantPatch.Apply();
 
 			// Apply shady guy variant patch
             BonkMenu.Patches.ShadyGuyVariantPatch.Apply(_harmonyInstance);

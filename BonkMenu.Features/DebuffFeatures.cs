@@ -1,17 +1,21 @@
-using System;
 using Il2CppAssets.Scripts.Actors;
 using Il2CppAssets.Scripts.Actors.Enemies;
 using Il2CppAssets.Scripts.Game.Combat.EnemyDebuffs;
 using Il2CppAssets.Scripts.Managers;
 using Il2CppSystem.Collections.Generic;
 using MelonLoader;
-using UnityEngine;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// Applies and clears debuffs on enemies.
+/// </summary>
 public static class DebuffFeatures
 {
-	public static void ApplyDebuff(int debuffId, string debuffName)
+    /// <summary>
+    /// Applies a debuff by id to all living enemies.
+    /// </summary>
+    public static void ApplyDebuff(int debuffId, string debuffName)
 	{
 		//IL_00fc: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0154: Unknown result type (might be due to invalid IL or missing references)
@@ -74,7 +78,10 @@ public static class DebuffFeatures
 		}
 	}
 
-	public static void RemoveAllDebuffs()
+    /// <summary>
+    /// Clears all debuffs from living enemies.
+    /// </summary>
+    public static void RemoveAllDebuffs()
 	{
 		MelonLogger.Msg("[RemoveAllDebuffs] Clearing all debuffs from enemies");
 		try

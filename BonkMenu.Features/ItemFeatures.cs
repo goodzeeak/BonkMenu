@@ -1,15 +1,19 @@
-using System;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Actors.Player;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.Items;
 using MelonLoader;
-using UnityEngine;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// Grants items to the player and bulk-grants all items.
+/// </summary>
 public static class ItemFeatures
 {
-	public static void GrantItem(int itemId, string itemName)
+    /// <summary>
+    /// Grants a specific item by id to the player.
+    /// </summary>
+    public static void GrantItem(int itemId, string itemName)
 	{
 		//IL_00e2: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00fc: Unknown result type (might be due to invalid IL or missing references)
@@ -53,7 +57,10 @@ public static class ItemFeatures
 		}
 	}
 
-	public static void GrantAllItems()
+    /// <summary>
+    /// Grants all items to the player.
+    /// </summary>
+    public static void GrantAllItems()
 	{
 		//IL_00a9: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00ac: Unknown result type (might be due to invalid IL or missing references)

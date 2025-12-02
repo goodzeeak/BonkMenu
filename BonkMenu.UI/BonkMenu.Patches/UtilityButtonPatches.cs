@@ -1,13 +1,14 @@
-using System;
 using BonkMenu.Core;
 using HarmonyLib;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Actors.Player;
 using MelonLoader;
-using UnityEngine;
 
 namespace BonkMenu.Patches;
 
+/// <summary>
+/// Ensures utility shop buttons respect InfiniteRefreshes.
+/// </summary>
 [HarmonyPatch(typeof(MyButtonOffersUtility))]
 public class UtilityButtonPatches
 {
@@ -15,9 +16,12 @@ public class UtilityButtonPatches
 
 	private static bool _hasLoggedError;
 
-	[HarmonyPatch("SetAmount")]
-	[HarmonyPostfix]
-	public static void SetAmount_Postfix(MyButtonOffersUtility __instance)
+    /// <summary>
+    /// Postfix that resets utility limits and grants resources.
+    /// </summary>
+    [HarmonyPatch("SetAmount")]
+    [HarmonyPostfix]
+    public static void SetAmount_Postfix(MyButtonOffersUtility __instance)
 	{
 		try
 		{
@@ -55,9 +59,12 @@ public class UtilityButtonPatches
 		}
 	}
 
-	[HarmonyPatch("OnClick")]
-	[HarmonyPrefix]
-	public static bool OnClick_Prefix(MyButtonOffersUtility __instance)
+    /// <summary>
+    /// Prefix that tops up refreshes/banishes/skips on click.
+    /// </summary>
+    [HarmonyPatch("OnClick")]
+    [HarmonyPrefix]
+    public static bool OnClick_Prefix()
 	{
 		try
 		{

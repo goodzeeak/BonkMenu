@@ -1,4 +1,3 @@
-using System;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Managers;
 using Il2CppAssets.Scripts.Saves___Serialization.Progression;
@@ -6,20 +5,28 @@ using Il2CppAssets.Scripts.Saves___Serialization.Progression.Achievements;
 using Il2CppAssets.Scripts.Saves___Serialization.SaveFiles;
 using Il2CppSystem.Collections.Generic;
 using MelonLoader;
-using UnityEngine;
 using UniverseLib;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// Unlocks characters, skins, maps, and all unlockables.
+/// </summary>
 public static class UnlockFeatures
 {
-	public static void UnlockAllCharacters()
+    /// <summary>
+    /// Unlocks all characters.
+    /// </summary>
+    public static void UnlockAllCharacters()
 	{
 		MelonLogger.Msg("[UnlockAllCharacters] Starting unlock all characters");
 		UnlockAll<UnlockableBase>("characters");
 	}
 
-	public static void UnlockAllSkins()
+    /// <summary>
+    /// Unlocks all skins.
+    /// </summary>
+    public static void UnlockAllSkins()
 	{
 		MelonLogger.Msg("[UnlockAllSkins] Starting unlock all skins");
 		try
@@ -98,7 +105,10 @@ public static class UnlockFeatures
 		}
 	}
 
-	public static void MaxRankAllCharacters()
+    /// <summary>
+    /// Sets maximum rank XP for all characters.
+    /// </summary>
+    public static void MaxRankAllCharacters()
 	{
 		//IL_0112: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0161: Unknown result type (might be due to invalid IL or missing references)
@@ -172,13 +182,19 @@ public static class UnlockFeatures
 		}
 	}
 
-	public static void UnlockAllMaps()
+    /// <summary>
+    /// Unlocks all maps.
+    /// </summary>
+    public static void UnlockAllMaps()
 	{
 		MelonLogger.Msg("[UnlockAllMaps] Starting unlock all maps");
 		UnlockAll<MapData>("maps");
 	}
 
-	public static void UnlockEverything()
+    /// <summary>
+    /// Unlocks every unlockable item and claims achievements.
+    /// </summary>
+    public static void UnlockEverything()
 	{
 		MelonLogger.Msg("[UnlockEverything] Starting unlock everything");
 		try

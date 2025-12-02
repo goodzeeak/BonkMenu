@@ -1,5 +1,4 @@
 global using Object = UnityEngine.Object;
-global using Random = UnityEngine.Random;
 global using Exception = System.Exception;
 global using Delegate = System.Delegate;
 global using Type = System.Type;

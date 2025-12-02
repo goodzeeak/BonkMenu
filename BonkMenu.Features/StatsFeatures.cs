@@ -1,4 +1,3 @@
-using System;
 using BonkMenu.Core;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Actors.Player;
@@ -6,15 +5,20 @@ using Il2CppAssets.Scripts.Inventory__Items__Pickups.Stats;
 using Il2CppAssets.Scripts.Menu.Shop;
 using Il2CppSystem.Collections.Generic;
 using MelonLoader;
-using UnityEngine;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// Runtime stat helpers for toggles and direct manipulation.
+/// </summary>
 public static class StatsFeatures
 {
 	private static bool _hasLoggedUpdateError;
 
-	public static void Update()
+    /// <summary>
+    /// Applies runtime toggles (e.g., infinite jumps, free purchases).
+    /// </summary>
+    public static void Update()
 	{
 		try
 		{
@@ -62,7 +66,10 @@ public static class StatsFeatures
 		}
 	}
 
-	public static void SetStat(EStat stat, float value)
+    /// <summary>
+    /// Sets a player stat value.
+    /// </summary>
+    public static void SetStat(EStat stat, float value)
 	{
 		//IL_001a: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00fb: Unknown result type (might be due to invalid IL or missing references)
@@ -113,7 +120,10 @@ public static class StatsFeatures
 		}
 	}
 
-	public static float GetStat(EStat stat)
+    /// <summary>
+    /// Gets a player stat value, or 0 if unavailable.
+    /// </summary>
+    public static float GetStat(EStat stat)
 	{
 		//IL_0072: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003c: Unknown result type (might be due to invalid IL or missing references)

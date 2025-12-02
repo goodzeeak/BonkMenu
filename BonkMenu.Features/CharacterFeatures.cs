@@ -1,11 +1,16 @@
-using System;
 using MelonLoader;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// Controls character unlocks and bulk unlocking.
+/// </summary>
 public static class CharacterFeatures
 {
-	public static void UnlockCharacter(int characterId, string characterName)
+    /// <summary>
+    /// Attempts to unlock a character by id.
+    /// </summary>
+    public static void UnlockCharacter(int characterId, string characterName)
 	{
 		MelonLogger.Msg($"[UnlockCharacter] Unlocking: {characterName} (ID: {characterId})");
 		try
@@ -21,7 +26,10 @@ public static class CharacterFeatures
 		}
 	}
 
-	public static void UnlockAllCharacters()
+    /// <summary>
+    /// Attempts to unlock all characters.
+    /// </summary>
+    public static void UnlockAllCharacters()
 	{
 		MelonLogger.Msg("[UnlockAllCharacters] Starting unlock all characters");
 		try

@@ -1,17 +1,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using Il2Cpp;
-using Il2CppAssets.Scripts.Actors.Player;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.AbilitiesPassive;
 using BonkMenu.Core;
 
 namespace BonkMenu.Features;
 
+/// <summary>
+/// Manages multiple passive abilities per player inventory.
+/// </summary>
 public static class MultiPassiveManager
 {
 	private static Dictionary<PlayerInventory, List<PassiveAbility>> multiPassives = new Dictionary<PlayerInventory, List<PassiveAbility>>();
 
-	public static List<PassiveAbility> GetPassives(PlayerInventory inventory)
+    /// <summary>
+    /// Gets the passive list associated with the inventory.
+    /// </summary>
+    public static List<PassiveAbility> GetPassives(PlayerInventory inventory)
 	{
 		if (inventory == null)
 		{
@@ -26,6 +31,9 @@ public static class MultiPassiveManager
 		return multiPassives[inventory];
 	}
 
+    /// <summary>
+    /// Adds a passive to the inventory if not already present.
+    /// </summary>
     public static void AddPassive(PlayerInventory inventory, PassiveAbility passive)
     {
         if (inventory == null || passive == null)
@@ -55,7 +63,10 @@ public static class MultiPassiveManager
         Log.Info($"[MultiPassiveManager] Added passive {passive.GetPassiveType()}. Total passives: {passives.Count}");
     }
 
-	public static void RemovePassive(PlayerInventory inventory, PassiveAbility passive)
+    /// <summary>
+    /// Removes a passive from the inventory.
+    /// </summary>
+    public static void RemovePassive(PlayerInventory inventory, PassiveAbility passive)
 	{
 		if (inventory == null || passive == null)
 		{
@@ -67,7 +78,10 @@ public static class MultiPassiveManager
         Log.Info($"[MultiPassiveManager] Removed passive. Total passives: {passives.Count}");
     }
 
-	public static void ClearPassives(PlayerInventory inventory)
+    /// <summary>
+    /// Clears and removes all passives for the inventory.
+    /// </summary>
+    public static void ClearPassives(PlayerInventory inventory)
 	{
 		if (inventory == null)
 		{
@@ -83,7 +97,10 @@ public static class MultiPassiveManager
         }
     }
 
-	public static bool HasPassive(PlayerInventory inventory, EPassive ePassive)
+    /// <summary>
+    /// Returns true if the inventory has a passive of the given type.
+    /// </summary>
+    public static bool HasPassive(PlayerInventory inventory, EPassive ePassive)
 	{
 		var passives = GetPassives(inventory);
 		return passives.Any(p => p != null && p.GetPassiveType() == ePassive);
