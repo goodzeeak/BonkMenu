@@ -57,11 +57,11 @@ public static class UniverseUI
 			},
 			delegate(GameObject root)
 			{
-				UnlocksTab.Create(GetContent(root));
+				LootTab.Create(GetContent(root));
 			},
 			delegate(GameObject root)
 			{
-				LootTab.Create(GetContent(root));
+				UnlocksTab.Create(GetContent(root));
 			},
 			delegate(GameObject root)
 			{
@@ -373,7 +373,7 @@ public static class UniverseUI
 		val5.top = 2;
 		val5.bottom = 2;
 		((LayoutGroup)val4).padding = val5;
-		string[] array = new string[6] { "Player", "Combat", "Items", "Unlocks", "Loot & Spawns", "About" };
+		string[] array = new string[6] { "Player", "Combat", "Items", "Loot & Spawns", "Unlocks", "About" };
 		for (int i = 0; i < array.Length; i++)
 		{
 			GameObject val6 = new GameObject("Tab_" + array[i]);
