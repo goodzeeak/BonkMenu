@@ -12,3 +12,5 @@ Bugs&Features.md
 megabonk_split_dump/
 cpp2il_dump/
 Cpp2IL-*/
+.editorconfig
+.vscode
