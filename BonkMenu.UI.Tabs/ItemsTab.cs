@@ -1,7 +1,9 @@
 using BonkMenu.Features;
 using BonkMenu.UI.Components;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.Pickups;
+using Il2CppAssets.Scripts._Data.Tomes;
 using UnityEngine;
+using Il2Cpp;
 
 namespace BonkMenu.UI.Tabs;
 
@@ -172,13 +174,35 @@ public static class ItemsTab
         {
             var originalId = wMap[selectedUnlimitedWeaponIndex];
             var name = weapons[originalId];
+            string canonical = name;
+            var dm = DataManager.Instance;
+            if ((Object)(object)dm != (Object)null)
+            {
+                var w = dm.GetWeapon((EWeapon)originalId);
+                if (w != null && w.name != null)
+                {
+                    canonical = w.name;
+                }
+            }
             BonkMenu.Core.ModConfig.EnableUnlimitedForWeapon(name);
+            BonkMenu.Core.ModConfig.EnableUnlimitedForWeapon(canonical);
         }, parent);
         UIFactory.CreateButton("Disable for Selected Weapon", () =>
         {
             var originalId = wMap[selectedUnlimitedWeaponIndex];
             var name = weapons[originalId];
+            string canonical = name;
+            var dm = DataManager.Instance;
+            if ((Object)(object)dm != (Object)null)
+            {
+                var w = dm.GetWeapon((EWeapon)originalId);
+                if (w != null && w.name != null)
+                {
+                    canonical = w.name;
+                }
+            }
             BonkMenu.Core.ModConfig.DisableUnlimitedForWeapon(name);
+            BonkMenu.Core.ModConfig.DisableUnlimitedForWeapon(canonical);
         }, parent);
 
         UIFactory.CreateSpacer(8, parent);
@@ -191,13 +215,35 @@ public static class ItemsTab
         {
             var originalId = tMap[selectedUnlimitedTomeIndex];
             var name = tomes[originalId];
+            string canonical = name;
+            var dm = DataManager.Instance;
+            if ((Object)(object)dm != (Object)null)
+            {
+                var t = dm.GetTome((ETome)originalId);
+                if (t != null && t.name != null)
+                {
+                    canonical = t.name;
+                }
+            }
             BonkMenu.Core.ModConfig.EnableUnlimitedForTome(name);
+            BonkMenu.Core.ModConfig.EnableUnlimitedForTome(canonical);
         }, parent);
         UIFactory.CreateButton("Disable for Selected Tome", () =>
         {
             var originalId = tMap[selectedUnlimitedTomeIndex];
             var name = tomes[originalId];
+            string canonical = name;
+            var dm = DataManager.Instance;
+            if ((Object)(object)dm != (Object)null)
+            {
+                var t = dm.GetTome((ETome)originalId);
+                if (t != null && t.name != null)
+                {
+                    canonical = t.name;
+                }
+            }
             BonkMenu.Core.ModConfig.DisableUnlimitedForTome(name);
+            BonkMenu.Core.ModConfig.DisableUnlimitedForTome(canonical);
         }, parent);
     }
 

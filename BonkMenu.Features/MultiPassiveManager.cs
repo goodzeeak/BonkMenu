@@ -3,6 +3,7 @@ using System.Linq;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.AbilitiesPassive;
 using BonkMenu.Core;
+using HarmonyLib;
 
 namespace BonkMenu.Features;
 
@@ -42,13 +43,14 @@ public static class MultiPassiveManager
         }
 
         var passives = GetPassives(inventory);
-        
-        // Check if already have this passive type
-        var existingPassive = passives.FirstOrDefault(p => p.GetPassiveType() == passive.GetPassiveType());
-        if (existingPassive != null)
+        var existing = passives.FirstOrDefault(p => p.GetPassiveType() == passive.GetPassiveType());
+        if (existing != null)
         {
-            Log.Info($"[MultiPassiveManager] Player already has passive {passive.GetPassiveType()}, skipping");
-            return;
+            if (TryLevelUpPassive(existing))
+            {
+                Log.Info($"[MultiPassiveManager] Leveled passive {existing.GetPassiveType()}");
+                return;
+            }
         }
 
         passives.Add(passive);
@@ -61,6 +63,71 @@ public static class MultiPassiveManager
             Log.Warn($"[MultiPassiveManager] Error initializing passive {passive.GetPassiveType()}: {ex.Message}");
         }
         Log.Info($"[MultiPassiveManager] Added passive {passive.GetPassiveType()}. Total passives: {passives.Count}");
+    }
+
+    private static bool TryLevelUpPassive(PassiveAbility passive)
+    {
+        try
+        {
+            var t = passive.GetType();
+            var names = new string[] { "LevelUp", "IncreaseLevel", "AddLevel", "Upgrade", "IncrementLevel" };
+            foreach (var n in names)
+            {
+                var m = AccessTools.Method(t, n);
+                if (m != null && m.GetParameters().Length == 0)
+                {
+                    m.Invoke(passive, null);
+                    InvokeIfExists(passive, new string[] { "OnLevelChanged", "ApplyLevel", "RecalculateStats", "Refresh" });
+                    return true;
+                }
+            }
+
+            var p = AccessTools.Property(t, "level") ?? AccessTools.Property(t, "Level");
+            if (p != null)
+            {
+                var cur = p.GetValue(passive);
+                if (cur is int ci)
+                {
+                    p.SetValue(passive, ci + 1);
+                    InvokeIfExists(passive, new string[] { "OnLevelChanged", "ApplyLevel", "RecalculateStats", "Refresh" });
+                    return true;
+                }
+            }
+
+            var f = AccessTools.Field(t, "level") ?? AccessTools.Field(t, "Level");
+            if (f != null)
+            {
+                var cur = f.GetValue(passive);
+                if (cur is int ci)
+                {
+                    f.SetValue(passive, ci + 1);
+                    InvokeIfExists(passive, new string[] { "OnLevelChanged", "ApplyLevel", "RecalculateStats", "Refresh" });
+                    return true;
+                }
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Log.Warn($"[MultiPassiveManager] TryLevelUpPassive error: {ex.Message}");
+        }
+        return false;
+    }
+
+    private static void InvokeIfExists(PassiveAbility passive, string[] methodNames)
+    {
+        var t = passive.GetType();
+        foreach (var n in methodNames)
+        {
+            try
+            {
+                var m = AccessTools.Method(t, n);
+                if (m != null && m.GetParameters().Length == 0)
+                {
+                    m.Invoke(passive, null);
+                }
+            }
+            catch { }
+        }
     }
 
     /// <summary>

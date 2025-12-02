@@ -187,7 +187,7 @@ public static class UniverseUI
     /// Handles per-frame UI interactions such as drag and input.
     /// </summary>
     public static void Update()
-	{
+    {
 		//IL_0027: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002c: Unknown result type (might be due to invalid IL or missing references)
 		//IL_004a: Unknown result type (might be due to invalid IL or missing references)
@@ -203,31 +203,36 @@ public static class UniverseUI
 		//IL_00b8: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00c3: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00c4: Unknown result type (might be due to invalid IL or missing references)
-		if ((Object)(object)panelRoot == (Object)null || !panelRoot.activeSelf)
-		{
-			return;
-		}
-		Vector3 mousePosition = InputManager.MousePosition;
-		if (InputManager.GetMouseButtonDown(0))
-		{
-			if ((Object)(object)headerRect != (Object)null && RectTransformUtility.RectangleContainsScreenPoint(headerRect, (Vector2)mousePosition, (Camera)null))
-			{
-				isDragging = true;
-				lastMousePos = mousePosition;
-			}
-		}
-		else if (InputManager.GetMouseButtonUp(0))
-		{
-			isDragging = false;
-		}
-		if (isDragging && (Object)(object)panelRect != (Object)null)
-		{
-			Vector3 val = mousePosition - lastMousePos;
-			RectTransform obj = panelRect;
-			((Transform)obj).position = ((Transform)obj).position + val;
-			lastMousePos = mousePosition;
-		}
-	}
+        if ((Object)(object)panelRoot == (Object)null || !panelRoot.activeSelf)
+        {
+            return;
+        }
+        Vector3 mousePosition = InputManager.MousePosition;
+        if (InputManager.GetMouseButtonDown(0))
+        {
+            if ((Object)(object)headerRect != (Object)null && RectTransformUtility.RectangleContainsScreenPoint(headerRect, (Vector2)mousePosition, (Camera)null))
+            {
+                isDragging = true;
+                lastMousePos = mousePosition;
+            }
+        }
+        else if (InputManager.GetMouseButtonUp(0))
+        {
+            isDragging = false;
+        }
+        if (isDragging && (Object)(object)panelRect != (Object)null)
+        {
+            Vector3 val = mousePosition - lastMousePos;
+            RectTransform obj = panelRect;
+            ((Transform)obj).position = ((Transform)obj).position + val;
+            lastMousePos = mousePosition;
+        }
+    }
+
+    internal static bool IsOpen()
+    {
+        return (UnityEngine.Object)(object)panelRoot != (UnityEngine.Object)null && panelRoot.activeSelf;
+    }
 
 	private static Font GetFont()
 	{

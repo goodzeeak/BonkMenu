@@ -36,8 +36,9 @@ public static class LevelCapPatches
                 {
                     name = __instance.name;
                 }
-                if (!string.IsNullOrEmpty(name) && BonkMenu.Core.ModConfig.UnlimitedWeaponNames.Contains(name))
+                if (!string.IsNullOrEmpty(name) && (BonkMenu.Core.ModConfig.UnlimitedWeaponNames.Contains(name) || BonkMenu.Core.ModConfig.UnlimitedWeaponNamesNorm.Contains(BonkMenu.Core.ModConfig.NormalizeKey(name))))
                 {
+                    BonkMenu.Core.Log.Info($"[LevelCapPatches] Name override for weapon '{name}' -> int.MaxValue");
                     __result = int.MaxValue;
                     return false;
                 }
@@ -70,8 +71,9 @@ public static class LevelCapPatches
                 {
                     name = __instance.name;
                 }
-                if (!string.IsNullOrEmpty(name) && BonkMenu.Core.ModConfig.UnlimitedTomeNames.Contains(name))
+                if (!string.IsNullOrEmpty(name) && (BonkMenu.Core.ModConfig.UnlimitedTomeNames.Contains(name) || BonkMenu.Core.ModConfig.UnlimitedTomeNamesNorm.Contains(BonkMenu.Core.ModConfig.NormalizeKey(name))))
                 {
+                    BonkMenu.Core.Log.Info($"[LevelCapPatches] Name override for tome '{name}' -> int.MaxValue");
                     __result = int.MaxValue;
                     return false;
                 }
@@ -84,8 +86,8 @@ public static class LevelCapPatches
 	/// <summary>
 	/// Applies patch classes for weapon and tome max level overrides.
 	/// </summary>
-	public static void Apply(HarmonyLib.Harmony harmony)
-	{
+    public static void Apply(HarmonyLib.Harmony harmony)
+    {
         try
         {
             harmony.PatchAll(typeof(WeaponData_GetMaxLevel_Patch));
@@ -105,5 +107,7 @@ public static class LevelCapPatches
         {
             BonkMenu.Core.Log.Error($"[LevelCapPatches] Failed to patch TomeData.GetMaxLevel: {ex.Message}");
         }
-	}
+
+        
+    }
 }

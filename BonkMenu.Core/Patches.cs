@@ -21,8 +21,7 @@ public static class Patches
 			// Apply level cap patches
             BonkMenu.Patches.LevelCapPatches.Apply(_harmonyInstance);
 
-			// Apply XP display patch
-            BonkMenu.Patches.XpDisplayPatch.Apply(_harmonyInstance);
+            
 
 			// Apply golden shrine patch
             BonkMenu.Patches.GoldenShrinePatch.Apply(_harmonyInstance);

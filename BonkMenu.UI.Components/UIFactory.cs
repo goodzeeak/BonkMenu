@@ -319,7 +319,7 @@ public static class UIFactory
     /// <summary>
     /// Creates a checkbox-like toggle with a label.
     /// </summary>
-    public static void CreateCircularToggle(string label, bool initialValue, Action<bool> onChange, GameObject parent)
+	public static void CreateCircularToggle(string label, bool initialValue, Action<bool> onChange, GameObject parent)
 	{
 		//IL_000c: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0012: Expected O, but got Unknown
@@ -355,31 +355,39 @@ public static class UIFactory
 		val5.bottom = 5;
 		((LayoutGroup)val4).padding = val5;
 		((HorizontalOrVerticalLayoutGroup)val4).spacing = 15f;
-		((HorizontalOrVerticalLayoutGroup)val4).childControlWidth = false;
+		((HorizontalOrVerticalLayoutGroup)val4).childControlWidth = true;
 		((LayoutGroup)val4).childAlignment = (TextAnchor)3;
-		GameObject val6 = new GameObject("Checkbox");
-		val6.transform.SetParent(val.transform, false);
-		RectTransform val7 = val6.AddComponent<RectTransform>();
-		val7.sizeDelta = new Vector2(24f, 24f);
-		Image val8 = val6.AddComponent<Image>();
-		((Graphic)val8).color = new Color(0.05f, 0.05f, 0.1f, 1f);
-		Toggle val9 = val6.AddComponent<Toggle>();
+        GameObject val6 = new GameObject("Checkbox");
+        val6.transform.SetParent(val.transform, false);
+        RectTransform val7 = val6.AddComponent<RectTransform>();
+        val7.sizeDelta = new Vector2(28f, 28f);
+        var le6 = val6.AddComponent<LayoutElement>();
+        le6.minWidth = 28f; le6.minHeight = 28f; le6.preferredWidth = 28f; le6.preferredHeight = 28f; le6.flexibleWidth = 0f; le6.flexibleHeight = 0f;
+        var ar6 = val6.AddComponent<AspectRatioFitter>();
+        ar6.aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth;
+        ar6.aspectRatio = 1f;
+        Image val8 = val6.AddComponent<Image>();
+        ((Graphic)val8).color = new Color(0.05f, 0.05f, 0.1f, 1f);
+        Toggle val9 = val6.AddComponent<Toggle>();
 		val9.isOn = initialValue;
 		((Selectable)val9).targetGraphic = (Graphic)(object)val8;
 		((UnityEvent<bool>)(object)val9.onValueChanged).AddListener((UnityAction<bool>)onChange);
 		GameObject val10 = new GameObject("Checkmark");
 		val10.transform.SetParent(val6.transform, false);
-		RectTransform val11 = val10.AddComponent<RectTransform>();
-		val11.anchorMin = Vector2.zero;
-		val11.anchorMax = Vector2.one;
-		val11.sizeDelta = new Vector2(-6f, -6f);
+        RectTransform val11 = val10.AddComponent<RectTransform>();
+        val11.anchorMin = Vector2.zero;
+        val11.anchorMax = Vector2.one;
+        val11.sizeDelta = new Vector2(-6f, -6f);
+        var ar10 = val10.AddComponent<AspectRatioFitter>();
+        ar10.aspectMode = AspectRatioFitter.AspectMode.FitInParent;
+        ar10.aspectRatio = 1f;
 		Image val12 = val10.AddComponent<Image>();
 		((Graphic)val12).color = ColorAccent;
 		val9.graphic = (Graphic)(object)val12;
 		GameObject val13 = new GameObject("Label");
 		val13.transform.SetParent(val.transform, false);
 		RectTransform val14 = val13.AddComponent<RectTransform>();
-		val14.sizeDelta = new Vector2(300f, 25f);
+		val14.sizeDelta = new Vector2(0f, 25f);
 		Text val15 = val13.AddComponent<Text>();
 		val15.text = label;
 		val15.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
@@ -387,6 +395,86 @@ public static class UIFactory
 		val15.fontStyle = (FontStyle)1;
 		((Graphic)val15).color = ColorTextMain;
 		val15.alignment = (TextAnchor)3;
+		LayoutElement labelLE = val13.AddComponent<LayoutElement>();
+		labelLE.flexibleWidth = 1f;
+	}
+
+	public static void CreateSquareToggleTile(string label, string icon, bool initialValue, Action<bool> onChange, GameObject parent)
+	{
+		GameObject root = new GameObject("ToggleTile_" + label);
+		root.transform.SetParent(parent.transform, false);
+		RectTransform rt = root.AddComponent<RectTransform>();
+		rt.sizeDelta = new Vector2(100f, 100f);
+		LayoutElement le = root.AddComponent<LayoutElement>();
+		le.preferredWidth = 100f;
+		le.preferredHeight = 100f;
+		le.flexibleWidth = 0f;
+		le.flexibleHeight = 0f;
+		Image bg = root.AddComponent<Image>();
+		((Graphic)bg).color = ColorBgLighter;
+		Toggle tg = root.AddComponent<Toggle>();
+		tg.isOn = initialValue;
+		((Selectable)tg).targetGraphic = (Graphic)(object)bg;
+		((UnityEvent<bool>)(object)tg.onValueChanged).AddListener((UnityAction<bool>)onChange);
+		ColorBlock cb = ((Selectable)tg).colors;
+		cb.normalColor = ColorBgLighter;
+		cb.highlightedColor = new Color(0.25f, 0.25f, 0.35f, 1f);
+		cb.pressedColor = new Color(0.1f, 0.1f, 0.15f, 1f);
+		cb.selectedColor = cb.normalColor;
+		cb.colorMultiplier = 1f;
+		cb.fadeDuration = 0.1f;
+		RuntimeHelper.SetColorBlock((Selectable)(object)tg, cb);
+		Outline outline = root.AddComponent<Outline>();
+		((Shadow)outline).effectColor = new Color(0f, 0f, 0f, 0.5f);
+		((Shadow)outline).effectDistance = new Vector2(1f, -1f);
+		VerticalLayoutGroup vlg = root.AddComponent<VerticalLayoutGroup>();
+		RectOffset pad = new RectOffset();
+		pad.left = 8; pad.right = 8; pad.top = 8; pad.bottom = 8;
+		((LayoutGroup)vlg).padding = pad;
+		((HorizontalOrVerticalLayoutGroup)vlg).spacing = 6f;
+		((HorizontalOrVerticalLayoutGroup)vlg).childControlWidth = true;
+		((HorizontalOrVerticalLayoutGroup)vlg).childControlHeight = true;
+		((HorizontalOrVerticalLayoutGroup)vlg).childForceExpandWidth = true;
+		((HorizontalOrVerticalLayoutGroup)vlg).childForceExpandHeight = false;
+		((LayoutGroup)vlg).childAlignment = (TextAnchor)4;
+		GameObject iconGO = new GameObject("Icon");
+		iconGO.transform.SetParent(root.transform, false);
+		RectTransform iconRT = iconGO.AddComponent<RectTransform>();
+		iconRT.sizeDelta = new Vector2(0f, 32f);
+		Text iconTxt = iconGO.AddComponent<Text>();
+		iconTxt.text = icon ?? string.Empty;
+		iconTxt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+		iconTxt.fontSize = 24;
+		((Graphic)iconTxt).color = ColorAccent;
+		iconTxt.alignment = (TextAnchor)4;
+		GameObject labelGO = new GameObject("Label");
+		labelGO.transform.SetParent(root.transform, false);
+		RectTransform lrt = labelGO.AddComponent<RectTransform>();
+		lrt.sizeDelta = new Vector2(0f, 22f);
+		Text ltxt = labelGO.AddComponent<Text>();
+		ltxt.text = label;
+		ltxt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+		ltxt.fontSize = 14;
+		ltxt.fontStyle = (FontStyle)1;
+		((Graphic)ltxt).color = ColorTextMain;
+		ltxt.alignment = (TextAnchor)4;
+		LayoutElement lle = labelGO.AddComponent<LayoutElement>();
+		lle.flexibleWidth = 1f;
+		GameObject checkGO = new GameObject("Checkmark");
+		checkGO.transform.SetParent(root.transform, false);
+		RectTransform crt2 = checkGO.AddComponent<RectTransform>();
+		crt2.anchorMin = Vector2.zero;
+		crt2.anchorMax = Vector2.one;
+		crt2.sizeDelta = new Vector2(-12f, -12f);
+		Text checkTxt = checkGO.AddComponent<Text>();
+		checkTxt.text = "✓";
+		checkTxt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+		checkTxt.fontSize = 28;
+		((Graphic)checkTxt).color = ColorAccent;
+		checkTxt.alignment = (TextAnchor)4;
+		LayoutElement cle = checkGO.AddComponent<LayoutElement>();
+		cle.ignoreLayout = true;
+		tg.graphic = (Graphic)(object)checkTxt;
 	}
 
     /// <summary>
@@ -802,26 +890,31 @@ public static class UIFactory
     /// <summary>
     /// Sets a toggle control to the given value by label.
     /// </summary>
-    public static void SetToggleState(string label, bool value)
-    {
-        var roots = UniverseLib.RuntimeHelper.FindObjectsOfTypeAll<GameObject>();
-        for (int i = 0; i < roots.Length; i++)
-        {
-            var go = roots[i];
-            if (go != null && go.name == ("Toggle_" + label))
-            {
-                var checkbox = go.transform.Find("Checkbox");
-                if ((UnityEngine.Object)checkbox != (UnityEngine.Object)null)
-                {
-                    var tg = checkbox.GetComponent<Toggle>();
-                    if ((UnityEngine.Object)tg != (UnityEngine.Object)null)
-                    {
-                        tg.isOn = value;
-                    }
-                }
-            }
-        }
-    }
+	public static void SetToggleState(string label, bool value)
+	{
+		var roots = UniverseLib.RuntimeHelper.FindObjectsOfTypeAll<GameObject>();
+		for (int i = 0; i < roots.Length; i++)
+		{
+			var go = roots[i];
+			if (go != null && (go.name == ("Toggle_" + label) || go.name == ("ToggleTile_" + label)))
+			{
+				Toggle tg = null;
+				var checkbox = go.transform.Find("Checkbox");
+				if ((UnityEngine.Object)checkbox != (UnityEngine.Object)null)
+				{
+					tg = checkbox.GetComponent<Toggle>();
+				}
+				if ((UnityEngine.Object)tg == (UnityEngine.Object)null)
+				{
+					tg = go.GetComponent<Toggle>();
+				}
+				if ((UnityEngine.Object)tg != (UnityEngine.Object)null)
+				{
+					tg.isOn = value;
+				}
+			}
+		}
+	}
 
     /// <summary>
     /// Creates a scrollable tab content root.

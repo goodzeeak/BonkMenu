@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BonkMenu.Core;
 
@@ -75,6 +76,16 @@ public static class ModConfig
     /// Names of tomes with unlimited levels enabled.
     /// </summary>
     public static HashSet<string> UnlimitedTomeNames { get; } = new HashSet<string>(System.StringComparer.OrdinalIgnoreCase);
+
+    public static HashSet<string> UnlimitedWeaponNamesNorm { get; } = new HashSet<string>();
+    public static HashSet<string> UnlimitedTomeNamesNorm { get; } = new HashSet<string>();
+
+    public static string NormalizeKey(string s)
+    {
+        if (string.IsNullOrWhiteSpace(s)) return string.Empty;
+        var arr = s.Where(char.IsLetterOrDigit).Select(char.ToLowerInvariant).ToArray();
+        return new string(arr);
+    }
 
     /// <summary>
     /// When true, uses uncapped XP multiplier in UI and systems.
@@ -195,6 +206,7 @@ public static class ModConfig
         if (!string.IsNullOrWhiteSpace(weaponName))
         {
             UnlimitedWeaponNames.Add(weaponName);
+            UnlimitedWeaponNamesNorm.Add(NormalizeKey(weaponName));
             Log.Info($"Unlimited Levels enabled for weapon '{weaponName}'");
         }
     }
@@ -207,6 +219,7 @@ public static class ModConfig
         if (!string.IsNullOrWhiteSpace(weaponName))
         {
             UnlimitedWeaponNames.Remove(weaponName);
+            UnlimitedWeaponNamesNorm.Remove(NormalizeKey(weaponName));
             Log.Info($"Unlimited Levels disabled for weapon '{weaponName}'");
         }
     }
@@ -219,6 +232,7 @@ public static class ModConfig
         if (!string.IsNullOrWhiteSpace(tomeName))
         {
             UnlimitedTomeNames.Add(tomeName);
+            UnlimitedTomeNamesNorm.Add(NormalizeKey(tomeName));
             Log.Info($"Unlimited Levels enabled for tome '{tomeName}'");
         }
     }
@@ -231,6 +245,7 @@ public static class ModConfig
         if (!string.IsNullOrWhiteSpace(tomeName))
         {
             UnlimitedTomeNames.Remove(tomeName);
+            UnlimitedTomeNamesNorm.Remove(NormalizeKey(tomeName));
             Log.Info($"Unlimited Levels disabled for tome '{tomeName}'");
         }
     }

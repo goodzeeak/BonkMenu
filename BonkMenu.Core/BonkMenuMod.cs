@@ -10,6 +10,8 @@ using Il2CppSystem.Collections.Generic;
 using MelonLoader;
 using UnityEngine;
 using UniverseLib.Input;
+using System.Reflection;
+using HarmonyLib;
 
 namespace BonkMenu.Core;
 
@@ -36,6 +38,14 @@ public class BonkMenuMod : MelonMod
     private bool _uiInitialized = false;
     private bool _hasModifiedXpMultiplier = false;
     private bool _pendingXpUncap = false;
+    private Type _playerXpTypeCached;
+    private FieldInfo _xpCapFieldCached;
+    private PropertyInfo _xpCapPropCached;
+    private object _xpInstanceCached;
+    private Type _xpInstanceTypeCached;
+    private FieldInfo _xpInstanceCapFieldCached;
+    private PropertyInfo _xpInstanceCapPropCached;
+    private float _nextXpScanTime = 0f;
     private static readonly System.Collections.Generic.Dictionary<KeyCode, float> _nextSpawnTime = new System.Collections.Generic.Dictionary<KeyCode, float>();
     private const float SpawnRepeatInterval = 0.2f;
     private static readonly System.Collections.Generic.HashSet<KeyCode> _handledKeys = new System.Collections.Generic.HashSet<KeyCode>();
@@ -85,28 +95,9 @@ public class BonkMenuMod : MelonMod
 
         if ((ModConfig.UnlimitedXp || _pendingXpUncap) && !_hasModifiedXpMultiplier && sceneName == "GeneratedMap")
         {
-            try 
-            { 
-                System.Type playerXpType = null;
-                foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
-                {
-                    try { playerXpType = asm.GetTypes().FirstOrDefault(x => x.Name == "PlayerXp"); if (playerXpType != null) break; } catch { }
-                }
-                if (playerXpType != null) 
-                { 
-                    var prop = playerXpType.GetProperty("maxXpMultiplier", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public); 
-                    if (prop != null) 
-                    { 
-                        prop.SetValue(null, 99999f); 
-                        Log.Info("✅ XP MULT UNCAPPED!"); 
-                        _hasModifiedXpMultiplier = true; 
-                        _pendingXpUncap = false;
-                    } 
-                } 
-            } 
-            catch { }
+            TryUncapXpMultiplier();
         }
-	}
+    }
 	
 
     /// <summary>
@@ -143,22 +134,23 @@ public class BonkMenuMod : MelonMod
 			UniverseUI.Initialize();
 			_uiInitialized = true;
 		}
-        UniverseUI.Update();
-        StatsFeatures.Update();
+		UniverseUI.Update();
+		StatsFeatures.Update();
         BonkMenu.UI.Components.UIFactory.TickToasts();
         _handledKeys.Clear();
-		if (InputManager.GetKeyDown(KeybindConfig.ToggleMenuKey))
-		{
-			UniverseUI.Toggle();
-		}
+        if (InputManager.GetKeyDown(KeybindConfig.ToggleMenuKey))
+        {
+            UniverseUI.Toggle();
+        }
+        bool menuOpen = BonkMenu.UI.UniverseUI.IsOpen();
 
-		if (InputManager.GetKeyDown(KeybindConfig.ToggleGodModeKey))
-		{
-			ModConfig.ToggleGodMode();
+        if (!menuOpen && InputManager.GetKeyDown(KeybindConfig.ToggleGodModeKey))
+        {
+            ModConfig.ToggleGodMode();
             BonkMenu.UI.Components.UIFactory.ShowToast("God Mode: " + (ModConfig.GodMode ? "ON" : "OFF"));
-		}
+        }
 
-        if (InputManager.GetKeyDown(KeybindConfig.ToggleUnlimitedXpKey))
+        if (!menuOpen && InputManager.GetKeyDown(KeybindConfig.ToggleUnlimitedXpKey))
         {
             ModConfig.ToggleUnlimitedXp();
             BonkMenu.UI.Components.UIFactory.ShowToast("Unlimited XP: " + (ModConfig.UnlimitedXp ? "ON" : "OFF"));
@@ -173,22 +165,35 @@ public class BonkMenuMod : MelonMod
             }
         }
 
-        HandleSpawnHold(KeybindConfig.SpawnChestsKey, () => WorldFeatures.SpawnChests(1), "Chest");
-        HandleSpawnHold(KeybindConfig.SpawnFreeChestsKey, () => WorldFeatures.SpawnFreeChests(1), "Free Chest");
-        HandleSpawnHold(KeybindConfig.SpawnChallengeShrinesKey, () => WorldFeatures.SpawnChallengeShrines(1), "Challenge Shrine");
-        HandleSpawnHold(KeybindConfig.SpawnCursedShrinesKey, () => WorldFeatures.SpawnCursedShrines(1), "Cursed Shrine");
-        HandleSpawnHold(KeybindConfig.SpawnGreedAltarsKey, () => WorldFeatures.SpawnGreedAltars(1), "Greed Altar");
-        HandleSpawnHold(KeybindConfig.SpawnGreedShrinesKey, () => WorldFeatures.SpawnGreedShrines(1), "Greed Shrine");
-        HandleSpawnHold(KeybindConfig.SpawnMagnetShrinesKey, () => WorldFeatures.SpawnMagnetShrines(1), "Magnet Shrine");
-        HandleSpawnHold(KeybindConfig.SpawnMoaiShrinesKey, () => WorldFeatures.SpawnMoaiShrines(1), "Moai Shrine");
-        HandleSpawnHold(KeybindConfig.SpawnChargeShrinesKey, () => WorldFeatures.SpawnShrines(1), "Charge Shrine");
-        HandleSpawnHold(KeybindConfig.SpawnGoldChargeShrinesKey, () => WorldFeatures.SpawnGoldShrines(1), "Gold Shrine");
-        HandleSpawnHold(KeybindConfig.SpawnPotsKey, () => WorldFeatures.SpawnPots(1), "Pots");
-        HandleSpawnHold(KeybindConfig.SpawnMicrowavesKey, () => WorldFeatures.SpawnMicrowaves(1), "Microwaves");
-        HandleSpawnHold(KeybindConfig.SpawnShadyMerchantKey, () => WorldFeatures.SpawnShadyMerchant(1), "Merchant");
-        HandleSpawnHold(KeybindConfig.SpawnShadyMerchantRareKey, () => WorldFeatures.SpawnShadyMerchantRare(1), "Merchant (Rare)");
-        HandleSpawnHold(KeybindConfig.SpawnShadyMerchantEpicKey, () => WorldFeatures.SpawnShadyMerchantEpic(1), "Merchant (Epic)");
-        HandleSpawnHold(KeybindConfig.SpawnShadyMerchantLegendaryKey, () => WorldFeatures.SpawnShadyMerchantLegendary(1), "Merchant (Legendary)");
+        if (ModConfig.UnlimitedXp)
+        {
+            ApplyCachedUncap();
+            if (!_hasModifiedXpMultiplier && Time.unscaledTime >= _nextXpScanTime)
+            {
+                _nextXpScanTime = Time.unscaledTime + 1.5f;
+                TryUncapXpMultiplier();
+            }
+        }
+
+        if (!menuOpen)
+        {
+            HandleSpawnHold(KeybindConfig.SpawnChestsKey, () => WorldFeatures.SpawnChests(1), "Chest");
+            HandleSpawnHold(KeybindConfig.SpawnFreeChestsKey, () => WorldFeatures.SpawnFreeChests(1), "Free Chest");
+            HandleSpawnHold(KeybindConfig.SpawnChallengeShrinesKey, () => WorldFeatures.SpawnChallengeShrines(1), "Challenge Shrine");
+            HandleSpawnHold(KeybindConfig.SpawnCursedShrinesKey, () => WorldFeatures.SpawnCursedShrines(1), "Cursed Shrine");
+            HandleSpawnHold(KeybindConfig.SpawnGreedAltarsKey, () => WorldFeatures.SpawnGreedAltars(1), "Greed Altar");
+            HandleSpawnHold(KeybindConfig.SpawnGreedShrinesKey, () => WorldFeatures.SpawnGreedShrines(1), "Greed Shrine");
+            HandleSpawnHold(KeybindConfig.SpawnMagnetShrinesKey, () => WorldFeatures.SpawnMagnetShrines(1), "Magnet Shrine");
+            HandleSpawnHold(KeybindConfig.SpawnMoaiShrinesKey, () => WorldFeatures.SpawnMoaiShrines(1), "Moai Shrine");
+            HandleSpawnHold(KeybindConfig.SpawnChargeShrinesKey, () => WorldFeatures.SpawnShrines(1), "Charge Shrine");
+            HandleSpawnHold(KeybindConfig.SpawnGoldChargeShrinesKey, () => WorldFeatures.SpawnGoldShrines(1), "Gold Shrine");
+            HandleSpawnHold(KeybindConfig.SpawnPotsKey, () => WorldFeatures.SpawnPots(1), "Pots");
+            HandleSpawnHold(KeybindConfig.SpawnMicrowavesKey, () => WorldFeatures.SpawnMicrowaves(1), "Microwaves");
+            HandleSpawnHold(KeybindConfig.SpawnShadyMerchantKey, () => WorldFeatures.SpawnShadyMerchant(1), "Merchant");
+            HandleSpawnHold(KeybindConfig.SpawnShadyMerchantRareKey, () => WorldFeatures.SpawnShadyMerchantRare(1), "Merchant (Rare)");
+            HandleSpawnHold(KeybindConfig.SpawnShadyMerchantEpicKey, () => WorldFeatures.SpawnShadyMerchantEpic(1), "Merchant (Epic)");
+            HandleSpawnHold(KeybindConfig.SpawnShadyMerchantLegendaryKey, () => WorldFeatures.SpawnShadyMerchantLegendary(1), "Merchant (Legendary)");
+        }
 
 		if (ModConfig.InfiniteRefreshes)
 		{
@@ -275,6 +280,181 @@ public class BonkMenuMod : MelonMod
 		catch
 		{
 		}
+    }
+
+    private void TryUncapXpMultiplier()
+    {
+        try
+        {
+            if (_playerXpTypeCached == null)
+            {
+                foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
+                {
+                    try
+                    {
+                        _playerXpTypeCached = asm.GetTypes().FirstOrDefault(x => x.Name == "PlayerXp" || x.FullName?.EndsWith("PlayerXp") == true);
+                        if (_playerXpTypeCached != null) break;
+                    }
+                    catch { }
+                }
+            }
+            if (_playerXpTypeCached == null) return;
+
+            if (_xpCapFieldCached == null && _xpCapPropCached == null)
+            {
+                var names = new string[] { "maxXpMultiplier", "MaxXpMultiplier", "xpMultiplierCap", "XpMultiplierCap" };
+                foreach (var n in names)
+                {
+                    _xpCapFieldCached = _playerXpTypeCached.GetField(n, BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+                    if (_xpCapFieldCached != null) break;
+                    _xpCapPropCached = _playerXpTypeCached.GetProperty(n, BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+                    if (_xpCapPropCached != null && _xpCapPropCached.CanWrite) break;
+                }
+            }
+            if (_xpCapFieldCached != null)
+            {
+                if (_xpCapFieldCached.FieldType == typeof(float)) _xpCapFieldCached.SetValue(null, 99999f);
+                else if (_xpCapFieldCached.FieldType == typeof(int)) _xpCapFieldCached.SetValue(null, 99999);
+                if (!_hasModifiedXpMultiplier) Log.Info("✅ XP MULT UNCAPPED!");
+                _hasModifiedXpMultiplier = true;
+                _pendingXpUncap = false;
+                return;
+            }
+            if (_xpCapPropCached != null)
+            {
+                if (_xpCapPropCached.PropertyType == typeof(float)) _xpCapPropCached.SetValue(null, 99999f);
+                else if (_xpCapPropCached.PropertyType == typeof(int)) _xpCapPropCached.SetValue(null, 99999);
+                if (!_hasModifiedXpMultiplier) Log.Info("✅ XP MULT UNCAPPED!");
+                _hasModifiedXpMultiplier = true;
+                _pendingXpUncap = false;
+                return;
+            }
+
+            var gm = GameManager.Instance;
+            if ((UnityEngine.Object)(object)gm != (UnityEngine.Object)null && (UnityEngine.Object)(object)gm.player != (UnityEngine.Object)null)
+            {
+                var inv = gm.player.inventory;
+                if (inv != null)
+                {
+                    if (_xpInstanceCached == null)
+                    {
+                        var invType = inv.GetType();
+                        var fields = invType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                        for (int i = 0; i < fields.Length; i++)
+                        {
+                            var f = fields[i];
+                            var v = f.GetValue(inv);
+                            if (v == null) continue;
+                            var t2 = v.GetType();
+                            var name2 = t2.Name;
+                            if (name2 != null && name2.IndexOf("xp", StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                _xpInstanceCached = v;
+                                _xpInstanceTypeCached = t2;
+                                break;
+                            }
+                        }
+                    }
+                    if (_xpInstanceCached != null && _xpInstanceCapFieldCached == null && _xpInstanceCapPropCached == null)
+                    {
+                        var fnames = new string[] { "maxXpMultiplier", "MaxXpMultiplier", "xpMultiplierCap", "XpMultiplierCap" };
+                        for (int j = 0; j < fnames.Length; j++)
+                        {
+                            _xpInstanceCapFieldCached = AccessTools.Field(_xpInstanceTypeCached, fnames[j]);
+                            if (_xpInstanceCapFieldCached != null) break;
+                            _xpInstanceCapPropCached = AccessTools.Property(_xpInstanceTypeCached, fnames[j]);
+                            if (_xpInstanceCapPropCached != null && _xpInstanceCapPropCached.CanWrite) break;
+                        }
+                    }
+                    if (_xpInstanceCached != null)
+                    {
+                        if (_xpInstanceCapFieldCached != null)
+                        {
+                            if (_xpInstanceCapFieldCached.FieldType == typeof(float)) _xpInstanceCapFieldCached.SetValue(_xpInstanceCached, 99999f);
+                            else if (_xpInstanceCapFieldCached.FieldType == typeof(int)) _xpInstanceCapFieldCached.SetValue(_xpInstanceCached, 99999);
+                            if (!_hasModifiedXpMultiplier) Log.Info("✅ XP MULT UNCAPPED!");
+                            _hasModifiedXpMultiplier = true;
+                            _pendingXpUncap = false;
+                            return;
+                        }
+                        if (_xpInstanceCapPropCached != null)
+                        {
+                            if (_xpInstanceCapPropCached.PropertyType == typeof(float)) _xpInstanceCapPropCached.SetValue(_xpInstanceCached, 99999f, null);
+                            else if (_xpInstanceCapPropCached.PropertyType == typeof(int)) _xpInstanceCapPropCached.SetValue(_xpInstanceCached, 99999, null);
+                            if (!_hasModifiedXpMultiplier) Log.Info("✅ XP MULT UNCAPPED!");
+                            _hasModifiedXpMultiplier = true;
+                            _pendingXpUncap = false;
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+        catch { }
+    }
+
+    private void ApplyCachedUncap()
+    {
+        try
+        {
+            if (_xpCapFieldCached != null)
+            {
+                if (_xpCapFieldCached.FieldType == typeof(float))
+                {
+                    var cur = (float)(_xpCapFieldCached.GetValue(null) ?? 0f);
+                    if (cur < 99999f) _xpCapFieldCached.SetValue(null, 99999f);
+                }
+                else if (_xpCapFieldCached.FieldType == typeof(int))
+                {
+                    var cur = (int)(_xpCapFieldCached.GetValue(null) ?? 0);
+                    if (cur < 99999) _xpCapFieldCached.SetValue(null, 99999);
+                }
+            }
+            else if (_xpCapPropCached != null)
+            {
+                if (_xpCapPropCached.PropertyType == typeof(float))
+                {
+                    var cur = (float)(_xpCapPropCached.GetValue(null) ?? 0f);
+                    if (cur < 99999f) _xpCapPropCached.SetValue(null, 99999f);
+                }
+                else if (_xpCapPropCached.PropertyType == typeof(int))
+                {
+                    var cur = (int)(_xpCapPropCached.GetValue(null) ?? 0);
+                    if (cur < 99999) _xpCapPropCached.SetValue(null, 99999);
+                }
+            }
+
+            if (_xpInstanceCached != null)
+            {
+                if (_xpInstanceCapFieldCached != null)
+                {
+                    if (_xpInstanceCapFieldCached.FieldType == typeof(float))
+                    {
+                        var cur = (float)(_xpInstanceCapFieldCached.GetValue(_xpInstanceCached) ?? 0f);
+                        if (cur < 99999f) _xpInstanceCapFieldCached.SetValue(_xpInstanceCached, 99999f);
+                    }
+                    else if (_xpInstanceCapFieldCached.FieldType == typeof(int))
+                    {
+                        var cur = (int)(_xpInstanceCapFieldCached.GetValue(_xpInstanceCached) ?? 0);
+                        if (cur < 99999) _xpInstanceCapFieldCached.SetValue(_xpInstanceCached, 99999);
+                    }
+                }
+                else if (_xpInstanceCapPropCached != null)
+                {
+                    if (_xpInstanceCapPropCached.PropertyType == typeof(float))
+                    {
+                        var cur = (float)(_xpInstanceCapPropCached.GetValue(_xpInstanceCached) ?? 0f);
+                        if (cur < 99999f) _xpInstanceCapPropCached.SetValue(_xpInstanceCached, 99999f, null);
+                    }
+                    else if (_xpInstanceCapPropCached.PropertyType == typeof(int))
+                    {
+                        var cur = (int)(_xpInstanceCapPropCached.GetValue(_xpInstanceCached) ?? 0);
+                        if (cur < 99999) _xpInstanceCapPropCached.SetValue(_xpInstanceCached, 99999, null);
+                    }
+                }
+            }
+        }
+        catch { }
     }
 
     

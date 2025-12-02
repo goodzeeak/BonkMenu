@@ -3,6 +3,7 @@ using BonkMenu.Features;
 using BonkMenu.UI.Components;
 using Il2CppAssets.Scripts.Menu.Shop;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BonkMenu.UI.Tabs;
 
@@ -27,41 +28,54 @@ public static class PlayerTab
 
 	private static void CreateToggles(GameObject parent)
 	{
+		GameObject grid = new GameObject("ToggleGrid");
+		grid.transform.SetParent(parent.transform, false);
+		RectTransform grt = grid.AddComponent<RectTransform>();
+		grt.sizeDelta = new Vector2(0f, 0f);
+		GridLayoutGroup glg = grid.AddComponent<GridLayoutGroup>();
+		glg.cellSize = new Vector2(283f, 38f);
+		glg.spacing = new Vector2(10f, 8f);
+		glg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+		glg.constraintCount = 2;
+		ContentSizeFitter fit = grid.AddComponent<ContentSizeFitter>();
+		fit.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+		LayoutElement gle = grid.AddComponent<LayoutElement>();
+		gle.flexibleWidth = 1f;
 		UIFactory.CreateCircularToggle("\ud83d\udee1\ufe0f God Mode", ModConfig.GodMode, delegate(bool value)
 		{
 			if (value != ModConfig.GodMode)
 			{
 				ModConfig.ToggleGodMode();
 			}
-		}, parent);
+		}, grid);
 		UIFactory.CreateCircularToggle("Infinite Health", ModConfig.InfiniteHealth, delegate(bool value)
 		{
 			if (value != ModConfig.InfiniteHealth)
 			{
 				ModConfig.ToggleInfiniteHealth();
 			}
-		}, parent);
+		}, grid);
 		UIFactory.CreateCircularToggle("Infinite Rerolls", ModConfig.InfiniteRefreshes, delegate(bool value)
 		{
 			if (value != ModConfig.InfiniteRefreshes)
 			{
 				ModConfig.ToggleInfiniteRefreshes();
 			}
-		}, parent);
+		}, grid);
 		UIFactory.CreateCircularToggle("No Cooldowns", ModConfig.NoCooldowns, delegate(bool value)
 		{
 			if (value != ModConfig.NoCooldowns)
 			{
 				ModConfig.ToggleNoCooldowns();
 			}
-		}, parent);
-		UIFactory.CreateCircularToggle("∞ Unlimited XP", ModConfig.UnlimitedXp, delegate(bool value)
+		}, grid);
+		UIFactory.CreateCircularToggle("\u221e Unlimited XP", ModConfig.UnlimitedXp, delegate(bool value)
 		{
 			if (value != ModConfig.UnlimitedXp)
 			{
 				ModConfig.ToggleUnlimitedXp();
 			}
-		}, parent);
+		}, grid);
 	}
 
 	private static void CreateUtilities(GameObject parent)
@@ -210,4 +224,3 @@ public static class PlayerTab
 		}, parent);
 	}
 }
-

@@ -17,21 +17,19 @@ public static class PassiveInventoryPatches
     /// <summary>
     /// Prefix that resolves multi-passive state against the inventory.
     /// </summary>
-    [HarmonyPrefix]
+    [HarmonyPostfix]
     [HarmonyPatch(typeof(PlayerInventory), nameof(PlayerInventory.HasPassive))]
-    public static bool HasPassive_Prefix(PlayerInventory __instance, EPassive passive, ref bool __result)
-	{
-		try
-		{
-			__result = MultiPassiveManager.HasPassive(__instance, passive);
-			return false; // Skip original method
-		}
-		catch (Exception ex)
-		{
-			MelonLogger.Error($"[BonkMenu] PassiveInventoryPatches.HasPassive error: {ex.Message}");
-			return true; // Let original run on error
-		}
-	}
+    public static void HasPassive_Postfix(PlayerInventory __instance, EPassive passive, ref bool __result)
+    {
+        try
+        {
+            __result = __result || MultiPassiveManager.HasPassive(__instance, passive);
+        }
+        catch (Exception ex)
+        {
+            MelonLogger.Error($"[BonkMenu] PassiveInventoryPatches.HasPassive error: {ex.Message}");
+        }
+    }
 
 	// Patch Update to update all active passives
     /// <summary>
@@ -43,18 +41,18 @@ public static class PassiveInventoryPatches
 	{
 		try
 		{
-			var passives = MultiPassiveManager.GetPassives(__instance);
-			foreach (var passive in passives.Where(p => p != null))
-			{
-				try
-				{
-					passive.Tick();
-				}
-				catch (Exception ex)
-				{
-					MelonLogger.Warning($"[BonkMenu] PassiveInventoryPatches passive update error: {ex.Message}");
-				}
-			}
+            var passives = MultiPassiveManager.GetPassives(__instance);
+            foreach (var passive in passives.Where(p => p != null).GroupBy(p => p.GetPassiveType()).Select(g => g.First()))
+            {
+                try
+                {
+                    passive.Tick();
+                }
+                catch (Exception ex)
+                {
+                    MelonLogger.Warning($"[BonkMenu] PassiveInventoryPatches passive update error: {ex.Message}");
+                }
+            }
 		}
 		catch (Exception ex)
 		{
@@ -62,34 +60,6 @@ public static class PassiveInventoryPatches
 		}
 	}
 
-	// Patch PhysicsTick to physics-update all active passives  
-    /// <summary>
-    /// Postfix that performs physics ticks for passives when appropriate.
-    /// </summary>
-    [HarmonyPostfix]
-    [HarmonyPatch(typeof(PlayerInventory), nameof(PlayerInventory.PhysicsTick))]
-    public static void PhysicsTick_Postfix(PlayerInventory __instance)
-	{
-		try
-		{
-			var passives = MultiPassiveManager.GetPassives(__instance);
-			foreach (var passive in passives.Where(p => p != null))
-			{
-				try
-				{
-					passive.Tick(); // PassiveAbility has Tick(), not PhysicsTick
-				}
-				catch (Exception ex)
-				{
-					MelonLogger.Warning($"[BonkMenu] PassiveInventoryPatches PhysicsTick error: {ex.Message}");
-				}
-			}
-		}
-		catch (Exception ex)
-		{
-			MelonLogger.Error($"[BonkMenu] PassiveInventoryPatches.PhysicsTick error: {ex.Message}");
-		}
-	}
 
 	// Patch Cleanup to clean up all passives
     /// <summary>

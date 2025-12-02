@@ -1,8 +1,10 @@
 using Il2Cpp;
+using System.Collections.Generic;
 using Il2CppAssets.Scripts.Actors.Player;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.AbilitiesPassive;
 using BonkMenu.Core;
 using UniverseLib;
+using HarmonyLib;
 
 namespace BonkMenu.Features;
 
@@ -11,6 +13,7 @@ namespace BonkMenu.Features;
 /// </summary>
 public static class PassiveFeatures
 {
+    private static Dictionary<EPassive, PassiveData> _passiveCache;
     /// <summary>
     /// Grants a passive by id, initializing and tracking it.
     /// </summary>
@@ -36,54 +39,46 @@ public static class PassiveFeatures
                 Log.Error("[GrantPassive] Player is null!");
 				return;
 			}
-			PlayerInventory inventory = player.inventory;
+            PlayerInventory inventory = player.inventory;
 			if (inventory == null)
 			{
                 Log.Error("[GrantPassive] Player inventory is null!");
 				return;
 			}
-			EPassive val = (EPassive)passiveId;
+            EPassive val = (EPassive)passiveId;
             Log.Info($"[GrantPassive] Passive enum value: {val}");
-			// Removed HasPassive check to allow multiple passives
-            Log.Info("[GrantPassive] Searching for PassiveData");
-			PassiveData[] array = RuntimeHelper.FindObjectsOfTypeAll<PassiveData>();
-			if (array == null)
-			{
-                Log.Error("[GrantPassive] FindObjectsOfTypeAll returned null!");
-				return;
-			}
-            Log.Info($"[GrantPassive] Found {array.Length} total PassiveData objects");
-			PassiveData val2 = null;
-			PassiveData[] array2 = array;
-			foreach (PassiveData val3 in array2)
-			{
-				try
-				{
-					if ((Object)(object)val3 != (Object)null && val3.ePassive == val)
-					{
-						val2 = val3;
-                        Log.Info("[GrantPassive] Found matching PassiveData: " + val3.name);
-						break;
-					}
-				}
-				catch (Exception ex)
-				{
-                    Log.Warn("[GrantPassive] Error checking PassiveData: " + ex.Message);
-				}
-			}
+            // Manual ability path with stacking via MultiPassiveManager
+            if (_passiveCache == null)
+            {
+                _passiveCache = new Dictionary<EPassive, PassiveData>();
+                var all = RuntimeHelper.FindObjectsOfTypeAll<PassiveData>();
+                if (all != null)
+                {
+                    foreach (var pd in all)
+                    {
+                        if ((Object)(object)pd != (Object)null)
+                        {
+                            if (!_passiveCache.ContainsKey(pd.ePassive))
+                            {
+                                _passiveCache[pd.ePassive] = pd;
+                            }
+                        }
+                    }
+                }
+            }
+            PassiveData val2 = null;
+            _passiveCache?.TryGetValue(val, out val2);
 			if ((Object)(object)val2 == (Object)null)
 			{
                 Log.Warn($"[GrantPassive] PassiveData not found for {passiveName} (ID: {passiveId})");
 				return;
 			}
-            Log.Info("[GrantPassive] Creating passive ability");
-			PassiveAbility val4 = PassiveAbilityFactory.CreatePassiveAbility(val2);
-			if (val4 == null)
-			{
+            PassiveAbility val4 = PassiveAbilityFactory.CreatePassiveAbility(val2);
+            if (val4 == null)
+            {
                 Log.Error("[GrantPassive] Failed to create passive ability for " + passiveName);
-				return;
-			}
-            Log.Info("[GrantPassive] Created passive ability successfully");
+                return;
+            }
 			
             // Add to multi-passive collection (initialization handled inside)
             MultiPassiveManager.AddPassive(inventory, val4);
