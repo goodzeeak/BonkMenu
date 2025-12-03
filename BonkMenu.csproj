@@ -17,6 +17,8 @@
   <ItemGroup>
     <Compile Remove="megabonk_split_dump/**/*.cs" />
     <Compile Remove="cpp2il_dump/**/*.cs" />
+    <Compile Remove="decompiled_toggle/**/*.cs" />
+    <Compile Remove="SplitDump/**/*.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MelonLoader">

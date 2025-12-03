@@ -47,6 +47,18 @@ public static class Patches
             {
                 Log.Error($"[Patches] Failed to apply PassiveInventory patches: {ex.Message}");
             }
+
+            // Apply TogglePatches - apply the runtime patch for RunUnlockables
+            try
+            {
+                _harmonyInstance.PatchAll(typeof(BonkMenu.Features.TogglePatches));
+                BonkMenu.Features.TogglePatches.ApplyRunUnlockablesPatch(_harmonyInstance);
+                Log.Info("[Patches] ✅ TogglePatches applied");
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"[Patches] Failed to apply TogglePatches: {ex.Message}");
+            }
             
             Log.Info("[Patches] All patches applied successfully!");
         }
