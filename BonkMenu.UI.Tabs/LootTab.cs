@@ -42,12 +42,10 @@ public static class LootTab
 			LootConfig.ForceUpgradeRarity = value;
 		}, parent);
 		UIFactory.CreateSpacer(4, parent);
-        UIFactory.CreateSelector(parent, upgradeRarities, () => selectedUpgradeRarityIndex, delegate(int val)
+        UIFactory.CreateSpawnerNoSlider(parent, "Set Upgrade Rarity", upgradeRarities, idx =>
         {
-            selectedUpgradeRarityIndex = val;
-            LootConfig.DesiredUpgradeRarity = (ERarity)(val + 1);
-        }, delegate(Text _)
-        {
+            selectedUpgradeRarityIndex = idx;
+            LootConfig.DesiredUpgradeRarity = (ERarity)(idx + 1);
         });
 		UIFactory.CreateSpacer(8, parent);
 		UIFactory.CreateCircularToggle("Force Item Rarity", LootConfig.ForceItemRarity, delegate(bool value)
@@ -55,13 +53,10 @@ public static class LootTab
 			LootConfig.ForceItemRarity = value;
 		}, parent);
 		UIFactory.CreateSpacer(4, parent);
-        UIFactory.CreateSelector(parent, itemRarities, () => selectedItemRarityIndex, delegate(int val)
+        UIFactory.CreateSpawnerNoSlider(parent, "Set Item Rarity", itemRarities, idx =>
         {
-            //IL_0008: Unknown result type (might be due to invalid IL or missing references)
-            selectedItemRarityIndex = val;
-            LootConfig.DesiredItemRarity = MapIndexToItemRarity(val);
-        }, delegate(Text _)
-        {
+            selectedItemRarityIndex = idx;
+            LootConfig.DesiredItemRarity = MapIndexToItemRarity(idx);
         });
 	}
 

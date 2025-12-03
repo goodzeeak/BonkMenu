@@ -52,8 +52,6 @@ public static class ItemsTab
         "Zap"
     };
 
-    private static int selectedUnlimitedWeaponIndex = 0;
-    private static int selectedUnlimitedTomeIndex = 0;
     
 
     /// <summary>
@@ -166,13 +164,11 @@ public static class ItemsTab
 
     private static void CreateUnlimitedByName(GameObject parent)
     {
-        // Weapons selector
         int[] wMap;
         var wSorted = SortWithMap(weapons, out wMap);
-        UIFactory.CreateSelector(parent, wSorted, () => selectedUnlimitedWeaponIndex, (int val) => selectedUnlimitedWeaponIndex = val, (UnityEngine.UI.Text _) => { });
-        UIFactory.CreateButton("Enable for Selected Weapon", () =>
+        UIFactory.CreateSpawnerNoSlider(parent, "Unlimited Weapon", wSorted, idx =>
         {
-            var originalId = wMap[selectedUnlimitedWeaponIndex];
+            var originalId = wMap[idx];
             var name = weapons[originalId];
             string canonical = name;
             var dm = DataManager.Instance;
@@ -186,10 +182,9 @@ public static class ItemsTab
             }
             BonkMenu.Core.ModConfig.EnableUnlimitedForWeapon(name);
             BonkMenu.Core.ModConfig.EnableUnlimitedForWeapon(canonical);
-        }, parent);
-        UIFactory.CreateButton("Disable for Selected Weapon", () =>
+        }, "Disable Unlimited", idx =>
         {
-            var originalId = wMap[selectedUnlimitedWeaponIndex];
+            var originalId = wMap[idx];
             var name = weapons[originalId];
             string canonical = name;
             var dm = DataManager.Instance;
@@ -203,17 +198,15 @@ public static class ItemsTab
             }
             BonkMenu.Core.ModConfig.DisableUnlimitedForWeapon(name);
             BonkMenu.Core.ModConfig.DisableUnlimitedForWeapon(canonical);
-        }, parent);
+        });
 
         UIFactory.CreateSpacer(8, parent);
 
-        // Tomes selector
         int[] tMap;
         var tSorted = SortWithMap(tomes, out tMap);
-        UIFactory.CreateSelector(parent, tSorted, () => selectedUnlimitedTomeIndex, (int val) => selectedUnlimitedTomeIndex = val, (UnityEngine.UI.Text _) => { });
-        UIFactory.CreateButton("Enable for Selected Tome", () =>
+        UIFactory.CreateSpawnerNoSlider(parent, "Unlimited Tome", tSorted, idx =>
         {
-            var originalId = tMap[selectedUnlimitedTomeIndex];
+            var originalId = tMap[idx];
             var name = tomes[originalId];
             string canonical = name;
             var dm = DataManager.Instance;
@@ -227,10 +220,9 @@ public static class ItemsTab
             }
             BonkMenu.Core.ModConfig.EnableUnlimitedForTome(name);
             BonkMenu.Core.ModConfig.EnableUnlimitedForTome(canonical);
-        }, parent);
-        UIFactory.CreateButton("Disable for Selected Tome", () =>
+        }, "Disable Unlimited", idx =>
         {
-            var originalId = tMap[selectedUnlimitedTomeIndex];
+            var originalId = tMap[idx];
             var name = tomes[originalId];
             string canonical = name;
             var dm = DataManager.Instance;
@@ -244,7 +236,7 @@ public static class ItemsTab
             }
             BonkMenu.Core.ModConfig.DisableUnlimitedForTome(name);
             BonkMenu.Core.ModConfig.DisableUnlimitedForTome(canonical);
-        }, parent);
+        });
     }
 
     private static string[] SortWithMap(string[] names, out int[] map)

@@ -138,7 +138,53 @@ public class BonkMenuMod : MelonMod
 		StatsFeatures.Update();
         BonkMenu.UI.Components.UIFactory.TickToasts();
         _handledKeys.Clear();
-        if (InputManager.GetKeyDown(KeybindConfig.ToggleMenuKey))
+
+        if (KeybindConfig.IsCapturingKeybind)
+        {
+            foreach (KeyCode kc in System.Enum.GetValues(typeof(KeyCode)))
+            {
+                if (InputManager.GetKeyDown(kc))
+                {
+                    try
+                    {
+                        bool lShift = InputManager.GetKey(KeyCode.LeftShift);
+                        bool rShift = InputManager.GetKey(KeyCode.RightShift);
+                        bool lCtrl = InputManager.GetKey(KeyCode.LeftControl);
+                        bool rCtrl = InputManager.GetKey(KeyCode.RightControl);
+                        bool lAlt = InputManager.GetKey(KeyCode.LeftAlt);
+                        bool rAlt = InputManager.GetKey(KeyCode.RightAlt);
+                        if (kc == KeyCode.Escape && !(lShift || rShift))
+                        {
+                            BonkMenu.UI.Components.UIFactory.ShowToast("Cancelled rebind");
+                            KeybindConfig.ClearCapture();
+                            break;
+                        }
+                        // Ignore pure modifier keys; wait for a non-modifier key
+                        if (kc == KeyCode.LeftShift || kc == KeyCode.RightShift || kc == KeyCode.LeftControl || kc == KeyCode.RightControl || kc == KeyCode.LeftAlt || kc == KeyCode.RightAlt)
+                        {
+                            break;
+                        }
+                        var applied = (kc == KeyCode.Escape) ? KeyCode.None : kc;
+                        KeybindConfig.PendingSetter?.Invoke(applied);
+                        if (applied == KeyCode.None)
+                        {
+                            KeybindConfig.SetModifiersDetailed(KeybindConfig.PendingLabel, false, false, false, false, false, false);
+                        }
+                        else
+                        {
+                            KeybindConfig.SetModifiersDetailed(KeybindConfig.PendingLabel, lShift, rShift, lCtrl, rCtrl, lAlt, rAlt);
+                        }
+                        var disp = KeybindConfig.FormatKeyLabel(KeybindConfig.PendingLabel, applied);
+                        BonkMenu.UI.Components.UIFactory.ShowToast("Bound " + (KeybindConfig.PendingLabel ?? "Key") + ": " + disp);
+                        KeybindConfig.PendingApplyUi?.Invoke(disp);
+                    }
+                    catch {}
+                    KeybindConfig.ClearCapture();
+                    break;
+                }
+            }
+        }
+        if (KeybindConfig.IsChordDown("Toggle Menu", KeybindConfig.ToggleMenuKey))
         {
             UniverseUI.Toggle();
         }
@@ -177,22 +223,22 @@ public class BonkMenuMod : MelonMod
 
         if (!menuOpen)
         {
-            HandleSpawnHold(KeybindConfig.SpawnChestsKey, () => WorldFeatures.SpawnChests(1), "Chest");
-            HandleSpawnHold(KeybindConfig.SpawnFreeChestsKey, () => WorldFeatures.SpawnFreeChests(1), "Free Chest");
-            HandleSpawnHold(KeybindConfig.SpawnChallengeShrinesKey, () => WorldFeatures.SpawnChallengeShrines(1), "Challenge Shrine");
-            HandleSpawnHold(KeybindConfig.SpawnCursedShrinesKey, () => WorldFeatures.SpawnCursedShrines(1), "Cursed Shrine");
-            HandleSpawnHold(KeybindConfig.SpawnGreedAltarsKey, () => WorldFeatures.SpawnGreedAltars(1), "Greed Altar");
-            HandleSpawnHold(KeybindConfig.SpawnGreedShrinesKey, () => WorldFeatures.SpawnGreedShrines(1), "Greed Shrine");
-            HandleSpawnHold(KeybindConfig.SpawnMagnetShrinesKey, () => WorldFeatures.SpawnMagnetShrines(1), "Magnet Shrine");
-            HandleSpawnHold(KeybindConfig.SpawnMoaiShrinesKey, () => WorldFeatures.SpawnMoaiShrines(1), "Moai Shrine");
-            HandleSpawnHold(KeybindConfig.SpawnChargeShrinesKey, () => WorldFeatures.SpawnShrines(1), "Charge Shrine");
-            HandleSpawnHold(KeybindConfig.SpawnGoldChargeShrinesKey, () => WorldFeatures.SpawnGoldShrines(1), "Gold Shrine");
-            HandleSpawnHold(KeybindConfig.SpawnPotsKey, () => WorldFeatures.SpawnPots(1), "Pots");
-            HandleSpawnHold(KeybindConfig.SpawnMicrowavesKey, () => WorldFeatures.SpawnMicrowaves(1), "Microwaves");
-            HandleSpawnHold(KeybindConfig.SpawnShadyMerchantKey, () => WorldFeatures.SpawnShadyMerchant(1), "Merchant");
-            HandleSpawnHold(KeybindConfig.SpawnShadyMerchantRareKey, () => WorldFeatures.SpawnShadyMerchantRare(1), "Merchant (Rare)");
-            HandleSpawnHold(KeybindConfig.SpawnShadyMerchantEpicKey, () => WorldFeatures.SpawnShadyMerchantEpic(1), "Merchant (Epic)");
-            HandleSpawnHold(KeybindConfig.SpawnShadyMerchantLegendaryKey, () => WorldFeatures.SpawnShadyMerchantLegendary(1), "Merchant (Legendary)");
+            HandleSpawnHold("Chests", KeybindConfig.SpawnChestsKey, () => WorldFeatures.SpawnChests(1), "Chest");
+            HandleSpawnHold("Free Chests", KeybindConfig.SpawnFreeChestsKey, () => WorldFeatures.SpawnFreeChests(1), "Free Chest");
+            HandleSpawnHold("Challenge Shrine", KeybindConfig.SpawnChallengeShrinesKey, () => WorldFeatures.SpawnChallengeShrines(1), "Challenge Shrine");
+            HandleSpawnHold("Cursed Shrine", KeybindConfig.SpawnCursedShrinesKey, () => WorldFeatures.SpawnCursedShrines(1), "Cursed Shrine");
+            HandleSpawnHold("Greed Altar", KeybindConfig.SpawnGreedAltarsKey, () => WorldFeatures.SpawnGreedAltars(1), "Greed Altar");
+            HandleSpawnHold("Greed Shrine", KeybindConfig.SpawnGreedShrinesKey, () => WorldFeatures.SpawnGreedShrines(1), "Greed Shrine");
+            HandleSpawnHold("Magnet Shrine", KeybindConfig.SpawnMagnetShrinesKey, () => WorldFeatures.SpawnMagnetShrines(1), "Magnet Shrine");
+            HandleSpawnHold("Moai Shrine", KeybindConfig.SpawnMoaiShrinesKey, () => WorldFeatures.SpawnMoaiShrines(1), "Moai Shrine");
+            HandleSpawnHold("Charge Shrine", KeybindConfig.SpawnChargeShrinesKey, () => WorldFeatures.SpawnShrines(1), "Charge Shrine");
+            HandleSpawnHold("Gold Charge Shrine", KeybindConfig.SpawnGoldChargeShrinesKey, () => WorldFeatures.SpawnGoldShrines(1), "Gold Shrine");
+            HandleSpawnHold("Pots", KeybindConfig.SpawnPotsKey, () => WorldFeatures.SpawnPots(1), "Pots");
+            HandleSpawnHold("Microwaves", KeybindConfig.SpawnMicrowavesKey, () => WorldFeatures.SpawnMicrowaves(1), "Microwaves");
+            HandleSpawnHold("Shady Merchant", KeybindConfig.SpawnShadyMerchantKey, () => WorldFeatures.SpawnShadyMerchant(1), "Merchant");
+            HandleSpawnHold("Shady Merchant (Rare)", KeybindConfig.SpawnShadyMerchantRareKey, () => WorldFeatures.SpawnShadyMerchantRare(1), "Merchant (Rare)");
+            HandleSpawnHold("Shady Merchant (Epic)", KeybindConfig.SpawnShadyMerchantEpicKey, () => WorldFeatures.SpawnShadyMerchantEpic(1), "Merchant (Epic)");
+            HandleSpawnHold("Shady Merchant (Legendary)", KeybindConfig.SpawnShadyMerchantLegendaryKey, () => WorldFeatures.SpawnShadyMerchantLegendary(1), "Merchant (Legendary)");
         }
 
 		if (ModConfig.InfiniteRefreshes)
@@ -462,10 +508,11 @@ public class BonkMenuMod : MelonMod
     
 
 
-    private void HandleSpawnHold(KeyCode key, System.Action action, string toastLabel, int increment = 1)
+    private void HandleSpawnHold(string label, KeyCode key, System.Action action, string toastLabel, int increment = 1)
     {
-        bool down = InputManager.GetKeyDown(key);
-        bool held = InputManager.GetKey(key);
+        if (key == KeyCode.None) return;
+        bool down = KeybindConfig.IsChordDown(label, key);
+        bool held = KeybindConfig.IsChordHeld(label, key);
         if (!down && !held) return;
         if (_handledKeys.Contains(key)) return;
         float now = Time.unscaledTime;
@@ -475,7 +522,7 @@ public class BonkMenuMod : MelonMod
         {
             try { action(); } catch { }
             _nextSpawnTime[key] = now + SpawnRepeatInterval;
-            BonkMenu.UI.Components.UIFactory.IncrementSpawnToast(key.ToString(), toastLabel, increment);
+            BonkMenu.UI.Components.UIFactory.IncrementSpawnToast(KeybindConfig.FormatKeyLabel(label, key), toastLabel, increment);
             _handledKeys.Add(key);
         }
     }
