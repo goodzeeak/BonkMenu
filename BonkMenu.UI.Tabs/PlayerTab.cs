@@ -2,6 +2,8 @@ using BonkMenu.Core;
 using BonkMenu.Features;
 using BonkMenu.UI.Components;
 using Il2CppAssets.Scripts.Menu.Shop;
+using Il2Cpp;
+using Il2CppAssets.Scripts._Data.Tomes;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +14,26 @@ namespace BonkMenu.UI.Tabs;
 /// </summary>
 public static class PlayerTab
 {
+    private static readonly string[] passiveNames = new string[21]
+    {
+        "Bullseye", "RngBlessing", "SpeedDemon", "Reinforced", "Flowstate", "CritHappens", "Warrior", "Flex", "WallClimb", "None",
+        "Float", "Enduring", "Plague", "Quantum", "Shadowstep", "Gamba", "Vampire", "Curse", "Stonks", "LockIn",
+        "Zap"
+    };
+
+    private static readonly string[] weaponsByName = new string[30]
+    {
+        "FireStaff", "Bone", "Sword", "Revolver", "Aura", "Axe", "Bow", "Aegis", "Test", "LightningStaff",
+        "Flamewalker", "Rockets", "Bananarang", "Tornado", "Dexecutioner", "Sniper", "Frostwalker", "SpaceNoodle", "DragonsBreath", "Chunkers",
+        "Mine", "PoisonFlask", "BlackHole", "Katana", "BloodMagic", "BluetoothDagger", "Dice", "HeroSword", "CorruptSword", "Shotgun"
+    };
+
+    private static readonly string[] tomesByName = new string[27]
+    {
+        "Damage", "Agility", "Cooldown", "Quantity", "Knockback", "Armor", "Health", "Regeneration", "Size", "ProjectileSpeed",
+        "Duration", "Evasion", "Attraction", "Luck", "Xp", "Golden", "Precision", "Shield", "Blood", "Thorns",
+        "Bounce", "Cursed", "Silver", "Balance", "Chaos", "Gambler", "Hoarder"
+    };
     /// <summary>
     /// Builds the Player tab UI under the given parent.
     /// </summary>
@@ -23,6 +45,12 @@ public static class PlayerTab
 		UIFactory.CreateSpacer(4, parent);
 		UIFactory.CreateCollapsibleSection("Status Buffs", parent, CreateStatusEffectBuffs);
 		UIFactory.CreateSpacer(4, parent);
+        UIFactory.CreateCollapsibleSection("Passive Abilities", parent, CreatePassiveAbilities);
+        UIFactory.CreateSpacer(4, parent);
+        UIFactory.CreateCollapsibleSection("Uncap weapon level by name", parent, CreateUncapWeaponByName);
+        UIFactory.CreateSpacer(4, parent);
+        UIFactory.CreateCollapsibleSection("Uncap tome level by name", parent, CreateUncapTomeByName);
+        UIFactory.CreateSpacer(4, parent);
 		UIFactory.CreateCollapsibleSection("Advanced Stats", parent, CreateSliders);
 	}
 
@@ -33,7 +61,7 @@ public static class PlayerTab
 		RectTransform grt = grid.AddComponent<RectTransform>();
 		grt.sizeDelta = new Vector2(0f, 0f);
 		GridLayoutGroup glg = grid.AddComponent<GridLayoutGroup>();
-		glg.cellSize = new Vector2(283f, 38f);
+		glg.cellSize = new Vector2(283f, 30f);
 		glg.spacing = new Vector2(10f, 8f);
 		glg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
 		glg.constraintCount = 2;
@@ -80,14 +108,27 @@ public static class PlayerTab
 
 	private static void CreateUtilities(GameObject parent)
 	{
+		GameObject grid = new GameObject("UtilitiesGrid");
+		grid.transform.SetParent(parent.transform, false);
+		RectTransform grt = grid.AddComponent<RectTransform>();
+		grt.sizeDelta = new Vector2(0f, 0f);
+		GridLayoutGroup glg = grid.AddComponent<GridLayoutGroup>();
+		glg.cellSize = new Vector2(283f, 30f);
+		glg.spacing = new Vector2(10f, 8f);
+		glg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+		glg.constraintCount = 2;
+		ContentSizeFitter fit = grid.AddComponent<ContentSizeFitter>();
+		fit.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+		LayoutElement gle = grid.AddComponent<LayoutElement>();
+		gle.flexibleWidth = 1f;
 		UIFactory.CreateButton("❤\ufe0f Restore Health", delegate
 		{
 			PlayerFeatures.FullHeal();
-		}, parent);
+		}, grid);
 		UIFactory.CreateButton("\ud83e\uddf9 Clear Statuses", delegate
 		{
 			PlayerFeatures.ClearAllStatusEffects();
-		}, parent);
+		}, grid);
 	}
 
     private static void CreateStatusEffectBuffs(GameObject parent)
@@ -103,6 +144,96 @@ public static class PlayerTab
             else if (chosen == "Invulnerability") StatusEffects.ApplyInvulnerability();
             else if (chosen == "Rage") StatusEffects.ApplyRage();
             else if (chosen == "Shield") StatusEffects.ApplyShield();
+        });
+    }
+
+    private static void CreatePassiveAbilities(GameObject parent)
+    {
+        int[] map;
+        var sorted = SortWithMap(passiveNames, out map);
+        UIFactory.CreateSpawnerNoSlider(parent, "Grant Passive", sorted, delegate(int id)
+        {
+            int originalId = map[id];
+            string passiveName = passiveNames[originalId];
+            PassiveFeatures.GrantPassive(originalId, passiveName);
+        });
+    }
+
+    private static void CreateUncapWeaponByName(GameObject parent)
+    {
+        int[] wMap;
+        var wSorted = SortWithMap(weaponsByName, out wMap);
+        UIFactory.CreateSpawnerNoSlider(parent, "Uncap Weapon", wSorted, idx =>
+        {
+            var originalId = wMap[idx];
+            var name = weaponsByName[originalId];
+            string canonical = name;
+            var dm = DataManager.Instance;
+            if ((Object)(object)dm != (Object)null)
+            {
+                var w = dm.GetWeapon((EWeapon)originalId);
+                if (w != null && w.name != null)
+                {
+                    canonical = w.name;
+                }
+            }
+            BonkMenu.Core.ModConfig.EnableUnlimitedForWeapon(name);
+            BonkMenu.Core.ModConfig.EnableUnlimitedForWeapon(canonical);
+        }, "Disable Uncap", idx =>
+        {
+            var originalId = wMap[idx];
+            var name = weaponsByName[originalId];
+            string canonical = name;
+            var dm = DataManager.Instance;
+            if ((Object)(object)dm != (Object)null)
+            {
+                var w = dm.GetWeapon((EWeapon)originalId);
+                if (w != null && w.name != null)
+                {
+                    canonical = w.name;
+                }
+            }
+            BonkMenu.Core.ModConfig.DisableUnlimitedForWeapon(name);
+            BonkMenu.Core.ModConfig.DisableUnlimitedForWeapon(canonical);
+        });
+    }
+
+    private static void CreateUncapTomeByName(GameObject parent)
+    {
+        int[] tMap;
+        var tSorted = SortWithMap(tomesByName, out tMap);
+        UIFactory.CreateSpawnerNoSlider(parent, "Uncap Tome", tSorted, idx =>
+        {
+            var originalId = tMap[idx];
+            var name = tomesByName[originalId];
+            string canonical = name;
+            var dm = DataManager.Instance;
+            if ((Object)(object)dm != (Object)null)
+            {
+                var t = dm.GetTome((ETome)originalId);
+                if (t != null && t.name != null)
+                {
+                    canonical = t.name;
+                }
+            }
+            BonkMenu.Core.ModConfig.EnableUnlimitedForTome(name);
+            BonkMenu.Core.ModConfig.EnableUnlimitedForTome(canonical);
+        }, "Disable Uncap", idx =>
+        {
+            var originalId = tMap[idx];
+            var name = tomesByName[originalId];
+            string canonical = name;
+            var dm = DataManager.Instance;
+            if ((Object)(object)dm != (Object)null)
+            {
+                var t = dm.GetTome((ETome)originalId);
+                if (t != null && t.name != null)
+                {
+                    canonical = t.name;
+                }
+            }
+            BonkMenu.Core.ModConfig.DisableUnlimitedForTome(name);
+            BonkMenu.Core.ModConfig.DisableUnlimitedForTome(canonical);
         });
     }
 

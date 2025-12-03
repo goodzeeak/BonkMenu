@@ -3,6 +3,7 @@ using BonkMenu.Features;
 using BonkMenu.UI.Components;
 using Il2CppAssets.Scripts.Menu.Shop;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BonkMenu.UI.Tabs;
 
@@ -38,20 +39,33 @@ public static class CombatTab
 
 	private static void CreateToggles(GameObject parent)
 	{
+		GameObject grid = new GameObject("ToggleGrid");
+		grid.transform.SetParent(parent.transform, false);
+		RectTransform grt = grid.AddComponent<RectTransform>();
+		grt.sizeDelta = new Vector2(0f, 0f);
+		GridLayoutGroup glg = grid.AddComponent<GridLayoutGroup>();
+		glg.cellSize = new Vector2(283f, 30f);
+		glg.spacing = new Vector2(10f, 8f);
+		glg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+		glg.constraintCount = 2;
+		ContentSizeFitter fit = grid.AddComponent<ContentSizeFitter>();
+		fit.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+		LayoutElement gle = grid.AddComponent<LayoutElement>();
+		gle.flexibleWidth = 1f;
 		UIFactory.CreateCircularToggle("Insta-Kill", ModConfig.OneHitKill, delegate(bool value)
 		{
 			if (value != ModConfig.OneHitKill)
 			{
 				ModConfig.ToggleOneHitKill();
 			}
-		}, parent);
+		}, grid);
 		UIFactory.CreateCircularToggle("Freeze Enemies", ModConfig.FreezeEnemies, delegate(bool value)
 		{
 			if (value != ModConfig.FreezeEnemies)
 			{
 				ModConfig.ToggleFreezeEnemies();
 			}
-		}, parent);
+		}, grid);
 	}
 
 	private static void CreateEnemyModifiers(GameObject parent)
@@ -95,28 +109,40 @@ public static class CombatTab
         return sorted;
     }
 
-    private static void CreateDebuffs(GameObject parent)
-    {
-        string[] debuffs = new string[7] { "Poison", "Freeze", "Burn", "Stun", "Echo", "Charm", "Bloodmark" };
-        int[] map;
-        var sorted = SortWithMap(debuffs, out map);
-        UIFactory.CreateSpawnerNoSlider(parent, "Apply Debuff to All", sorted, delegate(int id)
-        {
-            int originalId = map[id];
-            string debuffName = debuffs[originalId];
-            DebuffFeatures.ApplyDebuff(originalId, debuffName);
-        });
-        UIFactory.CreateButton("🧹 Remove All Debuffs", delegate
-        {
-            DebuffFeatures.RemoveAllDebuffs();
-        }, parent);
-    }
+	private static void CreateDebuffs(GameObject parent)
+	{
+		string[] debuffs = new string[7] { "Poison", "Freeze", "Burn", "Stun", "Echo", "Charm", "Bloodmark" };
+		int[] map;
+		var sorted = SortWithMap(debuffs, out map);
+		UIFactory.CreateSpawnerNoSlider(parent, "Apply Debuff to All", sorted, delegate(int id)
+		{
+			int originalId = map[id];
+			string debuffName = debuffs[originalId];
+			DebuffFeatures.ApplyDebuff(originalId, debuffName);
+		}, "🧹 Remove All Debuffs", delegate(int _)
+		{
+			DebuffFeatures.RemoveAllDebuffs();
+		});
+	}
 
 	private static void CreateEnemyActions(GameObject parent)
 	{
+		GameObject grid = new GameObject("ActionGrid");
+		grid.transform.SetParent(parent.transform, false);
+		RectTransform grt = grid.AddComponent<RectTransform>();
+		grt.sizeDelta = new Vector2(0f, 0f);
+		GridLayoutGroup glg = grid.AddComponent<GridLayoutGroup>();
+		glg.cellSize = new Vector2(283f, 30f);
+		glg.spacing = new Vector2(10f, 8f);
+		glg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+		glg.constraintCount = 2;
+		ContentSizeFitter fit = grid.AddComponent<ContentSizeFitter>();
+		fit.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+		LayoutElement gle = grid.AddComponent<LayoutElement>();
+		gle.flexibleWidth = 1f;
 		UIFactory.CreateButton("💀 Kill All Enemies", delegate
 		{
 			CombatFeatures.KillAllEnemies();
-		}, parent);
+		}, grid);
 	}
 }

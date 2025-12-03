@@ -155,6 +155,9 @@ public class BonkMenuMod : MelonMod
                         bool rAlt = InputManager.GetKey(KeyCode.RightAlt);
                         if (kc == KeyCode.Escape && !(lShift || rShift))
                         {
+                            var prevKey = KeybindConfig.PendingGetter != null ? KeybindConfig.PendingGetter() : KeyCode.None;
+                            var prevLabel = KeybindConfig.FormatKeyLabel(KeybindConfig.PendingLabel, prevKey);
+                            KeybindConfig.PendingApplyUi?.Invoke(prevLabel);
                             BonkMenu.UI.Components.UIFactory.ShowToast("Cancelled rebind");
                             KeybindConfig.ClearCapture();
                             break;

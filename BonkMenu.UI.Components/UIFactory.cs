@@ -24,7 +24,7 @@ public static class UIFactory
         public string baseLabel;
     }
     private static System.Collections.Generic.Dictionary<string, ToastRef> _spawnToasts = new System.Collections.Generic.Dictionary<string, ToastRef>();
-	private static readonly Color ColorBgDark = new Color(0.1f, 0.1f, 0.12f, 1f);
+    private static readonly Color ColorBgDark = new Color(0f, 0f, 0f, 1f);
 
 	private static readonly Color ColorBgLighter = new Color(0.15f, 0.15f, 0.2f, 1f);
 
@@ -32,9 +32,9 @@ public static class UIFactory
 
 	private static readonly Color ColorAccentDim = new Color(0.2f, 0.8f, 1f, 0.3f);
 
-	private static readonly Color ColorTextMain = new Color(0.9f, 0.9f, 0.95f, 1f);
+    private static readonly Color ColorTextMain = new Color(1f, 1f, 1f, 1f);
 
-	private static readonly Color ColorTextDim = new Color(0.7f, 0.7f, 0.8f, 1f);
+    private static readonly Color ColorTextDim = new Color(1f, 1f, 1f, 1f);
 
     /// <summary>
     /// Creates a styled section header with title and separator line.
@@ -65,7 +65,7 @@ public static class UIFactory
 		val5.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
 		val5.fontSize = 15;
 		val5.fontStyle = (FontStyle)1;
-		((Graphic)val5).color = ColorAccent;
+        ((Graphic)val5).color = ColorTextMain;
         val5.alignment = (TextAnchor)4;
 		GameObject val6 = new GameObject("Line");
 		val6.transform.SetParent(val.transform, false);
@@ -103,17 +103,17 @@ public static class UIFactory
 		GameObject val = new GameObject("Button_" + text);
 		val.transform.SetParent(parent.transform, false);
 		RectTransform val2 = val.AddComponent<RectTransform>();
-		val2.sizeDelta = new Vector2(0f, 35f);
-		LayoutElement le = val.AddComponent<LayoutElement>();
-		le.preferredHeight = 35f;
-		le.minHeight = 35f;
+		val2.sizeDelta = new Vector2(0f, 30f);
+        LayoutElement le = val.AddComponent<LayoutElement>();
+        le.preferredHeight = 30f;
+        le.minHeight = 30f;
 		Image val3 = val.AddComponent<Image>();
-		((Graphic)val3).color = ColorBgLighter;
+		((Graphic)val3).color = ColorBgDark;
 		Button val4 = val.AddComponent<Button>();
 		((Selectable)val4).targetGraphic = (Graphic)(object)val3;
 		((UnityEvent)val4.onClick).AddListener((UnityAction)onClick);
 		ColorBlock colors = ((Selectable)val4).colors;
-		colors.normalColor = ColorBgLighter;
+		colors.normalColor = ColorBgDark;
 		colors.highlightedColor = new Color(0.25f, 0.25f, 0.35f, 1f);
 		colors.pressedColor = new Color(0.1f, 0.1f, 0.15f, 1f);
 		colors.selectedColor = colors.normalColor;
@@ -129,13 +129,13 @@ public static class UIFactory
 		val7.anchorMin = Vector2.zero;
 		val7.anchorMax = Vector2.one;
 		val7.sizeDelta = Vector2.zero;
-		Text val8 = val6.AddComponent<Text>();
-		val8.text = text;
-		val8.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-		val8.fontSize = 14;
-		val8.fontStyle = (FontStyle)0;
-		((Graphic)val8).color = ColorTextMain;
-		val8.alignment = (TextAnchor)4;
+        Text val8 = val6.AddComponent<Text>();
+        val8.text = text;
+        val8.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        val8.fontSize = 13;
+        val8.fontStyle = (FontStyle)0;
+        ((Graphic)val8).color = ColorTextMain;
+        val8.alignment = (TextAnchor)4;
 		return val4;
 	}
 
@@ -153,10 +153,10 @@ public static class UIFactory
 		RectTransform val2 = val.AddComponent<RectTransform>();
 		val2.sizeDelta = new Vector2(0f, 25f);
         Text val3 = val.AddComponent<Text>();
-		val3.text = text;
-		val3.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-		val3.fontSize = 14;
-		((Graphic)val3).color = ColorTextDim;
+        val3.text = text;
+        val3.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        val3.fontSize = 13;
+        ((Graphic)val3).color = ColorTextDim;
         val3.alignment = (TextAnchor)4;
         return val3;
     }
@@ -216,7 +216,7 @@ public static class UIFactory
         rtxt.text = BonkMenu.Core.KeybindConfig.FormatKeyLabel(action, get());
         rtxt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
         rtxt.fontSize = 13;
-        ((Graphic)rtxt).color = ColorAccent;
+        ((Graphic)rtxt).color = ColorTextMain;
         rtxt.alignment = (TextAnchor)5;
         LayoutElement rle = right.AddComponent<LayoutElement>();
         rle.preferredWidth = 120f;
@@ -351,9 +351,9 @@ public static class UIFactory
 		GameObject val = new GameObject("Toggle_" + label);
 		val.transform.SetParent(parent.transform, false);
 		RectTransform val2 = val.AddComponent<RectTransform>();
-		val2.sizeDelta = new Vector2(0f, 35f);
+		val2.sizeDelta = new Vector2(0f, 30f);
 		Image val3 = val.AddComponent<Image>();
-		((Graphic)val3).color = ColorBgLighter;
+		((Graphic)val3).color = ColorBgDark;
 		HorizontalLayoutGroup val4 = val.AddComponent<HorizontalLayoutGroup>();
 		RectOffset val5 = new RectOffset();
 		val5.left = 10;
@@ -368,30 +368,45 @@ public static class UIFactory
         GameObject val6 = new GameObject("Checkbox");
         val6.transform.SetParent(val.transform, false);
         RectTransform val7 = val6.AddComponent<RectTransform>();
-        val7.sizeDelta = new Vector2(28f, 28f);
-        var le6 = val6.AddComponent<LayoutElement>();
-        le6.minWidth = 28f; le6.minHeight = 28f; le6.preferredWidth = 28f; le6.preferredHeight = 28f; le6.flexibleWidth = 0f; le6.flexibleHeight = 0f;
+		val7.sizeDelta = new Vector2(18f, 18f);
+		var le6 = val6.AddComponent<LayoutElement>();
+		le6.minWidth = 18f; le6.minHeight = 18f; le6.preferredWidth = 18f; le6.preferredHeight = 18f; le6.flexibleWidth = 0f; le6.flexibleHeight = 0f;
         var ar6 = val6.AddComponent<AspectRatioFitter>();
         ar6.aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth;
         ar6.aspectRatio = 1f;
-        Image val8 = val6.AddComponent<Image>();
-        ((Graphic)val8).color = new Color(0.05f, 0.05f, 0.1f, 1f);
+		Image val8 = val6.AddComponent<Image>();
+		((Graphic)val8).color = ColorBgLighter;
         Toggle val9 = val6.AddComponent<Toggle>();
-		val9.isOn = initialValue;
-		((Selectable)val9).targetGraphic = (Graphic)(object)val8;
-		((UnityEvent<bool>)(object)val9.onValueChanged).AddListener((UnityAction<bool>)onChange);
+        val9.isOn = initialValue;
+        ((Selectable)val9).targetGraphic = (Graphic)(object)val8;
+        ((UnityEvent<bool>)(object)val9.onValueChanged).AddListener((UnityAction<bool>)onChange);
+		Button rowBtn = val.AddComponent<Button>();
+		((Selectable)rowBtn).targetGraphic = (Graphic)(object)val3;
+		ColorBlock rb = ((Selectable)rowBtn).colors;
+		rb.normalColor = ColorBgDark;
+		rb.highlightedColor = new Color(0.25f, 0.25f, 0.35f, 1f);
+		rb.pressedColor = new Color(0.1f, 0.1f, 0.15f, 1f);
+		rb.selectedColor = rb.normalColor;
+		rb.colorMultiplier = 1f;
+		rb.fadeDuration = 0.1f;
+		RuntimeHelper.SetColorBlock((Selectable)(object)rowBtn, rb);
+		((UnityEvent)rowBtn.onClick).AddListener((UnityAction)(() => { val9.isOn = !val9.isOn; }));
 		GameObject val10 = new GameObject("Checkmark");
 		val10.transform.SetParent(val6.transform, false);
         RectTransform val11 = val10.AddComponent<RectTransform>();
         val11.anchorMin = Vector2.zero;
         val11.anchorMax = Vector2.one;
-        val11.sizeDelta = new Vector2(-6f, -6f);
+		val11.sizeDelta = new Vector2(0f, 0f);
         var ar10 = val10.AddComponent<AspectRatioFitter>();
         ar10.aspectMode = AspectRatioFitter.AspectMode.FitInParent;
         ar10.aspectRatio = 1f;
-		Image val12 = val10.AddComponent<Image>();
-		((Graphic)val12).color = ColorAccent;
-		val9.graphic = (Graphic)(object)val12;
+        Image val12 = val10.AddComponent<Image>();
+        ((Graphic)val12).color = ColorAccent;
+        val9.graphic = (Graphic)(object)val12;
+        ((Graphic)val12).CrossFadeAlpha(initialValue ? 1f : 0f, 0f, true);
+        ((UnityEvent<bool>)(object)val9.onValueChanged).AddListener((UnityAction<bool>)((bool v) => {
+            ((Graphic)val12).CrossFadeAlpha(v ? 1f : 0f, 0.12f, true);
+        }));
 		GameObject val13 = new GameObject("Label");
 		val13.transform.SetParent(val.transform, false);
 		RectTransform val14 = val13.AddComponent<RectTransform>();
@@ -399,7 +414,7 @@ public static class UIFactory
 		Text val15 = val13.AddComponent<Text>();
 		val15.text = label;
 		val15.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-		val15.fontSize = 14;
+        val15.fontSize = 13;
 		val15.fontStyle = (FontStyle)1;
 		((Graphic)val15).color = ColorTextMain;
 		val15.alignment = (TextAnchor)3;
@@ -419,13 +434,13 @@ public static class UIFactory
 		le.flexibleWidth = 0f;
 		le.flexibleHeight = 0f;
 		Image bg = root.AddComponent<Image>();
-		((Graphic)bg).color = ColorBgLighter;
+		((Graphic)bg).color = ColorBgDark;
 		Toggle tg = root.AddComponent<Toggle>();
 		tg.isOn = initialValue;
 		((Selectable)tg).targetGraphic = (Graphic)(object)bg;
 		((UnityEvent<bool>)(object)tg.onValueChanged).AddListener((UnityAction<bool>)onChange);
 		ColorBlock cb = ((Selectable)tg).colors;
-		cb.normalColor = ColorBgLighter;
+		cb.normalColor = ColorBgDark;
 		cb.highlightedColor = new Color(0.25f, 0.25f, 0.35f, 1f);
 		cb.pressedColor = new Color(0.1f, 0.1f, 0.15f, 1f);
 		cb.selectedColor = cb.normalColor;
@@ -453,7 +468,7 @@ public static class UIFactory
 		iconTxt.text = icon ?? string.Empty;
 		iconTxt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
 		iconTxt.fontSize = 24;
-		((Graphic)iconTxt).color = ColorAccent;
+        ((Graphic)iconTxt).color = ColorTextMain;
 		iconTxt.alignment = (TextAnchor)4;
 		GameObject labelGO = new GameObject("Label");
 		labelGO.transform.SetParent(root.transform, false);
@@ -462,7 +477,7 @@ public static class UIFactory
 		Text ltxt = labelGO.AddComponent<Text>();
 		ltxt.text = label;
 		ltxt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-		ltxt.fontSize = 14;
+        ltxt.fontSize = 13;
 		ltxt.fontStyle = (FontStyle)1;
 		((Graphic)ltxt).color = ColorTextMain;
 		ltxt.alignment = (TextAnchor)4;
@@ -478,7 +493,7 @@ public static class UIFactory
 		checkTxt.text = "✓";
 		checkTxt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
 		checkTxt.fontSize = 28;
-		((Graphic)checkTxt).color = ColorAccent;
+        ((Graphic)checkTxt).color = ColorTextMain;
 		checkTxt.alignment = (TextAnchor)4;
 		LayoutElement cle = checkGO.AddComponent<LayoutElement>();
 		cle.ignoreLayout = true;
@@ -531,7 +546,7 @@ public static class UIFactory
 		RectTransform val2 = val.AddComponent<RectTransform>();
 		val2.sizeDelta = new Vector2(0f, 35f);
 		Image val3 = val.AddComponent<Image>();
-		((Graphic)val3).color = ColorBgLighter;
+		((Graphic)val3).color = ColorBgDark;
 		HorizontalLayoutGroup val4 = val.AddComponent<HorizontalLayoutGroup>();
 		RectOffset val5 = new RectOffset();
 		val5.left = 10;
@@ -549,7 +564,7 @@ public static class UIFactory
 		Text val8 = val6.AddComponent<Text>();
 		val8.text = label;
 		val8.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-		val8.fontSize = 14;
+        val8.fontSize = 13;
 		val8.fontStyle = (FontStyle)1;
 		((Graphic)val8).color = ColorTextMain;
 		val8.alignment = (TextAnchor)4;
@@ -557,8 +572,8 @@ public static class UIFactory
 		val9.transform.SetParent(val.transform, false);
 		RectTransform val10 = val9.AddComponent<RectTransform>();
 		val10.sizeDelta = new Vector2(200f, 20f);
-		Image val11 = val9.AddComponent<Image>();
-		((Graphic)val11).color = new Color(0.08f, 0.08f, 0.12f, 1f);
+        Image val11 = val9.AddComponent<Image>();
+        ((Graphic)val11).color = ColorBgDark;
 		Slider val12 = val9.AddComponent<Slider>();
 		val12.minValue = min;
 		val12.maxValue = max;
@@ -595,8 +610,8 @@ public static class UIFactory
 		val23.transform.SetParent(val.transform, false);
 		RectTransform val24 = val23.AddComponent<RectTransform>();
 		val24.sizeDelta = new Vector2(60f, 25f);
-		Image val25 = val23.AddComponent<Image>();
-		((Graphic)val25).color = new Color(0.1f, 0.1f, 0.15f, 1f);
+        Image val25 = val23.AddComponent<Image>();
+        ((Graphic)val25).color = ColorBgDark;
 		InputField val26 = val23.AddComponent<InputField>();
 		GameObject val27 = new GameObject("Text");
 		val27.transform.SetParent(val23.transform, false);
@@ -607,8 +622,8 @@ public static class UIFactory
 		Text val29 = val27.AddComponent<Text>();
 		val29.text = defaultValue.ToString("F2");
 		val29.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-		val29.fontSize = 14;
-		((Graphic)val29).color = ColorAccent;
+        val29.fontSize = 13;
+        ((Graphic)val29).color = ColorTextMain;
 		val29.alignment = (TextAnchor)4;
 		val26.textComponent = val29;
 		val26.text = defaultValue.ToString("F2");
@@ -726,7 +741,7 @@ public static class UIFactory
         Text txt = txtGO.AddComponent<Text>();
         txt.text = message;
         txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-        txt.fontSize = 14;
+        txt.fontSize = 13;
         ((Graphic)txt).color = ColorTextMain;
         txt.alignment = (TextAnchor)4;
         LayoutElement tle = txtGO.AddComponent<LayoutElement>();
@@ -841,7 +856,7 @@ public static class UIFactory
             txtRT.sizeDelta = Vector2.zero;
             Text txt = txtGO.AddComponent<Text>();
             txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-            txt.fontSize = 14;
+            txt.fontSize = 13;
             ((Graphic)txt).color = ColorTextMain;
             txt.alignment = (TextAnchor)4;
             LayoutElement tle = txtGO.AddComponent<LayoutElement>();
@@ -1042,9 +1057,9 @@ public static class UIFactory
         GameObject card = new GameObject("LabelContainer");
         card.transform.SetParent(root.transform, false);
         Image cardImg = card.AddComponent<Image>();
-        ((Graphic)cardImg).color = ColorBgLighter;
+		((Graphic)cardImg).color = ColorBgDark;
         Outline cardOutline = card.AddComponent<Outline>();
-        ((Shadow)cardOutline).effectColor = new Color(0f, 0f, 0f, 0.4f);
+        ((Shadow)cardOutline).effectColor = new Color(0f, 0f, 0f, 0f);
         ((Shadow)cardOutline).effectDistance = new Vector2(1f, -1f);
         LayoutElement cardLe = card.AddComponent<LayoutElement>();
         cardLe.flexibleWidth = 1f;
@@ -1052,9 +1067,9 @@ public static class UIFactory
         string initial = dataList.Length > 0 ? dataList[getIndex()] : "None";
         labelComp = CreateLabel(initial, card);
         labelComp.alignment = (TextAnchor)4;
-        ((Graphic)labelComp).color = ColorAccent;
+        ((Graphic)labelComp).color = ColorTextMain;
         labelComp.fontStyle = (FontStyle)1;
-        labelComp.fontSize = 14;
+        labelComp.fontSize = 13;
         labelComp.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
         RectTransform lrt = ((Component)labelComp).GetComponent<RectTransform>();
         lrt.anchorMin = Vector2.zero;
@@ -1099,10 +1114,10 @@ public static class UIFactory
 		RectTransform val2 = val.AddComponent<RectTransform>();
 		val2.sizeDelta = new Vector2(0f, 150f);
 		Image val3 = val.AddComponent<Image>();
-		((Graphic)val3).color = new Color(0.1f, 0.1f, 0.12f, 0.5f);
-		Outline val4 = val.AddComponent<Outline>();
-		((Shadow)val4).effectColor = new Color(0.2f, 0.8f, 1f, 0.1f);
-		((Shadow)val4).effectDistance = new Vector2(1f, -1f);
+		((Graphic)val3).color = new Color(0f, 0f, 0f, 0f);
+        Outline val4 = val.AddComponent<Outline>();
+        ((Shadow)val4).effectColor = new Color(0f, 0f, 0f, 0.4f);
+        ((Shadow)val4).effectDistance = new Vector2(1f, -1f);
 		VerticalLayoutGroup val5 = val.AddComponent<VerticalLayoutGroup>();
 		((HorizontalOrVerticalLayoutGroup)val5).spacing = 8f;
 		RectOffset val6 = new RectOffset();
@@ -1148,10 +1163,10 @@ public static class UIFactory
 		RectTransform val2 = val.AddComponent<RectTransform>();
 		val2.sizeDelta = new Vector2(0f, 110f);
 		Image val3 = val.AddComponent<Image>();
-		((Graphic)val3).color = new Color(0.1f, 0.1f, 0.12f, 0.5f);
-		Outline val4 = val.AddComponent<Outline>();
-		((Shadow)val4).effectColor = new Color(0.2f, 0.8f, 1f, 0.1f);
-		((Shadow)val4).effectDistance = new Vector2(1f, -1f);
+		((Graphic)val3).color = new Color(0f, 0f, 0f, 0f);
+        Outline val4 = val.AddComponent<Outline>();
+        ((Shadow)val4).effectColor = new Color(0f, 0f, 0f, 0.4f);
+        ((Shadow)val4).effectDistance = new Vector2(1f, -1f);
 		VerticalLayoutGroup val5 = val.AddComponent<VerticalLayoutGroup>();
 		((HorizontalOrVerticalLayoutGroup)val5).spacing = 8f;
 		RectOffset val6 = new RectOffset();
@@ -1178,12 +1193,12 @@ public static class UIFactory
     {
         GameObject val = new GameObject("Spawner_" + title);
         val.transform.SetParent(parent.transform, false);
-        RectTransform val2 = val.AddComponent<RectTransform>();
-        val2.sizeDelta = new Vector2(0f, 140f);
-        Image val3 = val.AddComponent<Image>();
-        ((Graphic)val3).color = new Color(0.1f, 0.1f, 0.12f, 0.5f);
+		RectTransform val2 = val.AddComponent<RectTransform>();
+		val2.sizeDelta = new Vector2(0f, 140f);
+		Image val3 = val.AddComponent<Image>();
+		((Graphic)val3).color = new Color(0f, 0f, 0f, 0f);
         Outline val4 = val.AddComponent<Outline>();
-        ((Shadow)val4).effectColor = new Color(0.2f, 0.8f, 1f, 0.1f);
+        ((Shadow)val4).effectColor = new Color(0f, 0f, 0f, 0.4f);
         ((Shadow)val4).effectDistance = new Vector2(1f, -1f);
         VerticalLayoutGroup val5 = val.AddComponent<VerticalLayoutGroup>();
         ((HorizontalOrVerticalLayoutGroup)val5).spacing = 8f;
@@ -1200,14 +1215,27 @@ public static class UIFactory
         int currentIndex = 0;
         Text labelRef = null;
         CreateSelector(val, dataList, () => currentIndex, (int num) => currentIndex = num, (Text lbl) => { labelRef = lbl; });
+        GameObject grid = new GameObject("ButtonGrid");
+        grid.transform.SetParent(val.transform, false);
+        RectTransform grt = grid.AddComponent<RectTransform>();
+        grt.sizeDelta = new Vector2(0f, 0f);
+        GridLayoutGroup glg = grid.AddComponent<GridLayoutGroup>();
+        glg.cellSize = new Vector2(283f, 30f);
+        glg.spacing = new Vector2(10f, 8f);
+        glg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+        glg.constraintCount = 2;
+        ContentSizeFitter fit = grid.AddComponent<ContentSizeFitter>();
+        fit.verticalFit = FitMode.PreferredSize;
+        LayoutElement gle = grid.AddComponent<LayoutElement>();
+        gle.flexibleWidth = 1f;
         CreateButton(title.ToUpper(), delegate
         {
             onPrimary(currentIndex);
-        }, val);
+        }, grid);
         CreateButton(secondaryTitle.ToUpper(), delegate
         {
             onSecondary(currentIndex);
-        }, val);
+        }, grid);
         CreateSpacer(8, parent);
     }
 }

@@ -4,6 +4,7 @@ using Il2CppAssets.Scripts.Inventory__Items__Pickups.Pickups;
 using Il2CppAssets.Scripts._Data.Tomes;
 using UnityEngine;
 using Il2Cpp;
+using UnityEngine.UI;
 
 namespace BonkMenu.UI.Tabs;
 
@@ -68,9 +69,6 @@ public static class ItemsTab
 		UIFactory.CreateSpacer(4, parent);
 		UIFactory.CreateCollapsibleSection("Items (Passive)", parent, CreateItems);
 		UIFactory.CreateSpacer(4, parent);
-		UIFactory.CreateCollapsibleSection("Abilities (Passive)", parent, CreatePassives);
-		UIFactory.CreateSpacer(4, parent);
-		UIFactory.CreateCollapsibleSection("Unlimited Levels By Name", parent, CreateUnlimitedByName);
     }
 
 
@@ -89,14 +87,27 @@ public static class ItemsTab
 
     private static void CreateWeapons(GameObject parent)
     {
+		GameObject grid = new GameObject("WeaponsGrid");
+		grid.transform.SetParent(parent.transform, false);
+		RectTransform grt = grid.AddComponent<RectTransform>();
+		grt.sizeDelta = new Vector2(0f, 0f);
+		GridLayoutGroup glg = grid.AddComponent<GridLayoutGroup>();
+		glg.cellSize = new Vector2(283f, 30f);
+		glg.spacing = new Vector2(10f, 8f);
+		glg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+		glg.constraintCount = 2;
+		ContentSizeFitter fit = grid.AddComponent<ContentSizeFitter>();
+		fit.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+		LayoutElement gle = grid.AddComponent<LayoutElement>();
+		gle.flexibleWidth = 1f;
 		UIFactory.CreateButton("\ud83c\udf81 Grant All Weapons", delegate
 		{
 			WeaponFeatures.GrantAllWeapons();
-		}, parent);
+		}, grid);
 		UIFactory.CreateButton("⭐ Max All Weapons", delegate
 		{
 			WeaponFeatures.MaxAllWeapons();
-		}, parent);
+		}, grid);
 		UIFactory.CreateSpacer(4, parent);
         int[] map;
         var sorted = SortWithMap(weapons, out map);
@@ -110,14 +121,27 @@ public static class ItemsTab
 
     private static void CreateTomes(GameObject parent)
     {
+		GameObject grid = new GameObject("TomesGrid");
+		grid.transform.SetParent(parent.transform, false);
+		RectTransform grt = grid.AddComponent<RectTransform>();
+		grt.sizeDelta = new Vector2(0f, 0f);
+		GridLayoutGroup glg = grid.AddComponent<GridLayoutGroup>();
+		glg.cellSize = new Vector2(283f, 30f);
+		glg.spacing = new Vector2(10f, 8f);
+		glg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+		glg.constraintCount = 2;
+		ContentSizeFitter fit = grid.AddComponent<ContentSizeFitter>();
+		fit.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+		LayoutElement gle = grid.AddComponent<LayoutElement>();
+		gle.flexibleWidth = 1f;
 		UIFactory.CreateButton("\ud83c\udf81 Grant All Tomes", delegate
 		{
 			TomeFeatures.GrantAllTomes();
-		}, parent);
+		}, grid);
 		UIFactory.CreateButton("⭐ Max All Tomes", delegate
 		{
 			TomeFeatures.MaxAllTomes();
-		}, parent);
+		}, grid);
 		UIFactory.CreateSpacer(4, parent);
         int[] map;
         var sorted = SortWithMap(tomes, out map);
@@ -201,6 +225,7 @@ public static class ItemsTab
         });
 
         UIFactory.CreateSpacer(8, parent);
+        UIFactory.CreateSectionHeader("Tome", parent);
 
         int[] tMap;
         var tSorted = SortWithMap(tomes, out tMap);
