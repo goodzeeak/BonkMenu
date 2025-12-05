@@ -38,6 +38,7 @@ public class BonkMenuMod : MelonMod
     private bool _uiInitialized = false;
     private bool _hasModifiedXpMultiplier = false;
     private bool _pendingXpUncap = false;
+    private bool _deferredApplied = false;
     private Type _playerXpTypeCached;
     private FieldInfo _xpCapFieldCached;
     private PropertyInfo _xpCapPropCached;
@@ -60,24 +61,16 @@ public class BonkMenuMod : MelonMod
 		//IL_00b2: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00f0: Unknown result type (might be due to invalid IL or missing references)
 		//IL_012e: Unknown result type (might be due to invalid IL or missing references)
-        Log.Info("[BonkMenu] === BonkMenu Initialized ===");
+        Log.Info("=== BonkMenu Initialized ===");
         KeybindConfig.LoadKeybinds();
         Patches.Apply();
-        Log.Info($"[BonkMenu] Press {KeybindConfig.ToggleMenuKey} to toggle menu");
+        Log.Info($"Press {KeybindConfig.ToggleMenuKey} to toggle menu");
         var mlVer = typeof(MelonMod).Assembly.GetName().Version;
         var uniVer = typeof(UniverseLib.Universe).Assembly.GetName().Version;
-        Log.Info($"[BonkMenu] MelonLoader: {mlVer}");
-        Log.Info($"[BonkMenu] UniverseLib: {uniVer}");
-        try
-        {
-            var minVer = new Version(0,7,2,2367);
-            if (mlVer != null && mlVer < minVer)
-            {
-                Log.Warn("[BonkMenu] MelonLoader below tested version 0.7.2.2367");
-            }
-        }
-        catch {}
-        Log.Info("[BonkMenu] ==============================");
+        Log.Info($"MelonLoader: {mlVer}");
+        Log.Info($"UniverseLib: {uniVer}");
+        
+        Log.Info("==============================");
 	}
 
     /// <summary>
@@ -187,9 +180,14 @@ public class BonkMenuMod : MelonMod
                 }
             }
         }
-        if (KeybindConfig.IsChordDown("Toggle Menu", KeybindConfig.ToggleMenuKey))
+        if (TryGetKeyDown(KeybindConfig.ToggleMenuKey))
         {
             UniverseUI.Toggle();
+        }
+        if (!_deferredApplied && Time.unscaledTime > 2f)
+        {
+            try { Patches.ApplyDeferred(); } catch {}
+            _deferredApplied = true;
         }
         bool menuOpen = BonkMenu.UI.UniverseUI.IsOpen();
 
@@ -440,6 +438,21 @@ public class BonkMenuMod : MelonMod
             }
         }
         catch { }
+    }
+
+    private static bool TryGetKeyDown(KeyCode key)
+    {
+        try
+        {
+            if (UniverseLib.Input.InputManager.GetKeyDown(key)) return true;
+        }
+        catch {}
+        try
+        {
+            return UnityEngine.Input.GetKeyDown(key);
+        }
+        catch { }
+        return false;
     }
 
     private void ApplyCachedUncap()

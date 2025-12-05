@@ -2,6 +2,7 @@ using System;
 using BonkMenu.UI.Components;
 using BonkMenu.UI.Tabs;
 using MelonLoader;
+using BonkMenu.Core;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -74,9 +75,28 @@ public static class UniverseUI
 				AboutTab.Create(GetContent(root));
 			}
 		};
-		_onInitialized = OnUniverseInitialized;
+        _onInitialized = OnUniverseInitialized;
 
-		Universe.Init(0f, _onInitialized, (Action<string, LogType>)null, default(UniverseLibConfig));
+        Action<string, LogType> logFilter = (message, logType) => { };
+
+        UniverseLibConfig cfg = default(UniverseLibConfig);
+        try
+        {
+            var cfgType = typeof(UniverseLib.Config.UniverseLibConfig);
+            var path = System.IO.Directory.GetCurrentDirectory();
+            var field = cfgType.GetField("UnhollowedPath") ?? cfgType.GetField("UnhollowedModulesPath");
+            if (field != null && field.FieldType == typeof(string))
+            {
+                field.SetValueDirect(__makeref(cfg), path);
+            }
+            var prop = cfgType.GetProperty("UnhollowedPath") ?? cfgType.GetProperty("UnhollowedModulesPath");
+            if (prop != null && prop.CanWrite && prop.PropertyType == typeof(string))
+            {
+                prop.SetValue(cfg, path);
+            }
+        }
+        catch { }
+        Universe.Init(0f, _onInitialized, logFilter, cfg);
 	}
 
 	private static void OnUniverseInitialized()
@@ -88,7 +108,7 @@ public static class UniverseUI
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Error("[BonkMenu] UniverseUI initialization failed: " + ex.Message);
+            Log.Error("UniverseUI initialization failed: " + ex.Message);
 			MelonLogger.Error(ex.StackTrace);
 		}
 	}
@@ -98,23 +118,32 @@ public static class UniverseUI
     /// </summary>
     public static void Toggle()
 	{
-		if ((Object)(object)panelRoot != (Object)null)
+		if ((Object)(object)panelRoot == (Object)null)
 		{
-			bool flag = !panelRoot.activeSelf;
-			panelRoot.SetActive(flag);
-			if (flag)
+			try
 			{
-				isDragging = false;
-				EnsureTabInitialized(currentTab);
+				CreateSimpleUI();
 			}
-			else
+			catch (Exception ex)
 			{
-				// Force cursor lock when closing menu to fix interaction bugs (e.g. portals)
-				Cursor.lockState = CursorLockMode.Locked;
-				Cursor.visible = false;
+				MelonLogger.Error("[BonkMenu] UniverseUI panel creation failed: " + ex.Message);
+				return;
 			}
-
 		}
+		bool flag = !panelRoot.activeSelf;
+		panelRoot.SetActive(flag);
+        Log.Info("Menu " + (flag ? "opened" : "closed"));
+		if (flag)
+		{
+			isDragging = false;
+			EnsureTabInitialized(currentTab);
+		}
+		else
+		{
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
+		}
+
 	}
 
 	private static void CreateSimpleUI()
@@ -207,8 +236,13 @@ public static class UniverseUI
         {
             return;
         }
-        Vector3 mousePosition = InputManager.MousePosition;
-        if (InputManager.GetMouseButtonDown(0))
+        Vector3 mousePosition;
+        try { mousePosition = InputManager.MousePosition; } catch { mousePosition = UnityEngine.Input.mousePosition; }
+        bool mouseDown;
+        bool mouseUp;
+        try { mouseDown = InputManager.GetMouseButtonDown(0); } catch { mouseDown = UnityEngine.Input.GetMouseButtonDown(0); }
+        try { mouseUp = InputManager.GetMouseButtonUp(0); } catch { mouseUp = UnityEngine.Input.GetMouseButtonUp(0); }
+        if (mouseDown)
         {
             if ((Object)(object)headerRect != (Object)null && RectTransformUtility.RectangleContainsScreenPoint(headerRect, (Vector2)mousePosition, (Camera)null))
             {
@@ -216,7 +250,7 @@ public static class UniverseUI
                 lastMousePos = mousePosition;
             }
         }
-        else if (InputManager.GetMouseButtonUp(0))
+        else if (mouseUp)
         {
             isDragging = false;
         }

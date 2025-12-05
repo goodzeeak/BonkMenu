@@ -2,6 +2,7 @@ using Il2Cpp;
 using Il2CppAssets.Scripts.Managers;
 using Il2CppAssets.Scripts.Saves___Serialization.Progression;
 using Il2CppAssets.Scripts.Saves___Serialization.Progression.Achievements;
+using Il2CppAssets.Scripts.Saves___Serialization.Progression.Unlocks;
 using Il2CppAssets.Scripts.Saves___Serialization.SaveFiles;
 using Il2CppSystem.Collections.Generic;
 using MelonLoader;
@@ -20,7 +21,47 @@ public static class UnlockFeatures
     public static void UnlockAllCharacters()
 	{
 		MelonLogger.Msg("[UnlockAllCharacters] Starting unlock all characters");
-		UnlockAll<UnlockableBase>("characters");
+		try
+		{
+			DataManager dm = DataManager.Instance;
+			SaveManager sm = SaveManager.Instance;
+			if ((Object)(object)dm == (Object)null || (Object)(object)sm == (Object)null || sm.progression == null)
+			{
+				MelonLogger.Error("[UnlockAllCharacters] Missing managers or progression");
+				return;
+			}
+			ProgressionSaveFile progression = sm.progression;
+			List<CharacterData> list = dm.unsortedCharacterData;
+			if (list == null)
+			{
+				MelonLogger.Error("[UnlockAllCharacters] No character list");
+				return;
+			}
+			int added = 0;
+			int existing = 0;
+			var it = list.GetEnumerator();
+			while (it.MoveNext())
+			{
+				CharacterData cur = it.Current;
+				if ((Object)(object)cur == (Object)null) continue;
+				bool already = MyAchievements.IsPurchased((UnlockableBase)(object)cur);
+				string name = ((UnlockableBase)(object)cur).GetInternalName();
+				if (!already && !progression.purchases.Contains(name))
+				{
+					progression.purchases.Add(name);
+					ProgressionSaveFile.A_UnlockablePurchased?.Invoke((UnlockableBase)(object)cur);
+					added++;
+				}
+				else existing++;
+			}
+			sm.SaveProgression();
+			ButtonManager.Refresh();
+			MelonLogger.Msg($"[UnlockAllCharacters] Results - Unlocked: {added}, Already Unlocked: {existing}");
+		}
+		catch (Exception e)
+		{
+			MelonLogger.Error("[UnlockAllCharacters] ERROR: " + e.Message);
+		}
 	}
 
     /// <summary>
@@ -188,7 +229,47 @@ public static class UnlockFeatures
     public static void UnlockAllMaps()
 	{
 		MelonLogger.Msg("[UnlockAllMaps] Starting unlock all maps");
-		UnlockAll<MapData>("maps");
+		try
+		{
+			DataManager dm = DataManager.Instance;
+			SaveManager sm = SaveManager.Instance;
+			if ((Object)(object)dm == (Object)null || (Object)(object)sm == (Object)null || sm.progression == null)
+			{
+				MelonLogger.Error("[UnlockAllMaps] Missing managers or progression");
+				return;
+			}
+			ProgressionSaveFile progression = sm.progression;
+			List<MapData> maps = dm.maps;
+			if (maps == null)
+			{
+				MelonLogger.Error("[UnlockAllMaps] No maps list");
+				return;
+			}
+			int added = 0;
+			int existing = 0;
+			var it = maps.GetEnumerator();
+			while (it.MoveNext())
+			{
+				MapData cur = it.Current;
+				if ((Object)(object)cur == (Object)null) continue;
+				bool already = MyAchievements.IsPurchased((UnlockableBase)(object)cur);
+				string name = ((UnlockableBase)(object)cur).GetInternalName();
+				if (!already && !progression.purchases.Contains(name))
+				{
+					progression.purchases.Add(name);
+					ProgressionSaveFile.A_UnlockablePurchased?.Invoke((UnlockableBase)(object)cur);
+					added++;
+				}
+				else existing++;
+			}
+			sm.SaveProgression();
+			ButtonManager.Refresh();
+			MelonLogger.Msg($"[UnlockAllMaps] Results - Unlocked: {added}, Already Unlocked: {existing}");
+		}
+		catch (Exception e)
+		{
+			MelonLogger.Error("[UnlockAllMaps] ERROR: " + e.Message);
+		}
 	}
 
     /// <summary>
@@ -211,20 +292,27 @@ public static class UnlockFeatures
 				MelonLogger.Error("[UnlockEverything] Progression save file is null!");
 				return;
 			}
-			UnlockableBase[] array = RuntimeHelper.FindObjectsOfTypeAll<UnlockableBase>();
-			if (array == null)
+			DataManager dm = DataManager.Instance;
+			if ((Object)(object)dm == (Object)null)
 			{
-				MelonLogger.Error("[UnlockEverything] FindObjectsOfTypeAll returned null!");
+				MelonLogger.Error("[UnlockEverything] DataManager.Instance is null!");
 				return;
 			}
-			MelonLogger.Msg($"[UnlockEverything] Found {array.Length} unlockable items");
+			List<UnlockableBase> all = dm.GetAllPurchasable();
+			if (all == null)
+			{
+				MelonLogger.Error("[UnlockEverything] GetAllPurchasable returned null!");
+				return;
+			}
+			MelonLogger.Msg($"[UnlockEverything] Found {all.Count} purchasables");
 			int num = 0;
 			int num2 = 0;
-			UnlockableBase[] array2 = array;
-			foreach (UnlockableBase val in array2)
+			var it = all.GetEnumerator();
+			while (it.MoveNext())
 			{
 				try
 				{
+					UnlockableBase val = it.Current;
 					if (!((Object)(object)val == (Object)null))
 					{
 						string text = val.GetInternalName();
@@ -232,9 +320,11 @@ public static class UnlockFeatures
 						{
 							text = ((Object)val).name;
 						}
-						if (!progression.purchases.Contains(text))
+						bool already = MyAchievements.IsPurchased(val);
+						if (!already && !progression.purchases.Contains(text))
 						{
 							progression.purchases.Add(text);
+							ProgressionSaveFile.A_UnlockablePurchased?.Invoke(val);
 							num++;
 						}
 						else
@@ -244,8 +334,10 @@ public static class UnlockFeatures
 						MyAchievement unlockRequirement = val.GetUnlockRequirement();
 						if ((Object)(object)unlockRequirement != (Object)null)
 						{
-							progression.CompleteAchievement(unlockRequirement);
-							progression.ClaimAchievement(unlockRequirement);
+							bool done = progression.achievements != null && progression.achievements.Contains(unlockRequirement.internalName);
+							bool claimed = progression.claimedAchievements != null && progression.claimedAchievements.Contains(unlockRequirement.internalName);
+							if (!done) progression.CompleteAchievement(unlockRequirement);
+							if (!claimed) progression.ClaimAchievement(unlockRequirement);
 						}
 					}
 				}
@@ -254,6 +346,10 @@ public static class UnlockFeatures
 					MelonLogger.Warning("[UnlockEverything] Error processing unlockable: " + ex.Message);
 				}
 			}
+
+			UnlockAllShopItems();
+			CompleteAndClaimAllAchievements();
+			EnsureMenusUnlocked();
 			instance.SaveProgression();
 			ButtonManager.Refresh();
 			MelonLogger.Msg($"[UnlockEverything] Results - Unlocked: {num}, Already Unlocked: {num2}");
@@ -262,6 +358,112 @@ public static class UnlockFeatures
 		{
 			MelonLogger.Error("[UnlockEverything] CRITICAL ERROR: " + ex2.Message);
 			MelonLogger.Error("[UnlockEverything] Stack Trace: " + ex2.StackTrace);
+		}
+	}
+
+	private static void UnlockAllShopItems()
+	{
+		MelonLogger.Msg("[UnlockAllShopItems] Maxing all shop items");
+		try
+		{
+			DataManager dm = DataManager.Instance;
+			SaveManager sm = SaveManager.Instance;
+			if ((Object)(object)dm == (Object)null || (Object)(object)sm == (Object)null || sm.progression == null)
+			{
+				MelonLogger.Error("[UnlockAllShopItems] Missing managers or progression");
+				return;
+			}
+			ProgressionSaveFile progression = sm.progression;
+			List<ShopItemData> items = dm.unsortedShopItems;
+			if (items == null)
+			{
+				MelonLogger.Error("[UnlockAllShopItems] No shop item list");
+				return;
+			}
+			int maxed = 0;
+			var it = items.GetEnumerator();
+			while (it.MoveNext())
+			{
+				ShopItemData cur = it.Current;
+				if ((Object)(object)cur == (Object)null) continue;
+				int safety = 0;
+				while (!cur.IsMaxLevel() && safety < 1000)
+				{
+					progression.PurchaseShopItem(cur);
+					safety++;
+				}
+				if (cur.IsMaxLevel()) maxed++;
+			}
+			MelonLogger.Msg($"[UnlockAllShopItems] Maxed {maxed} shop items");
+		}
+		catch (Exception e)
+		{
+			MelonLogger.Error("[UnlockAllShopItems] ERROR: " + e.Message);
+		}
+	}
+
+	private static void EnsureMenusUnlocked()
+	{
+		try
+		{
+			SaveManager sm = SaveManager.Instance;
+			if ((Object)(object)sm == (Object)null || sm.progression == null) return;
+			if (sm.progression.menuMeta == null) sm.progression.menuMeta = new MenuMeta();
+			sm.progression.menuMeta.hasVisitedShop = true;
+			sm.progression.menuMeta.hasVisitedUnlocks = true;
+			sm.progression.menuMeta.hasVisitedQuests = true;
+		}
+		catch (Exception e)
+		{
+			MelonLogger.Warning("[EnsureMenusUnlocked] " + e.Message);
+		}
+	}
+
+	private static void CompleteAndClaimAllAchievements()
+	{
+		MelonLogger.Msg("[CompleteAndClaimAllAchievements] Completing and claiming all achievements/quests");
+		try
+		{
+			DataManager dm = DataManager.Instance;
+			SaveManager sm = SaveManager.Instance;
+			if ((Object)(object)dm == (Object)null || (Object)(object)sm == (Object)null || sm.progression == null)
+			{
+				MelonLogger.Error("[CompleteAndClaimAllAchievements] Missing managers or progression");
+				return;
+			}
+			ProgressionSaveFile progression = sm.progression;
+			List<MyAchievement> achs = dm.unsortedAchievements;
+			if (achs == null)
+			{
+				MelonLogger.Error("[CompleteAndClaimAllAchievements] No achievements list");
+				return;
+			}
+			int completed = 0;
+			int claimed = 0;
+			var it = achs.GetEnumerator();
+			while (it.MoveNext())
+			{
+				MyAchievement cur = it.Current;
+				if ((Object)(object)cur == (Object)null) continue;
+				string name = cur.internalName;
+				bool isDone = progression.achievements != null && progression.achievements.Contains(name);
+				bool isClaimed = progression.claimedAchievements != null && progression.claimedAchievements.Contains(name);
+				if (!isDone)
+				{
+					progression.CompleteAchievement(cur);
+					completed++;
+				}
+				if (!isClaimed)
+				{
+					progression.ClaimAchievement(cur);
+					claimed++;
+				}
+			}
+			MelonLogger.Msg($"[CompleteAndClaimAllAchievements] Completed {completed}, Claimed {claimed}");
+		}
+		catch (Exception e)
+		{
+			MelonLoader.MelonLogger.Error("[CompleteAndClaimAllAchievements] ERROR: " + e.Message);
 		}
 	}
 

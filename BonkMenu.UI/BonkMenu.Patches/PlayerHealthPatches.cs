@@ -35,7 +35,7 @@ public class PlayerHealthPatches
 		{
 			if (!_hasLoggedError)
 			{
-				MelonLogger.Error("[BonkMenu] PlayerHealthPatches.DamagePlayer error: " + ex.Message);
+                Log.Error("PlayerHealthPatches.DamagePlayer error: " + ex.Message);
 				_hasLoggedError = true;
 			}
 			return true;
@@ -61,7 +61,7 @@ public class PlayerHealthPatches
 		{
 			if (!_hasLoggedError)
 			{
-				MelonLogger.Error("[BonkMenu] PlayerHealthPatches.DamagePlayerExternal error: " + ex.Message);
+                Log.Error("PlayerHealthPatches.DamagePlayerExternal error: " + ex.Message);
 				_hasLoggedError = true;
 			}
 			return true;
@@ -86,8 +86,8 @@ public class PlayerHealthPatches
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Error("[BonkMenu] PlayerHealthPatches.KillPlayer CRITICAL: " + ex.Message);
-			MelonLogger.Error("[BonkMenu] Stack Trace: " + ex.StackTrace);
+            Log.Error("PlayerHealthPatches.KillPlayer CRITICAL: " + ex.Message);
+            Log.Error("Stack Trace: " + ex.StackTrace);
 			return true;
 		}
 	}
@@ -99,11 +99,11 @@ public class PlayerHealthPatches
 		try
 		{
 			harmony.PatchAll(typeof(PlayerHealthPatches));
-			MelonLogger.Msg("[PlayerHealthPatches] ✅ PlayerHealth patched (God Mode/Infinite Health enabled)");
+            Log.Info("[PlayerHealthPatches] ✅ PlayerHealth patched (God Mode/Infinite Health enabled)");
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Error($"[PlayerHealthPatches] Failed to patch: {ex.Message}");
+            Log.Error($"[PlayerHealthPatches] Failed to patch: {ex.Message}");
 		}
 	}
 }

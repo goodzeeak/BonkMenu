@@ -53,7 +53,7 @@ public class UtilityButtonPatches
 		{
 			if (!_hasLoggedError)
 			{
-				MelonLogger.Error("[BonkMenu] UtilityButtonPatches.SetAmount error: " + ex.Message);
+                Log.Error("UtilityButtonPatches.SetAmount error: " + ex.Message);
 				_hasLoggedError = true;
 			}
 		}
@@ -85,7 +85,7 @@ public class UtilityButtonPatches
 		{
 			if (!_hasLoggedError)
 			{
-				MelonLogger.Error("[BonkMenu] UtilityButtonPatches.OnClick error: " + ex.Message);
+                Log.Error("UtilityButtonPatches.OnClick error: " + ex.Message);
 				_hasLoggedError = true;
 			}
 			return true;

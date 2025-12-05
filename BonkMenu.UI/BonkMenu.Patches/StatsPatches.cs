@@ -75,7 +75,7 @@ public class StatsPatches
 		{
 			if (!_hasLoggedError)
 			{
-				MelonLogger.Error("[BonkMenu] StatsPatches.GetStat error: " + ex.Message);
+                Log.Error("StatsPatches.GetStat error: " + ex.Message);
 				_hasLoggedError = true;
 			}
 		}
@@ -98,7 +98,7 @@ public class StatsPatches
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Warning($"[BonkMenu] StatsPatches clamp bypass error: {ex.Message}");
+            Log.Warn($"StatsPatches clamp bypass error: {ex.Message}");
 		}
 		
 		return true; // Run original method only on error
@@ -125,7 +125,7 @@ public class StatsPatches
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Warning($"[BonkMenu] StatsPatches.GetUnclampedStat error: {ex.Message}");
+            Log.Warn($"StatsPatches.GetUnclampedStat error: {ex.Message}");
 		}
 	}
 }

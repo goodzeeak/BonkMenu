@@ -12,7 +12,12 @@ public static class Log
     /// </summary>
     public static void Info(string message)
     {
-        MelonLogger.Msg(message);
+        var m = message;
+        if (!string.IsNullOrEmpty(m) && m.StartsWith("[BonkMenu]"))
+        {
+            m = m.Substring("[BonkMenu]".Length).TrimStart();
+        }
+        MelonLogger.Msg(m);
     }
 
     /// <summary>
@@ -20,7 +25,12 @@ public static class Log
     /// </summary>
     public static void Warn(string message)
     {
-        MelonLogger.Warning(message);
+        var m = message;
+        if (!string.IsNullOrEmpty(m) && m.StartsWith("[BonkMenu]"))
+        {
+            m = m.Substring("[BonkMenu]".Length).TrimStart();
+        }
+        MelonLogger.Warning(m);
     }
 
     /// <summary>
@@ -28,6 +38,11 @@ public static class Log
     /// </summary>
     public static void Error(string message)
     {
-        MelonLogger.Error(message);
+        var m = message;
+        if (!string.IsNullOrEmpty(m) && m.StartsWith("[BonkMenu]"))
+        {
+            m = m.Substring("[BonkMenu]".Length).TrimStart();
+        }
+        MelonLogger.Error(m);
     }
 }

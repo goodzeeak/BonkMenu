@@ -7,6 +7,7 @@ using Il2CppInterop.Runtime;
 using Il2CppInterop.Runtime.InteropTypes;
 using Il2CppInterop.Runtime.InteropTypes.Arrays;
 using MelonLoader;
+using BonkMenu.Core;
 using UnityEngine;
 
 namespace BonkMenu.Features;
@@ -42,11 +43,11 @@ public static class WorldFeatures
             {
                 spawner.SpawnShrines();
             }
-            MelonLogger.Msg($"[BonkMenu] Spawned Statues {times} time(s)!");
+            Log.Info($"Spawned Statues {times} time(s)!");
         }
         else
         {
-            MelonLogger.Warning("[BonkMenu] SpawnInteractables instance not found!");
+            Log.Warn("SpawnInteractables instance not found!");
         }
     }
 
@@ -59,7 +60,7 @@ public static class WorldFeatures
             RandomObjectPlacer placer = Object.FindObjectOfType<RandomObjectPlacer>();
             if ((Object)(object)placer == (Object)null)
             {
-                MelonLogger.Error("[BonkMenu] RandomObjectPlacer not found!");
+                Log.Error("RandomObjectPlacer not found!");
                 return;
             }
 
@@ -77,7 +78,7 @@ public static class WorldFeatures
                             if (p != null && p.name.Equals(prefabName, StringComparison.OrdinalIgnoreCase))
                             {
                                 prefab = p;
-                                MelonLogger.Msg($"[BonkMenu] Found prefab '{prefabName}' in RandomObjectPlacer");
+                                Log.Info($"Found prefab '{prefabName}' in RandomObjectPlacer");
                                 break;
                             }
                         }
@@ -98,7 +99,7 @@ public static class WorldFeatures
                         // CRITICAL: Ensure we use the ROOT object, not just the child with the component
                         // This ensures we get the full hierarchy including bones and UI icons
                         prefab = interactable.transform.root.gameObject;
-                        MelonLogger.Warning($"[BonkMenu] Found prefab '{prefabName}' in Resources (Fallback) - Using Root: {prefab.name}");
+                        Log.Warn($"Found prefab '{prefabName}' in Resources (Fallback) - Using Root: {prefab.name}");
                         break;
                     }
                 }
@@ -106,7 +107,7 @@ public static class WorldFeatures
 
             if ((Object)(object)prefab == (Object)null)
             {
-                MelonLogger.Warning($"[BonkMenu] Prefab '{prefabName}' not found for {displayName}");
+                Log.Warn($"Prefab '{prefabName}' not found for {displayName}");
                 return;
             }
 
@@ -128,12 +129,12 @@ public static class WorldFeatures
             shrineArray[0] = shrineMapObject;
             placer.Generate(shrineArray);
             
-            MelonLogger.Msg($"[BonkMenu] Spawned {amount} {displayName} using game's spawn system!");
+            Log.Info($"Spawned {amount} {displayName} using game's spawn system!");
         }
         catch (Exception ex)
         {
-            MelonLogger.Error($"[BonkMenu] Failed to spawn {displayName}: " + ex.Message);
-            MelonLogger.Error($"[BonkMenu] Stack trace: " + ex.StackTrace);
+            Log.Error($"Failed to spawn {displayName}: " + ex.Message);
+            Log.Error($"Stack trace: " + ex.StackTrace);
         }
     }
 
@@ -204,7 +205,7 @@ public static class WorldFeatures
         RandomObjectPlacer placer = Object.FindObjectOfType<RandomObjectPlacer>();
         if ((Object)(object)placer == (Object)null)
         {
-            MelonLogger.Error("[BonkMenu] RandomObjectPlacer not found!");
+            Log.Error("RandomObjectPlacer not found!");
             return;
         }
 
@@ -229,16 +230,16 @@ public static class WorldFeatures
                 var array = new Il2CppReferenceArray<RandomMapObject>(1);
                 array[0] = newObj;
                 placer.Generate(array);
-                MelonLogger.Msg($"[BonkMenu] Spawned {amount} Charge Shrines!");
+                Log.Info($"Spawned {amount} Charge Shrines!");
             }
             catch (Exception ex)
             {
-                MelonLogger.Error("[BonkMenu] Failed to spawn Charge Shrines: " + ex.Message);
+                Log.Error("Failed to spawn Charge Shrines: " + ex.Message);
             }
         }
         else
         {
-            MelonLogger.Error("[BonkMenu] Charge Shrine prefabs not found in RandomObjectPlacer!");
+            Log.Error("Charge Shrine prefabs not found in RandomObjectPlacer!");
         }
     }
 
@@ -251,13 +252,13 @@ public static class WorldFeatures
         RandomObjectPlacer placer = Object.FindObjectOfType<RandomObjectPlacer>();
         if ((Object)(object)placer == (Object)null)
         {
-            MelonLogger.Error("[BonkMenu] RandomObjectPlacer not found!");
+            Log.Error("RandomObjectPlacer not found!");
             return;
         }
 
         if (placer.chargeShrineSpawns == null || placer.chargeShrineSpawns.prefabs == null || placer.chargeShrineSpawns.prefabs.Length == 0)
         {
-            MelonLogger.Error("[BonkMenu] Charge Shrine prefabs not found in RandomObjectPlacer!");
+            Log.Error("Charge Shrine prefabs not found in RandomObjectPlacer!");
             return;
         }
 
@@ -285,12 +286,12 @@ public static class WorldFeatures
             array[0] = newObj;
             placer.Generate(array);
             
-            MelonLogger.Msg($"[BonkMenu] Spawned {amount} Golden Shrines using native positioning + Harmony patch!");
+            Log.Info($"Spawned {amount} Golden Shrines using native positioning + Harmony patch!");
         }
         catch (Exception ex)
         {
-            MelonLogger.Error("[BonkMenu] Failed to spawn Golden Shrines: " + ex.Message);
-            MelonLogger.Error($"[BonkMenu] Stack trace: " + ex.StackTrace);
+            Log.Error("Failed to spawn Golden Shrines: " + ex.Message);
+            Log.Error($"Stack trace: " + ex.StackTrace);
             
             // Reset the flag on error
             BonkMenu.Patches.GoldenShrinePatch.SpawnNextAsGolden = false;
@@ -332,11 +333,11 @@ public static class WorldFeatures
                 }
             }
             
-            MelonLogger.Msg($"[Bonk Menu] Spawned {silverCount} Silver Pots!");
+            Log.Info("Spawned {silverCount} Silver Pots!");
         }
         catch (Exception ex)
         {
-            MelonLogger.Error("[BonkMenu] Failed to spawn Silver Pots: " + ex.Message);
+            Log.Error("Failed to spawn Silver Pots: " + ex.Message);
         }
     }
 
@@ -374,11 +375,11 @@ public static class WorldFeatures
                 }
             }
             
-            MelonLogger.Msg($"[BonkMenu] Spawned {bigCount} Big Pots (Microwaves)!");
+            Log.Info($"Spawned {bigCount} Big Pots (Microwaves)!");
         }
         catch (Exception ex)
         {
-            MelonLogger.Error("[BonkMenu] Failed to spawn Big Pots: " + ex.Message);
+            Log.Error("Failed to spawn Big Pots: " + ex.Message);
         }
     }
 
@@ -395,11 +396,11 @@ public static class WorldFeatures
             
             SpawnShadyMerchant(amount);
             
-            MelonLogger.Msg($"[BonkMenu] Initiated spawning of {amount} Rare Shady Merchant(s)!");
+            Log.Info($"Initiated spawning of {amount} Rare Shady Merchant(s)!");
         }
         catch (Exception ex)
         {
-            MelonLogger.Error("[BonkMenu] Failed to spawn Rare Shady Merchant: " + ex.Message);
+            Log.Error("Failed to spawn Rare Shady Merchant: " + ex.Message);
             BonkMenu.Patches.ShadyGuyVariantPatch.SpawnNextRarity = -1;
             BonkMenu.Patches.ShadyGuyVariantPatch.RarityMerchantsRemaining = 0;
         }
@@ -418,11 +419,11 @@ public static class WorldFeatures
             
             SpawnShadyMerchant(amount);
             
-            MelonLogger.Msg($"[BonkMenu] Initiated spawning of {amount} Epic Shady Merchant(s)!");
+            Log.Info($"Initiated spawning of {amount} Epic Shady Merchant(s)!");
         }
         catch (Exception ex)
         {
-            MelonLogger.Error("[BonkMenu] Failed to spawn Epic Shady Merchant: " + ex.Message);
+            Log.Error("Failed to spawn Epic Shady Merchant: " + ex.Message);
             BonkMenu.Patches.ShadyGuyVariantPatch.SpawnNextRarity = -1;
             BonkMenu.Patches.ShadyGuyVariantPatch.RarityMerchantsRemaining = 0;
         }
@@ -441,11 +442,11 @@ public static class WorldFeatures
             
             SpawnShadyMerchant(amount);
             
-            MelonLogger.Msg($"[BonkMenu] Initiated spawning of {amount} Legendary Shady Merchant(s)!");
+            Log.Info($"Initiated spawning of {amount} Legendary Shady Merchant(s)!");
         }
         catch (Exception ex)
         {
-            MelonLogger.Error("[BonkMenu] Failed to spawn Legendary Shady Merchant: " + ex.Message);
+            Log.Error("Failed to spawn Legendary Shady Merchant: " + ex.Message);
             BonkMenu.Patches.ShadyGuyVariantPatch.SpawnNextRarity = -1;
             BonkMenu.Patches.ShadyGuyVariantPatch.RarityMerchantsRemaining = 0;
         }
@@ -460,7 +461,7 @@ public static class WorldFeatures
         
         if ((Object)(object)placer == (Object)null)
         {
-            MelonLogger.Error("[BonkMenu] RandomObjectPlacer not found!");
+            Log.Error("RandomObjectPlacer not found!");
             return;
         }
         try
@@ -522,11 +523,11 @@ public static class WorldFeatures
                 // Assign silver prefab
                 silverPotObj.prefabs = new GameObject[] { silverPrefab };
                 potsToSpawn.Add(silverPotObj);
-                MelonLogger.Msg("[BonkMenu] Found and added Silver Pot!");
+                Log.Info("Found and added Silver Pot!");
             }
             else
             {
-                MelonLogger.Warning("[BonkMenu] Could not find Silver Pot prefab on any pot objects.");
+                Log.Warn("Could not find Silver Pot prefab on any pot objects.");
             }
 
             // Convert to Il2Cpp array and spawn
@@ -551,16 +552,16 @@ public static class WorldFeatures
                     potArray[i] = potsToSpawn[i];
                 }
                 placer.Generate(potArray);
-                MelonLogger.Msg($"[BonkMenu] Spawned {potsToSpawn.Count} types of pots (x{amountMultiplier} multiplier)!");
+                Log.Info($"Spawned {potsToSpawn.Count} types of pots (x{amountMultiplier} multiplier)!");
             }
             else
             {
-                MelonLogger.Warning("[BonkMenu] No pot objects found to spawn.");
+                Log.Warn("No pot objects found to spawn.");
             }
         }
         catch (Exception ex)
         {
-            MelonLogger.Error("[BonkMenu] Failed to spawn pots: " + ex.Message);
+            Log.Error("Failed to spawn pots: " + ex.Message);
         }
     }
 
@@ -572,7 +573,7 @@ public static class WorldFeatures
         RandomObjectPlacer placer = Object.FindObjectOfType<RandomObjectPlacer>();
         if ((Object)(object)placer == (Object)null)
         {
-            MelonLogger.Error("[BonkMenu] RandomObjectPlacer not found!");
+            Log.Error("RandomObjectPlacer not found!");
             return;
         }
         try
@@ -612,16 +613,16 @@ public static class WorldFeatures
                     microwaveArray[i] = microwavesToSpawn[i];
                 }
                 placer.Generate(microwaveArray);
-                MelonLogger.Msg($"[BonkMenu] Spawned Microwaves (x{amountMultiplier} multiplier)!");
+                Log.Info($"Spawned Microwaves (x{amountMultiplier} multiplier)!");
             }
             else
             {
-                MelonLogger.Warning("[BonkMenu] No microwave objects found.");
+                Log.Warn("No microwave objects found.");
             }
         }
         catch (Exception ex)
         {
-            MelonLogger.Error("[BonkMenu] Failed to spawn microwaves: " + ex.Message);
+            Log.Error("Failed to spawn microwaves: " + ex.Message);
         }
     }
 
@@ -635,7 +636,7 @@ public static class WorldFeatures
         RandomObjectPlacer placer = Object.FindObjectOfType<RandomObjectPlacer>();
         if ((Object)(object)placer == (Object)null)
         {
-            MelonLogger.Error("[BonkMenu] RandomObjectPlacer not found!");
+            Log.Error("RandomObjectPlacer not found!");
             return;
         }
 
@@ -672,16 +673,16 @@ public static class WorldFeatures
                     altarArray[i] = altarsToSpawn[i];
                 }
                 placer.Generate(altarArray);
-                MelonLogger.Msg($"[BonkMenu] Spawned {amount} Greed Altars!");
+                Log.Info($"Spawned {amount} Greed Altars!");
             }
             else
             {
-                MelonLogger.Warning("[BonkMenu] No Greed Altar objects found.");
+                Log.Warn("No Greed Altar objects found.");
             }
         }
         catch (Exception ex)
         {
-            MelonLogger.Error("[BonkMenu] Failed to spawn Greed Altars: " + ex.Message);
+            Log.Error("Failed to spawn Greed Altars: " + ex.Message);
         }
     }
 }

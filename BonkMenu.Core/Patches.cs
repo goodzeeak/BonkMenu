@@ -1,3 +1,6 @@
+using HarmonyLib;
+using System;
+using System.Reflection;
 namespace BonkMenu.Core;
 
 /// <summary>
@@ -52,13 +55,14 @@ public static class Patches
             try
             {
                 _harmonyInstance.PatchAll(typeof(BonkMenu.Features.TogglePatches));
-                BonkMenu.Features.TogglePatches.ApplyRunUnlockablesPatch(_harmonyInstance);
                 Log.Info("[Patches] ✅ TogglePatches applied");
             }
             catch (Exception ex)
             {
                 Log.Error($"[Patches] Failed to apply TogglePatches: {ex.Message}");
             }
+
+            
             
             Log.Info("[Patches] All patches applied successfully!");
         }
@@ -67,5 +71,54 @@ public static class Patches
             Log.Error($"[Patches] Failed to apply patches: {ex.Message}");
             Log.Error($"[Patches] Stack trace: {ex.StackTrace}");
         }
-	}
+    }
+
+    private static Type SafeTypeByName(string fullName)
+    {
+        try
+        {
+            var t = Type.GetType(fullName, throwOnError: false, ignoreCase: false);
+            if (t != null) return t;
+        }
+        catch { }
+        try
+        {
+            foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                try
+                {
+                    var an = asm.GetName().Name;
+                    if (an != null && an.StartsWith("UnityEngine", StringComparison.OrdinalIgnoreCase)) continue;
+                    var tt = asm.GetType(fullName, throwOnError: false, ignoreCase: false);
+                    if (tt != null) return tt;
+                }
+                catch (ReflectionTypeLoadException) { }
+                catch { }
+            }
+        }
+        catch { }
+        return null;
+    }
+
+    public static void ApplyDeferred()
+    {
+        try
+        {
+            if (_harmonyInstance == null) _harmonyInstance = new HarmonyLib.Harmony("com.bonkmenu.patches");
+            BonkMenu.Features.TogglePatches.ApplyRunUnlockablesPatch(_harmonyInstance);
+            var il2cppRefType = SafeTypeByName("UniverseLib.Il2CppReflection");
+            MethodInfo buildMethod = null;
+            MethodInfo prefix = null;
+            if (il2cppRefType != null)
+            {
+                buildMethod = il2cppRefType.GetMethod("BuildDeobfuscationCache", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+            }
+            prefix = typeof(BonkMenu.Patches.UniverseLibPatchesRT).GetMethod(nameof(BonkMenu.Patches.UniverseLibPatchesRT.BuildDeobfuscationCache_Prefix), BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+            if (il2cppRefType != null && buildMethod != null && prefix != null)
+            {
+                _harmonyInstance.Patch(buildMethod, new HarmonyLib.HarmonyMethod(prefix));
+            }
+        }
+        catch { }
+    }
 }

@@ -4,6 +4,7 @@ using HarmonyLib;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Inventory__Items__Pickups.AbilitiesPassive;
 using MelonLoader;
+using BonkMenu.Core;
 
 namespace BonkMenu.Patches;
 
@@ -27,7 +28,7 @@ public static class PassiveInventoryPatches
         }
         catch (Exception ex)
         {
-            MelonLogger.Error($"[BonkMenu] PassiveInventoryPatches.HasPassive error: {ex.Message}");
+            Log.Error($"PassiveInventoryPatches.HasPassive error: {ex.Message}");
         }
     }
 
@@ -50,13 +51,13 @@ public static class PassiveInventoryPatches
                 }
                 catch (Exception ex)
                 {
-                    MelonLogger.Warning($"[BonkMenu] PassiveInventoryPatches passive update error: {ex.Message}");
+                    Log.Warn($"PassiveInventoryPatches passive update error: {ex.Message}");
                 }
             }
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Error($"[BonkMenu] PassiveInventoryPatches.Update error: {ex.Message}");
+            Log.Error($"PassiveInventoryPatches.Update error: {ex.Message}");
 		}
 	}
 
@@ -81,14 +82,14 @@ public static class PassiveInventoryPatches
 				}
 				catch (Exception ex)
 				{
-					MelonLogger.Warning($"[BonkMenu] PassiveInventoryPatches cleanup error: {ex.Message}");
+                    Log.Warn($"PassiveInventoryPatches cleanup error: {ex.Message}");
 				}
 			}
 			MultiPassiveManager.ClearPassives(__instance);
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Error($"[BonkMenu] PassiveInventoryPatches.Cleanup error: {ex.Message}");
+            Log.Error($"PassiveInventoryPatches.Cleanup error: {ex.Message}");
 		}
 	}
 }

@@ -146,7 +146,7 @@ public static class KeybindConfig
         _spawnShadyMerchantEpicKeyEntry = _category.CreateEntry("SpawnShadyMerchantEpicKey", KeyCode.F9, "Spawn Shady Merchant (Epic)", "Spawn 1 epic merchant");
         _spawnShadyMerchantLegendaryKeyEntry = _category.CreateEntry("SpawnShadyMerchantLegendaryKey", KeyCode.F10, "Spawn Shady Merchant (Legendary)", "Spawn 1 legendary merchant");
         
-        Log.Info($"[BonkMenu] Keybinds loaded. Toggle Key: {ToggleMenuKey}");
+        Log.Info($"Keybinds loaded. Toggle Key: {ToggleMenuKey}");
     }
 
     /// <summary>

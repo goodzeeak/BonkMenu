@@ -1,77 +1,89 @@
 
-[23:10:56.596] ------------------------------
-[23:10:56.599] MelonLoader v0.7.2-ci.2367 Open-Beta
-[23:10:56.600] OS: Windows 11
-[23:10:56.600] Hash Code: D6BF00FD6659AE51BFB63FF3F0296A4AB54B28DA09BE826C7B88870E9E46AFFE
-[23:10:56.600] ------------------------------
-[23:10:56.600] Game Type: Il2cpp
-[23:10:56.600] Game Arch: x64
-[23:10:56.600] ------------------------------
-[23:10:56.600] Command-Line: 
-[23:10:56.600] ------------------------------
-[23:10:56.601] Core::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
-[23:10:56.601] Game::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
-[23:10:56.602] Game::DataPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk_Data
-[23:10:56.602] Game::ApplicationPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk.exe
-[23:10:56.602] Runtime Type: net6
-[23:10:56.657] ------------------------------
-[23:10:56.657] Game Name: Megabonk
-[23:10:56.657] Game Developer: Ved
-[23:10:56.659] Unity Version: 2023.2.22f1
-[23:10:56.659] Game Version: 1.0.19
-[23:10:56.659] ------------------------------
+[10:31:53.847] ------------------------------
+[10:31:53.850] MelonLoader v0.7.1 Open-Beta
+[10:31:53.850] OS: Windows 11
+[10:31:53.851] Hash Code: E02D6B4281E511A9F1EA88CD1737B993A6B9C7C5566EFBE68300B1FCF1479C14
+[10:31:53.851] ------------------------------
+[10:31:53.851] Game Type: Il2cpp
+[10:31:53.851] Game Arch: x64
+[10:31:53.852] ------------------------------
+[10:31:53.852] Command-Line: 
+[10:31:53.852] ------------------------------
+[10:31:53.852] Core::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
+[10:31:53.852] Game::BasePath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk
+[10:31:53.853] Game::DataPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk_Data
+[10:31:53.853] Game::ApplicationPath = C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Megabonk.exe
+[10:31:53.853] Runtime Type: net6
+[10:31:53.909] ------------------------------
+[10:31:53.910] Game Name: Megabonk
+[10:31:53.910] Game Developer: Ved
+[10:31:53.911] Unity Version: 2023.2.22f1
+[10:31:53.912] Game Version: 1.0.19
+[10:31:53.912] ------------------------------
 
-[23:10:57.251] Preferences Loaded!
+[10:31:54.416] Preferences Loaded!
 
-[23:10:57.262] Loading UserLibs...
-[23:10:57.264] 0 UserLibs loaded.
+[10:31:54.427] Loading UserLibs...
+[10:31:54.429] 0 UserLibs loaded.
 
-[23:10:57.264] Loading Plugins...
-[23:10:57.268] 0 Plugins loaded.
+[10:31:54.430] Loading Plugins...
+[10:31:54.434] 0 Plugins loaded.
 
-[23:10:57.609] Loading Il2CppAssemblyGenerator...
-[23:10:57.634] [Il2CppAssemblyGenerator] Contacting RemoteAPI...
-[23:10:57.741] [Il2CppAssemblyGenerator] Game Not Found on RemoteAPI Host (https://api.melonloader.com/api/v1/game/megabonk)
-[23:10:57.741] [Il2CppAssemblyGenerator] RemoteAPI.DumperVersion = null
-[23:10:57.741] [Il2CppAssemblyGenerator] RemoteAPI.ObfuscationRegex = null
-[23:10:57.742] [Il2CppAssemblyGenerator] RemoteAPI.MappingURL = null
-[23:10:57.742] [Il2CppAssemblyGenerator] RemoteAPI.MappingFileSHA512 = null
-[23:10:57.745] [Il2CppAssemblyGenerator] Using Cpp2IL Version: 2022.1.0-pre-release.20
-[23:10:57.745] [Il2CppAssemblyGenerator] Using Il2CppInterop Version = 1.5.1+dbaf825aab891ff1e1627bea691bde0a81d1ad98
-[23:10:57.745] [Il2CppAssemblyGenerator] Using Unity Dependencies Version = 2023.2.22
-[23:10:57.745] [Il2CppAssemblyGenerator] Using Deobfuscation Regex = null
-[23:10:57.745] [Il2CppAssemblyGenerator] Cpp2IL is up to date.
-[23:10:57.746] [Il2CppAssemblyGenerator] Cpp2IL.Plugin.StrippedCodeRegSupport is up to date.
-[23:10:57.746] [Il2CppAssemblyGenerator] UnityDependencies is up to date.
-[23:10:57.746] [Il2CppAssemblyGenerator] Checking GameAssembly...
-[23:10:57.832] [Il2CppAssemblyGenerator] Assembly is up to date. No Generation Needed.
+[10:31:54.767] Loading Il2CppAssemblyGenerator...
+[10:31:54.793] [Il2CppAssemblyGenerator] Contacting RemoteAPI...
+[10:31:54.971] [Il2CppAssemblyGenerator] Game Not Found on RemoteAPI Host (https://api.melonloader.com/api/v1/game/megabonk)
+[10:31:54.971] [Il2CppAssemblyGenerator] RemoteAPI.DumperVersion = null
+[10:31:54.971] [Il2CppAssemblyGenerator] RemoteAPI.ObfuscationRegex = null
+[10:31:54.971] [Il2CppAssemblyGenerator] RemoteAPI.MappingURL = null
+[10:31:54.971] [Il2CppAssemblyGenerator] RemoteAPI.MappingFileSHA512 = null
+[10:31:54.987] [Il2CppAssemblyGenerator] Using Cpp2IL Version: 2022.1.0-pre-release.19
+[10:31:54.987] [Il2CppAssemblyGenerator] Using Il2CppInterop Version = 1.5.0-ci.625+51abbdd5e95447d4450eb82bde1b77ecff3cea74
+[10:31:54.987] [Il2CppAssemblyGenerator] Using Unity Dependencies Version = 2023.2.22
+[10:31:54.987] [Il2CppAssemblyGenerator] Using Deobfuscation Regex = null
+[10:31:54.987] [Il2CppAssemblyGenerator] Cpp2IL is up to date.
+[10:31:54.988] [Il2CppAssemblyGenerator] Cpp2IL.Plugin.StrippedCodeRegSupport is up to date.
+[10:31:54.988] [Il2CppAssemblyGenerator] UnityDependencies is up to date.
+[10:31:54.988] [Il2CppAssemblyGenerator] Checking GameAssembly...
+[10:31:55.076] [Il2CppAssemblyGenerator] Assembly is up to date. No Generation Needed.
 
-[23:10:57.833] Loading Mods...
-[23:10:58.217] ------------------------------
-[23:10:58.228] Melon Assembly loaded: '.\Mods\BonkMenu.dll'
-[23:10:58.228] SHA256 Hash: 'E19B87BA517BAAA1FCF17E5A8EB85AC9164D469196F067CCB4063C4B86732E9E'
+[10:31:55.076] Loading Mods...
+[10:31:55.455] ------------------------------
+[10:31:55.463] Melon Assembly loaded: '.\Mods\BonkMenu.dll'
+[10:31:55.463] SHA256 Hash: 'D84C729311A7F633377BDDE5A585D08C67D0851854F1F82376F5981264DACE2D'
+[10:31:55.464] Melon Assembly loaded: '.\Mods\UsefullInfoUI.dll'
+[10:31:55.465] SHA256 Hash: 'EFC1EB17835C4BC6D2389515C4F50D05F59E2E376AAFC38F3E8907A3D3F0A234'
 
-[23:10:58.373] ------------------------------
-[23:10:58.373] BonkMenu v1.0.0
-[23:10:58.374] by Goodzy
-[23:10:58.374] Assembly: BonkMenu.dll
-[23:10:58.374] ------------------------------
-[23:10:58.374] ------------------------------
-[23:10:58.374] 1 Mod loaded.
+[10:31:55.626] ------------------------------
+[10:31:55.626] BonkMenu v1.0.0
+[10:31:55.626] by Goodzy
+[10:31:55.626] Assembly: BonkMenu.dll
+[10:31:55.626] ------------------------------
+[10:31:55.629] ------------------------------
+[10:31:55.629] Useful Info UI v1.1.5
+[10:31:55.629] by Maskoliver
+[10:31:55.629] Assembly: UsefullInfoUI.dll
+[10:31:55.629] ------------------------------
+[10:31:55.630] ------------------------------
+[10:31:55.630] 2 Mods loaded.
 
-[23:10:59.126] [Il2CppInterop] Class::Init signatures have been exhausted, using a substitute!
-[23:10:59.272] [Il2CppInterop] Registered mono type MelonLoader.Support.MonoEnumeratorWrapper in il2cpp domain
-[23:10:59.353] Support Module Loaded: C:\Program Files (x86)\Steam\steamapps\common\Megabonk\MelonLoader\Dependencies\SupportModules\Il2Cpp.dll
-[23:10:59.720] [BonkMenu] [BonkMenu] === BonkMenu Initialized ===
-[23:10:59.723] [BonkMenu] [BonkMenu] Keybinds loaded. Toggle Key: F1
-[23:10:59.723] [BonkMenu] [Patches] Initializing Harmony patches...
-[23:10:59.740] [BonkMenu] [LevelCapPatches] ✅ WeaponData.GetMaxLevel patched - max level set to int.MaxValue
-[23:10:59.760] [BonkMenu] [LevelCapPatches] ✅ TomeData.GetMaxLevel patched - max level set to int.MaxValue
-[23:10:59.761] AccessTools.Property: Could not find property for type Il2Cpp.WeaponData and name MaxLevel
-[23:10:59.761] AccessTools.Property: Could not find property for type Il2Cpp.WeaponData and name maxLevel
-[23:10:59.761] AccessTools.Property: Could not find property for type Il2Cpp.TomeData and name MaxLevel
-[23:10:59.761] AccessTools.Property: Could not find property for type Il2Cpp.TomeData and name maxLevel
-[23:10:59.868] AccessTools.GetTypesFromAssembly: assembly UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
+[10:31:56.407] [Il2CppInterop] Class::Init signatures have been exhausted, using a substitute!
+[10:31:56.541] [Il2CppInterop] Registered mono type Il2CppInterop.Runtime.DelegateSupport+Il2CppToMonoDelegateReference in il2cpp domain
+[10:31:56.564] [Il2CppInterop] Registered mono type MelonLoader.Support.MonoEnumeratorWrapper in il2cpp domain
+[10:31:56.569] [Il2CppInterop] Registered mono type MelonLoader.Support.SM_Component in il2cpp domain
+[10:31:56.582] [Il2CppICallInjector] Registered mono icall UnityEngine.Transform::SetAsLastSibling in il2cpp domain
+[10:31:56.585] Support Module Loaded: C:\Program Files (x86)\Steam\steamapps\common\Megabonk\MelonLoader\Dependencies\SupportModules\Il2Cpp.dll
+[10:31:57.182] [BonkMenu] [BonkMenu] === BonkMenu Initialized ===
+[10:31:57.185] [BonkMenu] [BonkMenu] Keybinds loaded. Toggle Key: Insert
+[10:31:57.186] [BonkMenu] [Patches] Initializing Harmony patches...
+[10:31:57.205] [BonkMenu] [LevelCapPatches] ✅ WeaponData.GetMaxLevel patched - max level set to int.MaxValue
+[10:31:57.221] [BonkMenu] [LevelCapPatches] ✅ TomeData.GetMaxLevel patched - max level set to int.MaxValue
+[10:31:57.256] [BonkMenu] [GoldenShrinePatch] ✅ ChargeShrine.Awake & Start patched - golden shrine support enabled
+[10:31:57.257] [BonkMenu] [PotVariantPatch] ✅ Pot variant patch ready (will modify post-spawn)
+[10:31:57.277] [BonkMenu] [ShadyGuyVariantPatch] ✅ InteractableShadyGuy.Start patched
+[10:31:57.293] [BonkMenu] [ShadyGuyVariantPatch] ✅ InteractableShadyGuy.FindItems patched
+[10:31:57.349] [BonkMenu] [PlayerHealthPatches] ✅ PlayerHealth patched (God Mode/Infinite Health enabled)
+[10:31:57.400] [BonkMenu] [Patches] ✅ PassiveInventory patches applied
+[10:31:57.540] AccessTools.GetTypesFromAssembly: assembly UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
 Could not load type 'ControlOptions' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
 Could not load type 'CountOptions' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
 Could not load type 'LightProbesQueryDisposeJob' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
@@ -81,397 +93,48 @@ Could not load type 'LightProbesQueryDisposeJob' from assembly 'UnityEngine.Core
 System.TypeLoadException: Could not load type 'ControlOptions' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
 System.TypeLoadException: Could not load type 'CountOptions' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
 System.TypeLoadException: Could not load type 'LightProbesQueryDisposeJob' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-[23:10:59.912] AccessTools.GetTypesFromAssembly: assembly UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-Could not load type 'Flags' from assembly 'UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: Could not load type 'Flags' from assembly 'UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-[23:10:59.977] AccessTools.GetTypesFromAssembly: assembly Il2Cpp__Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-Failure has occurred while loading a type.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: Failure has occurred while loading a type.
-[23:11:00.025] AccessTools.GetTypesFromAssembly: assembly UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-Could not load type 'Seed4' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'Initial' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'Force' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'Collision' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: Could not load type 'Seed4' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'Initial' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'Force' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'Collision' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-[23:11:00.069] AccessTools.GetTypesFromAssembly: assembly UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-GenericArguments[0], 'UnityEngine.UIElements.PointerStationaryEvent', on 'UnityEngine.UIElements.EventBase`1[T]' violates the constraint of type parameter 'T'.
-Could not load type 'PageStatistics' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: GenericArguments[0], 'UnityEngine.UIElements.PointerStationaryEvent', on 'UnityEngine.UIElements.EventBase`1[T]' violates the constraint of type parameter 'T'.
-System.TypeLoadException: Could not load type 'PageStatistics' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-[23:11:00.092] AccessTools.GetTypesFromAssembly: assembly UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
+[10:31:57.580] [BonkMenu] [TogglePatches] Successfully patched RunUnlockables.OnNewRunStarted
+[10:31:57.580] [BonkMenu] [Patches] ✅ TogglePatches applied
+[10:31:57.581] [BonkMenu] [Patches] All patches applied successfully!
+[10:31:57.581] [BonkMenu] [BonkMenu] Press Insert to toggle menu
+[10:31:57.581] [BonkMenu] [BonkMenu] MelonLoader: 0.7.1.0
+[10:31:57.581] [BonkMenu] [BonkMenu] UniverseLib: 2.0.0.0
+[10:31:57.582] [BonkMenu] [BonkMenu] ==============================
+[10:31:57.586] MelonPreferences Loaded from UserData/UsefulInfoUI.cfg
+[10:31:57.709] [Useful_Info_UI] Harmony patches applied.
+[10:31:57.711] [Useful_Info_UI] Useful Info UI initialized!
+[10:31:57.829] [Useful_Info_UI] Useful Info UI initialized (Melon)
+[10:31:57.950] [BonkMenu] [BonkMenu][UniverseLib] [UniverseLib] UniverseLib 2.0.0 initializing...
+[10:31:57.950] [BonkMenu] [BonkMenu][UniverseLib] [UniverseLib] UniverseLib Patched v2 Loaded - TypeLoadException Fix Applied
+[10:31:57.952] [Il2CppInterop] Registered mono type UniverseLib.UniversalBehaviour in il2cpp domain
+[10:31:58.268] [Il2CppInterop] Registered mono type UniverseLib.Runtime.Il2Cpp.Il2CppManagedEnumerator in il2cpp domain
+[10:31:58.270] [BonkMenu] [BonkMenu][UniverseLib] [UniverseLib] Expected Unhollowed folder path does not exist: ''. If you are using the standalone release, you can specify the Unhollowed modules path when you call CreateInstance().
+[10:31:58.271] [BonkMenu] [BonkMenu][UniverseLib] [UniverseLib] Loaded Unhollowed modules in 0.001 seconds.
+[10:31:58.304] [Il2CppInterop] Exception in IL2CPP-to-Managed trampoline, not passing it to il2cpp: System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
 Could not load type 'ControlOptions' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
 Could not load type 'CountOptions' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
 Could not load type 'LightProbesQueryDisposeJob' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
    at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
    at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
+   at UniverseLib.Il2CppReflection.BuildDeobfuscationCache()
+   at UniverseLib.Il2CppReflection.InitCoroutine()+MoveNext()
+   at UniverseLib.Runtime.Il2Cpp.Il2CppManagedEnumerator.MoveNext()
+   at Trampoline_ByteThisUniverseLib.Runtime.Il2Cpp.Il2CppManagedEnumeratorMoveNext(IntPtr , Il2CppMethodInfo* )
 System.TypeLoadException: Could not load type 'ControlOptions' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
 System.TypeLoadException: Could not load type 'CountOptions' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
 System.TypeLoadException: Could not load type 'LightProbesQueryDisposeJob' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-[23:11:00.096] AccessTools.GetTypesFromAssembly: assembly UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-Could not load type 'Flags' from assembly 'UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: Could not load type 'Flags' from assembly 'UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-[23:11:00.099] AccessTools.GetTypesFromAssembly: assembly Il2Cpp__Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-Failure has occurred while loading a type.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: Failure has occurred while loading a type.
-[23:11:00.101] AccessTools.GetTypesFromAssembly: assembly UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-Could not load type 'Seed4' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'Initial' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'Force' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'Collision' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: Could not load type 'Seed4' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'Initial' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'Force' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'Collision' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-[23:11:00.104] AccessTools.GetTypesFromAssembly: assembly UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-GenericArguments[0], 'UnityEngine.UIElements.PointerStationaryEvent', on 'UnityEngine.UIElements.EventBase`1[T]' violates the constraint of type parameter 'T'.
-Could not load type 'PageStatistics' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: GenericArguments[0], 'UnityEngine.UIElements.PointerStationaryEvent', on 'UnityEngine.UIElements.EventBase`1[T]' violates the constraint of type parameter 'T'.
-System.TypeLoadException: Could not load type 'PageStatistics' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-[23:11:00.145] AccessTools.TypeByName: Could not find type named Il2CppAssets.Scripts._Data.Tomes.TomeData
-[23:11:00.152] AccessTools.GetTypesFromAssembly: assembly UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-Could not load type 'ControlOptions' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'CountOptions' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'LightProbesQueryDisposeJob' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: Could not load type 'ControlOptions' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'CountOptions' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'LightProbesQueryDisposeJob' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-[23:11:00.157] AccessTools.GetTypesFromAssembly: assembly UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-Could not load type 'Flags' from assembly 'UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: Could not load type 'Flags' from assembly 'UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-[23:11:00.161] AccessTools.GetTypesFromAssembly: assembly Il2Cpp__Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-Failure has occurred while loading a type.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: Failure has occurred while loading a type.
-[23:11:00.162] AccessTools.GetTypesFromAssembly: assembly UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-Could not load type 'Seed4' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'Initial' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'Force' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'Collision' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: Could not load type 'Seed4' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'Initial' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'Force' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'Collision' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-[23:11:00.163] AccessTools.GetTypesFromAssembly: assembly UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-GenericArguments[0], 'UnityEngine.UIElements.PointerStationaryEvent', on 'UnityEngine.UIElements.EventBase`1[T]' violates the constraint of type parameter 'T'.
-Could not load type 'PageStatistics' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: GenericArguments[0], 'UnityEngine.UIElements.PointerStationaryEvent', on 'UnityEngine.UIElements.EventBase`1[T]' violates the constraint of type parameter 'T'.
-System.TypeLoadException: Could not load type 'PageStatistics' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-[23:11:00.170] AccessTools.GetTypesFromAssembly: assembly UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-Could not load type 'ControlOptions' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'CountOptions' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'LightProbesQueryDisposeJob' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: Could not load type 'ControlOptions' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'CountOptions' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'LightProbesQueryDisposeJob' from assembly 'UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-[23:11:00.171] AccessTools.GetTypesFromAssembly: assembly UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-Could not load type 'Flags' from assembly 'UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: Could not load type 'Flags' from assembly 'UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-[23:11:00.172] AccessTools.GetTypesFromAssembly: assembly Il2Cpp__Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-Failure has occurred while loading a type.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: Failure has occurred while loading a type.
-[23:11:00.172] AccessTools.GetTypesFromAssembly: assembly UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-Could not load type 'Seed4' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'Initial' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'Force' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'Collision' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: Could not load type 'Seed4' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'Initial' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'Force' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'Collision' from assembly 'UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-[23:11:00.175] AccessTools.GetTypesFromAssembly: assembly UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null => System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
-GenericArguments[0], 'UnityEngine.UIElements.PointerStationaryEvent', on 'UnityEngine.UIElements.EventBase`1[T]' violates the constraint of type parameter 'T'.
-Could not load type 'PageStatistics' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
-   at System.Reflection.Assembly.GetTypes()
-   at HarmonyLib.AccessTools.GetTypesFromAssembly(Assembly assembly)
-System.TypeLoadException: GenericArguments[0], 'UnityEngine.UIElements.PointerStationaryEvent', on 'UnityEngine.UIElements.EventBase`1[T]' violates the constraint of type parameter 'T'.
-System.TypeLoadException: Could not load type 'PageStatistics' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' because the format is invalid.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-System.TypeLoadException: Could not load type 'UxmlSerializedData' from assembly 'UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
-[23:11:00.177] AccessTools.TypeByName: Could not find type named Il2CppAssets.Scripts._Data.Weapons.WeaponData
-[23:11:00.215] [BonkMenu] [GoldenShrinePatch] ✅ ChargeShrine.Awake & Start patched - golden shrine support enabled
-[23:11:00.215] [BonkMenu] [PotVariantPatch] ✅ Pot variant patch ready (will modify post-spawn)
-[23:11:00.234] [BonkMenu] [ShadyGuyVariantPatch] ✅ InteractableShadyGuy.Start patched
-[23:11:00.252] [BonkMenu] [ShadyGuyVariantPatch] ✅ InteractableShadyGuy.FindItems patched
-[23:11:00.302] [BonkMenu] [PlayerHealthPatches] ✅ PlayerHealth patched (God Mode/Infinite Health enabled)
-[23:11:00.352] [BonkMenu] [Patches] ✅ PassiveInventory patches applied
-[23:11:00.352] [BonkMenu] [Patches] All patches applied successfully!
-[23:11:00.353] [BonkMenu] [BonkMenu] Press F1 to toggle menu
-[23:11:00.353] [BonkMenu] [BonkMenu] MelonLoader: 0.7.2.2367
-[23:11:00.353] [BonkMenu] [BonkMenu] UniverseLib: 2.0.0.0
-[23:11:00.353] [BonkMenu] [BonkMenu] ==============================
-[23:11:00.454] [Il2CppInterop] Registered mono type MelonLoader.Support.SM_Component in il2cpp domain
-[23:11:00.463] Registered mono icall UnityEngine.Transform::SetAsLastSibling in il2cpp domain
-[23:11:00.492] [Il2CppInterop] Registered mono type UniverseLib.UniversalBehaviour in il2cpp domain
-[23:11:00.590] [Il2CppInterop] Registered mono type UniverseLib.Runtime.Il2Cpp.Il2CppManagedEnumerator in il2cpp domain
-[23:11:00.794] Registered mono icall UnityEngine.Resources::FindObjectsOfTypeAll in il2cpp domain
-[23:11:00.820] [Il2CppInterop] Registered mono type Il2CppInterop.Runtime.DelegateSupport+Il2CppToMonoDelegateReference in il2cpp domain
-[23:11:13.711] Preferences Saved!
+[10:31:58.308] [BonkMenu] [BonkMenu][UniverseLib] [UniverseLib] Finished UniverseLib initial setup.
+[10:32:01.772] [Il2CppICallInjector] Registered mono icall UnityEngine.Resources::FindObjectsOfTypeAll in il2cpp domain
+[10:32:01.859] [BonkMenu] [BonkMenu] Menu opened
+[10:32:01.859] [Useful_Info_UI] Overlay toggled to detailed (Insert)
+[10:32:01.932] [BonkMenu] [BonkMenu] Menu closed
+[10:32:01.932] [Useful_Info_UI] Overlay toggled to hidden (Insert)
+[10:32:02.077] [BonkMenu] [BonkMenu] Menu opened
+[10:32:02.077] [Useful_Info_UI] Overlay toggled to default (Insert)
+[10:32:04.434] [BonkMenu] [BonkMenu] Menu closed
+[10:32:04.434] [Useful_Info_UI] Overlay toggled to detailed (Insert)
+[10:32:04.745] [BonkMenu] [BonkMenu] Menu opened
+[10:32:04.745] [Useful_Info_UI] Overlay toggled to hidden (Insert)
+[10:32:05.305] [BonkMenu] [BonkMenu] Menu closed
+[10:32:05.305] [Useful_Info_UI] Overlay toggled to default (Insert)
+[10:32:08.948] Preferences Saved!

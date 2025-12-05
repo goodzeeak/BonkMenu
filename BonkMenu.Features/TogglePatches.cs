@@ -20,6 +20,31 @@ namespace BonkMenu.Features;
 public static class TogglePatches
 {
     private static bool _patchesEnabled = false;
+    private static System.Type SafeTypeByName(string fullName)
+    {
+        try
+        {
+            var t = System.Type.GetType(fullName, throwOnError: false, ignoreCase: false);
+            if (t != null) return t;
+        }
+        catch { }
+        try
+        {
+            foreach (var asm in System.AppDomain.CurrentDomain.GetAssemblies())
+            {
+                try
+                {
+                    var an = asm.GetName().Name;
+                    if (an != null && an.StartsWith("UnityEngine", System.StringComparison.OrdinalIgnoreCase)) continue;
+                    var tt = asm.GetType(fullName, throwOnError: false, ignoreCase: false);
+                    if (tt != null) return tt;
+                }
+                catch { }
+            }
+        }
+        catch { }
+        return null;
+    }
 
     /// <summary>
     /// Checks if an unlockable can be toggled (weapons, tomes, items).
@@ -180,7 +205,7 @@ public static class TogglePatches
                             unlockable.IsModTogglable())
                         {
                             // Use AccessTools to call RunUnlockables.BanishUpgradable
-                            var runUnlockablesType = AccessTools.TypeByName("Il2CppAssets.Scripts.Inventory__Items__Pickups.RunUnlockables");
+                            var runUnlockablesType = SafeTypeByName("Il2CppAssets.Scripts.Inventory__Items__Pickups.RunUnlockables");
                             if (runUnlockablesType != null)
                             {
                                 var banishMethod = AccessTools.Method(runUnlockablesType, "BanishUpgradable");
@@ -205,7 +230,7 @@ public static class TogglePatches
                         if (item != null && ((UnlockableBase)item).GetInternalName() == inactivatedName)
                         {
                             // Use AccessTools to call RunUnlockables.BanishItem
-                            var runUnlockablesType = AccessTools.TypeByName("Il2CppAssets.Scripts.Inventory__Items__Pickups.RunUnlockables");
+                            var runUnlockablesType = SafeTypeByName("Il2CppAssets.Scripts.Inventory__Items__Pickups.RunUnlockables");
                             if (runUnlockablesType != null)
                             {
                                 var banishMethod = AccessTools.Method(runUnlockablesType, "BanishItem");
@@ -236,7 +261,7 @@ public static class TogglePatches
         try
         {
             // Use AccessTools to find the type - it works better with IL2CPP
-            var runUnlockablesType = AccessTools.TypeByName("Il2CppAssets.Scripts.Inventory__Items__Pickups.RunUnlockables");
+            var runUnlockablesType = SafeTypeByName("Il2CppAssets.Scripts.Inventory__Items__Pickups.RunUnlockables");
             if (runUnlockablesType != null)
             {
                 var originalMethod = AccessTools.Method(runUnlockablesType, "OnNewRunStarted");
@@ -262,4 +287,3 @@ public static class TogglePatches
         }
     }
 }
-
