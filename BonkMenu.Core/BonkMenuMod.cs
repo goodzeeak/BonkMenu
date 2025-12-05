@@ -214,11 +214,20 @@ public class BonkMenuMod : MelonMod
 
         if (ModConfig.UnlimitedXp)
         {
-            ApplyCachedUncap();
-            if (!_hasModifiedXpMultiplier && Time.unscaledTime >= _nextXpScanTime)
+            var gm = GameManager.Instance;
+            bool isRunActive = (UnityEngine.Object)(object)gm != (UnityEngine.Object)null && (UnityEngine.Object)(object)gm.player != (UnityEngine.Object)null && gm.player.inventory != null;
+            if (isRunActive)
             {
-                _nextXpScanTime = Time.unscaledTime + 1.5f;
-                TryUncapXpMultiplier();
+                ApplyCachedUncap();
+                if (!_hasModifiedXpMultiplier && Time.unscaledTime >= _nextXpScanTime)
+                {
+                    _nextXpScanTime = Time.unscaledTime + 1.5f;
+                    TryUncapXpMultiplier();
+                }
+            }
+            else
+            {
+                _pendingXpUncap = true;
             }
         }
 
@@ -333,6 +342,67 @@ public class BonkMenuMod : MelonMod
     {
         try
         {
+            var gm = GameManager.Instance;
+            if (!((UnityEngine.Object)(object)gm != (UnityEngine.Object)null && (UnityEngine.Object)(object)gm.player != (UnityEngine.Object)null && gm.player.inventory != null))
+            {
+                return;
+            }
+
+            var inv = gm.player.inventory;
+            if (_xpInstanceCached == null && inv != null)
+            {
+                var invType = inv.GetType();
+                var fields = invType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                for (int i = 0; i < fields.Length; i++)
+                {
+                    var f = fields[i];
+                    var v = f.GetValue(inv);
+                    if (v == null) continue;
+                    var t2 = v.GetType();
+                    var name2 = t2.Name;
+                    if (name2 != null && name2.IndexOf("xp", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        _xpInstanceCached = v;
+                        _xpInstanceTypeCached = t2;
+                        break;
+                    }
+                }
+            }
+
+            if (_xpInstanceCached != null && _xpInstanceCapFieldCached == null && _xpInstanceCapPropCached == null)
+            {
+                var fnames = new string[] { "maxXpMultiplier", "MaxXpMultiplier", "xpMultiplierCap", "XpMultiplierCap" };
+                for (int j = 0; j < fnames.Length; j++)
+                {
+                    _xpInstanceCapFieldCached = AccessTools.Field(_xpInstanceTypeCached, fnames[j]);
+                    if (_xpInstanceCapFieldCached != null) break;
+                    _xpInstanceCapPropCached = AccessTools.Property(_xpInstanceTypeCached, fnames[j]);
+                    if (_xpInstanceCapPropCached != null && _xpInstanceCapPropCached.CanWrite) break;
+                }
+            }
+
+            if (_xpInstanceCached != null)
+            {
+                if (_xpInstanceCapFieldCached != null)
+                {
+                    if (_xpInstanceCapFieldCached.FieldType == typeof(float)) _xpInstanceCapFieldCached.SetValue(_xpInstanceCached, 99999f);
+                    else if (_xpInstanceCapFieldCached.FieldType == typeof(int)) _xpInstanceCapFieldCached.SetValue(_xpInstanceCached, 99999);
+                    if (!_hasModifiedXpMultiplier) Log.Info("✅ XP MULT UNCAPPED!");
+                    _hasModifiedXpMultiplier = true;
+                    _pendingXpUncap = false;
+                    return;
+                }
+                if (_xpInstanceCapPropCached != null)
+                {
+                    if (_xpInstanceCapPropCached.PropertyType == typeof(float)) _xpInstanceCapPropCached.SetValue(_xpInstanceCached, 99999f, null);
+                    else if (_xpInstanceCapPropCached.PropertyType == typeof(int)) _xpInstanceCapPropCached.SetValue(_xpInstanceCached, 99999, null);
+                    if (!_hasModifiedXpMultiplier) Log.Info("✅ XP MULT UNCAPPED!");
+                    _hasModifiedXpMultiplier = true;
+                    _pendingXpUncap = false;
+                    return;
+                }
+            }
+
             if (_playerXpTypeCached == null)
             {
                 foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
@@ -375,66 +445,6 @@ public class BonkMenuMod : MelonMod
                 _hasModifiedXpMultiplier = true;
                 _pendingXpUncap = false;
                 return;
-            }
-
-            var gm = GameManager.Instance;
-            if ((UnityEngine.Object)(object)gm != (UnityEngine.Object)null && (UnityEngine.Object)(object)gm.player != (UnityEngine.Object)null)
-            {
-                var inv = gm.player.inventory;
-                if (inv != null)
-                {
-                    if (_xpInstanceCached == null)
-                    {
-                        var invType = inv.GetType();
-                        var fields = invType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-                        for (int i = 0; i < fields.Length; i++)
-                        {
-                            var f = fields[i];
-                            var v = f.GetValue(inv);
-                            if (v == null) continue;
-                            var t2 = v.GetType();
-                            var name2 = t2.Name;
-                            if (name2 != null && name2.IndexOf("xp", StringComparison.OrdinalIgnoreCase) >= 0)
-                            {
-                                _xpInstanceCached = v;
-                                _xpInstanceTypeCached = t2;
-                                break;
-                            }
-                        }
-                    }
-                    if (_xpInstanceCached != null && _xpInstanceCapFieldCached == null && _xpInstanceCapPropCached == null)
-                    {
-                        var fnames = new string[] { "maxXpMultiplier", "MaxXpMultiplier", "xpMultiplierCap", "XpMultiplierCap" };
-                        for (int j = 0; j < fnames.Length; j++)
-                        {
-                            _xpInstanceCapFieldCached = AccessTools.Field(_xpInstanceTypeCached, fnames[j]);
-                            if (_xpInstanceCapFieldCached != null) break;
-                            _xpInstanceCapPropCached = AccessTools.Property(_xpInstanceTypeCached, fnames[j]);
-                            if (_xpInstanceCapPropCached != null && _xpInstanceCapPropCached.CanWrite) break;
-                        }
-                    }
-                    if (_xpInstanceCached != null)
-                    {
-                        if (_xpInstanceCapFieldCached != null)
-                        {
-                            if (_xpInstanceCapFieldCached.FieldType == typeof(float)) _xpInstanceCapFieldCached.SetValue(_xpInstanceCached, 99999f);
-                            else if (_xpInstanceCapFieldCached.FieldType == typeof(int)) _xpInstanceCapFieldCached.SetValue(_xpInstanceCached, 99999);
-                            if (!_hasModifiedXpMultiplier) Log.Info("✅ XP MULT UNCAPPED!");
-                            _hasModifiedXpMultiplier = true;
-                            _pendingXpUncap = false;
-                            return;
-                        }
-                        if (_xpInstanceCapPropCached != null)
-                        {
-                            if (_xpInstanceCapPropCached.PropertyType == typeof(float)) _xpInstanceCapPropCached.SetValue(_xpInstanceCached, 99999f, null);
-                            else if (_xpInstanceCapPropCached.PropertyType == typeof(int)) _xpInstanceCapPropCached.SetValue(_xpInstanceCached, 99999, null);
-                            if (!_hasModifiedXpMultiplier) Log.Info("✅ XP MULT UNCAPPED!");
-                            _hasModifiedXpMultiplier = true;
-                            _pendingXpUncap = false;
-                            return;
-                        }
-                    }
-                }
             }
         }
         catch { }
