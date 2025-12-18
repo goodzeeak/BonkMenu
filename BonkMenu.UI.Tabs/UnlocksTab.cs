@@ -18,8 +18,6 @@ public static class UnlocksTab
 		UIFactory.CreateCollapsibleSection("Global Unlocks", parent, CreateGlobalUnlocks);
 		UIFactory.CreateSpacer(4, parent);
 		UIFactory.CreateCollapsibleSection("Character Progression", parent, CreateCharacterProgression);
-		UIFactory.CreateSpacer(4, parent);
-		UIFactory.CreateCollapsibleSection("Toggle System", parent, CreateToggleSection);
 	}
 
 	private static void CreateGlobalUnlocks(GameObject parent)
@@ -74,22 +72,5 @@ public static class UnlocksTab
 		{
 			UnlockFeatures.MaxRankAllCharacters();
 		}, grid);
-	}
-
-	private static void CreateToggleSection(GameObject parent)
-	{
-		UIFactory.CreateLabel("Enable toggling of weapons, tomes, and items in the game's unlocks menu", parent);
-		UIFactory.CreateSpacer(4, parent);
-		
-		UIFactory.CreateCircularToggle(
-			"Enable Weapon/Tome/Item Toggles", 
-			TogglePatches.IsEnabled(), 
-			(isOn) =>
-			{
-				TogglePatches.SetEnabled(isOn);
-				UIFactory.ShowToast($"Toggle system: {(isOn ? "Enabled" : "Disabled")}");
-			}, 
-			parent
-		);
 	}
 }

@@ -79,22 +79,7 @@ public static class AboutTab
 		{
 			ModConfig.EnableToasts = value;
 		}, tGrid);
-		UIFactory.CreateSpacer(4, parent);
-		GameObject bGrid = new GameObject("ButtonGrid");
-		bGrid.transform.SetParent(parent.transform, false);
-		RectTransform bgrt = bGrid.AddComponent<RectTransform>();
-		bgrt.sizeDelta = new Vector2(0f, 0f);
-		GridLayoutGroup bglg = bGrid.AddComponent<GridLayoutGroup>();
-		bglg.cellSize = new Vector2(283f, 30f);
-		bglg.spacing = new Vector2(10f, 8f);
-		bglg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-		bglg.constraintCount = 2;
-		ContentSizeFitter bfit = bGrid.AddComponent<ContentSizeFitter>();
-		bfit.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-		LayoutElement bgle = bGrid.AddComponent<LayoutElement>();
-		bgle.flexibleWidth = 1f;
-		UIFactory.CreateButton("Save Keybinds", delegate { KeybindConfig.SaveKeybinds(); }, bGrid);
-		UIFactory.CreateButton("Reload Keybinds", delegate { KeybindConfig.LoadKeybinds(); }, bGrid);
+
 	}
 
 	private static void CreateDebugInspection(GameObject parent)

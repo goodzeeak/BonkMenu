@@ -104,6 +104,11 @@ public static class PlayerTab
 				ModConfig.ToggleUnlimitedXp();
 			}
 		}, grid);
+		UIFactory.CreateCircularToggle("🔧 Toggle System", TogglePatches.IsEnabled(), delegate(bool value)
+		{
+			TogglePatches.SetEnabled(value);
+			UIFactory.ShowToast($"Toggle system: {(value ? "Enabled" : "Disabled")}");
+		}, grid);
 	}
 
 	private static void CreateUtilities(GameObject parent)

@@ -127,7 +127,7 @@ public static class WorldFeatures
             // Use the game's spawn system
             var shrineArray = new Il2CppReferenceArray<RandomMapObject>(1);
             shrineArray[0] = shrineMapObject;
-            placer.Generate(shrineArray);
+            placer.Generate(shrineArray, 1f);
             
             Log.Info($"Spawned {amount} {displayName} using game's spawn system!");
         }
@@ -179,9 +179,9 @@ public static class WorldFeatures
             MelonLogger.Msg($"[SPECIAL] Charge Shrine Prefab: {placer.chargeShrineSpawns.prefabs[0].name}");
         }
         
-        if (placer.greedShrines != null && placer.greedShrines.prefabs != null && placer.greedShrines.prefabs.Length > 0)
+        if (placer.greedShrineSpawns != null && placer.greedShrineSpawns.prefabs != null && placer.greedShrineSpawns.prefabs.Length > 0)
         {
-            MelonLogger.Msg($"[SPECIAL] Greed Shrine (Gold) Prefab: {placer.greedShrines.prefabs[0].name}");
+            MelonLogger.Msg($"[SPECIAL] Greed Shrine (Gold) Prefab: {placer.greedShrineSpawns.prefabs[0].name}");
         }
 
         // Log random objects
@@ -229,7 +229,7 @@ public static class WorldFeatures
 
                 var array = new Il2CppReferenceArray<RandomMapObject>(1);
                 array[0] = newObj;
-                placer.Generate(array);
+                placer.Generate(array, 1f);
                 Log.Info($"Spawned {amount} Charge Shrines!");
             }
             catch (Exception ex)
@@ -284,7 +284,7 @@ public static class WorldFeatures
 
             var array = new Il2CppReferenceArray<RandomMapObject>(1);
             array[0] = newObj;
-            placer.Generate(array);
+            placer.Generate(array, 1f);
             
             Log.Info($"Spawned {amount} Golden Shrines using native positioning + Harmony patch!");
         }
@@ -467,7 +467,6 @@ public static class WorldFeatures
         try
         {
             List<RandomMapObject> potsToSpawn = new List<RandomMapObject>();
-            GameObject silverPrefab = null;
             
             // Find existing pot objects and look for silver prefab
             foreach (var obj in placer.randomObjects)
@@ -478,57 +477,11 @@ public static class WorldFeatures
                     if (name.Contains("pot") && !name.Contains("microwave"))
                     {
                         potsToSpawn.Add(obj);
-                        
-                        // Try to find silver prefab on the pot component
-                        if (silverPrefab == null)
-                        {
-                            var potComp = obj.prefabs[0].GetComponent<InteractablePot>();
-                            if ((Object)(object)potComp != (Object)null)
-                            {
-                                silverPrefab = potComp.silverPrefab;
-                            }
-                        }
                     }
                 }
             }
 
-            // Create a custom RandomMapObject for Silver Pots
-            if ((Object)(object)silverPrefab != (Object)null)
-            {
-                RandomMapObject silverPotObj = new RandomMapObject();
-                // Copy settings from a standard pot if available, otherwise use defaults
-                if (potsToSpawn.Count > 0)
-                {
-                    var template = potsToSpawn[0];
-                    silverPotObj.amount = template.amount;
-                    silverPotObj.maxAmount = template.maxAmount;
-                    silverPotObj.checkRadius = template.checkRadius;
-                    silverPotObj.scaleMin = template.scaleMin;
-                    silverPotObj.scaleMax = template.scaleMax;
-                    silverPotObj.maxSlopeAngle = template.maxSlopeAngle;
-                    silverPotObj.upOffset = template.upOffset;
-                    silverPotObj.alignWithNormal = template.alignWithNormal;
-                    silverPotObj.randomRotationVector = template.randomRotationVector;
-                }
-                else
-                {
-                    // Fallback defaults
-                    silverPotObj.amount = 5;
-                    silverPotObj.maxAmount = 10;
-                    silverPotObj.checkRadius = 1f;
-                    silverPotObj.scaleMin = 1f;
-                    silverPotObj.scaleMax = 1f;
-                }
 
-                // Assign silver prefab
-                silverPotObj.prefabs = new GameObject[] { silverPrefab };
-                potsToSpawn.Add(silverPotObj);
-                Log.Info("Found and added Silver Pot!");
-            }
-            else
-            {
-                Log.Warn("Could not find Silver Pot prefab on any pot objects.");
-            }
 
             // Convert to Il2Cpp array and spawn
             if (potsToSpawn.Count > 0)
@@ -541,8 +494,8 @@ public static class WorldFeatures
                     {
                         nint ptr = IL2CPP.Il2CppObjectBaseToPtrNotNull((Il2CppObjectBase)(object)pot);
                         nint fieldAddr = ptr + (int)IL2CPP.il2cpp_field_get_offset(field);
-                        int originalAmount = *(int*)fieldAddr;
-                        *(int*)fieldAddr = originalAmount * amountMultiplier;
+                        // Force base amount to 5 (user requested 5 of each type)
+                        *(int*)fieldAddr = 5 * amountMultiplier;
                     }
                 }
                 
@@ -551,7 +504,7 @@ public static class WorldFeatures
                 {
                     potArray[i] = potsToSpawn[i];
                 }
-                placer.Generate(potArray);
+                placer.Generate(potArray, 1f);
                 Log.Info($"Spawned {potsToSpawn.Count} types of pots (x{amountMultiplier} multiplier)!");
             }
             else
@@ -612,7 +565,7 @@ public static class WorldFeatures
                 {
                     microwaveArray[i] = microwavesToSpawn[i];
                 }
-                placer.Generate(microwaveArray);
+                placer.Generate(microwaveArray, 1f);
                 Log.Info($"Spawned Microwaves (x{amountMultiplier} multiplier)!");
             }
             else
@@ -672,7 +625,7 @@ public static class WorldFeatures
                 {
                     altarArray[i] = altarsToSpawn[i];
                 }
-                placer.Generate(altarArray);
+                placer.Generate(altarArray, 1f);
                 Log.Info($"Spawned {amount} Greed Altars!");
             }
             else

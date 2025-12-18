@@ -72,9 +72,9 @@ public static class GoldenShrinePatch
         {
             if (SpawnNextAsGolden && GoldenShrinesRemaining > 0)
             {
-                // Set isGolden flag at offset 0xD0 BEFORE Awake runs
+                // Set isGolden flag at offset 0x108 BEFORE Awake runs
                 IntPtr ptr = ((Il2CppInterop.Runtime.InteropTypes.Il2CppObjectBase)__instance).Pointer;
-                System.Runtime.InteropServices.Marshal.WriteByte(ptr + 0xD0, 1);
+                System.Runtime.InteropServices.Marshal.WriteByte(ptr + 0x108, 1);
                 
                 MelonLogger.Msg($"[GoldenShrinePatch] Awake Prefix: Set isGolden=true, {GoldenShrinesRemaining} remaining");
             }
@@ -92,13 +92,13 @@ public static class GoldenShrinePatch
         {
             if (SpawnNextAsGolden && GoldenShrinesRemaining > 0)
             {
-                // Set/re-set isGolden flag at offset 0xD0 AFTER Awake runs (Awake resets it!)
+                // Set/re-set isGolden flag at offset 0x108 AFTER Awake runs (Awake resets it!)
                 IntPtr ptr = ((Il2CppInterop.Runtime.InteropTypes.Il2CppObjectBase)__instance).Pointer;
-                byte currentValue = System.Runtime.InteropServices.Marshal.ReadByte(ptr + 0xD0);
+                byte currentValue = System.Runtime.InteropServices.Marshal.ReadByte(ptr + 0x108);
                 
                 MelonLogger.Msg($"[GoldenShrinePatch] Awake Postfix: isGolden currently = {currentValue}, setting to true");
                 
-                System.Runtime.InteropServices.Marshal.WriteByte(ptr + 0xD0, 1);
+                System.Runtime.InteropServices.Marshal.WriteByte(ptr + 0x108, 1);
                 
                 // Track this shrine as one we've modified
                 ModifiedShrines.Add(ptr);
@@ -133,14 +133,14 @@ public static class GoldenShrinePatch
             }
             
             // Check if this shrine should be golden by reading the flag
-            byte isGoldenValue = System.Runtime.InteropServices.Marshal.ReadByte(ptr + 0xD0);
+            byte isGoldenValue = System.Runtime.InteropServices.Marshal.ReadByte(ptr + 0x108);
             
             MelonLogger.Msg($"[GoldenShrinePatch] Start Prefix: Our shrine, isGolden = {isGoldenValue}");
             
             // Ensure it's set before Start runs (in case it got reset after Awake)
             if (isGoldenValue == 0)
             {
-                System.Runtime.InteropServices.Marshal.WriteByte(ptr + 0xD0, 1);
+                System.Runtime.InteropServices.Marshal.WriteByte(ptr + 0x108, 1);
                 MelonLogger.Msg($"[GoldenShrinePatch] Start Prefix: Set isGolden to true (was 0)");
             }
         }
@@ -163,7 +163,7 @@ public static class GoldenShrinePatch
                 return; // Not our shrine, don't touch it
             }
             
-            byte isGoldenValue = System.Runtime.InteropServices.Marshal.ReadByte(ptr + 0xD0);
+            byte isGoldenValue = System.Runtime.InteropServices.Marshal.ReadByte(ptr + 0x108);
             MelonLogger.Msg($"[GoldenShrinePatch] Start Postfix: Our shrine, isGolden = {isGoldenValue}");
             
             // If it's golden, manually apply the gold material
@@ -171,10 +171,10 @@ public static class GoldenShrinePatch
             {
                 try
                 {
-                    // Offset 0xD8 is goldMaterial, 0x38 is meshRenderer
+                    // Offset 0x110 is goldMaterial, 0x70 is meshRenderer
                     // Read goldMaterial pointer
-                    IntPtr goldMaterialPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0xD8);
-                    IntPtr meshRendererPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x38);
+                    IntPtr goldMaterialPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x110);
+                    IntPtr meshRendererPtr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr + 0x70);
                     
                     if (goldMaterialPtr != IntPtr.Zero && meshRendererPtr != IntPtr.Zero)
                     {

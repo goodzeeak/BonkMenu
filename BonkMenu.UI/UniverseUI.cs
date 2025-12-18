@@ -136,7 +136,7 @@ public static class UniverseUI
 		if (flag)
 		{
 			isDragging = false;
-			EnsureTabInitialized(currentTab);
+			SwitchTab(currentTab);
 		}
 		else
 		{
@@ -517,8 +517,12 @@ public static class UniverseUI
 	{
 		if (currentTab == tabIndex && tabContents[currentTab].activeSelf)
 		{
-			return;
+			// Even if already active, if it's Player tab, we might want to refresh?
+            // But usually this block prevents doing anything if clicking the same tab.
+            // Let's allow refreshing if checking Player tab.
+            if (tabIndex != 0) return;
 		}
+
 		for (int i = 0; i < tabContents.Length; i++)
 		{
 			if ((Object)(object)tabContents[i] != (Object)null)
@@ -526,8 +530,31 @@ public static class UniverseUI
 				tabContents[i].SetActive(false);
 			}
 		}
+
 		if ((Object)(object)tabContents[tabIndex] != (Object)null)
 		{
+            // FORCE REBUILD FOR PLAYER TAB (Index 0) to update Stat Sliders
+            if (tabIndex == 0 && tabInitialized[0])
+            {
+				try
+				{
+					GameObject contentRoot = GetContent(tabContents[0]);
+					// Destroy all existing children to clear the UI
+					int childCount = contentRoot.transform.childCount;
+					for (int k = childCount - 1; k >= 0; k--)
+					{
+						Transform child = contentRoot.transform.GetChild(k);
+						child.SetParent(null); // Remove from layout immediately
+						Object.Destroy(child.gameObject);
+					}
+					tabInitialized[0] = false;
+				}
+				catch (Exception ex)
+				{
+					MelonLogger.Warning($"[BonkMenu] Failed to clear Player tab for refresh: {ex.Message}");
+				}
+            }
+
 			EnsureTabInitialized(tabIndex);
 			tabContents[tabIndex].SetActive(true);
 		}
