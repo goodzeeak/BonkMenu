@@ -27,7 +27,7 @@ public class StatsPatches
     /// </summary>
     public static void SetStatAbsolute(EStat stat, float value)
 	{
-		float baseValue = PlayerStatsNew.GetBaseValue(stat);
+		float baseValue = stat == (EStat)57 ? 1f : PlayerStatsNew.GetBaseValue(stat);
 		float offset = value - baseValue;
 		_customStatOffsets[stat] = offset;
 
@@ -46,7 +46,7 @@ public class StatsPatches
 			// Apply our custom offset on top of whatever the game calculated
 			if (_customStatOffsets.ContainsKey(stat))
 			{
-				float baseValue = PlayerStatsNew.GetBaseValue(stat);
+				float baseValue = stat == (EStat)57 ? 1f : PlayerStatsNew.GetBaseValue(stat);
 				float finalValue = baseValue + _customStatOffsets[stat];
 				__result = finalValue;
 
@@ -117,7 +117,7 @@ public class StatsPatches
 			// Apply our custom offset for unclamped stat queries too!
 			if (_customStatOffsets.ContainsKey(stat))
 			{
-				float baseValue = PlayerStatsNew.GetBaseValue(stat);
+				float baseValue = stat == (EStat)57 ? 1f : PlayerStatsNew.GetBaseValue(stat);
 				float finalValue = baseValue + _customStatOffsets[stat];
 				__result = finalValue;
 

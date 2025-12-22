@@ -1,7 +1,10 @@
 using BonkMenu.Core;
+using BonkMenu.Patches;
 using BonkMenu.Features;
 using BonkMenu.UI.Components;
 using Il2CppAssets.Scripts.Menu.Shop;
+using Il2CppAssets.Scripts.Inventory__Items__Pickups.Stats;
+using Il2CppAssets.Scripts.Inventory.Stats;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,13 +15,14 @@ namespace BonkMenu.UI.Tabs;
 /// </summary>
 public static class CombatTab
 {
-    private static readonly string[] enemies = new string[41]
+    private static readonly string[] enemies = new string[51]
     {
         "Skeleton", "GoldenSkeleton", "XpSkeleton", "ArmoredSkeleton", "SkeletonDusty", "ArmoredSkeletonDusty", "Ghoul", "MinibossPig", "Mummy", "Slime",
         "Test", "Test2", "Goblin", "GoblinStrong", "GoblinTank", "MinibossGolem", "Ghost", "GreaterGhost", "SkeletonMage", "Ent1",
         "Ent2", "Ent3", "BoomerSpider", "Golem", "Bee", "MinibossGolemSand", "Scorpion", "MinibossScorpion", "Wisp", "CactusShooter",
         "ScorpionMedium", "MummyTank", "MummyAncient", "Tumblebone", "Pharaoh1", "Pharaoh2", "Pharaoh3", "Bandit", "Bush", "GhostRed",
-        "GhostPurple"
+        "GhostPurple", "Zombie", "Head", "GhostKing", "GhostGrave1", "GhostGrave2", "GhostGrave3", "GhostGrave4", "GhostInvincible", "Ghostham",
+        "CalciumDad"
     };
 
     /// <summary>
@@ -26,64 +30,36 @@ public static class CombatTab
     /// </summary>
     public static void Create(GameObject parent)
     {
-		UIFactory.CreateCollapsibleSection("Toggles", parent, CreateToggles);
-		UIFactory.CreateSpacer(4, parent);
 		UIFactory.CreateCollapsibleSection("Enemy Modifiers", parent, CreateEnemyModifiers);
 		UIFactory.CreateSpacer(4, parent);
 		UIFactory.CreateCollapsibleSection("Enemy Spawning", parent, CreateEnemySpawning);
 		UIFactory.CreateSpacer(4, parent);
 		UIFactory.CreateCollapsibleSection("Debuffs", parent, CreateDebuffs);
-		UIFactory.CreateSpacer(4, parent);
-		UIFactory.CreateCollapsibleSection("Actions", parent, CreateEnemyActions);
     }
 
-	private static void CreateToggles(GameObject parent)
-	{
-		GameObject grid = new GameObject("ToggleGrid");
-		grid.transform.SetParent(parent.transform, false);
-		RectTransform grt = grid.AddComponent<RectTransform>();
-		grt.sizeDelta = new Vector2(0f, 0f);
-		GridLayoutGroup glg = grid.AddComponent<GridLayoutGroup>();
-		glg.cellSize = new Vector2(283f, 30f);
-		glg.spacing = new Vector2(10f, 8f);
-		glg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-		glg.constraintCount = 2;
-		ContentSizeFitter fit = grid.AddComponent<ContentSizeFitter>();
-		fit.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-		LayoutElement gle = grid.AddComponent<LayoutElement>();
-		gle.flexibleWidth = 1f;
-		UIFactory.CreateCircularToggle("Insta-Kill", ModConfig.OneHitKill, delegate(bool value)
-		{
-			if (value != ModConfig.OneHitKill)
-			{
-				ModConfig.ToggleOneHitKill();
-			}
-		}, grid);
-		UIFactory.CreateCircularToggle("Freeze Enemies", ModConfig.FreezeEnemies, delegate(bool value)
-		{
-			if (value != ModConfig.FreezeEnemies)
-			{
-				ModConfig.ToggleFreezeEnemies();
-			}
-		}, grid);
-	}
+
 
 	private static void CreateEnemyModifiers(GameObject parent)
 	{
-		UIFactory.CreateSlider("Enemy HP Mult", 0.1f, 50000f, StatsHelper.GetCurrentStatValue((EStat)53, 1f), delegate(float v) { StatsHelper.SetStatAndUpdate((EStat)53, v);
+		float hpBase = PlayerStatsNew.GetBaseValue((EStat)53); float hpOffset = 0f; StatsPatches._customStatOffsets.TryGetValue((EStat)53, out hpOffset);
+		UIFactory.CreateSlider("Enemy HP Mult", 0.1f, 50000f, hpBase + hpOffset, delegate(float v) { StatsPatches.SetStatAbsolute((EStat)53, v);
+		}, parent, false, true);
+		float spdBase = PlayerStatsNew.GetBaseValue((EStat)52); float spdOffset = 0f; StatsPatches._customStatOffsets.TryGetValue((EStat)52, out spdOffset);
+		UIFactory.CreateSlider("Enemy Speed Mult", 0f, 50000f, spdBase + spdOffset, delegate(float v) { StatsPatches.SetStatAbsolute((EStat)52, v);
+		}, parent, false, true);
+		float dmgBase = PlayerStatsNew.GetBaseValue((EStat)54); float dmgOffset = 0f; StatsPatches._customStatOffsets.TryGetValue((EStat)54, out dmgOffset);
+		UIFactory.CreateSlider("Enemy Dmg Mult", 0f, 50000f, dmgBase + dmgOffset, delegate(float v) { StatsPatches.SetStatAbsolute((EStat)54, v);
+		}, parent, false, true);
+		float sizeBase = PlayerStatsNew.GetBaseValue((EStat)51); float sizeOffset = 0f; StatsPatches._customStatOffsets.TryGetValue((EStat)51, out sizeOffset);
+		UIFactory.CreateSlider("Enemy Size", 0f, 50000f, sizeBase + sizeOffset, delegate(float v) { StatsPatches.SetStatAbsolute((EStat)51, v);
 		}, parent);
-		UIFactory.CreateSlider("Enemy Speed Mult", 0f, 50000f, StatsHelper.GetCurrentStatValue((EStat)52, 1f), delegate(float v) { StatsHelper.SetStatAndUpdate((EStat)52, v);
-		}, parent);
-		UIFactory.CreateSlider("Enemy Dmg Mult", 0f, 50000f, StatsHelper.GetCurrentStatValue((EStat)54, 1f), delegate(float v) { StatsHelper.SetStatAndUpdate((EStat)54, v);
-		}, parent);
-		UIFactory.CreateSlider("Enemy Amount", 0f, 50000f, StatsHelper.GetCurrentStatValue((EStat)50, 1f), delegate(float v) { StatsHelper.SetStatAndUpdate((EStat)50, v);
-		}, parent);
-		UIFactory.CreateSlider("Enemy Size", 0f, 50000f, StatsHelper.GetCurrentStatValue((EStat)51, 1f), delegate(float v) { StatsHelper.SetStatAndUpdate((EStat)51, v);
-		}, parent);
-		UIFactory.CreateSlider("Elite Spawn Rate", 0f, 50000f, StatsHelper.GetCurrentStatValue((EStat)39, 0f), delegate(float v) { StatsHelper.SetStatAndUpdate((EStat)39, v);  // EliteSpawnIncrease
-		}, parent);
+		UIFactory.CreateSlider("Spawn Rate Mult", 0f, 50000f, StatsHelper.GetCurrentStatValue((EStat)57, 1f), delegate(float v) { StatsHelper.SetStatAndUpdate((EStat)57, v);
+		}, parent, false, true);
+		float eliteBase = PlayerStatsNew.GetBaseValue((EStat)39); float eliteOffset = 0f; StatsPatches._customStatOffsets.TryGetValue((EStat)39, out eliteOffset);
+		UIFactory.CreateSlider("Elite Spawn Rate %", 0f, 50000f, StatsHelper.GetDisplayValue((EStat)39, eliteBase + eliteOffset), delegate(float v) { StatsHelper.SetStatFromDisplay((EStat)39, v);
+		}, parent, true);
 		UIFactory.CreateSlider("Difficulty %", 0f, 50000f, StatsHelper.GetDisplayValue((EStat)38, 1f), delegate(float v) { StatsHelper.SetStatFromDisplay((EStat)38, v);  // Difficulty
-		}, parent);
+		}, parent, true);
 	}
 
     private static void CreateEnemySpawning(GameObject parent)
@@ -125,24 +101,5 @@ public static class CombatTab
 		});
 	}
 
-	private static void CreateEnemyActions(GameObject parent)
-	{
-		GameObject grid = new GameObject("ActionGrid");
-		grid.transform.SetParent(parent.transform, false);
-		RectTransform grt = grid.AddComponent<RectTransform>();
-		grt.sizeDelta = new Vector2(0f, 0f);
-		GridLayoutGroup glg = grid.AddComponent<GridLayoutGroup>();
-		glg.cellSize = new Vector2(283f, 30f);
-		glg.spacing = new Vector2(10f, 8f);
-		glg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-		glg.constraintCount = 2;
-		ContentSizeFitter fit = grid.AddComponent<ContentSizeFitter>();
-		fit.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-		LayoutElement gle = grid.AddComponent<LayoutElement>();
-		gle.flexibleWidth = 1f;
-		UIFactory.CreateButton("💀 Kill All Enemies", delegate
-		{
-			CombatFeatures.KillAllEnemies();
-		}, grid);
-	}
+
 }

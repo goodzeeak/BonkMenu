@@ -94,7 +94,7 @@ public static class LootPatches
 			//IL_000c: Invalid comparison between Unknown and I4
 			try
 			{
-				if (LootConfig.MaxLuck && (int)stat == 30)
+				if (ModConfig.MaxLuck && (int)stat == 30)
 				{
 
 					__result = 100f;

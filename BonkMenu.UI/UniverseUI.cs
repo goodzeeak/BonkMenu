@@ -40,6 +40,16 @@ public static class UniverseUI
 	private static RectTransform panelRect;
 
 	private static Font _cachedFont;
+    private static readonly Color ColorPanelBg = new Color(0.05f, 0.05f, 0.07f, 0.98f);
+    private static readonly Color ColorSurface = new Color(0.08f, 0.08f, 0.1f, 1f);
+    private static readonly Color ColorSurface2 = new Color(0.1f, 0.1f, 0.12f, 1f);
+    private static readonly Color ColorAccent = new Color(0.2f, 0.8f, 1f, 1f);
+    private static readonly Color ColorAccentDim = new Color(0.2f, 0.8f, 1f, 0.3f);
+    private static readonly Color ColorTextMain = new Color(1f, 1f, 1f, 1f);
+    private static readonly Color ColorTextDim = new Color(0.7f, 0.7f, 0.8f, 1f);
+    private const int FontSizeTitle = 18;
+    private const int FontSizeTab = 13;
+    private const int FontSizeClose = 18;
 
     /// <summary>
     /// Initializes UniverseLib and prepares the BonkMenu UI.
@@ -188,7 +198,7 @@ public static class UniverseUI
 		panelRect.sizeDelta = new Vector2(600f, 650f);
 		panelRect.anchoredPosition = Vector2.zero;
 		Image val4 = panelRoot.AddComponent<Image>();
-		((Graphic)val4).color = new Color(0.05f, 0.05f, 0.07f, 0.98f);
+		((Graphic)val4).color = ColorPanelBg;
 		((Graphic)val4).raycastTarget = true;
 		GameObject val5 = new GameObject("Outline");
 		val5.transform.SetParent(panelRoot.transform, false);
@@ -197,7 +207,7 @@ public static class UniverseUI
 		val6.anchorMax = Vector2.one;
 		val6.sizeDelta = Vector2.zero;
 		Outline val7 = val5.AddComponent<Outline>();
-		((Shadow)val7).effectColor = new Color(0.2f, 0.8f, 1f, 0.8f);
+		((Shadow)val7).effectColor = new Color(ColorAccent.r, ColorAccent.g, ColorAccent.b, 0.8f);
 		((Shadow)val7).effectDistance = new Vector2(2f, 2f);
 		VerticalLayoutGroup val8 = panelRoot.AddComponent<VerticalLayoutGroup>();
 		((LayoutGroup)val8).padding = new RectOffset();
@@ -274,22 +284,8 @@ public static class UniverseUI
 		{
 			return _cachedFont;
 		}
-		Font[] array = RuntimeHelper.FindObjectsOfTypeAll<Font>();
-		Font[] array2 = array;
-		foreach (Font val in array2)
-		{
-			if (((Object)val).name == "Arial")
-			{
-				_cachedFont = val;
-				return val;
-			}
-		}
-		if (array.Length != 0)
-		{
-			_cachedFont = array[0];
-			return _cachedFont;
-		}
-		return null;
+        _cachedFont = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        return _cachedFont;
 	}
 
 	private static void CreateHeader()
@@ -334,7 +330,7 @@ public static class UniverseUI
 		val2.preferredHeight = 45f;
 		val2.flexibleHeight = 0f;
 		Image val3 = val.AddComponent<Image>();
-		((Graphic)val3).color = new Color(0.08f, 0.08f, 0.1f, 1f);
+		((Graphic)val3).color = ColorSurface;
 		GameObject val4 = new GameObject("Title");
 		val4.transform.SetParent(val.transform, false);
 		RectTransform val5 = val4.AddComponent<RectTransform>();
@@ -343,11 +339,11 @@ public static class UniverseUI
 		val5.sizeDelta = new Vector2(-100f, 0f);
 		val5.anchoredPosition = new Vector2(0f, 0f);
 		Text val6 = val4.AddComponent<Text>();
-		val6.text = "⚡ BONK MENU ⚡";
+		val6.text = "BonkMenu";
 		val6.font = GetFont();
-		val6.fontSize = 22;
+		val6.fontSize = FontSizeTitle;
 		val6.fontStyle = (FontStyle)1;
-		((Graphic)val6).color = new Color(0.2f, 0.8f, 1f, 1f);
+		((Graphic)val6).color = ColorAccent;
 		val6.alignment = (TextAnchor)4;
 		GameObject val7 = new GameObject("ExitButton");
 		val7.transform.SetParent(val.transform, false);
@@ -357,9 +353,17 @@ public static class UniverseUI
 		val8.sizeDelta = new Vector2(40f, 40f);
 		val8.anchoredPosition = new Vector2(-25f, 0f);
 		Image val9 = val7.AddComponent<Image>();
-		((Graphic)val9).color = new Color(0.8f, 0.2f, 0.2f, 0f);
+		((Graphic)val9).color = ColorSurface2;
 		Button val10 = val7.AddComponent<Button>();
 		((Selectable)val10).targetGraphic = (Graphic)(object)val9;
+        ColorBlock colors = ((Selectable)val10).colors;
+        colors.normalColor = ColorSurface2;
+        colors.highlightedColor = new Color(0.14f, 0.14f, 0.18f, 1f);
+        colors.pressedColor = ColorSurface;
+        colors.selectedColor = colors.normalColor;
+        colors.colorMultiplier = 1f;
+        colors.fadeDuration = 0.08f;
+        RuntimeHelper.SetColorBlock((Selectable)(object)val10, colors);
 		((UnityEvent)val10.onClick).AddListener((UnityAction)delegate
 		{
 			Toggle();
@@ -373,8 +377,9 @@ public static class UniverseUI
 		Text val13 = val11.AddComponent<Text>();
 		val13.text = "✕";
 		val13.font = GetFont();
-		val13.fontSize = 24;
-		((Graphic)val13).color = new Color(1f, 0.3f, 0.3f, 1f);
+		val13.fontSize = FontSizeClose;
+		val13.fontStyle = (FontStyle)0;
+		((Graphic)val13).color = ColorTextDim;
 		val13.alignment = (TextAnchor)4;
 		GameObject val14 = new GameObject("HeaderBorder");
 		val14.transform.SetParent(val.transform, false);
@@ -384,7 +389,7 @@ public static class UniverseUI
 		val15.sizeDelta = new Vector2(0f, 2f);
 		val15.pivot = new Vector2(0.5f, 0f);
 		Image val16 = val14.AddComponent<Image>();
-		((Graphic)val16).color = new Color(0.2f, 0.8f, 1f, 0.5f);
+		((Graphic)val16).color = ColorAccentDim;
 	}
 
 	private static void CreateTabBar()
@@ -431,9 +436,17 @@ public static class UniverseUI
 			val6.transform.SetParent(val.transform, false);
 			tabButtons[i] = val6;
 			Image val7 = val6.AddComponent<Image>();
-			((Graphic)val7).color = new Color(0.1f, 0.1f, 0.12f, 1f);
+			((Graphic)val7).color = ColorSurface2;
 			Button val8 = val6.AddComponent<Button>();
 			int index = i;
+            ColorBlock colors = ((Selectable)val8).colors;
+            colors.normalColor = ColorSurface2;
+            colors.highlightedColor = new Color(0.14f, 0.14f, 0.18f, 1f);
+            colors.pressedColor = ColorSurface;
+            colors.selectedColor = colors.normalColor;
+            colors.colorMultiplier = 1f;
+            colors.fadeDuration = 0.08f;
+            RuntimeHelper.SetColorBlock((Selectable)(object)val8, colors);
 			((UnityEvent)val8.onClick).AddListener((UnityAction)delegate
 			{
 				SwitchTab(index);
@@ -450,9 +463,10 @@ public static class UniverseUI
 			Text val12 = val10.AddComponent<Text>();
 			val12.text = array[i];
 			val12.font = GetFont();
-			val12.fontSize = 12;
+			val12.fontSize = FontSizeTab;
+            val12.fontStyle = (FontStyle)0;
 			val12.alignment = (TextAnchor)4;
-			((Graphic)val12).color = new Color(0.7f, 0.7f, 0.8f, 1f);
+			((Graphic)val12).color = ColorTextDim;
 		}
 	}
 
@@ -513,15 +527,13 @@ public static class UniverseUI
 		}
 	}
 
-	private static void SwitchTab(int tabIndex)
-	{
-		if (currentTab == tabIndex && tabContents[currentTab].activeSelf)
-		{
-			// Even if already active, if it's Player tab, we might want to refresh?
-            // But usually this block prevents doing anything if clicking the same tab.
-            // Let's allow refreshing if checking Player tab.
-            if (tabIndex != 0) return;
-		}
+    private static void SwitchTab(int tabIndex)
+    {
+        if (currentTab == tabIndex && tabContents[currentTab].activeSelf)
+        {
+            // Allow refreshing Player and Combat tabs when already active to resync values
+            if (tabIndex != 0 && tabIndex != 1) return;
+        }
 
 		for (int i = 0; i < tabContents.Length; i++)
 		{
@@ -531,33 +543,53 @@ public static class UniverseUI
 			}
 		}
 
-		if ((Object)(object)tabContents[tabIndex] != (Object)null)
-		{
+        if ((Object)(object)tabContents[tabIndex] != (Object)null)
+        {
             // FORCE REBUILD FOR PLAYER TAB (Index 0) to update Stat Sliders
             if (tabIndex == 0 && tabInitialized[0])
             {
-				try
-				{
-					GameObject contentRoot = GetContent(tabContents[0]);
-					// Destroy all existing children to clear the UI
-					int childCount = contentRoot.transform.childCount;
-					for (int k = childCount - 1; k >= 0; k--)
-					{
-						Transform child = contentRoot.transform.GetChild(k);
-						child.SetParent(null); // Remove from layout immediately
-						Object.Destroy(child.gameObject);
-					}
-					tabInitialized[0] = false;
-				}
-				catch (Exception ex)
-				{
-					MelonLogger.Warning($"[BonkMenu] Failed to clear Player tab for refresh: {ex.Message}");
-				}
+                try
+                {
+                    GameObject contentRoot = GetContent(tabContents[0]);
+                    // Destroy all existing children to clear the UI
+                    int childCount = contentRoot.transform.childCount;
+                    for (int k = childCount - 1; k >= 0; k--)
+                    {
+                        Transform child = contentRoot.transform.GetChild(k);
+                        child.SetParent(null); // Remove from layout immediately
+                        Object.Destroy(child.gameObject);
+                    }
+                    tabInitialized[0] = false;
+                }
+                catch (Exception ex)
+                {
+                    MelonLogger.Warning($"[BonkMenu] Failed to clear Player tab for refresh: {ex.Message}");
+                }
+            }
+            // FORCE REBUILD FOR COMBAT TAB (Index 1) to update Enemy Sliders
+            if (tabIndex == 1 && tabInitialized[1])
+            {
+                try
+                {
+                    GameObject contentRoot = GetContent(tabContents[1]);
+                    int childCount = contentRoot.transform.childCount;
+                    for (int k = childCount - 1; k >= 0; k--)
+                    {
+                        Transform child = contentRoot.transform.GetChild(k);
+                        child.SetParent(null);
+                        Object.Destroy(child.gameObject);
+                    }
+                    tabInitialized[1] = false;
+                }
+                catch (Exception ex)
+                {
+                    MelonLogger.Warning($"[BonkMenu] Failed to clear Combat tab for refresh: {ex.Message}");
+                }
             }
 
-			EnsureTabInitialized(tabIndex);
-			tabContents[tabIndex].SetActive(true);
-		}
+            EnsureTabInitialized(tabIndex);
+            tabContents[tabIndex].SetActive(true);
+        }
 		currentTab = tabIndex;
 		UpdateTabVisuals();
 	}
@@ -580,19 +612,19 @@ public static class UniverseUI
 			Text val = ((obj != null) ? ((Component)obj).GetComponent<Text>() : null);
 			if (i == currentTab)
 			{
-				((Graphic)component2).color = new Color(0.2f, 0.8f, 1f, 0.2f);
+				((Graphic)component2).color = ColorAccentDim;
 				if ((Object)(object)val != (Object)null)
 				{
-					((Graphic)val).color = new Color(0.2f, 0.8f, 1f, 1f);
-					val.fontStyle = (FontStyle)1;
+					((Graphic)val).color = ColorAccent;
+					val.fontStyle = (FontStyle)0;
 				}
 			}
 			else
 			{
-				((Graphic)component2).color = new Color(0.1f, 0.1f, 0.12f, 1f);
+				((Graphic)component2).color = ColorSurface2;
 				if ((Object)(object)val != (Object)null)
 				{
-					((Graphic)val).color = new Color(0.6f, 0.6f, 0.65f, 1f);
+					((Graphic)val).color = ColorTextDim;
 					val.fontStyle = (FontStyle)0;
 				}
 			}

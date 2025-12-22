@@ -64,7 +64,7 @@ public static class ItemFeatures
 	{
 		//IL_00a9: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00ac: Unknown result type (might be due to invalid IL or missing references)
-		MelonLogger.Msg("[GrantAllItems] Granting all 81 items (ID: 0-80)");
+		MelonLogger.Msg("[GrantAllItems] Granting all 87 items (ID: 0-86)");
 		try
 		{
 			GameManager instance = GameManager.Instance;
@@ -93,7 +93,7 @@ public static class ItemFeatures
 			}
 			int num = 0;
 			int num2 = 0;
-			for (int i = 0; i <= 80; i++)
+			for (int i = 0; i <= 86; i++)
 			{
 				try
 				{
@@ -107,7 +107,7 @@ public static class ItemFeatures
 					num2++;
 				}
 			}
-			MelonLogger.Msg($"[GrantAllItems] Completed - Granted: {num}/81, Failed: {num2}");
+			MelonLogger.Msg($"[GrantAllItems] Completed - Granted: {num}/87, Failed: {num2}");
 		}
 		catch (Exception ex2)
 		{

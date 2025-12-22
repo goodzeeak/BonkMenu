@@ -110,17 +110,19 @@ public static class StatsHelper
 		}
 	}
 
-	// Stats that are stored as decimals but displayed as percentages (0.5 = 50%)
-	// Based on empirical testing: these stats show with % symbol in game UI
-	private static readonly EStat[] PercentageStats = new EStat[]
+    private static readonly EStat[] PercentageStats = new EStat[]
 	{
-		(EStat)4,   // Armor
-		(EStat)5,   // Evasion
-		(EStat)15,  // AttackSpeed
-		(EStat)17,  // Lifesteal
-		(EStat)18,  // CritChance
-		(EStat)30,  // Luck
-		(EStat)38,  // Difficulty
+		(EStat)4,
+		(EStat)5,
+		(EStat)15,
+		(EStat)17,
+		(EStat)18,
+		(EStat)30,
+		(EStat)38,
+		(EStat)39,
+		(EStat)41,
+		(EStat)42,
+		(EStat)43,
 	};
 
     /// <summary>

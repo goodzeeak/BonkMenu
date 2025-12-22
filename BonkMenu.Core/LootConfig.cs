@@ -48,8 +48,4 @@ public static class LootConfig
     /// </summary>
     public static EItemRarity ChestRarityOverride { get; set; } = (EItemRarity)3;
 
-    /// <summary>
-    /// When true, sets luck stat to maximum.
-    /// </summary>
-    public static bool MaxLuck { get; set; } = false;
 }

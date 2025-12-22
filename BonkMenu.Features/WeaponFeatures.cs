@@ -77,12 +77,12 @@ public static class WeaponFeatures
     /// </summary>
     public static void GrantAllWeapons()
 	{
-		MelonLogger.Msg("[GrantAllWeapons] Granting all 30 weapons");
+		MelonLogger.Msg("[GrantAllWeapons] Granting all 31 weapons");
 		try
 		{
 			int num = 0;
 			int num2 = 0;
-			for (int i = 0; i < 30; i++)
+			for (int i = 0; i <= 30; i++)
 			{
 				try
 				{

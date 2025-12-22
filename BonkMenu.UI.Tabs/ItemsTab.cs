@@ -19,11 +19,12 @@ public static class ItemsTab
 		"Silver"
 	};
 
-	private static readonly string[] weapons = new string[30]
+	private static readonly string[] weapons = new string[31]
 	{
 		"FireStaff", "Bone", "Sword", "Revolver", "Aura", "Axe", "Bow", "Aegis", "Test", "LightningStaff",
 		"Flamewalker", "Rockets", "Bananarang", "Tornado", "Dexecutioner", "Sniper", "Frostwalker", "SpaceNoodle", "DragonsBreath", "Chunkers",
-		"Mine", "PoisonFlask", "BlackHole", "Katana", "BloodMagic", "BluetoothDagger", "Dice", "HeroSword", "CorruptSword", "Shotgun"
+		"Mine", "PoisonFlask", "BlackHole", "Katana", "BloodMagic", "BluetoothDagger", "Dice", "HeroSword", "CorruptSword", "Shotgun",
+		"Scythe"
 	};
 
 	private static readonly string[] tomes = new string[27]
@@ -33,7 +34,7 @@ public static class ItemsTab
 		"Bounce", "Cursed", "Silver", "Balance", "Chaos", "Gambler", "Hoarder"
 	};
 
-	private static readonly string[] items = new string[81]
+	private static readonly string[] items = new string[87]
 	{
 		"Key", "Beer", "SpikyShield", "Bonker", "SlipperyRing", "CowardsCloak", "GymSauce", "Battery", "PhantomShroud", "ForbiddenJuice",
 		"DemonBlade", "GrandmasSecretTonic", "GiantFork", "MoldyCheese", "GoldenSneakers", "SpicyMeatball", "Chonkplate", "LightningOrb", "IceCube", "DemonicBlood",
@@ -43,14 +44,14 @@ public static class ItemsTab
 		"WeebHeadset", "SpeedBoi", "Gasmask", "ToxicBarrel", "HolyBook", "BrassKnuckles", "IdleJuice", "Kevin", "Borgar", "Medkit",
 		"GamerGoggles", "UnstableTransfusion", "BloodyCleaver", "CreditCardRed", "CreditCardGreen", "BossBuster", "LeechingCrystal", "TacticalGlasses", "Cactus", "CageKey",
 		"IceCrystal", "TimeBracelet", "GloveLightning", "GlovePoison", "GloveBlood", "GloveCurse", "GlovePower", "Wrench", "Beacon", "GoldenRing",
-		"QuinsMask"
+		"QuinsMask", "CryptKey", "OldMask", "Snek", "Pot", "BobsLantern", "Pumpkin"
 	};
 
-    private static readonly string[] passives = new string[21]
+    private static readonly string[] passives = new string[22]
     {
         "Bullseye", "RngBlessing", "SpeedDemon", "Reinforced", "Flowstate", "CritHappens", "Warrior", "Flex", "WallClimb", "None",
         "Float", "Enduring", "Plague", "Quantum", "Shadowstep", "Gamba", "Vampire", "Curse", "Stonks", "LockIn",
-        "Zap"
+        "Zap", "Hoarder"
     };
 
     

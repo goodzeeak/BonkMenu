@@ -24,9 +24,11 @@ public static class UIFactory
         public string baseLabel;
     }
     private static System.Collections.Generic.Dictionary<string, ToastRef> _spawnToasts = new System.Collections.Generic.Dictionary<string, ToastRef>();
-    private static readonly Color ColorBgDark = new Color(0f, 0f, 0f, 1f);
+    private static readonly Color ColorBgDark = new Color(0.08f, 0.08f, 0.1f, 1f);
 
-	private static readonly Color ColorBgLighter = new Color(0.15f, 0.15f, 0.2f, 1f);
+	private static readonly Color ColorBgLighter = new Color(0.1f, 0.1f, 0.12f, 1f);
+
+    private static readonly Color ColorBgInput = new Color(0f, 0f, 0f, 1f);
 
 	private static readonly Color ColorAccent = new Color(0.2f, 0.8f, 1f, 1f);
 
@@ -34,7 +36,7 @@ public static class UIFactory
 
     private static readonly Color ColorTextMain = new Color(1f, 1f, 1f, 1f);
 
-    private static readonly Color ColorTextDim = new Color(1f, 1f, 1f, 1f);
+    private static readonly Color ColorTextDim = new Color(0.7f, 0.7f, 0.8f, 1f);
 
     /// <summary>
     /// Creates a styled section header with title and separator line.
@@ -154,7 +156,7 @@ public static class UIFactory
 		val2.sizeDelta = new Vector2(0f, 25f);
         Text val3 = val.AddComponent<Text>();
         val3.text = text;
-        val3.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        val3.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
         val3.fontSize = 13;
         ((Graphic)val3).color = ColorTextDim;
         val3.alignment = (TextAnchor)4;
@@ -413,9 +415,9 @@ public static class UIFactory
 		val14.sizeDelta = new Vector2(0f, 25f);
 		Text val15 = val13.AddComponent<Text>();
 		val15.text = label;
-		val15.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+		val15.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
         val15.fontSize = 13;
-		val15.fontStyle = (FontStyle)1;
+		val15.fontStyle = (FontStyle)0;
 		((Graphic)val15).color = ColorTextMain;
 		val15.alignment = (TextAnchor)3;
 		LayoutElement labelLE = val13.AddComponent<LayoutElement>();
@@ -476,9 +478,9 @@ public static class UIFactory
 		lrt.sizeDelta = new Vector2(0f, 22f);
 		Text ltxt = labelGO.AddComponent<Text>();
 		ltxt.text = label;
-		ltxt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+		ltxt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
         ltxt.fontSize = 13;
-		ltxt.fontStyle = (FontStyle)1;
+		ltxt.fontStyle = (FontStyle)0;
 		((Graphic)ltxt).color = ColorTextMain;
 		ltxt.alignment = (TextAnchor)4;
 		LayoutElement lle = labelGO.AddComponent<LayoutElement>();
@@ -503,7 +505,7 @@ public static class UIFactory
     /// <summary>
     /// Creates a slider with label, numeric input, and change callback.
     /// </summary>
-    public static void CreateSlider(string label, float min, float max, float defaultValue, Action<float> onChange, GameObject parent)
+    public static void CreateSlider(string label, float min, float max, float defaultValue, Action<float> onChange, GameObject parent, bool isPercentage = false, bool isMultiplier = false)
 	{
 		//IL_001a: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0020: Expected O, but got Unknown
@@ -563,9 +565,9 @@ public static class UIFactory
 		val7.sizeDelta = new Vector2(140f, 25f);
 		Text val8 = val6.AddComponent<Text>();
 		val8.text = label;
-		val8.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+		val8.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
         val8.fontSize = 13;
-		val8.fontStyle = (FontStyle)1;
+		val8.fontStyle = (FontStyle)0;
 		((Graphic)val8).color = ColorTextMain;
 		val8.alignment = (TextAnchor)4;
 		GameObject val9 = new GameObject("SliderControl");
@@ -573,12 +575,15 @@ public static class UIFactory
 		RectTransform val10 = val9.AddComponent<RectTransform>();
 		val10.sizeDelta = new Vector2(200f, 20f);
         Image val11 = val9.AddComponent<Image>();
-        ((Graphic)val11).color = ColorBgDark;
+        ((Graphic)val11).color = ColorBgInput;
 		Slider val12 = val9.AddComponent<Slider>();
-		val12.minValue = min;
-		val12.maxValue = max;
-		val12.value = defaultValue;
-		val12.wholeNumbers = false;
+        bool largeRange = max - min >= 1000f;
+        float sliderMin = min;
+        float sliderMax = (largeRange ? Mathf.Min(max, min + 1000f) : max);
+		val12.minValue = sliderMin;
+		val12.maxValue = sliderMax;
+        val12.wholeNumbers = false;
+        bool suppressSliderCallback = false;
 		GameObject val13 = new GameObject("Fill Area");
 		val13.transform.SetParent(val9.transform, false);
 		RectTransform val14 = val13.AddComponent<RectTransform>();
@@ -611,36 +616,68 @@ public static class UIFactory
 		RectTransform val24 = val23.AddComponent<RectTransform>();
 		val24.sizeDelta = new Vector2(60f, 25f);
         Image val25 = val23.AddComponent<Image>();
-        ((Graphic)val25).color = ColorBgDark;
+        ((Graphic)val25).color = ColorBgInput;
 		InputField val26 = val23.AddComponent<InputField>();
 		GameObject val27 = new GameObject("Text");
 		val27.transform.SetParent(val23.transform, false);
 		RectTransform val28 = val27.AddComponent<RectTransform>();
-		val28.anchorMin = Vector2.zero;
-		val28.anchorMax = Vector2.one;
+        val28.anchorMin = Vector2.zero;
+        val28.anchorMax = Vector2.one;
 		val28.sizeDelta = Vector2.zero;
 		Text val29 = val27.AddComponent<Text>();
-		val29.text = defaultValue.ToString("F2");
-		val29.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        float clampedDefault = Mathf.Clamp(defaultValue, min, max);
+        float initialSliderValue = Mathf.Clamp(clampedDefault, sliderMin, sliderMax);
+        val12.value = initialSliderValue;
+        string suffix = "";
+        if (isPercentage)
+        {
+            suffix = "%";
+        }
+        else if (isMultiplier)
+        {
+            suffix = "x";
+        }
+        string initialText = clampedDefault.ToString("F2") + suffix;
+		val29.text = initialText;
+		val29.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
         val29.fontSize = 13;
         ((Graphic)val29).color = ColorTextMain;
 		val29.alignment = (TextAnchor)4;
 		val26.textComponent = val29;
-		val26.text = defaultValue.ToString("F2");
+		val26.text = initialText;
 		((UnityEvent<string>)(object)val26.onEndEdit).AddListener((UnityAction<string>)delegate(string str)
 		{
-			if (float.TryParse(str, out var result))
+            string input = (str ?? "").Trim();
+            if (!string.IsNullOrEmpty(suffix) && input.EndsWith(suffix, StringComparison.Ordinal))
+            {
+                input = input.Substring(0, input.Length - suffix.Length).TrimEnd();
+            }
+			if (float.TryParse(input, out var result))
 			{
-				result = Mathf.Clamp(result, min, max);
-				val12.value = result;
-				onChange(result);
-				val26.text = result.ToString("F2");
+                float clamped = Mathf.Clamp(result, min, max);
+                suppressSliderCallback = true;
+                float sliderTarget = Mathf.Clamp(clamped, sliderMin, sliderMax);
+                val12.value = sliderTarget;
+                suppressSliderCallback = false;
+                string txt2 = clamped.ToString("F2") + suffix;
+                val26.text = txt2;
+                onChange(clamped);
+			}
+			else
+			{
+                val26.text = val26.text;
 			}
 		});
 		((UnityEvent<float>)(object)val12.onValueChanged).AddListener((UnityAction<float>)delegate(float value)
 		{
-			val26.text = value.ToString("F2");
-			onChange(value);
+            if (suppressSliderCallback)
+            {
+                return;
+            }
+            float clamped = Mathf.Clamp(value, min, max);
+            string txt3 = clamped.ToString("F2") + suffix;
+			val26.text = txt3;
+			onChange(clamped);
 		});
 	}
 
@@ -705,8 +742,6 @@ public static class UIFactory
 
         Color accentColor = ColorAccent;
         string lower = (message ?? "").ToLowerInvariant();
-        if (lower.Contains("off")) accentColor = new Color(0.95f, 0.35f, 0.35f, 1f);
-        else if (lower.Contains("on") || lower.Contains("spawned")) accentColor = new Color(0.2f, 0.85f, 0.55f, 1f);
 
         GameObject accentGO = new GameObject("Accent");
         accentGO.transform.SetParent(toast.transform, false);
@@ -723,7 +758,7 @@ public static class UIFactory
         RectTransform iconRT = iconGO.AddComponent<RectTransform>();
         iconRT.sizeDelta = new Vector2(20f, 20f);
         Text iconTxt = iconGO.AddComponent<Text>();
-        iconTxt.text = lower.Contains("off") ? "×" : (lower.Contains("on") ? "✓" : "•");
+        iconTxt.text = "•";
         iconTxt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
         iconTxt.fontSize = 16;
         ((Graphic)iconTxt).color = accentColor;

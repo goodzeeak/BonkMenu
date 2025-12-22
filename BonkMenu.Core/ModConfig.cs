@@ -96,6 +96,11 @@ public static class ModConfig
     /// When true, shows toast notifications in UI.
     /// </summary>
     public static bool EnableToasts { get; set; } = true;
+    
+    /// <summary>
+    /// When true, sets luck stat to maximum.
+    /// </summary>
+    public static bool MaxLuck { get; set; } = false;
 
     /// <summary>
     /// Toggles Infinite Health.
@@ -267,5 +272,14 @@ public static class ModConfig
     {
         EnableToasts = !EnableToasts;
         Log.Info("Toasts: " + (EnableToasts ? "ON" : "OFF"));
+    }
+
+    /// <summary>
+    /// Toggles Max Luck setting.
+    /// </summary>
+    public static void ToggleMaxLuck()
+    {
+        MaxLuck = !MaxLuck;
+        Log.Info("Max Luck: " + (MaxLuck ? "ON" : "OFF"));
     }
 }

@@ -28,8 +28,6 @@ public static class LootTab
     /// </summary>
     public static void Create(GameObject parent)
     {
-        UIFactory.CreateCollapsibleSection("Toggles", parent, CreateToggles);
-        UIFactory.CreateSpacer(4, parent);
         UIFactory.CreateCollapsibleSection("Rarity Control", parent, CreateRarityControl);
         UIFactory.CreateSpacer(4, parent);
         UIFactory.CreateCollapsibleSection("Spawning", parent, CreateSpawning);
@@ -41,12 +39,14 @@ public static class LootTab
         {
             selectedUpgradeRarityIndex = idx;
             LootConfig.DesiredUpgradeRarity = (ERarity)(idx + 1);
+            LootConfig.ForceUpgradeRarity = true;
         });
         UIFactory.CreateSpacer(8, parent);
         UIFactory.CreateSpawnerNoSlider(parent, "Set Item Rarity", itemRarities, idx =>
         {
             selectedItemRarityIndex = idx;
             LootConfig.DesiredItemRarity = MapIndexToItemRarity(idx);
+            LootConfig.ForceItemRarity = true;
         });
     }
 
@@ -68,35 +68,7 @@ public static class LootTab
 		});
 	}
 
-    private static void CreateToggles(GameObject parent)
-    {
-        GameObject grid = new GameObject("ToggleGrid");
-        grid.transform.SetParent(parent.transform, false);
-        RectTransform grt = grid.AddComponent<RectTransform>();
-        grt.sizeDelta = new Vector2(0f, 0f);
-        GridLayoutGroup glg = grid.AddComponent<GridLayoutGroup>();
-        glg.cellSize = new Vector2(283f, 30f);
-        glg.spacing = new Vector2(10f, 8f);
-        glg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-        glg.constraintCount = 2;
-        ContentSizeFitter fit = grid.AddComponent<ContentSizeFitter>();
-        fit.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-        LayoutElement gle = grid.AddComponent<LayoutElement>();
-        gle.flexibleWidth = 1f;
-        UIFactory.CreateCircularToggle("Force Upgrade Rarity", LootConfig.ForceUpgradeRarity, delegate(bool value)
-        {
-            LootConfig.ForceUpgradeRarity = value;
-        }, grid);
-        UIFactory.CreateCircularToggle("Force Item Rarity", LootConfig.ForceItemRarity, delegate(bool value)
-        {
-            LootConfig.ForceItemRarity = value;
-        }, grid);
-        UIFactory.CreateCircularToggle("Max Luck (Best Rolls)", LootConfig.MaxLuck, delegate(bool value)
-        {
-            LootConfig.MaxLuck = value;
-        }, grid);
-        UIFactory.CreateLabel("Forces all loot/upgrade rolls to use maximum luck value", parent);
-    }
+
 
 	private static void CreateSpawning(GameObject parent)
 	{
