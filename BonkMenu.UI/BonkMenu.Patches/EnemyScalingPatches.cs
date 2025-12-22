@@ -46,9 +46,6 @@ public static class EnemyScalingPatches
         if (mult < 0f) mult = 0f;
         return mult;
     }
-    
-    private static bool _isExtraSpawn = false;
-
     // --- HP Patches ---
     [HarmonyPatch(typeof(RunConfig), nameof(RunConfig.GetEnemyHp))]
     public static class RunConfig_GetEnemyHp_Patch
@@ -193,7 +190,6 @@ public static class EnemyScalingPatches
     {
         public static bool Prefix(EnemyData enemyData, Vector3 pos, int waveNumber, bool forceSpawn, EEnemyFlag flag, bool canBeElite, float extraSizeMultiplier)
         {
-            if (_isExtraSpawn) return true;
             if (!ShouldAffectSpawn(enemyData, waveNumber, forceSpawn, flag, canBeElite)) return true;
             float mult = GetSpawnRateMultiplier();
             if (mult < 1f && mult > 0f)
@@ -201,11 +197,6 @@ public static class EnemyScalingPatches
                 if (UnityEngine.Random.value > mult) return false;
             }
             return true;
-        }
-        
-        public static void Postfix(EnemyManager __instance, Enemy __result, EnemyData enemyData, Vector3 pos, int waveNumber, bool forceSpawn, EEnemyFlag flag, bool canBeElite, float extraSizeMultiplier)
-        {
-            return;
         }
     }
     
