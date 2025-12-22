@@ -14,6 +14,10 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup>
+    <MegabonkModsDir Condition="'$(MegabonkModsDir)' == '' and '$(MEGABONK_MODS_DIR)' != ''">$(MEGABONK_MODS_DIR)</MegabonkModsDir>
+    <MegabonkModsDir Condition="'$(MegabonkModsDir)' == '' and '$(MEGABONK_MODS_DIR)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Mods</MegabonkModsDir>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Remove="megabonk_split_dump/**/*.cs" />
     <Compile Remove="cpp2il_dump/**/*.cs" />
@@ -65,6 +69,6 @@
     </Reference>
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="Copy &quot;$(TargetPath)&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\Megabonk\Mods\BonkMenu.dll&quot; /Y" />
+    <Exec Command="Copy &quot;$(TargetPath)&quot; &quot;$(MegabonkModsDir)\BonkMenu.dll&quot; /Y &amp;&amp; Copy &quot;$(ProjectDir)Libs\UniverseLib.IL2CPP.dll&quot; &quot;$(MegabonkModsDir)\UniverseLib.IL2CPP.dll&quot; /Y" />
   </Target>
 </Project>
