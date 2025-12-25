@@ -3,45 +3,21 @@ using MelonLoader;
 
 namespace BonkMenu.Patches;
 
-/// <summary>
-/// Controls pot variants such as silver and big (microwave).
-/// </summary>
 public static class PotVariantPatch
 {
-    // Static flags to control pot variants
-    /// <summary>
-    /// When true, upcoming pots spawn as silver until exhausted.
-    /// </summary>
     public static bool SpawnNextAsSilver = false;
-    /// <summary>
-    /// Remaining count of silver pots to spawn.
-    /// </summary>
     public static int SilverPotsRemaining = 0;
     
-    /// <summary>
-    /// When true, upcoming pots spawn as big (microwave) until exhausted.
-    /// </summary>
     public static bool SpawnNextAsBig = false;
-    /// <summary>
-    /// Remaining count of big pots to spawn.
-    /// </summary>
     public static int BigPotsRemaining = 0;
     
-    // Track which pots we've modified so we don't affect naturally spawned pots
     private static System.Collections.Generic.HashSet<IntPtr> ModifiedPots = new System.Collections.Generic.HashSet<IntPtr>();
 
-    /// <summary>
-    /// Prepares variant patch for runtime application after instantiation.
-    /// </summary>
     public static void Apply()
     {
         try
         {
-            // Get the managed wrapper type for InteractablePot
             var potType = typeof(Il2CppAssets.Scripts.Inventory__Items__Pickups.Interactables.InteractablePot);
-            
-            // InteractablePot doesn't have Awake, only Interact - patch the constructor/Start if needed
-            // For now, we'll use a different approach - modify after instantiation
             
             MelonLogger.Msg("[PotVariantPatch] ✅ Pot variant patch ready (will modify post-spawn)");
         }
@@ -52,10 +28,6 @@ public static class PotVariantPatch
         }
     }
 
-    // Helper method to apply variant to a pot instance
-    /// <summary>
-    /// Applies variant flags to a spawned pot instance.
-    /// </summary>
     public static void ApplyVariant(Il2CppAssets.Scripts.Inventory__Items__Pickups.Interactables.InteractablePot pot)
     {
         try
@@ -64,7 +36,6 @@ public static class PotVariantPatch
             
             if (SpawnNextAsSilver && SilverPotsRemaining > 0)
             {
-                // Offset 0x82 is isSilver
                 System.Runtime.InteropServices.Marshal.WriteByte(ptr + 0x82, 1);
                 ModifiedPots.Add(ptr);
                 SilverPotsRemaining--;
@@ -79,7 +50,6 @@ public static class PotVariantPatch
             }
             else if (SpawnNextAsBig && BigPotsRemaining > 0)
             {
-                // Offset 0x81 is isBig
                 System.Runtime.InteropServices.Marshal.WriteByte(ptr + 0x81, 1);
                 ModifiedPots.Add(ptr);
                 BigPotsRemaining--;
@@ -99,3 +69,4 @@ public static class PotVariantPatch
         }
     }
 }
+

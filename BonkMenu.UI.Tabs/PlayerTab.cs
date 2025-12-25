@@ -1,5 +1,6 @@
 using BonkMenu.Core;
 using BonkMenu.Features;
+using BonkMenu.Patches;
 using BonkMenu.UI.Components;
 using Il2CppAssets.Scripts.Menu.Shop;
 using Il2Cpp;

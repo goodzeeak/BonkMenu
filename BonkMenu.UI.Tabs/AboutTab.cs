@@ -24,7 +24,6 @@ public static class AboutTab
 		UIFactory.CreateSpacer(4, parent);
 		UIFactory.CreateCollapsibleSection("UI / Feedback", parent, CreateUiFeedback);
 		UIFactory.CreateSpacer(4, parent);
-		UIFactory.CreateCollapsibleSection("Debug / Inspection", parent, CreateDebugInspection);
 	}
 
 	private static void CreateInfo(GameObject parent)
@@ -82,29 +81,5 @@ public static class AboutTab
 
 	}
 
-	private static void CreateDebugInspection(GameObject parent)
-	{
-		GameObject grid = new GameObject("DebugGrid");
-		grid.transform.SetParent(parent.transform, false);
-		RectTransform grt = grid.AddComponent<RectTransform>();
-		grt.sizeDelta = new Vector2(0f, 0f);
-		GridLayoutGroup glg = grid.AddComponent<GridLayoutGroup>();
-		glg.cellSize = new Vector2(283f, 30f);
-		glg.spacing = new Vector2(10f, 8f);
-		glg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-		glg.constraintCount = 2;
-		ContentSizeFitter fit = grid.AddComponent<ContentSizeFitter>();
-		fit.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-		LayoutElement gle = grid.AddComponent<LayoutElement>();
-		gle.flexibleWidth = 1f;
-		UIFactory.CreateCircularToggle("Log Interactables on Hover", DebugFeatures.EnableInteractableLogging, delegate(bool value)
-		{
-			DebugFeatures.EnableInteractableLogging = value;
-		}, grid);
-		UIFactory.CreateButton("List Spawnable Objects", delegate
-		{
-			WorldFeatures.ListSpawnableObjects();
-		}, grid);
-		UIFactory.CreateLabel("Check MelonLoader console for output", parent);
-	}
+	
 }

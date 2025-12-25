@@ -7,34 +7,19 @@ using Il2CppAssets.Scripts.Inventory__Items__Pickups.Items;
 
 namespace BonkMenu.Patches;
 
-/// <summary>
-/// Forces Shady Guy rarity and visuals for upcoming spawns.
-/// </summary>
 public static class ShadyGuyVariantPatch
 {
-    // Static flags to control shady merchant rarity
-    /// <summary>
-    /// Next rarity to apply (-1 none, 1 Rare, 2 Epic, 3 Legendary).
-    /// </summary>
-    public static int SpawnNextRarity = -1; // -1 = none, 1 = Rare, 2 = Epic, 3 = Legendary
-    /// <summary>
-    /// Remaining count of merchants to modify.
-    /// </summary>
+    public static int SpawnNextRarity = -1;
     public static int RarityMerchantsRemaining = 0;
     
-    // Track which merchants we've modified
     private static System.Collections.Generic.HashSet<IntPtr> ModifiedMerchants = new System.Collections.Generic.HashSet<IntPtr>();
 
-    /// <summary>
-    /// Applies patches to InteractableShadyGuy Start/FindItems.
-    /// </summary>
     public static void Apply(HarmonyLib.Harmony harmony)
     {
         try
         {
             var shadyGuyType = typeof(Il2Cpp.InteractableShadyGuy);
             
-            // Patch Start
             var startMethod = AccessTools.Method(shadyGuyType, "Start");
             if (startMethod != null)
             {
@@ -44,7 +29,6 @@ public static class ShadyGuyVariantPatch
                 MelonLogger.Msg("[ShadyGuyVariantPatch] ✅ InteractableShadyGuy.Start patched");
             }
             
-            // Patch FindItems - crucial because Start() resets rarity before calling this!
             var findItemsMethod = AccessTools.Method(shadyGuyType, "FindItems");
             if (findItemsMethod != null)
             {
@@ -59,7 +43,6 @@ public static class ShadyGuyVariantPatch
         }
     }
 
-    // Start Prefix: Register merchant and set initial rarity
     private static void ShadyGuyStart_Prefix(Il2CppSystem.Object __instance)
     {
         try
@@ -69,7 +52,6 @@ public static class ShadyGuyVariantPatch
                 var shadyGuy = __instance.Cast<Il2Cpp.InteractableShadyGuy>();
                 IntPtr ptr = shadyGuy.Pointer;
                 
-                // Set rarity using managed property (safer than offset)
                 shadyGuy.rarity = (EItemRarity)SpawnNextRarity;
                 
                 ModifiedMerchants.Add(ptr);
@@ -82,7 +64,6 @@ public static class ShadyGuyVariantPatch
         }
     }
 
-    // FindItems Prefix: Re-set rarity because Start() likely randomized it just before calling this
     private static void ShadyGuyFindItems_Prefix(Il2CppSystem.Object __instance)
     {
         try
@@ -92,7 +73,6 @@ public static class ShadyGuyVariantPatch
             {
                 var shadyGuy = __instance.Cast<Il2Cpp.InteractableShadyGuy>();
                 
-                // Force rarity again so items are generated correctly
                 shadyGuy.rarity = (EItemRarity)SpawnNextRarity;
                 MelonLogger.Msg($"[ShadyGuyVariantPatch] FindItems Prefix: Re-enforced rarity {SpawnNextRarity}");
             }
@@ -103,7 +83,6 @@ public static class ShadyGuyVariantPatch
         }
     }
 
-    // Start Postfix: Apply visuals matching natural spawn configuration
     private static void ShadyGuyStart_Postfix(Il2CppSystem.Object __instance)
     {
         try
@@ -115,11 +94,9 @@ public static class ShadyGuyVariantPatch
             {
                 var shadyGuy = __instance.Cast<Il2Cpp.InteractableShadyGuy>();
                 
-                // 1. Re-set rarity one last time
                 shadyGuy.rarity = (EItemRarity)SpawnNextRarity;
                 MelonLogger.Msg($"[ShadyGuyVariantPatch] Set rarity to {SpawnNextRarity}");
                 
-                // 2. Apply Material (matching natural spawn)
                 if (shadyGuy.meshRenderer != null)
                 {
                     Material targetMat = null;
@@ -136,15 +113,12 @@ public static class ShadyGuyVariantPatch
                         MelonLogger.Msg($"[ShadyGuyVariantPatch] Applied material: {targetMat.name}");
                     }
                     
-                    // 3. Configure SkinnedMeshRenderer (match natural spawn exactly)
                     shadyGuy.meshRenderer.enabled = true;
                     shadyGuy.meshRenderer.gameObject.SetActive(true);
                     shadyGuy.meshRenderer.updateWhenOffscreen = true;
                     
-                    // CRITICAL: Use Auto quality like natural spawns (not 4)
                     shadyGuy.meshRenderer.quality = SkinQuality.Auto;
                     
-                    // 4. Enable bone hierarchy
                     if (shadyGuy.meshRenderer.bones != null && shadyGuy.meshRenderer.bones.Length > 0)
                     {
                         foreach (var bone in shadyGuy.meshRenderer.bones)
@@ -158,29 +132,21 @@ public static class ShadyGuyVariantPatch
                     }
                     
                     MelonLogger.Msg($"[ShadyGuyVariantPatch] SkinnedMeshRenderer configured (Auto quality)");
-                    
-                    // 5. STATIC MESH FALLBACK REMOVED - Animated mesh is working!
-                    
                 }
 
-                // 6. Ensure collider is enabled
                 var collider = shadyGuy.GetComponent<Collider>();
                 if (collider != null)
                 {
                     collider.enabled = true;
                 }
                 
-                // 6. Ensure GameObject is active
                 shadyGuy.gameObject.SetActive(true);
                 
-                // Fix scale if zero
                 if (shadyGuy.transform.localScale == Vector3.zero)
                 {
                     shadyGuy.transform.localScale = Vector3.one;
                 }
                 
-                // 7. CRITICAL: Fix UI Icons (MinimapIcon, AltarIcon)
-                // These are in hideAfterPurchase. We now trust the native hierarchy.
                 if (shadyGuy.hideAfterPurchase != null)
                 {
                     MelonLogger.Msg($"[ShadyGuyVariantPatch] Processing {shadyGuy.hideAfterPurchase.Length} hideAfterPurchase objects (UI Icons):");
@@ -189,14 +155,12 @@ public static class ShadyGuyVariantPatch
                         var obj = shadyGuy.hideAfterPurchase[i];
                         if (obj != null)
                         {
-                            // Just activate it. Don't move it. Don't reparent it.
                             obj.SetActive(true);
                             MelonLogger.Msg($"[ShadyGuyVariantPatch]   [{i}] {obj.name} - Activated. Pos: {obj.transform.localPosition}, Parent: {obj.transform.parent?.name ?? "null"}");
                         }
                     }
                 }
                 
-                // Cleanup
                 ModifiedMerchants.Remove(ptr);
                 RarityMerchantsRemaining--;
                 if (RarityMerchantsRemaining <= 0)
@@ -214,3 +178,4 @@ public static class ShadyGuyVariantPatch
         }
     }
 }
+

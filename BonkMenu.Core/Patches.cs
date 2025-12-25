@@ -54,7 +54,7 @@ public static class Patches
             // Apply TogglePatches - apply the runtime patch for RunUnlockables
             try
             {
-                _harmonyInstance.PatchAll(typeof(BonkMenu.Features.TogglePatches));
+                _harmonyInstance.PatchAll(typeof(BonkMenu.Patches.TogglePatches));
                 Log.Info("[Patches] ✅ TogglePatches applied");
             }
             catch (Exception ex)
@@ -105,7 +105,7 @@ public static class Patches
         try
         {
             if (_harmonyInstance == null) _harmonyInstance = new HarmonyLib.Harmony("com.bonkmenu.patches");
-            BonkMenu.Features.TogglePatches.ApplyRunUnlockablesPatch(_harmonyInstance);
+            BonkMenu.Patches.TogglePatches.ApplyRunUnlockablesPatch(_harmonyInstance);
             var il2cppRefType = SafeTypeByName("UniverseLib.Il2CppReflection");
             MethodInfo buildMethod = null;
             MethodInfo prefix = null;

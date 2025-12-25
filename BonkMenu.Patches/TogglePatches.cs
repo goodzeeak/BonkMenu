@@ -10,12 +10,8 @@ using UnityEngine;
 using Il2CppInterop.Runtime.InteropTypes;
 using Il2CppInterop.Runtime;
 
-namespace BonkMenu.Features;
+namespace BonkMenu.Patches;
 
-/// <summary>
-/// Harmony patches to enable toggling of weapons, tomes, and items in the game's unlocks menu.
-/// Based on MegabonkToggleEverything mod.
-/// </summary>
 [HarmonyPatch]
 public static class TogglePatches
 {
@@ -46,9 +42,6 @@ public static class TogglePatches
         return null;
     }
 
-    /// <summary>
-    /// Checks if an unlockable can be toggled (weapons, tomes, items).
-    /// </summary>
     private static bool IsModTogglable(this UnlockableBase unlockable)
     {
         if (unlockable == null) return false;
@@ -60,26 +53,17 @@ public static class TogglePatches
         return asWeapon != null || asTome != null || asItem != null;
     }
 
-    /// <summary>
-    /// Enables or disables the toggle patches.
-    /// </summary>
     public static void SetEnabled(bool enabled)
     {
         _patchesEnabled = enabled;
         MelonLogger.Msg($"[TogglePatches] Patches {(enabled ? "enabled" : "disabled")}");
     }
 
-    /// <summary>
-    /// Gets whether patches are currently enabled.
-    /// </summary>
     public static bool IsEnabled()
     {
         return _patchesEnabled;
     }
 
-    /// <summary>
-    /// Patch to allow weapons, tomes, and items to be toggled in the unlocks menu.
-    /// </summary>
     [HarmonyPatch(typeof(MyAchievements), "CanToggleActivation")]
     [HarmonyPrefix]
     private static bool MyAchievements_CanToggleActivation_Prefix(ref bool __result, UnlockableBase unlockable)
@@ -89,14 +73,11 @@ public static class TogglePatches
         if (unlockable.IsModTogglable())
         {
             __result = true;
-            return false; // Skip original method
+            return false;
         }
-        return true; // Run original method
+        return true;
     }
 
-    /// <summary>
-    /// Patch to check activation status from the inactivated list.
-    /// </summary>
     [HarmonyPatch(typeof(MyAchievements), "IsActivated")]
     [HarmonyPrefix]
     private static bool MyAchievements_IsActivated_Prefix(ref bool __result, UnlockableBase unlockable)
@@ -124,7 +105,7 @@ public static class TogglePatches
             }
 
             __result = !progression.inactivated.Contains(internalName);
-            return false; // Skip original method
+            return false;
         }
         catch (System.Exception ex)
         {
@@ -133,10 +114,6 @@ public static class TogglePatches
         }
     }
 
-   /// <summary>
-    /// Patch to banish (disable) inactivated items when a run starts.
-    /// Must be manually patched since RunUnlockables type may not be available at compile time.
-    /// </summary>
     private static void RunUnlockables_OnNewRunStarted_Postfix()
     {
         if (!_patchesEnabled) return;
@@ -166,7 +143,6 @@ public static class TogglePatches
                 return;
             }
 
-            // Get first weapon to exclude it from banishment
             WeaponData firstWeapon = null;
             try
             {
@@ -182,7 +158,6 @@ public static class TogglePatches
             }
             catch
             {
-                // Ignore if we can't get the first weapon
             }
 
             MelonLogger.Msg("[TogglePatches] Banishing inactivated items:");
@@ -192,7 +167,6 @@ public static class TogglePatches
             {
                 string inactivatedName = enumerator.Current;
 
-                // Check if it's an upgradable (weapon/tome)
                 if (dataManager.unsortedUnlockables != null)
                 {
                     var unlockableEnumerator = dataManager.unsortedUnlockables.GetEnumerator();
@@ -204,7 +178,6 @@ public static class TogglePatches
                             (Object)(object)unlockable != (Object)(object)firstWeapon &&
                             unlockable.IsModTogglable())
                         {
-                            // Use AccessTools to call RunUnlockables.BanishUpgradable
                             var runUnlockablesType = SafeTypeByName("Il2CppAssets.Scripts.Inventory__Items__Pickups.RunUnlockables");
                             if (runUnlockablesType != null)
                             {
@@ -220,7 +193,6 @@ public static class TogglePatches
                     }
                 }
 
-                // Check if it's an item
                 if (dataManager.unsortedItems != null)
                 {
                     var itemEnumerator = dataManager.unsortedItems.GetEnumerator();
@@ -229,7 +201,6 @@ public static class TogglePatches
                         var item = itemEnumerator.Current;
                         if (item != null && ((UnlockableBase)item).GetInternalName() == inactivatedName)
                         {
-                            // Use AccessTools to call RunUnlockables.BanishItem
                             var runUnlockablesType = SafeTypeByName("Il2CppAssets.Scripts.Inventory__Items__Pickups.RunUnlockables");
                             if (runUnlockablesType != null)
                             {
@@ -252,15 +223,10 @@ public static class TogglePatches
         }
     }
 
-    /// <summary>
-    /// Manually patches the RunUnlockables.OnNewRunStarted method at runtime.
-    /// This is necessary because the type isn't available at compile time.
-    /// </summary>
     public static void ApplyRunUnlockablesPatch(HarmonyLib.Harmony harmony)
     {
         try
         {
-            // Use AccessTools to find the type - it works better with IL2CPP
             var runUnlockablesType = SafeTypeByName("Il2CppAssets.Scripts.Inventory__Items__Pickups.RunUnlockables");
             if (runUnlockablesType != null)
             {
@@ -287,3 +253,4 @@ public static class TogglePatches
         }
     }
 }
+
