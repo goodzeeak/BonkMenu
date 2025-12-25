@@ -69,6 +69,6 @@
     </Reference>
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="Copy &quot;$(TargetPath)&quot; &quot;$(MegabonkModsDir)\BonkMenu.dll&quot; /Y &amp;&amp; Copy &quot;$(ProjectDir)Libs\UniverseLib.IL2CPP.dll&quot; &quot;$(MegabonkModsDir)\UniverseLib.IL2CPP.dll&quot; /Y" />
+    <Exec Condition="Exists('$(MegabonkModsDir)')" Command="Copy &quot;$(TargetPath)&quot; &quot;$(MegabonkModsDir)\BonkMenu.dll&quot; /Y &amp;&amp; Copy &quot;$(ProjectDir)Libs\UniverseLib.IL2CPP.dll&quot; &quot;$(MegabonkModsDir)\UniverseLib.IL2CPP.dll&quot; /Y" />
   </Target>
 </Project>
