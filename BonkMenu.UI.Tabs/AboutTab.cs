@@ -23,7 +23,6 @@ public static class AboutTab
 		UIFactory.CreateCollapsibleSection("Spawnables", parent, CreateSpawnableKeybinds);
 		UIFactory.CreateSpacer(4, parent);
 		UIFactory.CreateCollapsibleSection("UI / Feedback", parent, CreateUiFeedback);
-		UIFactory.CreateSpacer(4, parent);
 	}
 
 	private static void CreateInfo(GameObject parent)
@@ -77,6 +76,10 @@ public static class AboutTab
 		UIFactory.CreateCircularToggle("Show Toasts", ModConfig.EnableToasts, delegate(bool value)
 		{
 			ModConfig.EnableToasts = value;
+		}, tGrid);
+		UIFactory.CreateCircularToggle("Verbose Logging", ModConfig.VerboseLogging, delegate(bool value)
+		{
+			ModConfig.VerboseLogging = value;
 		}, tGrid);
 
 	}

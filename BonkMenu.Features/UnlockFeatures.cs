@@ -20,7 +20,7 @@ public static class UnlockFeatures
     /// </summary>
     public static void UnlockAllCharacters()
 	{
-		MelonLogger.Msg("[UnlockAllCharacters] Starting unlock all characters");
+		BonkMenu.Core.Log.Info("[UnlockAllCharacters] Starting unlock all characters");
 		try
 		{
 			DataManager dm = DataManager.Instance;
@@ -56,7 +56,7 @@ public static class UnlockFeatures
 			}
 			sm.SaveProgression();
 			ButtonManager.Refresh();
-			MelonLogger.Msg($"[UnlockAllCharacters] Results - Unlocked: {added}, Already Unlocked: {existing}");
+			BonkMenu.Core.Log.Info($"[UnlockAllCharacters] Results - Unlocked: {added}, Already Unlocked: {existing}");
 		}
 		catch (Exception e)
 		{
@@ -69,7 +69,7 @@ public static class UnlockFeatures
     /// </summary>
     public static void UnlockAllSkins()
 	{
-		MelonLogger.Msg("[UnlockAllSkins] Starting unlock all skins");
+		BonkMenu.Core.Log.Info("[UnlockAllSkins] Starting unlock all skins");
 		try
 		{
 			DataManager instance = DataManager.Instance;
@@ -96,7 +96,7 @@ public static class UnlockFeatures
 				MelonLogger.Error("[UnlockAllSkins] UnsortedSkins is null!");
 				return;
 			}
-			MelonLogger.Msg($"[UnlockAllSkins] Found {unsortedSkins.Count} total skins");
+			BonkMenu.Core.Log.Info($"[UnlockAllSkins] Found {unsortedSkins.Count} total skins");
 			int num = 0;
 			int num2 = 0;
 			var enumerator = unsortedSkins.GetEnumerator();
@@ -137,7 +137,7 @@ public static class UnlockFeatures
 			}
 			instance2.SaveProgression();
 			ButtonManager.Refresh();
-			MelonLogger.Msg($"[UnlockAllSkins] Results - Unlocked: {num}, Already Unlocked: {num2}");
+			BonkMenu.Core.Log.Info($"[UnlockAllSkins] Results - Unlocked: {num}, Already Unlocked: {num2}");
 		}
 		catch (Exception ex2)
 		{
@@ -156,7 +156,7 @@ public static class UnlockFeatures
 		//IL_0126: Unknown result type (might be due to invalid IL or missing references)
 		//IL_012d: Expected O, but got Unknown
 		//IL_0142: Unknown result type (might be due to invalid IL or missing references)
-		MelonLogger.Msg("[MaxRankAllCharacters] Starting max rank all characters");
+		BonkMenu.Core.Log.Info("[MaxRankAllCharacters] Starting max rank all characters");
 		try
 		{
 			DataManager instance = DataManager.Instance;
@@ -183,7 +183,7 @@ public static class UnlockFeatures
 				MelonLogger.Error("[MaxRankAllCharacters] Uns ortedCharacterData is null!");
 				return;
 			}
-			MelonLogger.Msg($"[MaxRankAllCharacters] Found {unsortedCharacterData.Count} characters");
+			BonkMenu.Core.Log.Info($"[MaxRankAllCharacters] Found {unsortedCharacterData.Count} characters");
 			int num = 0;
 			int num2 = 0;
 			var enumerator = unsortedCharacterData.GetEnumerator();
@@ -214,7 +214,7 @@ public static class UnlockFeatures
 				}
 			}
 			instance2.SaveProgression();
-			MelonLogger.Msg($"[MaxRankAllCharacters] Results - Maxed: {num}, New Entries: {num2}");
+			BonkMenu.Core.Log.Info($"[MaxRankAllCharacters] Results - Maxed: {num}, New Entries: {num2}");
 		}
 		catch (Exception ex2)
 		{
@@ -228,7 +228,7 @@ public static class UnlockFeatures
     /// </summary>
     public static void UnlockAllMaps()
 	{
-		MelonLogger.Msg("[UnlockAllMaps] Starting unlock all maps");
+		BonkMenu.Core.Log.Info("[UnlockAllMaps] Starting unlock all maps");
 		try
 		{
 			DataManager dm = DataManager.Instance;
@@ -264,7 +264,7 @@ public static class UnlockFeatures
 			}
 			sm.SaveProgression();
 			ButtonManager.Refresh();
-			MelonLogger.Msg($"[UnlockAllMaps] Results - Unlocked: {added}, Already Unlocked: {existing}");
+			BonkMenu.Core.Log.Info($"[UnlockAllMaps] Results - Unlocked: {added}, Already Unlocked: {existing}");
 		}
 		catch (Exception e)
 		{
@@ -277,7 +277,7 @@ public static class UnlockFeatures
     /// </summary>
     public static void UnlockEverything()
 	{
-		MelonLogger.Msg("[UnlockEverything] Starting unlock everything");
+		BonkMenu.Core.Log.Info("[UnlockEverything] Starting unlock everything");
 		try
 		{
 			SaveManager instance = SaveManager.Instance;
@@ -304,7 +304,7 @@ public static class UnlockFeatures
 				MelonLogger.Error("[UnlockEverything] GetAllPurchasable returned null!");
 				return;
 			}
-			MelonLogger.Msg($"[UnlockEverything] Found {all.Count} purchasables");
+			BonkMenu.Core.Log.Info($"[UnlockEverything] Found {all.Count} purchasables");
 			int num = 0;
 			int num2 = 0;
 			var it = all.GetEnumerator();
@@ -352,7 +352,7 @@ public static class UnlockFeatures
 			EnsureMenusUnlocked();
 			instance.SaveProgression();
 			ButtonManager.Refresh();
-			MelonLogger.Msg($"[UnlockEverything] Results - Unlocked: {num}, Already Unlocked: {num2}");
+			BonkMenu.Core.Log.Info($"[UnlockEverything] Results - Unlocked: {num}, Already Unlocked: {num2}");
 		}
 		catch (Exception ex2)
 		{
@@ -363,7 +363,7 @@ public static class UnlockFeatures
 
 	private static void UnlockAllShopItems()
 	{
-		MelonLogger.Msg("[UnlockAllShopItems] Maxing all shop items");
+		BonkMenu.Core.Log.Info("[UnlockAllShopItems] Maxing all shop items");
 		try
 		{
 			DataManager dm = DataManager.Instance;
@@ -394,7 +394,7 @@ public static class UnlockFeatures
 				}
 				if (cur.IsMaxLevel()) maxed++;
 			}
-			MelonLogger.Msg($"[UnlockAllShopItems] Maxed {maxed} shop items");
+			BonkMenu.Core.Log.Info($"[UnlockAllShopItems] Maxed {maxed} shop items");
 		}
 		catch (Exception e)
 		{
@@ -421,7 +421,7 @@ public static class UnlockFeatures
 
 	private static void CompleteAndClaimAllAchievements()
 	{
-		MelonLogger.Msg("[CompleteAndClaimAllAchievements] Completing and claiming all achievements/quests");
+		BonkMenu.Core.Log.Info("[CompleteAndClaimAllAchievements] Completing and claiming all achievements/quests");
 		try
 		{
 			DataManager dm = DataManager.Instance;
@@ -459,7 +459,7 @@ public static class UnlockFeatures
 					claimed++;
 				}
 			}
-			MelonLogger.Msg($"[CompleteAndClaimAllAchievements] Completed {completed}, Claimed {claimed}");
+			BonkMenu.Core.Log.Info($"[CompleteAndClaimAllAchievements] Completed {completed}, Claimed {claimed}");
 		}
 		catch (Exception e)
 		{
@@ -469,7 +469,7 @@ public static class UnlockFeatures
 
 	private static void UnlockAll<T>(string label) where T : UnlockableBase
 	{
-		MelonLogger.Msg("[UnlockAll] Unlocking all " + label);
+		BonkMenu.Core.Log.Info("[UnlockAll] Unlocking all " + label);
 		try
 		{
 			SaveManager instance = SaveManager.Instance;
@@ -490,7 +490,7 @@ public static class UnlockFeatures
 				MelonLogger.Error("[UnlockAll<" + label + ">] FindObjectsOfTypeAll returned null!");
 				return;
 			}
-			MelonLogger.Msg($"[UnlockAll<{label}>] Found {array.Length} items");
+			BonkMenu.Core.Log.Info($"[UnlockAll<{label}>] Found {array.Length} items");
 			int num = 0;
 			int num2 = 0;
 			T[] array2 = array;
@@ -530,7 +530,7 @@ public static class UnlockFeatures
 			}
 			instance.SaveProgression();
 			ButtonManager.Refresh();
-			MelonLogger.Msg($"[UnlockAll<{label}>] Results - Unlocked: {num}, Already Unlocked: {num2}");
+			BonkMenu.Core.Log.Info($"[UnlockAll<{label}>] Results - Unlocked: {num}, Already Unlocked: {num2}");
 		}
 		catch (Exception ex2)
 		{

@@ -26,7 +26,7 @@ public static class ShadyGuyVariantPatch
                 var startPrefix = AccessTools.Method(typeof(ShadyGuyVariantPatch), nameof(ShadyGuyStart_Prefix));
                 var startPostfix = AccessTools.Method(typeof(ShadyGuyVariantPatch), nameof(ShadyGuyStart_Postfix));
                 harmony.Patch(startMethod, prefix: new HarmonyMethod(startPrefix), postfix: new HarmonyMethod(startPostfix));
-                MelonLogger.Msg("[ShadyGuyVariantPatch] ✅ InteractableShadyGuy.Start patched");
+                if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg("[ShadyGuyVariantPatch] ✅ InteractableShadyGuy.Start patched");
             }
             
             var findItemsMethod = AccessTools.Method(shadyGuyType, "FindItems");
@@ -34,7 +34,7 @@ public static class ShadyGuyVariantPatch
             {
                 var findItemsPrefix = AccessTools.Method(typeof(ShadyGuyVariantPatch), nameof(ShadyGuyFindItems_Prefix));
                 harmony.Patch(findItemsMethod, prefix: new HarmonyMethod(findItemsPrefix));
-                MelonLogger.Msg("[ShadyGuyVariantPatch] ✅ InteractableShadyGuy.FindItems patched");
+                if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg("[ShadyGuyVariantPatch] ✅ InteractableShadyGuy.FindItems patched");
             }
         }
         catch (Exception ex)
@@ -55,7 +55,7 @@ public static class ShadyGuyVariantPatch
                 shadyGuy.rarity = (EItemRarity)SpawnNextRarity;
                 
                 ModifiedMerchants.Add(ptr);
-                MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Prefix: Set rarity to {SpawnNextRarity}");
+                if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"[ShadyGuyVariantPatch] Start Prefix: Set rarity to {SpawnNextRarity}");
             }
         }
         catch (Exception ex)
@@ -74,7 +74,7 @@ public static class ShadyGuyVariantPatch
                 var shadyGuy = __instance.Cast<Il2Cpp.InteractableShadyGuy>();
                 
                 shadyGuy.rarity = (EItemRarity)SpawnNextRarity;
-                MelonLogger.Msg($"[ShadyGuyVariantPatch] FindItems Prefix: Re-enforced rarity {SpawnNextRarity}");
+                if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"[ShadyGuyVariantPatch] FindItems Prefix: Re-enforced rarity {SpawnNextRarity}");
             }
         }
         catch (Exception ex)
@@ -95,7 +95,7 @@ public static class ShadyGuyVariantPatch
                 var shadyGuy = __instance.Cast<Il2Cpp.InteractableShadyGuy>();
                 
                 shadyGuy.rarity = (EItemRarity)SpawnNextRarity;
-                MelonLogger.Msg($"[ShadyGuyVariantPatch] Set rarity to {SpawnNextRarity}");
+                if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"[ShadyGuyVariantPatch] Set rarity to {SpawnNextRarity}");
                 
                 if (shadyGuy.meshRenderer != null)
                 {
@@ -128,10 +128,10 @@ public static class ShadyGuyVariantPatch
                                 bone.gameObject.SetActive(true);
                             }
                         }
-                        MelonLogger.Msg($"[ShadyGuyVariantPatch] Activated {shadyGuy.meshRenderer.bones.Length} bones");
+                        if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"[ShadyGuyVariantPatch] Activated {shadyGuy.meshRenderer.bones.Length} bones");
                     }
                     
-                    MelonLogger.Msg($"[ShadyGuyVariantPatch] SkinnedMeshRenderer configured (Auto quality)");
+                    if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"[ShadyGuyVariantPatch] SkinnedMeshRenderer configured (Auto quality)");
                 }
 
                 var collider = shadyGuy.GetComponent<Collider>();
@@ -149,14 +149,14 @@ public static class ShadyGuyVariantPatch
                 
                 if (shadyGuy.hideAfterPurchase != null)
                 {
-                    MelonLogger.Msg($"[ShadyGuyVariantPatch] Processing {shadyGuy.hideAfterPurchase.Length} hideAfterPurchase objects (UI Icons):");
+                    if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"[ShadyGuyVariantPatch] Processing {shadyGuy.hideAfterPurchase.Length} hideAfterPurchase objects (UI Icons):");
                     for (int i = 0; i < shadyGuy.hideAfterPurchase.Length; i++)
                     {
                         var obj = shadyGuy.hideAfterPurchase[i];
                         if (obj != null)
                         {
                             obj.SetActive(true);
-                            MelonLogger.Msg($"[ShadyGuyVariantPatch]   [{i}] {obj.name} - Activated. Pos: {obj.transform.localPosition}, Parent: {obj.transform.parent?.name ?? "null"}");
+                            if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"[ShadyGuyVariantPatch]   [{i}] {obj.name} - Activated. Pos: {obj.transform.localPosition}, Parent: {obj.transform.parent?.name ?? "null"}");
                         }
                     }
                 }
@@ -169,7 +169,7 @@ public static class ShadyGuyVariantPatch
                     RarityMerchantsRemaining = 0;
                 }
                 
-                MelonLogger.Msg($"[ShadyGuyVariantPatch] ✅ Shady Guy spawn complete - matches natural configuration");
+                if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"[ShadyGuyVariantPatch] ✅ Shady Guy spawn complete - matches natural configuration");
             }
         }
         catch (Exception ex)
@@ -178,4 +178,3 @@ public static class ShadyGuyVariantPatch
         }
     }
 }
-

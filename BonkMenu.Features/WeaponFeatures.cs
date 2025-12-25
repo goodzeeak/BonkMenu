@@ -19,7 +19,7 @@ public static class WeaponFeatures
 	{
 		//IL_0108: Unknown result type (might be due to invalid IL or missing references)
 		//IL_010c: Unknown result type (might be due to invalid IL or missing references)
-		MelonLogger.Msg($"[GrantWeapon] Granting weapon: {weaponName} (ID: {weaponId})");
+		BonkMenu.Core.Log.Info($"[GrantWeapon] Granting weapon: {weaponName} (ID: {weaponId})");
 		try
 		{
 			GameManager instance = GameManager.Instance;
@@ -60,9 +60,9 @@ public static class WeaponFeatures
 			}
 			else
 			{
-				MelonLogger.Msg("[GrantWeapon] Adding weapon: " + ((Object)weapon).name);
+				BonkMenu.Core.Log.Info("[GrantWeapon] Adding weapon: " + ((Object)weapon).name);
 				weaponInventory.AddWeapon(weapon, (List<StatModifier>)null);
-				MelonLogger.Msg("[GrantWeapon] Successfully granted " + ((Object)weapon).name);
+				BonkMenu.Core.Log.Info("[GrantWeapon] Successfully granted " + ((Object)weapon).name);
 			}
 		}
 		catch (Exception ex)
@@ -77,7 +77,7 @@ public static class WeaponFeatures
     /// </summary>
     public static void GrantAllWeapons()
 	{
-		MelonLogger.Msg("[GrantAllWeapons] Granting all 31 weapons");
+		BonkMenu.Core.Log.Info("[GrantAllWeapons] Granting all 31 weapons");
 		try
 		{
 			int num = 0;
@@ -95,7 +95,7 @@ public static class WeaponFeatures
 					num2++;
 				}
 			}
-			MelonLogger.Msg($"[GrantAllWeapons] Completed - Success: {num}, Failed: {num2}");
+			BonkMenu.Core.Log.Info($"[GrantAllWeapons] Completed - Success: {num}, Failed: {num2}");
 		}
 		catch (Exception ex2)
 		{
@@ -109,7 +109,7 @@ public static class WeaponFeatures
     /// </summary>
     public static void MaxAllWeapons()
 	{
-		MelonLogger.Msg("[MaxAllWeapons] Maxing currently owned weapons...");
+		BonkMenu.Core.Log.Info("[MaxAllWeapons] Maxing currently owned weapons...");
 		try
 		{
 			GameManager instance = GameManager.Instance;
@@ -131,7 +131,7 @@ public static class WeaponFeatures
 			int count = 0;
 			foreach (EWeapon weaponId in ownedWeapons)
 			{
-				MelonLogger.Msg($"[MaxAllWeapons] Maxing weapon: {weaponId}");
+				BonkMenu.Core.Log.Info($"[MaxAllWeapons] Maxing weapon: {weaponId}");
 				// Try to max it out (40 levels should be enough for most)
 				for (int i = 0; i < 40; i++)
 				{
@@ -141,7 +141,7 @@ public static class WeaponFeatures
 				}
 				count++;
 			}
-			MelonLogger.Msg($"[MaxAllWeapons] Completed - Maxed {count} weapons");
+			BonkMenu.Core.Log.Info($"[MaxAllWeapons] Completed - Maxed {count} weapons");
 		}
 		catch (Exception ex)
 		{

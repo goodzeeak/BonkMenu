@@ -22,7 +22,7 @@ public static class PlayerFeatures
     /// </summary>
     public static void FullHeal()
 	{
-		MelonLogger.Msg("[FullHeal] Starting full heal...");
+		BonkMenu.Core.Log.Info("[FullHeal] Starting full heal...");
 		try
 		{
 			GameManager instance = GameManager.Instance;
@@ -49,10 +49,10 @@ public static class PlayerFeatures
 				MelonLogger.Error("[FullHeal] PlayerHealth is null!");
 				return;
 			}
-			MelonLogger.Msg($"[FullHeal] Current HP: {playerHealth.hp}/{playerHealth.maxHp}, Shield: {playerHealth.shield}/{playerHealth.maxShield}");
+			BonkMenu.Core.Log.Info($"[FullHeal] Current HP: {playerHealth.hp}/{playerHealth.maxHp}, Shield: {playerHealth.shield}/{playerHealth.maxShield}");
 			playerHealth.hp = playerHealth.maxHp;
 			playerHealth.shield = playerHealth.maxShield;
-			MelonLogger.Msg($"[FullHeal] Successfully healed! HP: {playerHealth.hp}/{playerHealth.maxHp}, Shield: {playerHealth.shield}/{playerHealth.maxShield}");
+			BonkMenu.Core.Log.Info($"[FullHeal] Successfully healed! HP: {playerHealth.hp}/{playerHealth.maxHp}, Shield: {playerHealth.shield}/{playerHealth.maxShield}");
 		}
 		catch (Exception ex)
 		{
@@ -73,7 +73,7 @@ public static class PlayerFeatures
 		//IL_00f0: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0106: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0107: Unknown result type (might be due to invalid IL or missing references)
-		MelonLogger.Msg($"[SpawnPickup] Spawning {itemName} with value {amount}");
+		BonkMenu.Core.Log.Info($"[SpawnPickup] Spawning {itemName} with value {amount}");
 		try
 		{
 			GameManager instance = GameManager.Instance;
@@ -95,9 +95,9 @@ public static class PlayerFeatures
 				return;
 			}
 			Vector3 val = ((Component)player).transform.position + new Vector3(0f, 1f, 0f);
-			MelonLogger.Msg($"[SpawnPickup] Spawn position: {val}");
+			BonkMenu.Core.Log.Info($"[SpawnPickup] Spawn position: {val}");
 			instance2.SpawnPickup(type, val, amount, true, 0f);
-			MelonLogger.Msg($"[SpawnPickup] Successfully spawned {itemName} (Value: {amount})");
+			BonkMenu.Core.Log.Info($"[SpawnPickup] Successfully spawned {itemName} (Value: {amount})");
 		}
 		catch (Exception ex)
 		{
@@ -111,7 +111,7 @@ public static class PlayerFeatures
     /// </summary>
     public static void AddProgressionCurrency(int amount)
 	{
-		MelonLogger.Msg($"[AddProgressionCurrency] Adding {amount} silver");
+		BonkMenu.Core.Log.Info($"[AddProgressionCurrency] Adding {amount} silver");
 		try
 		{
 			SaveManager instance = SaveManager.Instance;
@@ -134,10 +134,10 @@ public static class PlayerFeatures
 			}
 			int num = (int)property.GetValue(progression);
 			int num2 = num + amount;
-			MelonLogger.Msg($"[AddProgressionCurrency] Current: {num}, Adding: {amount}, New: {num2}");
+			BonkMenu.Core.Log.Info($"[AddProgressionCurrency] Current: {num}, Adding: {amount}, New: {num2}");
 			property.SetValue(progression, num2);
 			instance.SaveProgression();
-			MelonLogger.Msg("[AddProgressionCurrency] Successfully saved progression with new silver amount");
+			BonkMenu.Core.Log.Info("[AddProgressionCurrency] Successfully saved progression with new silver amount");
 			TryInvokeSilverChangedEvent(num2);
 		}
 		catch (Exception ex)
@@ -149,7 +149,7 @@ public static class PlayerFeatures
 
 	private static void TryInvokeSilverChangedEvent(int newValue)
 	{
-		MelonLogger.Msg("[TryInvokeSilverChangedEvent] Attempting to invoke UI update event");
+		BonkMenu.Core.Log.Info("[TryInvokeSilverChangedEvent] Attempting to invoke UI update event");
 		try
 		{
 			object obj = null;
@@ -157,7 +157,7 @@ public static class PlayerFeatures
 			if (field != null)
 			{
 				obj = field.GetValue(null);
-				MelonLogger.Msg("[TryInvokeSilverChangedEvent] Found A_SilverChanged as Field");
+				BonkMenu.Core.Log.Info("[TryInvokeSilverChangedEvent] Found A_SilverChanged as Field");
 			}
 			else
 			{
@@ -165,7 +165,7 @@ public static class PlayerFeatures
 				if (property != null)
 				{
 					obj = property.GetValue(null);
-					MelonLogger.Msg("[TryInvokeSilverChangedEvent] Found A_SilverChanged as Property");
+					BonkMenu.Core.Log.Info("[TryInvokeSilverChangedEvent] Found A_SilverChanged as Property");
 				}
 			}
 			if (obj != null)
@@ -174,7 +174,7 @@ public static class PlayerFeatures
 				if ((Delegate)(object)val != (Delegate)null)
 				{
 					val.Invoke(newValue);
-					MelonLogger.Msg($"[TryInvokeSilverChangedEvent] Successfully invoked event with value: {newValue}");
+					BonkMenu.Core.Log.Info($"[TryInvokeSilverChangedEvent] Successfully invoked event with value: {newValue}");
 				}
 				else
 				{
@@ -197,7 +197,7 @@ public static class PlayerFeatures
     /// </summary>
     public static void ClearAllStatusEffects()
 	{
-		MelonLogger.Msg("[ClearAllStatusEffects] Clearing all status effects");
+		BonkMenu.Core.Log.Info("[ClearAllStatusEffects] Clearing all status effects");
 		try
 		{
 			GameManager instance = GameManager.Instance;
@@ -225,7 +225,7 @@ public static class PlayerFeatures
 				return;
 			}
 			statusEffects.RemoveAllStatusEffects();
-			MelonLogger.Msg("[ClearAllStatusEffects] Successfully cleared all status effects");
+			BonkMenu.Core.Log.Info("[ClearAllStatusEffects] Successfully cleared all status effects");
 		}
 		catch (Exception ex)
 		{
@@ -242,7 +242,7 @@ public static class PlayerFeatures
 		//IL_001a: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00fb: Unknown result type (might be due to invalid IL or missing references)
 		//IL_011b: Unknown result type (might be due to invalid IL or missing references)
-		MelonLogger.Msg($"[SetStat] Setting {stat} to {value}");
+		BonkMenu.Core.Log.Info($"[SetStat] Setting {stat} to {value}");
 		try
 		{
 			GameManager instance = GameManager.Instance;
@@ -276,7 +276,7 @@ public static class PlayerFeatures
 				return;
 			}
 			stats[stat] = value;
-			MelonLogger.Msg($"[SetStat] Successfully set {stat} to {value}");
+			BonkMenu.Core.Log.Info($"[SetStat] Successfully set {stat} to {value}");
 		}
 		catch (Exception ex)
 		{

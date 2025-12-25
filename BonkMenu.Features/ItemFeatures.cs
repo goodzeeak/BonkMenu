@@ -18,7 +18,7 @@ public static class ItemFeatures
 		//IL_00e2: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00fc: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0113: Unknown result type (might be due to invalid IL or missing references)
-		MelonLogger.Msg($"[GrantItem] Granting item: {itemName} (ID: {itemId})");
+		BonkMenu.Core.Log.Info($"[GrantItem] Granting item: {itemName} (ID: {itemId})");
 		try
 		{
 			GameManager instance = GameManager.Instance;
@@ -46,9 +46,9 @@ public static class ItemFeatures
 				return;
 			}
 			EItem val = (EItem)itemId;
-			MelonLogger.Msg($"[GrantItem] Adding item enum value: {val}");
+			BonkMenu.Core.Log.Info($"[GrantItem] Adding item enum value: {val}");
 			itemInventory.AddItem(val, 1);
-			MelonLogger.Msg("[GrantItem] Successfully granted " + itemName);
+			BonkMenu.Core.Log.Info("[GrantItem] Successfully granted " + itemName);
 		}
 		catch (Exception ex)
 		{
@@ -64,7 +64,7 @@ public static class ItemFeatures
 	{
 		//IL_00a9: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00ac: Unknown result type (might be due to invalid IL or missing references)
-		MelonLogger.Msg("[GrantAllItems] Granting all 87 items (ID: 0-86)");
+		BonkMenu.Core.Log.Info("[GrantAllItems] Granting all 87 items (ID: 0-86)");
 		try
 		{
 			GameManager instance = GameManager.Instance;
@@ -107,7 +107,7 @@ public static class ItemFeatures
 					num2++;
 				}
 			}
-			MelonLogger.Msg($"[GrantAllItems] Completed - Granted: {num}/87, Failed: {num2}");
+			BonkMenu.Core.Log.Info($"[GrantAllItems] Completed - Granted: {num}/87, Failed: {num2}");
 		}
 		catch (Exception ex2)
 		{

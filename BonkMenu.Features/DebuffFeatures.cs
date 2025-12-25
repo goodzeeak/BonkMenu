@@ -19,7 +19,7 @@ public static class DebuffFeatures
 	{
 		//IL_00fc: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0154: Unknown result type (might be due to invalid IL or missing references)
-		MelonLogger.Msg($"[ApplyDebuff] Applying debuff: {debuffName} (ID: {debuffId})");
+		BonkMenu.Core.Log.Info($"[ApplyDebuff] Applying debuff: {debuffName} (ID: {debuffId})");
 		try
 		{
 			EnemyManager instance = EnemyManager.Instance;
@@ -31,7 +31,7 @@ public static class DebuffFeatures
 			Dictionary<uint, Enemy> enemies = instance.enemies;
 			if (enemies == null)
 			{
-				MelonLogger.Warning("[ApplyDebuff] Enemy list is null!");
+				MelonLogger.Error("[ApplyDebuff] Enemy list is null!");
 				return;
 			}
 			if (enemies.Count == 0)
@@ -39,7 +39,7 @@ public static class DebuffFeatures
 				MelonLogger.Warning("[ApplyDebuff] No enemies found to apply debuff to");
 				return;
 			}
-			MelonLogger.Msg($"[ApplyDebuff] Found {enemies.Count} enemies");
+			BonkMenu.Core.Log.Info($"[ApplyDebuff] Found {enemies.Count} enemies");
 			EDebuff val = (EDebuff)(1 << debuffId);
 			int num = 0;
 			int num2 = 0;
@@ -69,7 +69,7 @@ public static class DebuffFeatures
 					MelonLogger.Warning("[ApplyDebuff] Error applying to individual enemy: " + ex.Message);
 				}
 			}
-			MelonLogger.Msg($"[ApplyDebuff] Results - Applied: {num}, Dead: {num2}, Null: {num3}");
+			BonkMenu.Core.Log.Info($"[ApplyDebuff] Results - Applied: {num}, Dead: {num2}, Null: {num3}");
 		}
 		catch (Exception ex2)
 		{
@@ -83,7 +83,7 @@ public static class DebuffFeatures
     /// </summary>
     public static void RemoveAllDebuffs()
 	{
-		MelonLogger.Msg("[RemoveAllDebuffs] Clearing all debuffs from enemies");
+		BonkMenu.Core.Log.Info("[RemoveAllDebuffs] Clearing all debuffs from enemies");
 		try
 		{
 			EnemyManager instance = EnemyManager.Instance;
@@ -103,7 +103,7 @@ public static class DebuffFeatures
 				MelonLogger.Warning("[RemoveAllDebuffs] No enemies found");
 				return;
 			}
-			MelonLogger.Msg($"[RemoveAllDebuffs] Found {enemies.Count} enemies");
+			BonkMenu.Core.Log.Info($"[RemoveAllDebuffs] Found {enemies.Count} enemies");
 			int num = 0;
 			int num2 = 0;
 			int num3 = 0;
@@ -132,7 +132,7 @@ public static class DebuffFeatures
 					MelonLogger.Warning("[RemoveAllDebuffs] Error clearing debuffs from individual enemy: " + ex.Message);
 				}
 			}
-			MelonLogger.Msg($"[RemoveAllDebuffs] Results - Cleared: {num}, Dead: {num2}, Null: {num3}");
+			BonkMenu.Core.Log.Info($"[RemoveAllDebuffs] Results - Cleared: {num}, Dead: {num2}, Null: {num3}");
 		}
 		catch (Exception ex2)
 		{

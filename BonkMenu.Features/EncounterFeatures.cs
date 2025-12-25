@@ -17,7 +17,7 @@ public static class EncounterFeatures
 		//IL_0080: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0099: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00ae: Unknown result type (might be due to invalid IL or missing references)
-		MelonLogger.Msg($"[ForceEncounter] Forcing encounter: {encounterName} (ID: {encounterId})");
+		BonkMenu.Core.Log.Info($"[ForceEncounter] Forcing encounter: {encounterName} (ID: {encounterId})");
 		try
 		{
 			EncounterWindows val = Object.FindObjectOfType<EncounterWindows>();
@@ -26,11 +26,11 @@ public static class EncounterFeatures
 				MelonLogger.Warning("[ForceEncounter] EncounterWindows not found - are you in a run?");
 				return;
 			}
-			MelonLogger.Msg("[ForceEncounter] EncounterWindows found");
+			BonkMenu.Core.Log.Info("[ForceEncounter] EncounterWindows found");
 			EEncounter val2 = (EEncounter)encounterId;
-			MelonLogger.Msg($"[ForceEncounter] Adding encounter: {val2}");
+			BonkMenu.Core.Log.Info($"[ForceEncounter] Adding encounter: {val2}");
 			val.AddEncounter(val2);
-			MelonLogger.Msg("[ForceEncounter] Successfully forced encounter: " + encounterName);
+			BonkMenu.Core.Log.Info("[ForceEncounter] Successfully forced encounter: " + encounterName);
 		}
 		catch (Exception ex)
 		{
@@ -44,7 +44,7 @@ public static class EncounterFeatures
     /// </summary>
     public static void SkipEncounter()
 	{
-		MelonLogger.Msg("[SkipEncounter] Attempting to skip current encounter");
+		BonkMenu.Core.Log.Info("[SkipEncounter] Attempting to skip current encounter");
 		try
 		{
 			EncounterWindows val = Object.FindObjectOfType<EncounterWindows>();
@@ -53,15 +53,15 @@ public static class EncounterFeatures
 				MelonLogger.Warning("[SkipEncounter] EncounterWindows not found - are you in a run?");
 				return;
 			}
-			MelonLogger.Msg("[SkipEncounter] EncounterWindows found");
+			BonkMenu.Core.Log.Info("[SkipEncounter] EncounterWindows found");
 			if (!val.encounterInProgress)
 			{
 				MelonLogger.Warning("[SkipEncounter] No encounter currently in progress");
 				return;
 			}
-			MelonLogger.Msg("[SkipEncounter] Encounter in progress, calling RewardFinished()");
+			BonkMenu.Core.Log.Info("[SkipEncounter] Encounter in progress, calling RewardFinished()");
 			val.RewardFinished();
-			MelonLogger.Msg("[SkipEncounter] Successfully skipped encounter");
+			BonkMenu.Core.Log.Info("[SkipEncounter] Successfully skipped encounter");
 		}
 		catch (Exception ex)
 		{

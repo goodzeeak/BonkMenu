@@ -14,7 +14,7 @@ public static class AbilityFeatures
     /// </summary>
     public static void GrantAbility(int abilityId, string abilityName)
 	{
-		MelonLogger.Msg($"[GrantAbility] Granting ability: {abilityName} (ID: {abilityId})");
+		BonkMenu.Core.Log.Info($"[GrantAbility] Granting ability: {abilityName} (ID: {abilityId})");
 		try
 		{
 			GameManager instance = GameManager.Instance;
@@ -37,7 +37,7 @@ public static class AbilityFeatures
 			}
 			MelonLogger.Warning("[GrantAbility] Active ability system not fully implemented");
 			MelonLogger.Warning("[GrantAbility] Abilities may be tied to unlock/achievement system");
-			MelonLogger.Msg($"[GrantAbility] Attempted to grant: {abilityName} (ID: {abilityId})");
+			BonkMenu.Core.Log.Info($"[GrantAbility] Attempted to grant: {abilityName} (ID: {abilityId})");
 		}
 		catch (Exception ex)
 		{
@@ -51,7 +51,7 @@ public static class AbilityFeatures
     /// </summary>
     public static void GrantAllAbilities()
 	{
-		MelonLogger.Msg("[GrantAllAbilities] Starting grant all abilities");
+		BonkMenu.Core.Log.Info("[GrantAllAbilities] Starting grant all abilities");
 		try
 		{
 			MelonLogger.Warning("[GrantAllAbilities] Active ability direct grant system not found");
@@ -70,7 +70,7 @@ public static class AbilityFeatures
     /// </summary>
     public static void RemoveAbility(int abilityId)
 	{
-		MelonLogger.Msg($"[RemoveAbility] Removing ability ID: {abilityId}");
+		BonkMenu.Core.Log.Info($"[RemoveAbility] Removing ability ID: {abilityId}");
 		try
 		{
 			MelonLogger.Warning("[RemoveAbility] Ability removal not yet implemented");

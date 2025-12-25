@@ -19,7 +19,7 @@ public static class PotVariantPatch
         {
             var potType = typeof(Il2CppAssets.Scripts.Inventory__Items__Pickups.Interactables.InteractablePot);
             
-            MelonLogger.Msg("[PotVariantPatch] ✅ Pot variant patch ready (will modify post-spawn)");
+            if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg("[PotVariantPatch] ✅ Pot variant patch ready (will modify post-spawn)");
         }
         catch (Exception ex)
         {
@@ -46,7 +46,7 @@ public static class PotVariantPatch
                     SilverPotsRemaining = 0;
                 }
                 
-                MelonLogger.Msg("[PotVariantPatch] Set pot to Silver");
+                if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg("[PotVariantPatch] Set pot to Silver");
             }
             else if (SpawnNextAsBig && BigPotsRemaining > 0)
             {
@@ -60,7 +60,7 @@ public static class PotVariantPatch
                     BigPotsRemaining = 0;
                 }
                 
-                MelonLogger.Msg("[PotVariantPatch] Set pot to Big (Microwave)");
+                if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg("[PotVariantPatch] Set pot to Big (Microwave)");
             }
         }
         catch (Exception ex)
@@ -69,4 +69,3 @@ public static class PotVariantPatch
         }
     }
 }
-

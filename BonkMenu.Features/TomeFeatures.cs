@@ -19,7 +19,7 @@ public static class TomeFeatures
 	{
 		//IL_0108: Unknown result type (might be due to invalid IL or missing references)
 		//IL_010c: Unknown result type (might be due to invalid IL or missing references)
-		MelonLogger.Msg($"[GrantTome] Granting tome: {tomeName} (ID: {tomeId})");
+		BonkMenu.Core.Log.Info($"[GrantTome] Granting tome: {tomeName} (ID: {tomeId})");
 		try
 		{
 			GameManager instance = GameManager.Instance;
@@ -60,7 +60,7 @@ public static class TomeFeatures
 			}
 			else
 			{
-				MelonLogger.Msg("[GrantTome] Adding tome at level 1: " + ((Object)tome).name);
+				BonkMenu.Core.Log.Info("[GrantTome] Adding tome at level 1: " + ((Object)tome).name);
 				// Get level 1 upgrade offer (Common rarity = 1)
 				var upgradeOffer = tome.GetUpgradeOffer((ERarity)1);
 				if (upgradeOffer == null)
@@ -71,7 +71,7 @@ public static class TomeFeatures
 				// Add tome at level 1 with Common rarity
 				tomeInventory.AddTome(tome, upgradeOffer, (ERarity)1);
 				tomeInventory.CheckMaxed();
-				MelonLogger.Msg($"[GrantTome] Successfully granted tome at level 1: {((Object)tome).name}");
+				BonkMenu.Core.Log.Info($"[GrantTome] Successfully granted tome at level 1: {((Object)tome).name}");
 			}
 		}
 		catch (Exception ex)
@@ -86,7 +86,7 @@ public static class TomeFeatures
     /// </summary>
     public static void GrantAllTomes()
 	{
-		MelonLogger.Msg("[GrantAllTomes] Granting all 27 tomes (maxed)");
+		BonkMenu.Core.Log.Info("[GrantAllTomes] Granting all 27 tomes (maxed)");
 		try
 		{
 			int num = 0;
@@ -104,7 +104,7 @@ public static class TomeFeatures
 					num2++;
 				}
 			}
-			MelonLogger.Msg($"[GrantAllTomes] Completed - Success: {num}/27, Failed: {num2}");
+			BonkMenu.Core.Log.Info($"[GrantAllTomes] Completed - Success: {num}/27, Failed: {num2}");
 		}
 		catch (Exception ex2)
 		{
@@ -118,7 +118,7 @@ public static class TomeFeatures
     /// </summary>
     public static void MaxAllTomes()
 	{
-		MelonLogger.Msg("[MaxAllTomes] Maxing currently owned tomes...");
+		BonkMenu.Core.Log.Info("[MaxAllTomes] Maxing currently owned tomes...");
 		try
 		{
 			GameManager instance = GameManager.Instance;
@@ -140,7 +140,7 @@ public static class TomeFeatures
 			int count = 0;
 			foreach (ETome tomeId in ownedTomes)
 			{
-				MelonLogger.Msg($"[MaxAllTomes] Maxing tome: {tomeId}");
+				BonkMenu.Core.Log.Info($"[MaxAllTomes] Maxing tome: {tomeId}");
 				// Try to max it out (99 levels is the default max for tomes)
 				for (int i = 0; i < 99; i++)
 				{
@@ -148,7 +148,7 @@ public static class TomeFeatures
 				}
 				count++;
 			}
-			MelonLogger.Msg($"[MaxAllTomes] Completed - Maxed {count} tomes");
+			BonkMenu.Core.Log.Info($"[MaxAllTomes] Completed - Maxed {count} tomes");
 		}
 		catch (Exception ex)
 		{

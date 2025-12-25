@@ -34,11 +34,11 @@ public static class GoldenShrinePatch
                 var startPrefix = AccessTools.Method(typeof(GoldenShrinePatch), nameof(ChargeShrineStart_Prefix));
                 var startPostfix = AccessTools.Method(typeof(GoldenShrinePatch), nameof(ChargeShrineStart_Postfix));
                 harmony.Patch(startMethod, prefix: new HarmonyMethod(startPrefix), postfix: new HarmonyMethod(startPostfix));
-                MelonLogger.Msg("[GoldenShrinePatch] ✅ ChargeShrine.Awake & Start patched - golden shrine support enabled");
+                if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg("[GoldenShrinePatch] ✅ ChargeShrine.Awake & Start patched - golden shrine support enabled");
             }
             else
             {
-                MelonLogger.Msg("[GoldenShrinePatch] ✅ ChargeShrine.Awake patched - golden shrine support enabled (Start not found)");
+                if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg("[GoldenShrinePatch] ✅ ChargeShrine.Awake patched - golden shrine support enabled (Start not found)");
             }
         }
         catch (Exception ex)
@@ -57,7 +57,7 @@ public static class GoldenShrinePatch
                 IntPtr ptr = ((Il2CppInterop.Runtime.InteropTypes.Il2CppObjectBase)__instance).Pointer;
                 System.Runtime.InteropServices.Marshal.WriteByte(ptr + 0x108, 1);
                 
-                MelonLogger.Msg($"[GoldenShrinePatch] Awake Prefix: Set isGolden=true, {GoldenShrinesRemaining} remaining");
+                if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"[GoldenShrinePatch] Awake Prefix: Set isGolden=true, {GoldenShrinesRemaining} remaining");
             }
         }
         catch (Exception ex)
@@ -75,7 +75,7 @@ public static class GoldenShrinePatch
                 IntPtr ptr = ((Il2CppInterop.Runtime.InteropTypes.Il2CppObjectBase)__instance).Pointer;
                 byte currentValue = System.Runtime.InteropServices.Marshal.ReadByte(ptr + 0x108);
                 
-                MelonLogger.Msg($"[GoldenShrinePatch] Awake Postfix: isGolden currently = {currentValue}, setting to true");
+                if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"[GoldenShrinePatch] Awake Postfix: isGolden currently = {currentValue}, setting to true");
                 
                 System.Runtime.InteropServices.Marshal.WriteByte(ptr + 0x108, 1);
                 
@@ -109,12 +109,12 @@ public static class GoldenShrinePatch
             
             byte isGoldenValue = System.Runtime.InteropServices.Marshal.ReadByte(ptr + 0x108);
             
-            MelonLogger.Msg($"[GoldenShrinePatch] Start Prefix: Our shrine, isGolden = {isGoldenValue}");
+            if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"[GoldenShrinePatch] Start Prefix: Our shrine, isGolden = {isGoldenValue}");
             
             if (isGoldenValue == 0)
             {
                 System.Runtime.InteropServices.Marshal.WriteByte(ptr + 0x108, 1);
-                MelonLogger.Msg($"[GoldenShrinePatch] Start Prefix: Set isGolden to true (was 0)");
+                if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"[GoldenShrinePatch] Start Prefix: Set isGolden to true (was 0)");
             }
         }
         catch (Exception ex)
@@ -135,7 +135,7 @@ public static class GoldenShrinePatch
             }
             
             byte isGoldenValue = System.Runtime.InteropServices.Marshal.ReadByte(ptr + 0x108);
-            MelonLogger.Msg($"[GoldenShrinePatch] Start Postfix: Our shrine, isGolden = {isGoldenValue}");
+            if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"[GoldenShrinePatch] Start Postfix: Our shrine, isGolden = {isGoldenValue}");
             
             if (isGoldenValue == 1)
             {
@@ -151,7 +151,7 @@ public static class GoldenShrinePatch
                         
                         meshRenderer.material = goldMaterial;
                         
-                        MelonLogger.Msg($"[GoldenShrinePatch] Start Postfix: Applied gold material manually!");
+                        if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"[GoldenShrinePatch] Start Postfix: Applied gold material manually!");
                         
                         ModifiedShrines.Remove(ptr);
                     }

@@ -76,7 +76,7 @@ public static class StatsFeatures
 		//IL_010c: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0116: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0136: Unknown result type (might be due to invalid IL or missing references)
-		MelonLogger.Msg($"[SetStat] Setting {stat} to {value}");
+		Log.Info($"[SetStat] Setting {stat} to {value}");
 		try
 		{
 			GameManager instance = GameManager.Instance;
@@ -111,7 +111,7 @@ public static class StatsFeatures
 			}
 			float value2 = (stats.ContainsKey(stat) ? stats[stat] : 0f);
 			stats[stat] = value;
-			MelonLogger.Msg($"[SetStat] Successfully set {stat} from {value2} to {value}");
+			Log.Info($"[SetStat] Successfully set {stat} from {value2} to {value}");
 		}
 		catch (Exception ex)
 		{

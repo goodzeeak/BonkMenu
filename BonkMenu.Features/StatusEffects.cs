@@ -75,7 +75,7 @@ public static class StatusEffects
 			{
 				StatusEffect val2 = new StatusEffect(effectType, Time.time + duration, (Il2CppReferenceArray<StatModifier>)null);
 				val.AddNewEffect(val2, duration);
-				MelonLogger.Msg("Applied " + effectName + " buff!");
+				BonkMenu.Core.Log.Info("Applied " + effectName + " buff!");
 			}
 		}
 		catch (Exception ex)

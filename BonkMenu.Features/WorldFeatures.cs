@@ -171,17 +171,18 @@ public static class WorldFeatures
         RandomObjectPlacer placer = Object.FindObjectOfType<RandomObjectPlacer>();
         if ((Object)(object)placer == (Object)null) return;
         
-        MelonLogger.Msg("--- Spawnable Objects List ---");
+        if (!BonkMenu.Core.ModConfig.VerboseLogging) return;
+        BonkMenu.Core.Log.Info("--- Spawnable Objects List ---");
         
         // Log special fields
         if (placer.chargeShrineSpawns != null && placer.chargeShrineSpawns.prefabs != null && placer.chargeShrineSpawns.prefabs.Length > 0)
         {
-            MelonLogger.Msg($"[SPECIAL] Charge Shrine Prefab: {placer.chargeShrineSpawns.prefabs[0].name}");
+            BonkMenu.Core.Log.Info($"[SPECIAL] Charge Shrine Prefab: {placer.chargeShrineSpawns.prefabs[0].name}");
         }
         
         if (placer.greedShrineSpawns != null && placer.greedShrineSpawns.prefabs != null && placer.greedShrineSpawns.prefabs.Length > 0)
         {
-            MelonLogger.Msg($"[SPECIAL] Greed Shrine (Gold) Prefab: {placer.greedShrineSpawns.prefabs[0].name}");
+            BonkMenu.Core.Log.Info($"[SPECIAL] Greed Shrine (Gold) Prefab: {placer.greedShrineSpawns.prefabs[0].name}");
         }
 
         // Log random objects
@@ -189,10 +190,10 @@ public static class WorldFeatures
         {
             if (obj.prefabs != null && obj.prefabs.Length > 0)
             {
-                MelonLogger.Msg($"Prefab Name: {obj.prefabs[0].name}");
+                BonkMenu.Core.Log.Info($"Prefab Name: {obj.prefabs[0].name}");
             }
         }
-        MelonLogger.Msg("------------------------------");
+        BonkMenu.Core.Log.Info("------------------------------");
     }
 
 

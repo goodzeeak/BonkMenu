@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using MelonLoader;
 
 namespace BonkMenu.Core;
 
@@ -8,6 +9,23 @@ namespace BonkMenu.Core;
 /// </summary>
 public static class ModConfig
 {
+    private static MelonPreferences_Category _configCategory;
+    private static MelonPreferences_Entry<bool> _verboseLoggingEntry;
+    private static bool _verboseLogging;
+
+    static ModConfig()
+    {
+        try
+        {
+            _configCategory = MelonPreferences.CreateCategory("BonkMenu", "BonkMenu Settings");
+            _verboseLoggingEntry = _configCategory.CreateEntry("VerboseLogging", false, "Verbose Logging", "Enable verbose logs for BonkMenu features and patches");
+            _verboseLogging = _verboseLoggingEntry.Value;
+        }
+        catch
+        {
+            _verboseLogging = false;
+        }
+    }
     /// <summary>
     /// Default silver amount used by features that add currency.
     /// </summary>
@@ -92,15 +110,21 @@ public static class ModConfig
     /// </summary>
     public static bool UnlimitedXp { get; set; } = false;
 
-    /// <summary>
-    /// When true, shows toast notifications in UI.
-    /// </summary>
     public static bool EnableToasts { get; set; } = true;
-    
-    /// <summary>
-    /// When true, sets luck stat to maximum.
-    /// </summary>
     public static bool MaxLuck { get; set; } = false;
+    public static bool VerboseLogging
+    {
+        get => _verboseLogging;
+        set
+        {
+            _verboseLogging = value;
+            if (_verboseLoggingEntry != null)
+            {
+                _verboseLoggingEntry.Value = value;
+                MelonPreferences.Save();
+            }
+        }
+    }
 
     /// <summary>
     /// Toggles Infinite Health.

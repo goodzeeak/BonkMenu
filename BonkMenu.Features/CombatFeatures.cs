@@ -20,7 +20,7 @@ public static class CombatFeatures
     /// </summary>
     public static void KillAllEnemies()
 	{
-		MelonLogger.Msg("[KillAllEnemies] Starting enemy kill sequence");
+		BonkMenu.Core.Log.Info("[KillAllEnemies] Starting enemy kill sequence");
 		try
 		{
 			Il2CppArrayBase<Enemy> val = Object.FindObjectsOfType<Enemy>();
@@ -29,7 +29,7 @@ public static class CombatFeatures
 				MelonLogger.Warning("[KillAllEnemies] FindObjectsOfType returned null!");
 				return;
 			}
-			MelonLogger.Msg($"[KillAllEnemies] Found {val.Length} total enemy objects");
+			BonkMenu.Core.Log.Info($"[KillAllEnemies] Found {val.Length} total enemy objects");
 			int num = 0;
 			int num2 = 0;
 			int num3 = 0;
@@ -55,7 +55,7 @@ public static class CombatFeatures
 					MelonLogger.Warning("[KillAllEnemies] Error killing individual enemy: " + ex.Message);
 				}
 			}
-			MelonLogger.Msg($"[KillAllEnemies] Results - Killed: {num}, Already Dead: {num2}, Null: {num3}");
+			BonkMenu.Core.Log.Info($"[KillAllEnemies] Results - Killed: {num}, Already Dead: {num2}, Null: {num3}");
 		}
 		catch (Exception ex2)
 		{
@@ -75,7 +75,7 @@ public static class CombatFeatures
 		//IL_00c3: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00de: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0110: Unknown result type (might be due to invalid IL or missing references)
-		MelonLogger.Msg("[SpawnEnemy] Spawning test enemy");
+		BonkMenu.Core.Log.Info("[SpawnEnemy] Spawning test enemy");
 		try
 		{
 			EnemyManager instance = EnemyManager.Instance;
@@ -103,9 +103,9 @@ public static class CombatFeatures
 				return;
 			}
 			Vector3 val = ((Component)player).transform.position + new Vector3(3f, 0f, 3f);
-			MelonLogger.Msg($"[SpawnEnemy] Spawn position: {val}, Enemy: {((Object)testEnemy).name}");
+			BonkMenu.Core.Log.Info($"[SpawnEnemy] Spawn position: {val}, Enemy: {((Object)testEnemy).name}");
 			instance.SpawnEnemy(testEnemy, val, 0, true, (EEnemyFlag)0, true);
-			MelonLogger.Msg("[SpawnEnemy] Successfully spawned " + ((Object)testEnemy).name);
+			BonkMenu.Core.Log.Info("[SpawnEnemy] Successfully spawned " + ((Object)testEnemy).name);
 		}
 		catch (Exception ex)
 		{
@@ -125,7 +125,7 @@ public static class CombatFeatures
 		//IL_01c5: Unknown result type (might be due to invalid IL or missing references)
 		//IL_01fb: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0213: Unknown result type (might be due to invalid IL or missing references)
-		MelonLogger.Msg($"[SpawnSpecificEnemy] Spawning enemy with ID: {enemyId}");
+		BonkMenu.Core.Log.Info($"[SpawnSpecificEnemy] Spawning enemy with ID: {enemyId}");
 		try
 		{
 			EnemyManager instance = EnemyManager.Instance;
@@ -165,7 +165,7 @@ public static class CombatFeatures
 				return;
 			}
 			Type parameterType = parameters[0].ParameterType;
-			MelonLogger.Msg("[SpawnSpecificEnemy] Parameter type: " + parameterType.Name);
+			BonkMenu.Core.Log.Info("[SpawnSpecificEnemy] Parameter type: " + parameterType.Name);
 			object obj = Enum.ToObject(parameterType, enemyId);
 			object obj2 = method.Invoke(instance3, new object[1] { obj });
 			EnemyData val = (EnemyData)((obj2 is EnemyData) ? obj2 : null);
@@ -175,9 +175,9 @@ public static class CombatFeatures
 				return;
 			}
 			Vector3 val2 = ((Component)player).transform.position + new Vector3(3f, 0f, 3f);
-			MelonLogger.Msg($"[SpawnSpecificEnemy] Spawning {((Object)val).name} at {val2}");
+			BonkMenu.Core.Log.Info($"[SpawnSpecificEnemy] Spawning {((Object)val).name} at {val2}");
 			instance.SpawnEnemy(val, val2, 0, true, (EEnemyFlag)0, true);
-			MelonLogger.Msg("[SpawnSpecificEnemy] Successfully spawned " + ((Object)val).name);
+			BonkMenu.Core.Log.Info("[SpawnSpecificEnemy] Successfully spawned " + ((Object)val).name);
 		}
 		catch (Exception ex)
 		{

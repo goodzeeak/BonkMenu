@@ -56,7 +56,7 @@ public static class TogglePatches
     public static void SetEnabled(bool enabled)
     {
         _patchesEnabled = enabled;
-        MelonLogger.Msg($"[TogglePatches] Patches {(enabled ? "enabled" : "disabled")}");
+        if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"[TogglePatches] Patches {(enabled ? "enabled" : "disabled")}");
     }
 
     public static bool IsEnabled()
@@ -160,7 +160,7 @@ public static class TogglePatches
             {
             }
 
-            MelonLogger.Msg("[TogglePatches] Banishing inactivated items:");
+            if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg("[TogglePatches] Banishing inactivated items:");
 
             var enumerator = progression.inactivated.GetEnumerator();
             while (enumerator.MoveNext())
@@ -185,7 +185,7 @@ public static class TogglePatches
                                 if (banishMethod != null)
                                 {
                                     banishMethod.Invoke(null, new object[] { unlockable });
-                                    MelonLogger.Msg($"  - {((Object)unlockable).name} / {unlockable.GetInternalName()} (Upgradable)");
+                                    if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"  - {((Object)unlockable).name} / {unlockable.GetInternalName()} (Upgradable)");
                                 }
                             }
                             break;
@@ -208,7 +208,7 @@ public static class TogglePatches
                                 if (banishMethod != null)
                                 {
                                     banishMethod.Invoke(null, new object[] { item });
-                                    MelonLogger.Msg($"  - {((Object)item).name} / {((UnlockableBase)item).GetInternalName()} (Item)");
+                                    if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg($"  - {((Object)item).name} / {((UnlockableBase)item).GetInternalName()} (Item)");
                                 }
                             }
                             break;
@@ -235,7 +235,7 @@ public static class TogglePatches
                 {
                     var postfixMethod = AccessTools.Method(typeof(TogglePatches), nameof(RunUnlockables_OnNewRunStarted_Postfix));
                     harmony.Patch(originalMethod, postfix: new HarmonyMethod(postfixMethod));
-                    MelonLogger.Msg("[TogglePatches] Successfully patched RunUnlockables.OnNewRunStarted");
+                    if (BonkMenu.Core.ModConfig.VerboseLogging) MelonLogger.Msg("[TogglePatches] Successfully patched RunUnlockables.OnNewRunStarted");
                 }
                 else
                 {
@@ -253,4 +253,3 @@ public static class TogglePatches
         }
     }
 }
-
