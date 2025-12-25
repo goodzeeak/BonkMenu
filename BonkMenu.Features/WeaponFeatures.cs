@@ -25,38 +25,38 @@ public static class WeaponFeatures
 			GameManager instance = GameManager.Instance;
 			if ((Object)(object)instance == (Object)null)
 			{
-				MelonLogger.Error("[GrantWeapon] GameManager.Instance is null!");
+				BonkMenu.Core.Log.Error("[GrantWeapon] GameManager.Instance is null!");
 				return;
 			}
 			MyPlayer player = instance.player;
 			if ((Object)(object)player == (Object)null)
 			{
-				MelonLogger.Error("[GrantWeapon] Player is null!");
+				BonkMenu.Core.Log.Error("[GrantWeapon] Player is null!");
 				return;
 			}
 			PlayerInventory inventory = player.inventory;
 			if (inventory == null)
 			{
-				MelonLogger.Error("[GrantWeapon] Player inventory is null!");
+				BonkMenu.Core.Log.Error("[GrantWeapon] Player inventory is null!");
 				return;
 			}
 			WeaponInventory weaponInventory = inventory.weaponInventory;
 			if (weaponInventory == null)
 			{
-				MelonLogger.Error("[GrantWeapon] Weapon inventory is null!");
+				BonkMenu.Core.Log.Error("[GrantWeapon] Weapon inventory is null!");
 				return;
 			}
 			DataManager instance2 = DataManager.Instance;
 			if ((Object)(object)instance2 == (Object)null)
 			{
-				MelonLogger.Error("[GrantWeapon] DataManager.Instance is null!");
+				BonkMenu.Core.Log.Error("[GrantWeapon] DataManager.Instance is null!");
 				return;
 			}
 			EWeapon val = (EWeapon)weaponId;
 			WeaponData weapon = instance2.GetWeapon(val);
 			if ((Object)(object)weapon == (Object)null)
 			{
-				MelonLogger.Warning($"[GrantWeapon] WeaponData not found for {weaponName} (ID: {weaponId})");
+				BonkMenu.Core.Log.Warn($"[GrantWeapon] WeaponData not found for {weaponName} (ID: {weaponId})");
 			}
 			else
 			{
@@ -67,8 +67,7 @@ public static class WeaponFeatures
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Error("[GrantWeapon] CRITICAL ERROR granting " + weaponName + ": " + ex.Message);
-			MelonLogger.Error("[GrantWeapon] Stack Trace: " + ex.StackTrace);
+			BonkMenu.Core.Log.Exception("[GrantWeapon] CRITICAL ERROR granting " + weaponName + ":", ex);
 		}
 	}
 
@@ -91,7 +90,7 @@ public static class WeaponFeatures
 				}
 				catch (Exception ex)
 				{
-					MelonLogger.Warning($"[GrantAllWeapons] Failed to grant weapon {i}: {ex.Message}");
+					BonkMenu.Core.Log.Warn($"[GrantAllWeapons] Failed to grant weapon {i}: {ex.Message}");
 					num2++;
 				}
 			}
@@ -99,8 +98,7 @@ public static class WeaponFeatures
 		}
 		catch (Exception ex2)
 		{
-			MelonLogger.Error("[GrantAllWeapons] CRITICAL ERROR: " + ex2.Message);
-			MelonLogger.Error("[GrantAllWeapons] Stack Trace: " + ex2.StackTrace);
+			BonkMenu.Core.Log.Exception("[GrantAllWeapons] CRITICAL ERROR:", ex2);
 		}
 	}
 
@@ -145,8 +143,7 @@ public static class WeaponFeatures
 		}
 		catch (Exception ex)
 		{
-			MelonLogger.Error("[MaxAllWeapons] CRITICAL ERROR: " + ex.Message);
-			MelonLogger.Error("[MaxAllWeapons] Stack Trace: " + ex.StackTrace);
+			BonkMenu.Core.Log.Exception("[MaxAllWeapons] CRITICAL ERROR:", ex);
 		}
 	}
 }
