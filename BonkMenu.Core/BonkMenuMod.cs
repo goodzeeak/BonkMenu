@@ -237,7 +237,6 @@ public class BonkMenuMod : MelonMod
             HandleSpawnHold("Free Chests", KeybindConfig.SpawnFreeChestsKey, () => WorldFeatures.SpawnFreeChests(1), "Free Chest");
             HandleSpawnHold("Challenge Shrine", KeybindConfig.SpawnChallengeShrinesKey, () => WorldFeatures.SpawnChallengeShrines(1), "Challenge Shrine");
             HandleSpawnHold("Cursed Shrine", KeybindConfig.SpawnCursedShrinesKey, () => WorldFeatures.SpawnCursedShrines(1), "Cursed Shrine");
-            HandleSpawnHold("Greed Altar", KeybindConfig.SpawnGreedAltarsKey, () => WorldFeatures.SpawnGreedAltars(1), "Greed Altar");
             HandleSpawnHold("Greed Shrine", KeybindConfig.SpawnGreedShrinesKey, () => WorldFeatures.SpawnGreedShrines(1), "Greed Shrine");
             HandleSpawnHold("Magnet Shrine", KeybindConfig.SpawnMagnetShrinesKey, () => WorldFeatures.SpawnMagnetShrines(1), "Magnet Shrine");
             HandleSpawnHold("Moai Shrine", KeybindConfig.SpawnMoaiShrinesKey, () => WorldFeatures.SpawnMoaiShrines(1), "Moai Shrine");
@@ -249,6 +248,8 @@ public class BonkMenuMod : MelonMod
             HandleSpawnHold("Shady Merchant (Rare)", KeybindConfig.SpawnShadyMerchantRareKey, () => WorldFeatures.SpawnShadyMerchantRare(1), "Merchant (Rare)");
             HandleSpawnHold("Shady Merchant (Epic)", KeybindConfig.SpawnShadyMerchantEpicKey, () => WorldFeatures.SpawnShadyMerchantEpic(1), "Merchant (Epic)");
             HandleSpawnHold("Shady Merchant (Legendary)", KeybindConfig.SpawnShadyMerchantLegendaryKey, () => WorldFeatures.SpawnShadyMerchantLegendary(1), "Merchant (Legendary)");
+            HandleSpawnHold("Balance Shrine (Bald Head)", KeybindConfig.SpawnBalanceShrinesKey, () => WorldFeatures.SpawnBalanceShrines(1), "Balance Shrine");
+            HandleSpawnHold("Gravestone", KeybindConfig.SpawnGravestonesKey, () => WorldFeatures.SpawnGravestones(1), "Gravestone");
         }
 
 		if (ModConfig.InfiniteRefreshes)

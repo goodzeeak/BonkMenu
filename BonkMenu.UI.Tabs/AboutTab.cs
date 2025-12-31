@@ -45,7 +45,6 @@ public static class AboutTab
 		UIFactory.CreateKeybindRow("Challenge Shrine", () => KeybindConfig.SpawnChallengeShrinesKey, v => KeybindConfig.SpawnChallengeShrinesKey = v, parent);
 		UIFactory.CreateKeybindRow("Cursed Shrine", () => KeybindConfig.SpawnCursedShrinesKey, v => KeybindConfig.SpawnCursedShrinesKey = v, parent);
 		UIFactory.CreateKeybindRow("Greed Shrine", () => KeybindConfig.SpawnGreedShrinesKey, v => KeybindConfig.SpawnGreedShrinesKey = v, parent);
-		UIFactory.CreateKeybindRow("Greed Altar", () => KeybindConfig.SpawnGreedAltarsKey, v => KeybindConfig.SpawnGreedAltarsKey = v, parent);
 		UIFactory.CreateKeybindRow("Magnet Shrine", () => KeybindConfig.SpawnMagnetShrinesKey, v => KeybindConfig.SpawnMagnetShrinesKey = v, parent);
 		UIFactory.CreateKeybindRow("Moai Shrine", () => KeybindConfig.SpawnMoaiShrinesKey, v => KeybindConfig.SpawnMoaiShrinesKey = v, parent);
 		UIFactory.CreateKeybindRow("Charge Shrine", () => KeybindConfig.SpawnChargeShrinesKey, v => KeybindConfig.SpawnChargeShrinesKey = v, parent);
@@ -56,6 +55,8 @@ public static class AboutTab
 		UIFactory.CreateKeybindRow("Shady Merchant (Rare)", () => KeybindConfig.SpawnShadyMerchantRareKey, v => KeybindConfig.SpawnShadyMerchantRareKey = v, parent);
 		UIFactory.CreateKeybindRow("Shady Merchant (Epic)", () => KeybindConfig.SpawnShadyMerchantEpicKey, v => KeybindConfig.SpawnShadyMerchantEpicKey = v, parent);
 		UIFactory.CreateKeybindRow("Shady Merchant (Legendary)", () => KeybindConfig.SpawnShadyMerchantLegendaryKey, v => KeybindConfig.SpawnShadyMerchantLegendaryKey = v, parent);
+		UIFactory.CreateKeybindRow("Balance Shrine (Bald Head)", () => KeybindConfig.SpawnBalanceShrinesKey, v => KeybindConfig.SpawnBalanceShrinesKey = v, parent);
+		UIFactory.CreateKeybindRow("Gravestone", () => KeybindConfig.SpawnGravestonesKey, v => KeybindConfig.SpawnGravestonesKey = v, parent);
 	}
 
 	private static void CreateUiFeedback(GameObject parent)
@@ -82,6 +83,8 @@ public static class AboutTab
 			ModConfig.VerboseLogging = value;
 		}, tGrid);
 
+		UIFactory.CreateSpacer(8, parent);
+		UIFactory.CreateButton("List Spawnable Objects (Console)", () => WorldFeatures.ListSpawnableObjects(), parent);
 	}
 
 	

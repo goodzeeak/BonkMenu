@@ -78,7 +78,7 @@ public static class LootTab
             "Free Chests", 
             "Challenge Shrines",
             "Cursed Shrines",
-            "Greed Altars",
+            "Greed Shrines",
             "Magnet Shrines",
             "Moai Shrines",
             "Charge Shrines",
@@ -88,7 +88,9 @@ public static class LootTab
             "Shady Merchant",
             "Shady Merchant (Rare)",
             "Shady Merchant (Epic)",
-            "Shady Merchant (Legendary)"
+            "Shady Merchant (Legendary)",
+            "Bald Heads",
+            "Gravestones"
         };
 
 		UIFactory.CreateSpawner(parent, "Spawn Object", spawnOptions, delegate(int index, int amount)
@@ -107,8 +109,8 @@ public static class LootTab
                 case 3: // Cursed Shrines
                     WorldFeatures.SpawnCursedShrines(amount);
                     break;
-                case 4: // Greed Altars
-                    WorldFeatures.SpawnGreedAltars(amount);
+                case 4: // Greed Shrines
+                    WorldFeatures.SpawnGreedShrines(amount);
                     break;
                 case 5: // Magnet Shrines
                     WorldFeatures.SpawnMagnetShrines(amount);
@@ -139,6 +141,12 @@ public static class LootTab
                     break;
                 case 14: // Shady Merchant (Legendary)
                     WorldFeatures.SpawnShadyMerchantLegendary(amount);
+                    break;
+                case 15: // Bald Heads (Balance Shrine)
+                    WorldFeatures.SpawnBalanceShrines(amount);
+                    break;
+                case 16: // Gravestones
+                    WorldFeatures.SpawnGravestones(amount);
                     break;
             }
 		});

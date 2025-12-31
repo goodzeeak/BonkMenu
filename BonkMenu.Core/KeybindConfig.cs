@@ -19,7 +19,6 @@ public static class KeybindConfig
     private static MelonPreferences_Entry<KeyCode> _spawnChallengeShrinesKeyEntry;
     private static MelonPreferences_Entry<KeyCode> _spawnCursedShrinesKeyEntry;
     private static MelonPreferences_Entry<KeyCode> _spawnGreedShrinesKeyEntry;
-    private static MelonPreferences_Entry<KeyCode> _spawnGreedAltarsKeyEntry;
     private static MelonPreferences_Entry<KeyCode> _spawnMagnetShrinesKeyEntry;
     private static MelonPreferences_Entry<KeyCode> _spawnMoaiShrinesKeyEntry;
     private static MelonPreferences_Entry<KeyCode> _spawnChargeShrinesKeyEntry;
@@ -76,10 +75,6 @@ public static class KeybindConfig
     /// </summary>
     public static KeyCode SpawnGreedShrinesKey { get => _spawnGreedShrinesKeyEntry?.Value ?? KeyCode.Alpha6; set { if (_spawnGreedShrinesKeyEntry != null) { _spawnGreedShrinesKeyEntry.Value = value; MelonPreferences.Save(); } } }
     /// <summary>
-    /// Key to spawn greed altars.
-    /// </summary>
-    public static KeyCode SpawnGreedAltarsKey { get => _spawnGreedAltarsKeyEntry?.Value ?? KeyCode.F11; set { if (_spawnGreedAltarsKeyEntry != null) { _spawnGreedAltarsKeyEntry.Value = value; MelonPreferences.Save(); } } }
-    /// <summary>
     /// Key to spawn magnet shrines.
     /// </summary>
     public static KeyCode SpawnMagnetShrinesKey { get => _spawnMagnetShrinesKeyEntry?.Value ?? KeyCode.Alpha7; set { if (_spawnMagnetShrinesKeyEntry != null) { _spawnMagnetShrinesKeyEntry.Value = value; MelonPreferences.Save(); } } }
@@ -120,6 +115,18 @@ public static class KeybindConfig
     /// </summary>
     public static KeyCode SpawnShadyMerchantLegendaryKey { get => _spawnShadyMerchantLegendaryKeyEntry?.Value ?? KeyCode.F10; set { if (_spawnShadyMerchantLegendaryKeyEntry != null) { _spawnShadyMerchantLegendaryKeyEntry.Value = value; MelonPreferences.Save(); } } }
 
+    // New shrine keybinds
+    private static MelonPreferences_Entry<KeyCode> _spawnBalanceShrinesKeyEntry;
+    private static MelonPreferences_Entry<KeyCode> _spawnGravestonesKeyEntry;
+    /// <summary>
+    /// Key to spawn balance shrines (Bald Heads).
+    /// </summary>
+    public static KeyCode SpawnBalanceShrinesKey { get => _spawnBalanceShrinesKeyEntry?.Value ?? KeyCode.F11; set { if (_spawnBalanceShrinesKeyEntry != null) { _spawnBalanceShrinesKeyEntry.Value = value; MelonPreferences.Save(); } } }
+    /// <summary>
+    /// Key to spawn gravestones.
+    /// </summary>
+    public static KeyCode SpawnGravestonesKey { get => _spawnGravestonesKeyEntry?.Value ?? KeyCode.F12; set { if (_spawnGravestonesKeyEntry != null) { _spawnGravestonesKeyEntry.Value = value; MelonPreferences.Save(); } } }
+
     /// <summary>
     /// Initializes keybind entries and loads defaults.
     /// </summary>
@@ -134,7 +141,6 @@ public static class KeybindConfig
         _spawnChallengeShrinesKeyEntry = _category.CreateEntry("SpawnChallengeShrinesKey", KeyCode.Alpha4, "Spawn Challenge Shrine", "Spawn 1 Challenge Shrine");
         _spawnCursedShrinesKeyEntry = _category.CreateEntry("SpawnCursedShrinesKey", KeyCode.Alpha5, "Spawn Cursed Shrine", "Spawn 1 Cursed Shrine");
         _spawnGreedShrinesKeyEntry = _category.CreateEntry("SpawnGreedShrinesKey", KeyCode.Alpha6, "Spawn Greed Shrine", "Spawn 1 Greed Shrine");
-        _spawnGreedAltarsKeyEntry = _category.CreateEntry("SpawnGreedAltarsKey", KeyCode.F11, "Spawn Greed Altar", "Spawn 1 Greed Altar");
         _spawnMagnetShrinesKeyEntry = _category.CreateEntry("SpawnMagnetShrinesKey", KeyCode.Alpha7, "Spawn Magnet Shrine", "Spawn 1 Magnet Shrine");
         _spawnMoaiShrinesKeyEntry = _category.CreateEntry("SpawnMoaiShrinesKey", KeyCode.Alpha8, "Spawn Moai Shrine", "Spawn 1 Moai Shrine");
         _spawnChargeShrinesKeyEntry = _category.CreateEntry("SpawnChargeShrinesKey", KeyCode.Alpha9, "Spawn Charge Shrine", "Spawn 1 Charge Shrine");
@@ -145,6 +151,8 @@ public static class KeybindConfig
         _spawnShadyMerchantRareKeyEntry = _category.CreateEntry("SpawnShadyMerchantRareKey", KeyCode.F8, "Spawn Shady Merchant (Rare)", "Spawn 1 rare merchant");
         _spawnShadyMerchantEpicKeyEntry = _category.CreateEntry("SpawnShadyMerchantEpicKey", KeyCode.F9, "Spawn Shady Merchant (Epic)", "Spawn 1 epic merchant");
         _spawnShadyMerchantLegendaryKeyEntry = _category.CreateEntry("SpawnShadyMerchantLegendaryKey", KeyCode.F10, "Spawn Shady Merchant (Legendary)", "Spawn 1 legendary merchant");
+        _spawnBalanceShrinesKeyEntry = _category.CreateEntry("SpawnBalanceShrinesKey", KeyCode.F11, "Spawn Balance Shrine", "Spawn 1 Balance Shrine (Bald Head)");
+        _spawnGravestonesKeyEntry = _category.CreateEntry("SpawnGravestonesKey", KeyCode.F12, "Spawn Gravestone", "Spawn 1 Gravestone");
         
         Log.Info($"Keybinds loaded. Toggle Key: {ToggleMenuKey}");
     }

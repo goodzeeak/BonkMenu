@@ -162,6 +162,14 @@ public static class WorldFeatures
     /// Spawns Shady Merchant using native placement.
     /// </summary>
     public static void SpawnShadyMerchant(int amount = 1) => SpawnSpecificInteractable("ShadyGuy", amount, "Shady Merchant");
+    /// <summary>
+    /// Spawns Balance Shrines (Bald Heads) using native placement.
+    /// </summary>
+    public static void SpawnBalanceShrines(int amount = 3) => SpawnSpecificInteractable("ShrineBalance", amount, "Bald Heads");
+    /// <summary>
+    /// Spawns Gravestones (Graveyard XP shrine) using native placement.
+    /// </summary>
+    public static void SpawnGravestones(int amount = 3) => SpawnSpecificInteractable("Gravestone", amount, "Gravestones");
     
     /// <summary>
     /// Logs spawnable objects and special prefabs in the current map.
@@ -169,9 +177,12 @@ public static class WorldFeatures
     public static void ListSpawnableObjects()
     {
         RandomObjectPlacer placer = Object.FindObjectOfType<RandomObjectPlacer>();
-        if ((Object)(object)placer == (Object)null) return;
+        if ((Object)(object)placer == (Object)null)
+        {
+            BonkMenu.Core.Log.Warn("RandomObjectPlacer not found - not in a run?");
+            return;
+        }
         
-        if (!BonkMenu.Core.ModConfig.VerboseLogging) return;
         BonkMenu.Core.Log.Info("--- Spawnable Objects List ---");
         
         // Log special fields
@@ -191,6 +202,17 @@ public static class WorldFeatures
             if (obj.prefabs != null && obj.prefabs.Length > 0)
             {
                 BonkMenu.Core.Log.Info($"Prefab Name: {obj.prefabs[0].name}");
+            }
+        }
+        
+        // Also search all loaded interactable prefabs for completeness
+        BonkMenu.Core.Log.Info("--- All Interactable Prefabs ---");
+        var allInteractables = UnityEngine.Resources.FindObjectsOfTypeAll<BaseInteractable>();
+        foreach (var interactable in allInteractables)
+        {
+            if (!interactable.gameObject.scene.IsValid()) // Only prefabs, not scene instances
+            {
+                BonkMenu.Core.Log.Info($"Interactable Prefab: {interactable.gameObject.name}");
             }
         }
         BonkMenu.Core.Log.Info("------------------------------");
