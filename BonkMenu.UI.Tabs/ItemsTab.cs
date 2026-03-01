@@ -34,7 +34,7 @@ public static class ItemsTab
 		"Bounce", "Cursed", "Silver", "Balance", "Chaos", "Gambler", "Hoarder"
 	};
 
-	private static readonly string[] items = new string[87]
+	private static readonly string[] items = new string[88]
 	{
 		"Key", "Beer", "SpikyShield", "Bonker", "SlipperyRing", "CowardsCloak", "GymSauce", "Battery", "PhantomShroud", "ForbiddenJuice",
 		"DemonBlade", "GrandmasSecretTonic", "GiantFork", "MoldyCheese", "GoldenSneakers", "SpicyMeatball", "Chonkplate", "LightningOrb", "IceCube", "DemonicBlood",
@@ -44,8 +44,9 @@ public static class ItemsTab
 		"WeebHeadset", "SpeedBoi", "Gasmask", "ToxicBarrel", "HolyBook", "BrassKnuckles", "IdleJuice", "Kevin", "Borgar", "Medkit",
 		"GamerGoggles", "UnstableTransfusion", "BloodyCleaver", "CreditCardRed", "CreditCardGreen", "BossBuster", "LeechingCrystal", "TacticalGlasses", "Cactus", "CageKey",
 		"IceCrystal", "TimeBracelet", "GloveLightning", "GlovePoison", "GloveBlood", "GloveCurse", "GlovePower", "Wrench", "Beacon", "GoldenRing",
-		"QuinsMask", "CryptKey", "OldMask", "Snek", "Pot", "BobsLantern", "Pumpkin"
+		"QuinsMask", "CryptKey", "OldMask", "Snek", "Pot", "BobsLantern", "Pumpkin", "WizardsHat",
 	};
+
 
     private static readonly string[] passives = new string[22]
     {
